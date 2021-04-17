@@ -1,0 +1,68 @@
+<?php
+if ( $player->pers["noaction"]<time() )
+{
+echo "
+<div class='greyBlock'>
+<form action=main.php method=post>
+<table border='0' width='100%' cellspacing='5' cellpadding='5' style='border:1px solid #ccc;'>
+<tr style='background:#e2e0e0;'>
+<td colspan='2'><b>Ваш основной пароль:</b></td>
+</tr>
+<tr>
+<td width='217'><font class=ym>Старый пароль</font></td>
+<td><input type=password name=pass size='15' ></td>
+</tr>
+<tr>
+<td width='217'><font class=ym>Новый пароль</font></td>
+<td><input type=password name=newpass size='15' ></td>
+</tr>
+<tr>
+<td width='217'><font class=ym>Повторите новый пароль</font></td>
+<td><input type='password' name='newpass2' size='15' ></td>
+</tr>
+<tr>
+<td colspan='2'><input type='submit' value='Сохранить'></td>
+</tr>
+</table>
+
+</form>
+</div>
+<!--
+<hr>
+<div class=greyBlock>Ваш второй пароль:</div>
+<form action=main.php method=post>
+<table border='0' width='100%' cellspacing='0' cellpadding='0'>
+<tr>
+<td width='217'><font class=ym>Новый пароль</font></td>
+<td><input type=password name=snewpass size='15' ></td>
+</tr>
+<tr>
+<td width='217'><font class=ym>Повторите новый пароль</font></td>
+<td><input type=password name=snewpass2 size='15' ></td>
+</tr>
+</table>
+<input type=submit  value=Сохранить  style='width:100%'>
+<div class=greyBlock><i>Безопасноcть: Второй пароль нужен для восстановления персонажа в случае взлома, либо в сервисе напоминания вашего пароля. (Второй пароль обязательно должен отличаться от основного.)</i></div>
+</form>
+<hr>
+
+<div class=greyBlock>Цифровая защита (Защита с помощью цифрового пароля):<br></div>
+<font class=bnick color=#990000>ТЕКУЩИЙ ПАРОЛЬ: <b>".$player->pers["flash_pass"]."</b></font><br>
+<form action=main.php method=post>
+Установить: <input type=radio name=set_flash value=1><br>
+Удалить: <input type=radio name=set_flash value=2><br>
+Ничего не делать: <input type=radio name=set_flash value=0 CHECKED><br>
+<input type=submit  value=Готово>
+<div class=greyBlock><i>Безопасноcть: Цифровой пароль нужен для защиты от троянских программ(Считывание нажатых клавиш клавиатуры), в случае установления такого пароля вы будете обязаны ввести сначала основной пароль с клавиатуры, а потом цифровой с помощью мыши.</i></div>
+</form>
+-->
+<hr>
+<div class=greyBlock style='padding:5px;'><i>Безопасноcть: После любых действий с паролем, вы не сможете изменить второй пароль или цифровой в течении суток.</i></div>
+</form>
+<br>
+";
+}
+elseif ($player->pers["noaction"]>=time())
+	echo "<div class='greyBlock'>Вы сможете изменить любой пароль через ".tp($player->pers["noaction"]-time())."<br><font class=bnick color=#990000>ТЕКУЩИЙ ЦИФРОВОЙ ПАРОЛЬ: <b>".$player->pers["flash_pass"]."</b></font></div>";
+
+?>
