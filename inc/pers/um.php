@@ -1,0 +1,8 @@
+<?php
+	if ($player->pers["skill_zeroing"])
+	{
+		echo "<center class=but>Обнуления мирного умения <b>".$player->pers["skill_zeroing"]."</b> , <i class=timef>Для использования этого обнуления пройдите в университет и выберите для обучения нужную для обнуления профессию.</i></center>";
+	}
+	echo "<center class=but>Понижение физического урона: <b>".DecreaseDamage($player->pers)."%</b></center>";
+	include (ROOT.'/inc/inc/characters/ym.php');
+?>

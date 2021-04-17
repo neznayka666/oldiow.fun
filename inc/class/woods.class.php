@@ -1,0 +1,97 @@
+<?php
+
+define('WOOD_CHANGE', 3600); // 18200
+define('WOOD_GROW', 1800); // 8600
+define('WOOD_COUNT', 5);
+define('HLOOK_TIME', ($this->pers['priveleged'] ? 1 : 40)); // Время осмотра) 40 сек// для админа 1
+define('WOODDELTIME', 1200000);
+
+class Woods
+{
+	private $this->pers = Array();
+	private $db = Array();
+	private $cell = Array();
+	
+	
+	public function __construct($p)
+	{
+		$this->pers = $p;
+		$this->db = $GLOBALS['db'];
+		$this->cell = $this->db->sqla('SELECT * FROM `nature` WHERE `x` ='.$this->pers['x'].' and `y` ='.$this->pers['y']);
+	
+		// Обновляем ботов если очень нада
+		if ( $this->cell['last_trees_change'] < (tme()-WOOD_CHANGE) )
+			$this->UpWoods();
+	}
+	
+	private function UpWoods()
+	{
+		$w = $this->db->sqlr('SELECT COUNT(image) FROM `trees_cell` WHERE `x_y` = "'.$this->cell['x']."_".$this->cell['y'].'" ;');
+		if ( $w > WOOD_COUNT ) $this->db->sql('DELETE FROM trees_cell WHERE `x_y` = "'.$this->cell['x']."_".$this->cell['y'].'";');
+		$h = $this->db->sqla("SELECT * FROM trees WHERE image%5=".($this->cell['wood']-1)." ORDER BY RAND() LIMIT 1");
+		$this->db->sql("INSERT INTO `trees_cell` ( `image` , `name` , `time` , `x_y` ) VALUES ('".$h["image"]."', '".$h["name"]."', '".(tme()-WOOD_GROW-1)."', '".$this->cell["x"]."_".$this->cell["y"]."');");
+		$this->db->sql("UPDATE `nature` SET `last_trees_change` = ".tme()." WHERE `x` = ".$this->cell['x']." and `y` = ".$this->cell['y'].";");
+	}
+	
+	public function view_hlist()
+	{
+		if ( $this->pers['waiter'] > tme() ) return 'NO@wait';
+		if ( !$this->cell['wood'] ) return 'NO@badl';
+		
+		// Добавляем время действия 
+		$this->pers['waiter'] = round(tme()+HLOOK_TIME);
+		$this->db->sql('UPDATE `users` SET `action` = 1, `waiter` = '.$this->pers['waiter'].' WHERE `uid` = '.$this->pers['uid'].';');
+		
+		$wood_grow = WOOD_GROW;
+		if (WEATHER==2) $wood_grow/=2;
+		if (WEATHER==3) $wood_grow*=2;
+		if (WEATHER==1 and date("m")>5 and date("m")<9) $wood_grow*=3;
+		if (WEATHER==6) $wood_grow/=3;
+		// Проверяем инструмент и режим
+		$w = (int)$this->db->sqlr('SELECT `id` FROM `wp` WHERE `uidp`= '.$this->pers['uid'].' and `weared`=1 and `p_type` = 2 and `durability`>0 ;');
+		$r = '';
+		$res = $this->db->sql('SELECT * FROM `trees_cell` WHERE `x_y` = "'.$this->cell['x']."_".$this->cell['y'].'";');
+		while( $h = mysql_fetch_assoc($res) )
+		{// Имя, картинка, кей если можно резать
+			$r.= (empty($r)?'':',').'["'.$h['name'].'","'.$h['image'].'","'.((($h['time']+$wood_grow)>=tme()) ? '0' : $this->hKey($h['name'])).'","'.$w.'"]';
+		}
+		return 'OK@['.$r.']';
+	}
+	
+	private function hKey($v)
+	{
+		return md5($this->pers['city'].$v);
+	}
+	
+	public function srezWood($id, $key)
+	{
+		if ( $this->pers['action']!=1 ) return 'NO@act';
+		// Проверяем инструмент и режим
+		$w = (int)$this->db->sqlr('SELECT `id` FROM `wp` WHERE `uidp`= '.$this->pers['uid'].' and `weared`=1 and `p_type` = 2 and `durability`>0 ;');
+		if ( $w )
+		{
+			$wood_grow = WOOD_GROW;
+			if (WEATHER==2) $wood_grow/=2;
+			if (WEATHER==3) $wood_grow*=2;
+			if (WEATHER==1 and date('m')>5 and date("m")<9) $wood_grow*=3;
+			if (WEATHER==6) $wood_grow/=3;
+			$res = $this->db->sqla('SELECT `time`,`image`,`name` FROM `trees_cell` WHERE `x_y` = "'.$this->cell['x']."_".$this->cell['y'].'" and `image` = "'.$id.'" and `time` < '.(tme()-$wood_grow).';');
+			if ( $res['image'] and $this->hKey($res['name'])==$key )
+			{
+				$this->db->sql('UPDATE `wp` SET `durability`=durability-1 WHERE id = '.$w.';');
+				$this->pers['peace_exp']+= 1;
+				$lastid = (int)$this->db->sqlr('SELECT MAX(id) FROM `wp`'); $lastid = 1+$lastid;
+				$this->db->sql("INSERT INTO `wp` ( `id` , `uidp` , `weared` ,`id_in_w`, `price` , `dprice` , `image` , `index` , `type` , `stype` , `name` , `describe` , `weight` , `where_buy` , `max_durability` , `durability` ,`p_type`, `timeout`) 
+					VALUES ('".$lastid."', '".$this->pers['uid']."', '0','','1', '0', 'trees/".$id."', '', 'wood', 'wood', '".$res['name']."', '', '1', '0', '1', '1','200',".(tme()+WOODDELTIME).");");
+				$this->db->sql('UPDATE `trees_cell` SET `time`='.tme().' WHERE `x_y` = "'.$this->cell['x']."_".$this->cell['y'].'" and `image` = "'.$id.'" and `time` < '.(tme()-$wood_grow).';');
+				$r = 'OK@'.$res['name'];
+			} else $r = 'NO@rs';
+		} else $r = 'NO@ins';
+		$this->db->sql('UPDATE `users` SET `action` = 0, `peace_exp` = '.$this->pers['peace_exp'].' WHERE `uid` = '.$this->pers['uid'].';');
+		return $r;
+	}
+	
+}
+
+
+?>
