@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteCond %{HTTP:X-Forwarded-Proto} =http
+RewriteRule . https://%{HTTP:Host}%{REQUEST_URI} [L,R=permanent]
+Order allow,deny
+allow from all
+deny from 46.131.0.0/16
+deny from 85.253.40.0/22
