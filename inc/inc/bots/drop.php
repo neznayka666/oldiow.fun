@@ -8,10 +8,6 @@ $que = new jQuest($_pers);
 $que->battle_action($_persvs);
 ##
 
-
-
-
-
 if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight["travm"]>0)
 {
 
@@ -109,8 +105,8 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 				$db->sql ("UPDATE `users` SET `heart`=heart+".$r." WHERE `uid`='".$_pers["uid"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			}
 			// дроп by ntym
-			if (rand(1,100)<$_persvs["dropfrequency"])
-			{
+			//if (rand(1,100)<$_persvs["dropfrequency"])
+			//{
 			
 				$drp = $db->sqla("SELECT * FROM `bots` WHERE `user`= '".$_persvs["user"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 				$dropvalue  = $drp["dropID"]; // получаем список ид дропа
@@ -127,7 +123,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 						$db->sql("UPDATE wp SET where_buy='0' WHERE id=".$id."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 					}	
 				//else $res = "Ничего не найдено.";
-			}
+			//}
 			// 
 			//end by ntym
 
