@@ -233,7 +233,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 	}
 
 	else $res = "Ничего не найдено";
-
+	/*
 	$str = " <font class=bnick color=".$colors[$_pers["fteam"]].">".$_pers["user"]."</font> ".$ob." существо. Результаты: <b>".$res."</b>%";
 	// Запарили системки
 	if ( $res != "Ничего не найдено.")
@@ -275,6 +275,6 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 	}
 }
 else $str = " ";
-
+*
 
 ?>
