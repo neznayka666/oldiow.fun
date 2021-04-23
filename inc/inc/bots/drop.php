@@ -232,14 +232,15 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 		if (empty($res)) $res = "Ничего не найдено.";
 	}
 
-	//else $res = "Ничего не найдено";
-	/*
+	else $res = "Ничего не найдено";
+
 	$str = " <font class=bnick color=".$colors[$_pers["fteam"]].">".$_pers["user"]."</font> ".$ob." существо. Результаты: <b>".$res."</b>%";
 	// Запарили системки
 	if ( $res != "Ничего не найдено.")
 		say_to_chat('s','Вы подобрали <b>'.$res.'</b>, выпавшие из `<b>'.$_persvs["user"].'</b>` ',1,$_pers["user"],'*',0);
 
-	if($_persvs["id_skin"])
+	/*
+		if($_persvs["id_skin"])
 	{
 		$INS = $db->sqla("SELECT * FROM wp WHERE uidp=".$_pers["uid"]." and weared=1 and p_type=14", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		if($INS["id"])
@@ -273,8 +274,10 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 			say_to_chat('s','Вы разделали <b>'.$_persvs["user"].'</b> ['.$_persvs["level"].']. Результаты: '.$res.'; Выделка Кожи <b>+'.$SKILL_UP.'</b>; <b>'.$INS["name"]."</b> -1 долговечность; Шанс ".$chance."% .",1,$_pers["user"],'*',0);
 		}
 	}
+	*/
 }
+
 else $str = " ";
-*/
+
 
 ?>
