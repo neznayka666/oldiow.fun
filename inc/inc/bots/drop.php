@@ -39,7 +39,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 				$res = "Обнаружено «".$v["name"]."» !";
 				insert_wp($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
 				}else
-				$res = "Ничего не найдено.";
+				$res = "Ничего не найдено";
 			}
 
 			if ($_persvs["droptype"]==4)
@@ -51,7 +51,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 				$id = insert_wp($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
 				$db->sql("UPDATE wp SET timeout=".(tme()+3600*24)." WHERE id=".$id);
 				}else
-				$res = "Ничего не найдено.";
+				$res = "Ничего не найдено";
 			}
 
 			if ($_persvs["droptype"]==5)
@@ -63,7 +63,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 				$id = insert_wp($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
 				$db->sql("UPDATE wp SET timeout=".(tme()+3600*72)." WHERE id=".$id);
 				}else
-				$res = "Ничего не найдено.";
+				$res = "Ничего не найдено";
 			}
 
 			if ($_persvs["droptype"]==6)
@@ -75,7 +75,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 				$id = insert_wp($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
 				sql("UPDATE wp SET timeout=".(tme()+3600*168)." WHERE id=".$id);
 				}else
-				$res = "Ничего не найдено.";
+				$res = "Ничего не найдено";
 			}
 
 			if ($_persvs["droptype"]==7)
@@ -87,7 +87,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 				$id = insert_wp($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
 				sql("UPDATE wp SET timeout=".(tme()+3600*720)." WHERE id=".$id);
 				}else
-				$res = "Ничего не найдено.";
+				$res = "Ничего не найдено";
 			}
 			
 			/*
@@ -122,7 +122,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 						$id = insert_wp($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
 						$db->sql("UPDATE wp SET where_buy='0' WHERE id=".$id."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 					}	
-				//else $res = "Ничего не найдено.";
+				//else $res = "Ничего не найдено";
 			//}
 			// 
 			//end by ntym
@@ -178,7 +178,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 				$res = "Обнаружено «".$v["name"]."» !";
 				$id = insert_wp($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
 				$db->sql("UPDATE wp SET where_buy=0 WHERE id=".$id."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
-			} else $res = "Ничего не найдено.";
+			} else $res = "Ничего не найдено";
 		}
 		
 		elseif (mt_rand(1,200)<($_pers["sp10"]/6) and $_persvs["droptype"]<>10 and mt_rand(0,100)>mt_rand(87,100))
@@ -196,7 +196,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 				$res = "Обнаружено «".$v["name"]."» !";
 				$id = insert_wp($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
 				$db->sql("UPDATE wp SET where_buy=0 WHERE id=".$id."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
-			} else$res = "Ничего не найдено.";
+			} else$res = "Ничего не найдено";
 		}
 		
 		elseif (mt_rand(1,200)<($_pers["sp10"]/5) and $_persvs["droptype"]<>10 and mt_rand(0,100)>mt_rand(87,100))
@@ -213,7 +213,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 				$res = "Обнаружено «".$v["name"]."» !";
 				$id = insert_wp($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
 				$db->sql("UPDATE wp SET where_buy=0 WHERE id=".$id."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
-			} else$res = "Ничего не найдено.";
+			} else$res = "Ничего не найдено";
 		}
 */
 		elseif (mt_rand(1,200)<($_pers["sp10"]/4) and $_persvs["droptype"]<>10 and mt_rand(0,100)>mt_rand(0,100))
@@ -229,7 +229,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 			$res = "<b>".$r." сз.</b>";
 			$db->sql("UPDATE `users` SET `imoney`=imoney+".$r." WHERE `uid`='".$_pers["uid"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		}
-		if (empty($res)) $res = "Ничего не найдено.";
+		if (empty($res)) $res = "Ничего не найдено";
 	}
 
 	else $res = "Ничего не найдено";
