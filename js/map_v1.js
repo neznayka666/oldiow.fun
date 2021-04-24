@@ -694,7 +694,7 @@ function ButtonGen()
         
          //str += ' <input type=button class="jBut2" id="'+mapbt[i][0]+'" value="'+mapbt[i][1]+'" onclick=\'ButClick("'+mapbt[i][0]+'")\'>';
     }
-    //return str;
+    return str;
 }
 
 function ButClick(id)
