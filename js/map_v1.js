@@ -688,7 +688,7 @@ function ButtonGen()
     bavail = new Array();
     for(var i=0; i<mapbt.length; i++)
     {
-        //bavail[mapbt[i][0]] = [mapbt[i][2], mapbt[i][3]];
+        bavail[mapbt[i][0]] = [mapbt[i][2], mapbt[i][3]];
         
         str += ' <img src="/images/nav/out/' + mapbt[i][0] + '.png" id="' + mapbt[i][0] + '" title="' + mapbt[i][1] + '" onclick=\'ButClick("' + mapbt[i][0] + '")\' style="cursor:pointer;">';
         
