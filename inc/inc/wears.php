@@ -268,7 +268,7 @@ if (@$http->get["rune_join"])
 		$db->sql("UPDATE wp SET `".$sk[2]."`=`".$sk[2]."`+".$sk[1].",slots=slots-1,price=price+".sqrt($rune["price"]).",
 		`name`='".$weared_name." [Р]' WHERE id=".$weared_id."");
 		if ($sk[2]=="udmax")$db->sql("UPDATE wp SET `udmin`=`udmin`+1 WHERE id=".$weared_id."");
-		$db->sql("DELETE FROM wp WHERE id=".intval($http->get["rune_join"]).", describe=".intval($http->get["rune_join"])."");
+		$db->sql("DELETE FROM wp WHERE id=".intval($http->get["rune_join"]).", describe='".intval($http->get["rune_join"]).", `".$sk[2]."`=`".$sk[2]."`+".$sk[1]."'");
 		$_RETURN .= "Удачно вставлена \"".$rune["name"]."\" в \"".$weared_name."\"";
 		dress_weapon($weared_id,1);
 	}else
