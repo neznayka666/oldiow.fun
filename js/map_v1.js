@@ -989,9 +989,9 @@ function vState(a)
 	return r;
 }
 
-function getBattle(id)
+function getBattle(id,code)
 {
-	$.get('/gameplay/ajax/get_bots.php', {'act':2, 'bid':id}, function(r){
+	$.get('/gameplay/ajax/get_bots.php', {'act':2, 'bid':id, 'code':code}, function(r){
 		arr = r.split('@');
 		switch (arr[0])
 		{
