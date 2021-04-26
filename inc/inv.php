@@ -80,7 +80,7 @@ elseif($player->pers["alchemy_m"] == 0)
 $fish = $db->sqlr("SELECT COUNT(id) FROM wp WHERE type='fish' and weared=0 and uidp=".$player->pers["uid"]."");
 if ($fish>1 and strpos(" ".$player->pers["location"],"lavka")>0) echo "<input type=button class=loc value='Сдать всю рыбу' onclick=\"location='main.php?give=allfish'\">";
 
-$resources = $db->sqlr("SELECT COUNT(id) FROM wp WHERE type='resources' and weared=0 and uidp=".$player->pers["uid"]."");
+$resources = $db->sqlr("SELECT COUNT(id) FROM wp WHERE stype='resources' and weared=0 and uidp=".$player->pers["uid"]."");
 if ($resources>1 and strpos(" ".$player->pers["location"],"lavka")>0) echo "<input type=button class=loc value='Сдать всю руду' onclick=\"location='main.php?give=allresources'\">";
 
 $trees = $db->sqlr("SELECT COUNT(id) FROM wp WHERE id_in_w='res..tree' and weared=0 and uidp=".$player->pers["uid"]."");
