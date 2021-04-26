@@ -269,7 +269,7 @@ if (@$http->get["rune_join"])
 		
 		$add_rune = "<b>Руна:</b> <u>".$rune["name"]."</u> (".$sk[2].": +<b>".$sk[1]."</b>)<br>";
 		
-		$db->sql("UPDATE wp SET `".$sk[2]."`=`".$sk[2]."`+".$sk[1].",slots=slots-1,price=price+".sqrt($rune["price"]).",
+		$db->sql("UPDATE wp SET `".$sk[2]."`=`".$sk[2]."`+".$sk[1].",slots=slots-1,`price`=`price`+".sqrt($rune["price"]).",
 		`name`='".$weared_name." [Р]', `describe`='".$describe." ".$add_rune."' WHERE id=".$weared_id."");
 		if ($sk[2]=="udmax")$db->sql("UPDATE wp SET `udmin`=`udmin`+1 WHERE id=".$weared_id."");
 		$db->sql("DELETE FROM wp WHERE id=".intval($http->get["rune_join"])."");
