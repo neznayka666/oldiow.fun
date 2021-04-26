@@ -11,7 +11,7 @@ if ( !empty($v['id']) )
 	if ( !empty($v["name"]) )
 	{
 		$counter++; 
-		if (@$lavka == 1) $v["durability"] = $v["max_durability"];
+		if (@$lavka == 1) { $v["durability"] = $v["max_durability"];}
 		$text .= "'".$v["name"]."','".$sht."','".$v["image"]."','".$v["durability"]."','".$v["max_durability"]."','";
 		if ($v['dprice']==0)
 		{
@@ -21,19 +21,23 @@ if ( !empty($v['id']) )
 			if (@$lavka<>1 or $player->pers['money']>=$v['price']) $text .= "<font class=user><!--img src=/images/".$img."--> <b>".$v["price"]." ".$val."</font></b><font class=items><br>";
 			else $text .= "<font class=hp><!--img src=/images/".$img."--> <b>".$v["price"]." ".$val."</font></b><font class=items><br>";
 		}
-		else $text .= "<!--img src=/images/signs/diler.gif--> <b>".$v["dprice"]." сп. </b><font class=items><br>";
+		else { $text .= "<!--img src=/images/signs/diler.gif--> <b>".$v["dprice"]." сп. </b><font class=items><br>"; }
 		$text .= "',".$v['price'].",'".$v["dprice"]."','";
 		$rank_i = ($v["s1"]+$v["s2"]+$v["s3"]+$v["s4"]+$v["s5"]+$v["s6"]+$v["kb"])*0.3 + ($v["mf1"]+$v["mf2"]+$v["mf3"]+$v["mf4"]+$v["mf5"])*0.03 + ($v["hp"]+$v["ma"])*0.04+($v["udmin"]+$v["udmax"])*0.3;
 		if ($v["stype"]=="shit")
 		$v["describe"] .= "<br>Защита от магии +50%";
 		if ($v["type"]=="napad" and $v["index"]!='b' and $v["index"]!='b_z' and $v["index"]!='k' and $v["index"]!='k_z')
 		{
-			if ($v["stype"]=="napadt")
+			if ($v["stype"]=="napadt") {
 				$v["describe"] .= "<div class=but>Свиток тактического нападения</div>";
-			else
+			}
+			else {
 				$v["describe"] .= "<div class=but>Свиток классического нападения</div>";
+			}
 			if ($v["p_type"]==15)
+			{
 				$v["describe"] .= "<div class=hp>ЗАКРЫТЫЙ БОЙ</div>";
+			}
 		}
 		
 		if ($v["index"]=="b")	$v["describe"] .= "<div class=but>Свиток боевого нападения</div>";
@@ -41,14 +45,17 @@ if ( !empty($v['id']) )
 		if ($v["index"]=="k")	$v["describe"] .= "<div class=but>Свиток кулачного нападения</div>";
 		if ($v["index"]=="k_z")	$v["describe"] .= "<div class=but>Свиток кулачного нападения <div class=hp>ЗАКРЫТЫЙ БОЙ</div></div>";
 		
-		//if ($v["stype"]=="resources")
-		//$v["describe"] .= "Полезный ресурс";
+		if ($v["stype"]=="resources") {
+			$v["describe"] .= "Полезный ресурс";
+		}
 		if ($v["timeout"])
 		{
-			if($v["describe"])
+			if($v["describe"]){
 				$v["describe"].='<br><span class=timef>Пропадёт через '.tp($v["timeout"]-$t)."</span>";
-			else
+			}
+			else {
 				$v["describe"].='<span class=timef>Пропадёт через '.tp($v["timeout"]-$t)."</span>";
+			}
 		}
 		if ($v["type"]=="rune"){$v["describe"].='<br>Чтобы вставить руну в предмет, нужно чтобы этот предмет был надет на вас, и ничего больше.';if ($v["udmax"])$v["udmin"]=1;}
 		if ($v["upgrated"]){$v["describe"].='<br><b class=green>УЛУЧШЕНА</b>';}
