@@ -30,6 +30,7 @@ if ( !empty($v['id']) )
 		$v["describe"] .= "<br>Защита от магии +50%";
 		if ($v["type"]=="napad" and $v["index"]!='b' and $v["index"]!='b_z' and $v["index"]!='k' and $v["index"]!='k_z')
 		{
+<<<<<<< HEAD
 			if ($v["stype"]=="napadt") {
 				$v["describe"] .= "<div class=but>Свиток тактического нападения</div>";
 			}
@@ -40,13 +41,22 @@ if ( !empty($v['id']) )
 			{
 				$v["describe"] .= "<div class=hp>ЗАКРЫТЫЙ БОЙ</div>";
 			}
+=======
+			if ($v["stype"]=="napadt")
+				{$v["describe"] .= "<div class=but>Свиток тактического нападения</div>";}
+			else
+				{$v["describe"] .= "<div class=but>Свиток классического нападения</div>";}
+			if ($v["p_type"]==15)
+				{$v["describe"] .= "<div class=hp>ЗАКРЫТЫЙ БОЙ</div>";}
+>>>>>>> dev.oldiow.fun
 		}
 		
-		if ($v["index"]=="b")	$v["describe"] .= "<div class=but>Свиток боевого нападения</div>";
-		if ($v["index"]=="b_z")	$v["describe"] .= "<div class=but>Свиток боевого нападения <div class=hp>ЗАКРЫТЫЙ БОЙ</div></div>";
-		if ($v["index"]=="k")	$v["describe"] .= "<div class=but>Свиток кулачного нападения</div>";
-		if ($v["index"]=="k_z")	$v["describe"] .= "<div class=but>Свиток кулачного нападения <div class=hp>ЗАКРЫТЫЙ БОЙ</div></div>";
+		if ($v["index"]=="b")	{$v["describe"] .= "<div class=but>Свиток боевого нападения</div>";}
+		if ($v["index"]=="b_z")	{$v["describe"] .= "<div class=but>Свиток боевого нападения <div class=hp>ЗАКРЫТЫЙ БОЙ</div></div>";}
+		if ($v["index"]=="k")	{$v["describe"] .= "<div class=but>Свиток кулачного нападения</div>";}
+		if ($v["index"]=="k_z")	{$v["describe"] .= "<div class=but>Свиток кулачного нападения <div class=hp>ЗАКРЫТЫЙ БОЙ</div></div>";}
 		
+<<<<<<< HEAD
 		if ($v["stype"]=="resources") {
 			$v["describe"] .= "Полезный ресурс";
 		}
@@ -58,9 +68,19 @@ if ( !empty($v['id']) )
 			else {
 				$v["describe"].='<span class=timef>Пропадёт через '.tp($v["timeout"]-$t)."</span>";
 			}
+=======
+		if ($v["stype"]=="resources")
+		{$v["describe"] .= "Полезный ресурс";}
+		if ($v["timeout"])
+		{
+			if($v["describe"])
+				{$v["describe"].='<br><span class=timef>Пропадёт через '.tp($v["timeout"]-$t)."</span>";}
+			else
+				{$v["describe"].='<span class=timef>Пропадёт через '.tp($v["timeout"]-$t)."</span>";}
+>>>>>>> dev.oldiow.fun
 		}
-		if ($v["type"]=="rune"){$v["describe"].='<br>Чтобы вставить руну в предмет, нужно чтобы этот предмет был надет на вас, и ничего больше.';if ($v["udmax"])$v["udmin"]=1;}
-		if ($v["upgrated"]){$v["describe"].='<br><b class=green>УЛУЧШЕНА</b>';}
+		if ($v["type"]=="rune") {$v["describe"].='<br>Чтобы вставить руну в предмет, нужно чтобы этот предмет был надет на вас, и ничего больше.';if ($v["udmax"])$v["udmin"]=1;}
+		if ($v["upgrated"]) {$v["describe"].='<br><b class=green>УЛУЧШЕНА</b>';}
 
 		$attrs = '<table style="border-width:0px; font-size:10px;width:100%" cellspacing=0><tr><td>';
 		$v_count = 0;
