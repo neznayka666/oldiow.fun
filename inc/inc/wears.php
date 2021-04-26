@@ -266,7 +266,7 @@ if (@$http->get["rune_join"])
 		remove_weapon ($weared_id,$weared_wp);
 		$sk = explode("_",$rune["id_in_w"]);
 		$describe = $v["describe"];
-		$add_rune = "<b>Руна:</b> <b>".$rune["name"]."</b> (".$sk[2].": +><b>".$sk[1]."</b>)<br>";
+		$add_rune = "<b>Руна:</b> <u>".$rune["name"]."</u> (".$sk[2].": +<b>".$sk[1]."</b>)<br>";
 		
 		$db->sql("UPDATE wp SET `".$sk[2]."`=`".$sk[2]."`+".$sk[1].",slots=slots-1,price=price+".sqrt($rune["price"]).",
 		`name`='".$weared_name." [Р]', `describe`='".$describe." ".$add_rune."' WHERE id=".$weared_id."");
