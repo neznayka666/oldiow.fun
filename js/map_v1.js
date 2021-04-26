@@ -690,9 +690,9 @@ function ButtonGen()
     {
         bavail[mapbt[i][0]] = [mapbt[i][2], mapbt[i][3]];
         
-        str += ' <img src="/images/nav/out/' + mapbt[i][0] + '.png" id="' + mapbt[i][0] + '" title="' + mapbt[i][1] + '" onclick=\'ButClick("' + mapbt[i][0] + '")\' style="cursor:pointer;">';
+        //str += ' <img src="/images/nav/out/' + mapbt[i][0] + '.png" id="' + mapbt[i][0] + '" title="' + mapbt[i][1] + '" onclick=\'ButClick("' + mapbt[i][0] + '")\' style="cursor:pointer;">';
         
-         //str += ' <input type=button class="jBut2" id="'+mapbt[i][0]+'" value="'+mapbt[i][1]+'" onclick=\'ButClick("'+mapbt[i][0]+'")\'>';
+        str += ' <input type=button class="jBut2" id="'+mapbt[i][0]+'" value="'+mapbt[i][1]+'" onclick=\'ButClick("'+mapbt[i][0]+'")\'>';
     }
     return str;
 }
@@ -991,6 +991,7 @@ function vState(a)
 
 function getBattle(id)
 {
+    RemoveDialogDiv();
 	$.get('/gameplay/ajax/get_bots.php', {'act':2, 'bid':id}, function(r){
 		arr = r.split('@');
 		switch (arr[0])

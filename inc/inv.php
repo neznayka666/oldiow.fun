@@ -15,9 +15,9 @@
 		$player->pers["weight_of_w"] = intval($all_weight);
 		echo "Масса вещей: [".($player->pers["weight_of_w"])."/".abs(10+($player->pers["sm3"]+$player->pers["s4"])*10)."] из ".$all_wp." ваших вещей.";
 
-		if (abs(10+($player->pers["sm3"]+$player->pers["s4"])*10) < ($all_weight)) {
+		//if (abs(10+($player->pers["sm3"]+$player->pers["s4"])*10) < ($all_weight)) {
 			//echo "<br><b class=hp>Вы перегружены!</b>";
-		}
+		//}
 		
 		
 		if (@$http->get["zzz"])
@@ -79,6 +79,9 @@ elseif($player->pers["alchemy_m"] == 0)
 
 $fish = $db->sqlr("SELECT COUNT(id) FROM wp WHERE type='fish' and weared=0 and uidp=".$player->pers["uid"]."");
 if ($fish>1 and strpos(" ".$player->pers["location"],"lavka")>0) echo "<input type=button class=loc value='Сдать всю рыбу' onclick=\"location='main.php?give=allfish'\">";
+
+$resources = $db->sqlr("SELECT COUNT(id) FROM wp WHERE stype='resources' and weared=0 and uidp=".$player->pers["uid"]."");
+if ($resources>1 and strpos(" ".$player->pers["location"],"lavka")>0) echo "<input type=button class=loc value='Сдать всю руду' onclick=\"location='main.php?give=allresources'\">";
 
 $trees = $db->sqlr("SELECT COUNT(id) FROM wp WHERE id_in_w='res..tree' and weared=0 and uidp=".$player->pers["uid"]."");
 if ($trees>1 and strpos(" ".$player->pers["location"],"lavka")>0) echo "<input type=button class=loc value='Сдать все деревья' onclick=\"location='main.php?give=alltrees'\">";
@@ -218,12 +221,13 @@ if ($z==1 and $vesh["type"]=="snejok") $buttons .= "<td><input type=button class
 				}
 				if ( strpos(" ".$player->pers["location"],"lavka")>0 and $v["where_buy"]<>1 and ($v["where_buy"]<>2 or $v["p_type"]==5 or $v["p_type"]==6 or $v["type"]=="rune") and ($v["clan_name"]=="" or $status=='a' or $status=='wg') and $no_uz)
 					$buttons .= "<td><input type=button class=inv_but value='Сдать за ".round(($v["price"]*$koef*$koef_cur)*(($v["durability"]+1)/($v["max_durability"]+1)),2)."' onclick=\"conf_sale('main.php?lavkasdat=".$vesh["id"]."')\"></td>";
+				
 				if ( strpos(" ".$player->pers["location"],"bank")>0 and $v["where_buy"]<>1 and ($v["where_buy"]<>2 or $v["p_type"]==5 or $v["p_type"]==6 or $v["type"]=="rune") and $v["clan_name"]=="" and $player->pers["money"]>=round(($v["price"]*0.1),2) and $no_uz)
 					$buttons .= "<td><input type=button class=inv_but value='Сдать в банк на хранение [".round(($v["price"]*0.1),2)." LN]' onclick=\"conf_sale('main.php?bank=".$vesh["id"]."')\"></td>";
 				if ( strpos(" ".$player->pers["location"],"dhouse")>0 and $v["where_buy"]=='1' and $v["clan_name"]=="" and $v["timeout"]==0 and $v["dprice"]>5 and $no_uz)
-					$buttons .= "<td><input type=button class=inv_but value='Сдать за ".($v["dprice"]*1)*(($v["durability"]+1)/($v["max_durability"]+1))." y.e.' onclick=\"conf_sale('main.php?dhousesdat=".$vesh["id"]."')\"></td>";
+					$buttons .= "<td><input type=button class=inv_but value='Сдать за ".($v["dprice"]*1)*(($v["durability"]+1)/($v["max_durability"]+1))." сп.' onclick=\"conf_sale('main.php?dhousesdat=".$vesh["id"]."')\"></td>";
 				if ( strpos(" ".$player->pers["location"],"dhouse")>0 and $v["where_buy"]=='1' and $v["clan_name"]<>"" and $v["timeout"]==0	and ($status=='a' or $status=='wg') and $no_uz)
-					$buttons .= "<td><input type=button class=inv_but value='Сдать за ".($v["dprice"]*1)*(($v["durability"]+1)/($v["max_durability"]+1))." y.e.' onclick=\"conf_sale('main.php?dchousesdat=".$vesh["id"]."')\"></td>";
+					$buttons .= "<td><input type=button class=inv_but value='Сдать за ".($v["dprice"]*1)*(($v["durability"]+1)/($v["max_durability"]+1))." сп.' onclick=\"conf_sale('main.php?dchousesdat=".$vesh["id"]."')\"></td>";
 				if ( $v["where_buy"]<>1 and $v["where_buy"]<>2 and $v["clan_name"]=="" and $player->pers["clan_tr"] and $clan["treasury"]<($clan["maxtreasury"]+30) and $v["p_type"]<>200) 
 				{
 					$buttons .= "<td><input type=button class=inv_but value='Сдать клану' onclick=\"confc('main.php?to_clan=".$vesh["id"]."')\" title='Сдать клану'></td>";
