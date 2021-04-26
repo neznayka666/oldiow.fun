@@ -11,7 +11,9 @@ if ( !empty($v['id']) )
 	if ( !empty($v["name"]) )
 	{
 		$counter++; 
-		if (@$lavka == 1) { $v["durability"] = $v["max_durability"];}
+		if (@$lavka == 1) { 
+			$v["durability"] = $v["max_durability"];
+		}
 		$text .= "'".$v["name"]."','".$sht."','".$v["image"]."','".$v["durability"]."','".$v["max_durability"]."','";
 		if ($v['dprice']==0)
 		{
