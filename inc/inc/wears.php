@@ -265,9 +265,9 @@ if (@$http->get["rune_join"])
 	{
 		remove_weapon ($weared_id,$weared_wp);
 		$sk = explode("_",$rune["id_in_w"]);
-		$add_rune = "<b>Руна:</b> ".$rune["name"]." (".$sk[2].": <b>+".$sk[1]."</b>)\r\n";
+		//$add_rune = "<b>Руна:</b> ".$rune["name"]." (".$sk[2].": <b>+".$sk[1]."</b>)\r\n";
 		$db->sql("UPDATE wp SET `".$sk[2]."`=`".$sk[2]."`+".$sk[1].",slots=slots-1,price=price+".sqrt($rune["price"]).",
-		`name`='".$weared_name." [Р]', `describe`=`".$v["describe"]."`+'".$add_rune."' WHERE id=".$weared_id."");
+		`name`='".$weared_name." [Р]', `describe`=`".$v["describe"]."`+'<b>Руна:</b> ".$rune["name"]." (".$sk[2].": <b>+".$sk[1]."</b>)\r\n' WHERE id=".$weared_id."");
 		if ($sk[2]=="udmax")$db->sql("UPDATE wp SET `udmin`=`udmin`+1 WHERE id=".$weared_id."");
 		$db->sql("DELETE FROM wp WHERE id=".intval($http->get["rune_join"])."");
 		$_RETURN .= "Удачно вставлена \"".$rune["name"]."\" в \"".$weared_name."\"";
