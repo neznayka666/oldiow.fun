@@ -99,11 +99,11 @@ else
 */
 
 var itemType = __types.split('|');
-	 
+var gName;
 for(var i=0;i<w.length-1;i++)
 {
-	var g = itemType[i].split('=');
-	text += ''+g[1]+'';
+	//var gName = itemType[i].split('=');
+	text += ''+itemType[i]+'';
 }
 text += '';
 
