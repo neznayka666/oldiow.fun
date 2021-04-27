@@ -54,7 +54,7 @@ elseif($player->pers["alchemy_m"] == 0)
 ?>
             </tr>
         </table>
-        <div style="border: 1px solid #e9e9e9;">
+        <div style="border: 1px solid #e9e9e9;marging:5px;padding:5px;">
             <?php
 		$typeBtn = types();
 		$listBtnTypes = '';
