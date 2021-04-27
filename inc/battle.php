@@ -1,6 +1,6 @@
 <?php
 ####// Главная таблица
-	echo "<table border=0 style='width:100%;padding:10px;' cellspacing=0 cellpadding=0><tr><td valign=top align=center style='width:250px;'>";
+	echo "<table border=0 style='width:1200px;padding:10px;' cellspacing=0 cellpadding=0><tr><td valign=top align=center style='width:250px;'>";
 ####//
 	echo show_pers_in_f($player->pers,3);
 ####//
