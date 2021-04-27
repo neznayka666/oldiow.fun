@@ -55,7 +55,7 @@ elseif($player->pers["alchemy_m"] == 0)
             </tr>
         </table>
         <div id=container1 class=but></div>
-        <?=$types;?>
+
         <?php
 	$r = types();
 	$types = '';
@@ -64,6 +64,7 @@ elseif($player->pers["alchemy_m"] == 0)
 		$types .= $key.'='.$value."|";
 	}
 ?>
+        <p>111: <?=$types;?></p>
 
         <script>
         var _type = '<?=$_FILTER["sorti"];?>';
