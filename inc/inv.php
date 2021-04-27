@@ -54,6 +54,21 @@ elseif($player->pers["alchemy_m"] == 0)
 ?>
             </tr>
         </table>
+        <div class="inv_but" style="border: 1px solid #e9e9e9;">
+            <?php
+		$typeBtn = types();
+		$listBtnTypes = '';
+			foreach($typeBtn as $key=>$value)
+				{
+					$listBtnTypes .= "<a href='main.php?inv=".$key."' class='bga'>".$value."</a>";
+			}
+			echo $listBtnTypes;
+	?>
+
+        </div>
+
+
+
         <div id=container1 class=but></div>
 
         <?php
@@ -63,8 +78,9 @@ elseif($player->pers["alchemy_m"] == 0)
 	{
 		$types .= $key.'='.$value."|";
 	}
-?>
-        <p>111: <?=$types;?></p>
+	?>
+
+
 
         <script>
         var _type = '<?=$_FILTER["sorti"];?>';
