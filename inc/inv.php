@@ -60,7 +60,7 @@ elseif($player->pers["alchemy_m"] == 0)
 		$listBtnTypes = '';
 			foreach($typeBtn as $key=>$value)
 				{
-					$listBtnTypes .= " <a href='main.php?filter_f4=".$key."'>".$value."</a> ";
+					$listBtnTypes .= " <img src='//".IMG."/icon/inv/".$key.".png' onclick=\"window.location.href='main.php?filter_f4=".$key."'\" alt='".$value."' title='".$value."'> ";
 			}
 			echo $listBtnTypes;
 	?>
