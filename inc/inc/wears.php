@@ -274,7 +274,7 @@ if (@$http->get["rune_join"])
 		`slots`=slots-1,
 		`price`=price+".$rune["price"].",
 		`name`='".$weared_name." [Р]', 
-		`describe`=describe+'".$add_rune."' 
+		`describe`=describe+".$add_rune." 
 		WHERE id=".$weared_id."
 		");
 		if ($sk[2]=="udmax")$db->sql("UPDATE wp SET `udmin`=`udmin`+1 WHERE id=".$weared_id."");
