@@ -55,6 +55,7 @@ elseif($player->pers["alchemy_m"] == 0)
             </tr>
         </table>
         <div id=container1 class=but></div>
+        <?=$types;?>
         <?php
 	$r = types();
 	$types = '';
