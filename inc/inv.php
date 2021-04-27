@@ -60,7 +60,7 @@ elseif($player->pers["alchemy_m"] == 0)
 		$listBtnTypes = '';
 			foreach($typeBtn as $key=>$value)
 				{
-					$listBtnTypes .= "<a href='main.php?filter_f4=".$key."' class='inv_but'>".$value."</a>";
+					$listBtnTypes .= " <a href='main.php?filter_f4=".$key."'>".$value."</a> ";
 			}
 			echo $listBtnTypes;
 	?>
