@@ -86,7 +86,7 @@ $("#center").css({left:'50%',top:'50%',width:'450px',height:'200px', transform: 
 	 c_showed--;
 	}
 }
-
+/*
 var all_link = '';
 if(_type=='herbal' || _type=='resources' || _type=='fish')
 	all_link = '<a href=main.php?filter_f4=all class=bga>Весь инвентарь</a>';
@@ -96,6 +96,19 @@ if(_herbal+_resources+_fish)
 $("#container1").html("<table border=0 width=78% style=\"width:78%\"><tr><td align=center><a href='#' onclick=\"location='main.php?filter_f4=herbal'\" style='cursor:pointer;' class='bga'>Травы ["+_herbal+"]</a></td><td align=center><a href='#' onclick=\"location='main.php?filter_f4=resources'\" style='cursor:pointer;' class='bga'> Ресурсы ["+_resources+"] </a></td><td align=center><a href='#' onclick=\"location='main.php?filter_f4=fish'\" style='cursor:pointer;' class='bga'> Рыба ["+_fish+"]</a></td></tr></table>"+all_link);
 else 
 	$("#container1").html(all_link);
+*/
+
+var itemType = __types.split('|');
+	 
+for(var i=0;i<w.length-1;i++)
+{
+	var g = itemType[i].split('=');
+	text += ''+g[1]+'';
+}
+text += '';
+
+
+
 
 function recept_open()
 {
