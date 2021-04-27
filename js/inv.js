@@ -101,12 +101,13 @@ var all_link = '';
 $("#container1").html(all_link);
 var itemType = __types.split('|');
 var gName;
-for(var i=0;i<w.length-1;i++)
+
+for (var i = 0; i < itemType.length - 1; i++)
 {
 	//var gName = itemType[i].split('=');
 	all_link += ''+itemType[i]+'';
 }
-text += '';
+
 
 
 
