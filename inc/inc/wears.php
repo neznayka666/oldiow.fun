@@ -272,10 +272,11 @@ if (@$http->get["rune_join"])
 		$db->sql("UPDATE wp SET 
 		`".$sk[2]."`=`".$sk[2]."`+".$sk[1].",
 		`slots`=slots-1,
-		`price`=price+"$rune["price"].",
+		`price`=price+".$rune["price"].",
 		`name`='".$weared_name." [Р]', 
-		`describe`='".$describe." ".$add_rune."' 
-		WHERE id=".$weared_id."");
+		`describe`=describe+'".$add_rune."' 
+		WHERE id=".$weared_id."
+		");
 		if ($sk[2]=="udmax")$db->sql("UPDATE wp SET `udmin`=`udmin`+1 WHERE id=".$weared_id."");
 		$db->sql("DELETE FROM wp WHERE id=".intval($http->get["rune_join"])."");
 		$_RETURN .= "Удачно вставлена \"".$rune["name"]."\" в \"".$weared_name."\"";
