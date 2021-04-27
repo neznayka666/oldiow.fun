@@ -1,15 +1,15 @@
 <?php
 ####// Главная таблица
-	echo "<table border=0 style='width:1200px;padding:10px;' cellspacing=0 cellpadding=0><tr><td valign=top align=center style='width:250px;'>";
+	echo "<table border=0 style='width:1200px;padding:10px;margin:0 auto;' cellspacing=0 cellpadding=0><tr><td valign=top align=center style='width:250px;'>";
 ####//
 	echo show_pers_in_f($player->pers,3);
 ####//
 	echo "</td><td id=fight valign=top style='background-color:#EEEEEE;padding:10px;'></td><td valign=top align=right style='width:250px;'>";
 ####//
 	if ($player->pers['chp'] > 0 and $persvs['chp']>0) 
-		echo show_pers_in_f($persvs,1); 
+		{echo show_pers_in_f($persvs,1); }
 	else 
-		echo "<img src='images/battle_art/".($fight["id"]%12+1).".jpg'>";
+		{echo "<img src='images/battle_art/".($fight["id"]%12+1).".jpg'>";}
 ####//
 	echo "</td></tr></table>";
 ####// Finished.
