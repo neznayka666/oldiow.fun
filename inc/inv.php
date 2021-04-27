@@ -54,13 +54,13 @@ elseif($player->pers["alchemy_m"] == 0)
 ?>
             </tr>
         </table>
-        <div class="inv_but" style="border: 1px solid #e9e9e9;">
+        <div style="border: 1px solid #e9e9e9;">
             <?php
 		$typeBtn = types();
 		$listBtnTypes = '';
 			foreach($typeBtn as $key=>$value)
 				{
-					$listBtnTypes .= "<a href='main.php?inv=".$key."' class='bga'>".$value."</a>";
+					$listBtnTypes .= "<a href='main.php?filter_f4=".$key."' class='inv_but'>".$value."</a>";
 			}
 			echo $listBtnTypes;
 	?>
