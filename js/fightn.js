@@ -86,10 +86,10 @@ for (i=0;i<p.length-1;i++)
  }
 var s='';
 if (travm<10) travm=10;
-if (oruj==1)s='Тип боя: <b>С оружием</b>'; else
-s='Тип боя: <b>Рукопашная</b>';
+if (oruj==1)s='<img src="images/icons/battle/1.png" title="Тип боя: С оружием">'; else
+s='<img src="images/icons/battle/1.png" title="Тип боя: Рукопашный">';
 s = '<input class="submit" type="button" value="Обновить" onclick="location=\'main.php?vs_id=' + persvs_id + '\';" style="width:110px;margin:0;"> <hr><table width="400" cellspadding="0" cellspacing="0" style="height:30px;margin:0 auto;"><tr><td align="center">'+s;
-s+=' | Травматичность <b>'+travm+'</b>%';
+s+=' | <img src="images/icons/battle/'+travm+'.png" title="Травматичность: '+travm+' %">';
 if(timeout)
 	setTimeout("location='main.php'",timeout*1000);
 setInterval("if(document.getElementById('timeout').innerHTML>0)document.getElementById('timeout').innerHTML--;",1000);

@@ -1,8 +1,6 @@
 <?php
 ## Функции которые как-то связанны с боевой системой
 
-
-
 function end_battle($pers)
 {
 	GLOBAL $GOOD_DAY,$options,$db;
@@ -104,11 +102,14 @@ function end_battle($pers)
 			}
 		}
 		$kills = '';
-		if ($pers["kills"]>0) {
-			echo " Убийства людей: <b>".$pers["kills"]."</b>";
+		if ($pers["kills"]>0) {			
+			say_to_chat('s'," ".$win." Всего Вами нанесено урона: <b><u>".$pers["fexp"]." HP</u></b>. Получено опыта: <b><u>".$pers["exp_chat"]."</u></b></font>. Убийства людей: <b>".$pers["kills"]."</b> ".$chat_c."",1,$pers["user"],'*',0);
 		}
+		else {
 		####### Турниры кончились
-		say_to_chat('s'," ".$win." Всего Вами нанесено урона: <b><u>".$pers["fexp"]." HP</u></b>. Получено опыта: <b><u>".$pers["exp_chat"]."</u></b></font>. ".$kills." ".$chat_c."",1,$pers["user"],'*',0);
+			say_to_chat('s'," ".$win." Всего Вами нанесено урона: <b><u>".$pers["fexp"]." HP</u></b>. Получено опыта: <b><u>".$pers["exp_chat"]."</u></b></font>. ".$chat_c."",1,$pers["user"],'*',0);
+		}
+		
 		
 		if ( $pers["kills"]>0 )
 		{
