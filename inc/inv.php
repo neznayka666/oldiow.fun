@@ -60,7 +60,7 @@ elseif($player->pers["alchemy_m"] == 0)
 		$listBtnTypes = '';
 			foreach($typeBtn as $key=>$value)
 				{
-					$listBtnTypes .= " <img src='//".IMG."/icons/inv/".$key.".png' onclick=\"window.location.href='main.php?filter_f4=".$key."'\" alt='".$value."' title='".$value."'> ";
+					$listBtnTypes .= " <img src='//".IMG."/icons/inv/".$key.".png' onclick=\"window.location.href='main.php?filter_f4=".$key."'\" alt=''  onmouseover=\"s_des(event,'|".$value."')\" onmouseout=\"h_des()\" onmousemove=\"move_alt(event)\"> ";
 			}
 			echo $listBtnTypes;
 	?>
@@ -269,7 +269,7 @@ unset($res);
 
 echo "</table></center>";
 
-if ($counter==0) Echo "<i class=timef>У вас нет с собой вещей.</i>";	
+if ($counter==0) Echo "<div class='weapons_box'>У вас нет с собой вещей.</div>";	
 
 }
 
