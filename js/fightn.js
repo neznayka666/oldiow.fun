@@ -89,13 +89,13 @@ if (travm<10) travm=10;
 if (oruj==1)s='<img src="images/icons/battle/1.png" title="Тип боя: С оружием">'; else
 s='<img src="images/icons/battle/1.png" title="Тип боя: Рукопашный">';
 s = '<input class="submit" type="button" value="Обновить" onclick="location=\'main.php?vs_id=' + persvs_id + '\';" style="width:110px;margin:0;"> <hr><table width="400" cellspadding="0" cellspacing="0" style="height:30px;margin:0 auto;"><tr><td align="center">'+s;
-s+=' | <img src="images/icons/battle/10.png" title="Травматичность: '+travm+' %">';
+s+=' | <img src="images/icons/battle/light.png" title="Травматичность: '+travm+' %">';
 if(timeout)
 	setTimeout("location='main.php'",timeout*1000);
 setInterval("if(document.getElementById('timeout').innerHTML>0)document.getElementById('timeout').innerHTML--;",1000);
 if(_closed)
 	s+= '<b class=hp title="Никто не может вмешаться">[ЗАКРЫТЫЙ]</b>';
-s+=' | <img src="images/icons/battle/clock.gif" title="Таймаут">: <a href="fight.php?id='+logid+'" target="_blank" class="timef"><font title="Таймаут[Лог боя]" style="color:red;" class="timef" id="timeout">'+timeout+'</font></a></td></tr><tr><td id="odd" width="50%" align="center"></td></tr></table>';
+s+=' | <img src="images/icons/battle/clock.gif" title="Таймаут">: <font title="Таймаут[Лог боя]" style="color:red;" class="timef" id="timeout">'+timeout+'</font><a href="fight.php?id='+logid+'" target="_blank" class="timef"><img src="images/icons/battle/clock.gif" title="Лог поединка №'+logid+'"></a></td></tr><tr><td id="odd" width="50%" align="center"></td></tr></table>';
 f_f.innerHTML = sbox2('<hr><div id=TOP>'+s+'</div>',1,2);
 var t='';
 t='<table border=0 width=100% cellspacing=0 cellspadding=0><tr><td width=50% align=center><span class=gray onclick="top.group_private(\''+t1u.join("|")+'|\')" style="cursor:pointer;">Сообщение</span></td><td width=50% align=center ><span class=gray onclick="top.group_private(\''+t2u.join("|")+'|\')"  style="cursor:pointer;">Сообщение</span></td></tr>';
