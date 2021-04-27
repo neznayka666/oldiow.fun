@@ -4,8 +4,7 @@ if (@$http->get["use"] and $player->pers["cfight"]>10 and $player->pers["chp"])
 {
 	$v = $db->sqla("SELECT `id`,`index`,durability,describe FROM `wp` WHERE `id`=".intval($http->get["use"])."");
 	$index = $v["index"];
-	$describe = $v["describe"];
-	if ($v["durability"]>0)
+		if ($v["durability"]>0)
 	{
 		if (substr_count($index,"hp$"))
 		{
@@ -223,7 +222,7 @@ while ($v=mysql_fetch_array($res))
 	}
 		
 		$weared_count++;
-		if ($weared_count==1) {$weared_name=$v["name"];$weared_id=$v["id"];$weared_slots=$v["slots"];$weared_wp=$v;}
+		if ($weared_count==1) {$weared_name=$v["name"];$weared_id=$v["id"];$weared_slots=$v["slots"];$weared_wp=$v;$weared_describe = $v["describe"];}
 		//if ($v["dprice"]>100) $UD_ART += $v["dprice"]/5000;
 		}
 	}
@@ -274,7 +273,7 @@ if (@$http->get["rune_join"])
 		`slots`=slots-1,
 		`price`=price+".$rune["price"].",
 		`name`='".$weared_name." [Р]', 
-		`describe`=describe+".$rune["name"]." 
+		`describe`='".$weared_describe." ".$rune["name"]." 
 		WHERE id=".$weared_id."
 		");
 		if ($sk[2]=="udmax")$db->sql("UPDATE wp SET `udmin`=`udmin`+1 WHERE id=".$weared_id."");
