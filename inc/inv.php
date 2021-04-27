@@ -34,7 +34,7 @@
             <tr>
                 <Td><a href="javascript:inv_conf()" class=bga>Фильтр</a>
                 </Td>
-                <Td><a href="main.php?inv=weapons" class='bga'>Вещи</a></Td>
+                <Td><a href="javascript:types()" class='bga'>Вещи</a></Td>
                 <!--Td><a href="main.php?inv=magic" class=Blocked>Магия</a></!--Td-->
                 <Td><a href="main.php?inv=presents" class=bga>Подарки</a></Td>
                 <Td><a href="main.php?inv=cat3" class=bga>Комплекты</a></Td>
@@ -43,6 +43,7 @@ if ($weared_count) echo "<td><a href=main.php?snall=all class=bga>Снять в�
 ?>
                 <?php
 /*
+href="main.php?inv=weapons"
 if ($player->pers["alchemy_d"]>0 and $player->pers["alchemy_b"]>0 and $player->pers["alchemy_m"]>0) echo "<td><a href=main.php?inv=cat5 class=bg>Алхимия</a></td>";
 elseif($player->pers["alchemy_d"] == 0)
 	echo "<td><a class=bg onclick=\"alert('Кончилась долговечность дистиллятора.')\">Алхимия</a></td>";
