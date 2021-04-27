@@ -76,7 +76,7 @@ elseif($player->pers["alchemy_m"] == 0)
         </script>
         <script type="text/javascript" src="/js/inv.js"></script>
         <?php
-
+/*
 $fish = $db->sqlr("SELECT COUNT(id) FROM wp WHERE type='fish' and weared=0 and uidp=".$player->pers["uid"]."");
 if ($fish>1 and strpos(" ".$player->pers["location"],"lavka")>0) echo "<input type=button class=loc value='Сдать всю рыбу' onclick=\"location='main.php?give=allfish'\">";
 
@@ -90,7 +90,7 @@ $herbals = $db->sqlr("SELECT COUNT(id) FROM wp WHERE type='herbal' and weared=0 
 if ($herbals>1) echo "<input type=button class=but value='Передать все травы' onclick=\"giveallH(".$herbals.")\">";
 
 if ($_RETURN)echo "<br><center><center class=but style='width:60%'><b class=user>".$_RETURN."</b></center></center>";
-
+*/
 ?>
     </center>
     <?php

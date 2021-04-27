@@ -2,8 +2,9 @@
 
 if (@$http->get["use"] and $player->pers["cfight"]>10 and $player->pers["chp"])
 {
-	$v = $db->sqla("SELECT `id`,`index`,durability FROM `wp` WHERE `id`=".intval($http->get["use"])."");
+	$v = $db->sqla("SELECT `id`,`index`,durability,describe FROM `wp` WHERE `id`=".intval($http->get["use"])."");
 	$index = $v["index"];
+	$describe = $v["describe"];
 	if ($v["durability"]>0)
 	{
 		if (substr_count($index,"hp$"))
@@ -265,8 +266,17 @@ if (@$http->get["rune_join"])
 	{
 		remove_weapon ($weared_id,$weared_wp);
 		$sk = explode("_",$rune["id_in_w"]);
-		$db->sql("UPDATE wp SET `".$sk[2]."`=`".$sk[2]."`+".$sk[1].",slots=slots-1,price=price+".sqrt($rune["price"]).",
-		`name`='".$weared_name." [Р]', `describe`='".$rune["name"]." (".$sk[2].": <b>+".$sk[1]."</b>)' WHERE id=".$weared_id."");
+		
+		$add_rune = "<b>Руна:</b> <u>".$rune["name"]."</u> (".$sk[2].": +<b>".$sk[1]."</b>)<br>";
+		
+		$db->sql("UPDATE wp SET 
+		`".$sk[2]."`=`".$sk[2]."`+".$sk[1].",
+		`slots`=slots-1,
+		`price`=price+".$rune["price"].",
+		`name`='".$weared_name." [Р]', 
+		`describe`=describe+'".$add_rune."' 
+		WHERE id=".$weared_id."
+		");
 		if ($sk[2]=="udmax")$db->sql("UPDATE wp SET `udmin`=`udmin`+1 WHERE id=".$weared_id."");
 		$db->sql("DELETE FROM wp WHERE id=".intval($http->get["rune_join"])."");
 		$_RETURN .= "Удачно вставлена \"".$rune["name"]."\" в \"".$weared_name."\"";

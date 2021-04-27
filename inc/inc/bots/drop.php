@@ -234,7 +234,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 
 	else $res = "Ничего не найдено";
 
-/*	$str = " <font class=bnick color=".$colors[$_pers["fteam"]].">".$_pers["user"]."</font> ".$ob." существо. Результаты: <b>".$res."</b>%";
+	$str = " <font class=bnick color=".$colors[$_pers["fteam"]].">".$_pers["user"]."</font> ".$ob." существо. Результаты: <b>".$res."</b>%";
 	// Запарили системки
 	if ( $res != "Ничего не найдено")
 		say_to_chat('s','Вы подобрали <b>'.$res.'</b>, выпавшие из `<b>'.$_persvs["user"].'</b>` ',1,$_pers["user"],'*',0);
@@ -278,6 +278,6 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 }
 
 else $str = " ";
-*/
+
 
 ?>
