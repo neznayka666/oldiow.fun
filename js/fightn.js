@@ -95,7 +95,7 @@ if(timeout)
 setInterval("if(document.getElementById('timeout').innerHTML>0)document.getElementById('timeout').innerHTML--;",1000);
 if(_closed)
 	s+= '<b class=hp title="Никто не может вмешаться">[ЗАКРЫТЫЙ]</b>';
-s+=' | <img src="images/icons/battle/clock.gif" title="Таймаут">: <font title="Таймаут[Лог боя]" style="color:red;" class="timef" id="timeout">'+timeout+'</font><a href="fight.php?id='+logid+'" target="_blank" class="timef"><img src="images/icons/battle/log.png" title="Лог поединка №'+logid+'"></a></td></tr><tr><td id="odd" width="50%" align="center"></td></tr></table>';
+s+=' | <img src="images/icons/battle/clock.gif" title="Таймаут">: <font title="Таймаут[Лог боя]" style="color:red;" class="timef" id="timeout">'+timeout+'</font><a href="fight.php?id='+logid+'" target="_blank" class="timef"><img src="images/icons/battle/log.png" title="Лог поединка №'+logid+'"></a> <a href="main.php?vs_id=' + persvs_id + '"> <img src="images/icons/battle/refrash.png" title="Обновить"></a></td></tr><tr><td id="odd" width="50%" align="center">111</td></tr></table>';
 f_f.innerHTML = sbox2('<hr><div id=TOP>'+s+'</div>',1,2);
 var t='';
 t='<table border=0 width=100% cellspacing=0 cellspadding=0><tr><td width=50% align=center><span class=gray onclick="top.group_private(\''+t1u.join("|")+'|\')" style="cursor:pointer;">Сообщение</span></td><td width=50% align=center ><span class=gray onclick="top.group_private(\''+t2u.join("|")+'|\')"  style="cursor:pointer;">Сообщение</span></td></tr>';
