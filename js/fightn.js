@@ -641,7 +641,7 @@ function ch_od(odc)
 	{
 		w1 = (odc/od)*100;
 		w2 = 100-w1;
-		document.getElementById('odd').innerHTML = '<table width="400" style="background:#f5f5f5;"><tr><td align=center><span class="items" id="odtext">Очки действия [<b class=user>'+odc+'</b>/<b class=user>'+od+'</b>]</span></td></tr><!--tr><td align=center><table border=0 cellspacing=0 cellspadding=0 width=100><tr><td align=right><img src=images/design/new/2ma.gif width='+w1+' height=8 id=_odn></td><td><img src=images/no.png width='+w2+' height=8 id=_odz></td></tr></table></td></!--tr--></table>';
+		document.getElementById('odd').innerHTML = '<table width="400" class="whiteBlock"><tr><td align=center><span class="items" id="odtext">Очки действия [<b class=user>'+odc+'</b>/<b class=user>'+od+'</b>]</span></td></tr><!--tr><td align=center><table border=0 cellspacing=0 cellspadding=0 width=100><tr><td align=right><img src=images/design/new/2ma.gif width='+w1+' height=8 id=_odn></td><td><img src=images/no.png width='+w2+' height=8 id=_odz></td></tr></table></td></!--tr--></table>';
 	}
 	else
 	{
