@@ -24,7 +24,7 @@ DEFINE ('FOR_HOST', 'forum.'. HOST );						###
 DEFINE ('SQL_HOST', 'localhost');
 DEFINE ('SQL_USER', 'newiowfun');		
 DEFINE ('SQL_PASS', 'rd3oFkiFZB218v3I');			
-DEFINE ('SQL_BASE', 'new_oldiow_fun');	
+DEFINE ('SQL_BASE', 'new_oldiow_fun1');	
 
 
 	# Делаем минифильтрация всякой ВЦ
