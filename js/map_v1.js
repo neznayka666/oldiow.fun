@@ -794,7 +794,7 @@ function ButtonSt(st)
 	{
 		for(var i=0; i<mapbt.length; i++)
 		{
-	//		d.getElementById(mapbt[i][0]).disabled = st;    
+			d.getElementById(mapbt[i][0]).disabled = st;    
 		}
 	}
 }
