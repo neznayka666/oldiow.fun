@@ -2,9 +2,9 @@
 
 if (@$http->get["use"] and $player->pers["cfight"]>10 and $player->pers["chp"])
 {
-	$v = $db->sqla("SELECT `id`,`index`,durability,describe FROM `wp` WHERE `id`=".intval($http->get["use"])."");
+	$v = $db->sqla("SELECT `id`,`index`,durability FROM `wp` WHERE `id`=".intval($http->get["use"])."");
 	$index = $v["index"];
-		if ($v["durability"]>0)
+	if ($v["durability"]>0)
 	{
 		if (substr_count($index,"hp$"))
 		{
@@ -222,7 +222,7 @@ while ($v=mysql_fetch_array($res))
 	}
 		
 		$weared_count++;
-		if ($weared_count==1) {$weared_name=$v["name"];$weared_id=$v["id"];$weared_slots=$v["slots"];$weared_wp=$v;$weared_describe = $v["describe"];}
+		if ($weared_count==1) {$weared_name=$v["name"];$weared_id=$v["id"];$weared_slots=$v["slots"];$weared_wp=$v;}
 		//if ($v["dprice"]>100) $UD_ART += $v["dprice"]/5000;
 		}
 	}
@@ -265,64 +265,8 @@ if (@$http->get["rune_join"])
 	{
 		remove_weapon ($weared_id,$weared_wp);
 		$sk = explode("_",$rune["id_in_w"]);
-		$rune_info = $sk[2];
-		switch ($rune_info) {
-  case "udmax":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Максимальный удар: +<b>".$sk[1]."</b>)<br>";
-    break;
-  case "udmin":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Минимальный удар: +<b>".$sk[1]."</b>)<br>";
-    break;
-  case "kb":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Броня: +<b>".$sk[1]."</b>)<br>";
-    break;
-case "mf1":   
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Критического удара: +<b>".$sk[1]." %</b>)<br>";
-    break;
-case "mf2":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Увёртливости: +<b>".$sk[1]." %</b>)<br>";
-    break;
-case "mf3":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Против увёртливости: +<b>".$sk[1]." %</b>)<br>";
-    break;
-case "mf5":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Против критического удара: +<b>".$sk[1]." %</b>)<br>";
-    break;
-case "ma":   
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Уровень энергии: +<b>".$sk[1]." EP</b>)<br>";
-    break;
-case "hp":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Уровень жизни: +<b>".$sk[1]." HP</b>)<br>";
-    break;
-case "s1":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Сила: +<b>".$sk[1]."</b>)<br>";
-    break;
-case "s2":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Ловкость: +<b>".$sk[1]."</b>)<br>";
-    break;
-case "s3":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Удача: +<b>".$sk[1]."</b>)<br>";
-    break;
-case "s4":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Выносливость: +<b>".$sk[1]."</b>)<br>";
-    break;
-case "s5":   
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Разум: +<b>".$sk[1]."</b>)<br>";
-    break;
-case "s6":
-    $add_rune = "Руна: <b>".$rune["name"]."</b> (Энергия: +<b>".$sk[1]."</b>)<br>";
-    break;
-}
-		//$add_rune = "<b>Руна:</b> <u>".$rune["name"]."</u> (: +<b>".$sk[1]."</b>)<br>";
-		
-		$db->sql("UPDATE wp SET 
-		`".$sk[2]."`=`".$sk[2]."`+".$sk[1].",
-		`slots`=slots-1,
-		`price`=price+".$rune["price"].",
-		`name`='".$weared_name." [Р]', 
-		`describe`='".$weared_describe." ".$add_rune."'
-		WHERE id=".$weared_id."
-		");
+		$db->sql("UPDATE wp SET `".$sk[2]."`=`".$sk[2]."`+".$sk[1].",slots=slots-1,price=price+".sqrt($rune["price"]).",
+		`name`='".$weared_name."[Р]' WHERE id=".$weared_id."");
 		if ($sk[2]=="udmax")$db->sql("UPDATE wp SET `udmin`=`udmin`+1 WHERE id=".$weared_id."");
 		$db->sql("DELETE FROM wp WHERE id=".intval($http->get["rune_join"])."");
 		$_RETURN .= "Удачно вставлена \"".$rune["name"]."\" в \"".$weared_name."\"";
