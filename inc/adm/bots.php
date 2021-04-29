@@ -79,7 +79,7 @@
 				$db->sql ("INSERT INTO `bots` (`id`,`user`,`s1`,`s2`,`s3`,`s4`,`s5`,`s6`,`mf1`,`mf2`,`mf3`,`mf4`,`mf5`,`kb`,`hp`,`ma`,`udmin`,`udmax`,`level`,`obr`,`sm4`,`pol`,`id_skin`,`droptype`,`dropvalue`,`dropfrequency`,`magic_resistance`,`rank_i`,`dropID`) 
 					VALUES ('".($botlastid+$i-intval($p["minlvl"]))."','".$p["user"]."','".$s1."','".$s2."','".$s3."','".$s4."','".$s5."','".$s6."','".$mf1."','".$mf2."','".$mf3."','".$mf4."','".$mf5."','".$kb."','".$hp."','".$ma."','".$udmin."','".$udmax."','".$i."','".$obr."','2','".$pol."',".@intval($p["skin_id"]).",".intval($p["droptype"]).",".intval($p["dropvalue"]).",".intval($p["dropfrequency"]).",".intval($p["magic_resistance"]).",".$rank_i.",'".$p["dropID"]."');");
 
-				echo "<br><font class=user>".$p["user"]."</font>[<font class=lvl>".$i."</font>]<img src=http://".IMG."/info.gif onclick=\"javascript:window.open('binfo.php?".($botlastid+$i-intval($p["minlvl"]))."','_blank')\" style=\"cursor:point\">";
+				echo "<br><font class=user>".$p["user"]."</font>[<font class=lvl>".$i."</font>]<img src=//".IMG."/info.gif onclick=\"javascript:window.open('binfo.php?".($botlastid+$i-intval($p["minlvl"]))."','_blank')\" style=\"cursor:point\">";
 			}
 			$koef = 2.5 + $i*$p["power"]/100;
 			$s1 = floor($p["s1"]*$koef);
@@ -125,9 +125,9 @@
 			
 			
 			$db->sql("INSERT INTO `bots` (`id`,`user`,`s1`,`s2`,`s3`,`s4`,`s5`,`s6`,`mf1`,`mf2`,`mf3`,`mf4`,`mf5`,`kb`,`hp`,`ma`,`udmin`,`udmax`,`level`,`obr`,`sm4`,`pol`,`id_skin`,`droptype`,`dropvalue`,`dropfrequency`,`magic_resistance`,`dropID`) 
-				VALUES ('".($botlastid+$i-intval($p["minlvl"]))."','".$p["user"]."','".$params["s1"]."','".$params["s2"]."','".$params["s3"]."','".$params["s4"]."',1,1,'".$params["mf1"]."','".$params["mf2"]."','".$params["mf3"]."','".$params["mf4"]."','".$params["mf5"]."','".$params["kb"]."','".$params["hp"]."','9','".($params["udmin"]+1)."','".($params["udmax"]+1)."','".$i."','".$obr."','2','".$pol."',".intval($p["skin_id"]).",".intval($p["droptype"]).",".intval($p["dropvalue"]).",".intval($p["dropfrequency"]).",".intval($p["magic_resistance"]).",".($p["dropID"]).");");
+				VALUES ('".($botlastid+$i-intval($p["minlvl"]))."','".$p["user"]."','".$params["s1"]."','".$params["s2"]."','".$params["s3"]."','".$params["s4"]."',1,1,'".$params["mf1"]."','".$params["mf2"]."','".$params["mf3"]."','".$params["mf4"]."','".$params["mf5"]."','".$params["kb"]."','".$params["hp"]."','9','".($params["udmin"]+1)."','".($params["udmax"]+1)."','".$i."','".$obr."','2','".$pol."',".intval($p["skin_id"]).",".intval($p["droptype"]).",".intval($p["dropvalue"]).",".intval($p["dropfrequency"]).",".intval($p["magic_resistance"]).",".$p["dropID"].");");
 
-			echo "<br><font class=user>".$p["user"]."</font>[<font class=lvl>".$i."</font>]<img src=http://".IMG."/info.gif onclick=\"javascript:window.open('binfo.php?".($botlastid+$i-intval($p["minlvl"]))."','_blank')\" style=\"cursor:point\">";
+			echo "<br><font class=user>".$p["user"]."</font>[<font class=lvl>".$i."</font>]<img src=//".IMG."/info.gif onclick=\"javascript:window.open('binfo.php?".($botlastid+$i-intval($p["minlvl"]))."','_blank')\" style=\"cursor:point\">";
 		}
 		
 	}
@@ -146,7 +146,7 @@
 		echo "<td class=timef>Название</td><td width=50%><input type=text  style='width:100%;' name=user></td>";
 		echo "</tr>";
 		echo "<tr>";
-		echo "<td class=timef>Образ</td><td width=50%><input type=hidden name=image id=image value='male_0'><img id=img src='http://".IMG."/persons/male_0.gif' onclick='change_img()' height=80></td>";
+		echo "<td class=timef>Образ</td><td width=50%><input type=hidden name=image id=image value='male_0'><img id=img src='//".IMG."/persons/male_0.gif' onclick='change_img()' height=80></td>";
 		echo "</tr>";
 		echo "<tr>";
 		echo "<td class=timef>Уровни</td><td width=50%><input type=text  style='width:40%;' name=minlvl value=0>-<input type=text  style='width:40%;' name=maxlvl value=99></td>";
@@ -238,9 +238,9 @@
 		$lvls = $db->sqla("SELECT MAX(level) as maxlvl, MIN(level) as minlvl,MAX(rank_i) as maxrank, MIN(rank_i) as minrank FROM bots WHERE user='".$bn["user"]."'");
 		echo "<tr>";
 		echo "<td class=timef>";
-		echo "<img src=http://".IMG."/drop.gif onclick='if(confirm(\"УДАЛИТЬ???\")) location=\"main.php?delete=".$bn["id"]."\"' style='cursor:pointer'>".$bn["id"];
+		echo "<img src=//".IMG."/drop.gif onclick='if(confirm(\"УДАЛИТЬ???\")) location=\"main.php?delete=".$bn["id"]."\"' style='cursor:pointer'>".$bn["id"];
 		echo "</td>";
-		echo "<td><img src=http://".IMG."/persons/male_".$bn["obr"].".gif height=50 onclick=\"javascript:window.open('binfo.php?".$bn["id"]."','_blank')\" style=\"cursor:point\">";
+		echo "<td><img src=//".IMG."/persons/male_".$bn["obr"].".gif height=50 onclick=\"javascript:window.open('binfo.php?".$bn["id"]."','_blank')\" style=\"cursor:point\">";
 		echo "</td>";
 		echo "<td class=user>".$bn["user"];
 		echo "<input type=button value='Hапасть' class=but onclick=\"Attack('".$bn["user"]."',".$lvls["minlvl"].",".$lvls["maxlvl"].");\">";
