@@ -2,11 +2,12 @@
 
 if (@$http->get["use"] and $player->pers["cfight"]>10 and $player->pers["chp"])
 {
-	$v = $db->sqla("SELECT `id`,`index`,durability,describe FROM `wp` WHERE `id`=".intval($http->get["use"])."");
+	$v = $db->sqla("SELECT `id`,`index`,durability FROM `wp` WHERE `id`=".intval($http->get["use"])."");
 	$index = $v["index"];
 		if ($v["durability"]>0)
 	{
 		if (substr_count($index,"hp$"))
+	
 		{
 			$hp_value = intval(str_replace("hp$","",$index));
 			if ($hp_value>abs($player->pers["hp"]-$player->pers["chp"]))$hp_value=abs($player->pers["hp"]-$player->pers["chp"]);
