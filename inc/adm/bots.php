@@ -125,7 +125,7 @@
 			
 			
 			$db->sql("INSERT INTO `bots` (`id`,`user`,`s1`,`s2`,`s3`,`s4`,`s5`,`s6`,`mf1`,`mf2`,`mf3`,`mf4`,`mf5`,`kb`,`hp`,`ma`,`udmin`,`udmax`,`level`,`obr`,`sm4`,`pol`,`id_skin`,`droptype`,`dropvalue`,`dropfrequency`,`magic_resistance`,`dropID`) 
-				VALUES ('".($botlastid+$i-intval($p["minlvl"]))."','".$p["user"]."','".$params["s1"]."','".$params["s2"]."','".$params["s3"]."','".$params["s4"]."',1,1,'".$params["mf1"]."','".$params["mf2"]."','".$params["mf3"]."','".$params["mf4"]."','".$params["mf5"]."','".$params["kb"]."','".$params["hp"]."','9','".($params["udmin"]+1)."','".($params["udmax"]+1)."','".$i."','".$obr."','2','".$pol."',".intval($p["skin_id"]).",".intval($p["droptype"]).",".intval($p["dropvalue"]).",".intval($p["dropfrequency"]).",".intval($p["magic_resistance"]).",".intval($p["dropID"]).");");
+				VALUES ('".($botlastid+$i-intval($p["minlvl"]))."','".$p["user"]."','".$params["s1"]."','".$params["s2"]."','".$params["s3"]."','".$params["s4"]."',1,1,'".$params["mf1"]."','".$params["mf2"]."','".$params["mf3"]."','".$params["mf4"]."','".$params["mf5"]."','".$params["kb"]."','".$params["hp"]."','9','".($params["udmin"]+1)."','".($params["udmax"]+1)."','".$i."','".$obr."','2','".$pol."',".intval($p["skin_id"]).",".intval($p["droptype"]).",".intval($p["dropvalue"]).",".intval($p["dropfrequency"]).",".intval($p["magic_resistance"]).",".($p["dropID"]).");");
 
 			echo "<br><font class=user>".$p["user"]."</font>[<font class=lvl>".$i."</font>]<img src=http://".IMG."/info.gif onclick=\"javascript:window.open('binfo.php?".($botlastid+$i-intval($p["minlvl"]))."','_blank')\" style=\"cursor:point\">";
 		}
