@@ -3,7 +3,7 @@ var world = false;
 var transport_img = false;
 var timer_img = false;
 var timer_sec = false;
-var width = 6;
+var width = 4;
 var height = 2;
 var move_interval = 50;
 var current_x = 0;
@@ -53,12 +53,12 @@ function sbox2(t,c)
 function sbox2b(c)
 {
 	if (c) c = 'text-align:center;';
-	return '<table style="width: 100%" cellspacing="0" cellpadding="0"><tr><td '+c+'">';
+	return '<table style="width: 100%" cellspacing="0" cellpadding="0"> <tr> <td style="width: 18px; height: 18px"> <img src="/public_content/corners/left_top.png" width="18" height="18"></td> <td style="height: 18px;background-image: url(\'/public_content/corners/top.png\');">&nbsp;</td> <td style="width: 18px; height: 18px"> <img src="/public_content/corners/right_top.png" width="18" height="18"></td> </tr> <tr> <td style="width: 18px;background-image: url(\'/public_content/corners/left.png\');">&nbsp;</td> <td style="background-image: url(\'/public_content/corners/bg.png\');'+c+'">';
 }
 
 function sbox2e()
 {
-	return '</td></tr></table>';
+	return '</td> <td style="width: 18px;background-image: url(\'/public_content/corners/right.png\');">&nbsp;</td> </tr> <tr> <td style="width: 18px; height: 18px"> <img src="/public_content/corners/left_bottom.png" width="18" height="18"></td> <td style="height: 18px;background-image: url(\'/public_content/corners/bottom.png\');">&nbsp;</td> <td style="width: 18px; height: 18px"> <img src="/public_content/corners/right_bottom.png" width="18" height="18"></td> </tr> </table>';
 }
 
 function img_real_path(r,c)
@@ -68,14 +68,12 @@ function img_real_path(r,c)
 
 function view_map()
 {
-    d.write('<div style="margin:0 auto;width:832px;">');    
-    d.write('<table cellpadding="0" cellspacing="0" border="0" width="832">');
-    d.write('<tr><td width="100%" valign="top">'+sbox2('<div width="100%" id="contBox"></div>', 1)+' </td></tr>');
-    d.write('<tr><td align="center" width="832"><div style="position: absolute; border: 1px solid black; overflow: hidden; width: 832px; height: 320px;" id="world_cont"></div><div style="width: 832px; height: 320px; text-align: left;" id="world_cont2"></div></td></tr>');
-	
-	d.write('</table>');
+	d.write('<div style="position: absolute; text-align: left;">');
+    d.write('<table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td bgcolor=#FFFFFF align=center><div style="position: absolute; border: 1px solid black; overflow: hidden; width: 720px; height: 400px; _left: 50%; _margin-left: -350px;" id="world_cont"></div><div style="width: 720px; height: 400px; text-align: left;" id="world_cont2"></div></td>');
+	d.write('<td _bgcolor=#FFFAAA width="100%" valign="top"> '+sbox2('<div width="100%" id="contBox"></div>', 1)+' </td>');
+	d.write('</tr></table>');
 	d.write('</div>');
-	//ButtonGen();
+	ButtonGen();
 	
     for(var i=0; i<map[1].length; i++)
     {
@@ -99,7 +97,7 @@ function view_map()
     }
     else
     {
-        // Работа или защита от подбора
+        // ������ ��� ������ �� �������
         finStatus = 2;
         current_x = map[0][0];
         current_y = map[0][1];
@@ -113,29 +111,14 @@ function view_map()
 
 function contBoxer()
 {
-	//d.getElementById('contBox').innerHTML = current_x+' : '+current_y;    
-    //d.getElementById('contBox').innerHTML = show_only_hp(inshp[0],inshp[1],inshp[2],inshp[3]);
-    d.getElementById('contBox').innerHTML += `
-    <div style="display:flex;width:832px;padding:15px 0;">
-    <div style="width:30%;">
-        <font font class="green"> Усталость: <b id="ustBox">${inshp[6]}</b> %</font> 
-        ${show_only_hp2(inshp[0],inshp[1],inshp[2],inshp[3])}
-    </div>
-    <div style="width:40%;text-align:center;">
-        <div class="titleCity">Окрестности города</div>    
-    </div>
-    <div style="width:30%;text-align:right;">
-        <a href="/map.php" target="_blank" title="Карта мира">
-            <img src="/images/nav/out/m_map.png" title="Карта мира">            
-        </a>
-        <span id="ButtonPlace">${ButtonGen()}</span>
-    </div>
-    `;	
+	//	d.getElementById('contBox').innerHTML = current_x+' : '+current_y;
+	d.getElementById('contBox').innerHTML = show_only_hp2(inshp[0],inshp[1],inshp[2],inshp[3]);
+	d.getElementById('contBox').innerHTML+= '<div class="but"><font class="green">���������: <b id="ustBox">'+inshp[6]+'</b>%</font><a class="bg" href="/map.php" target="_blank">����� ����</a></div>';
 	
-	//d.getElementById('contBox').innerHTML+= '<span id="ButtonPlace">'+ButtonGen()+'</span>';
+	
+	d.getElementById('contBox').innerHTML+= '<div class="but" align="center" id="ButtonPlace">'+ButtonGen()+'</div>';
 
-    //ins_HP(inshp[0], inshp[1], inshp[2], inshp[3]);
-    ins_HP(inshp[0],inshp[1],inshp[2],inshp[3],inshp[4],inshp[5]);
+	ins_HP(inshp[0],inshp[1],inshp[2],inshp[3],inshp[4],inshp[5]);
 }
 
 function jSumCord(nx, ny)
@@ -166,19 +149,19 @@ function showMap(x, y)
         for(j=-width; j<=width; j++) 
         {
             td = d.createElement('TD');
-            td.style.backgroundImage = 'url('+url_map+'/'+map[0][3]+'/'+img_real_path((x+j),0)+'_'+img_real_path((y+i),1)+'.jpg)';
+            td.style.backgroundImage = 'url(http://'+url_map+'/'+map[0][3]+'/'+img_real_path((x+j),0)+'_'+img_real_path((y+i),1)+'.jpg)';
 			td.id = 'td_'+(x+j)+'_'+(y+i);
 			
             img = d.createElement('IMG');
             img.src = map_img_path+'/1x1.gif';
-            img.width = 64; // 100
-            img.height = 64;
+            img.width = 80; // 100
+            img.height = 80;
 			
             img.id = 'img_'+(x+j)+'_'+(y+i);
             dx = x+j;
             dy = y+i;
             
-			//if (avail[dx+'_'+dy]) td.innerHTML = '<div style="position: absolute; color: white;">'+(x+j)+'_'+(y+i)+'<br>'+img_real_path((x+j),0)+'_'+img_real_path((y+i),1)+'</div>';
+		//	if (avail[dx+'_'+dy]) td.innerHTML = '<div style="position: absolute; color: white;">'+(x+j)+'_'+(y+i)+'<br>'+img_real_path((x+j),0)+'_'+img_real_path((y+i),1)+'</div>';
 			
 			
 			if(avail[dx+'_'+dy] && !finStatus && jSumCord(dx, dy) ) {
@@ -220,15 +203,12 @@ function createCursor()
 
     div.style.display = 'block';
     div.style.position = 'absolute';
-    //div.style.marginLeft = '384px';
-    //div.style.marginTop = '128px';
-
-    div.style.marginLeft = (1 + (width)*64) + 'px';
-    div.style.marginTop = (1 + (height)*64) + 'px';
+    div.style.marginLeft = (1 + (width)*80) + 'px';
+    div.style.marginTop = (1 + (height)*80) + 'px';
     
     transport_img = d.createElement('IMG');
-    transport_img.width = 64;
-    transport_img.height = 64;
+    transport_img.width = 80;
+    transport_img.height = 80;
     
     div.appendChild(transport_img);
     d.getElementById('world_cont2').appendChild(div); 
@@ -238,14 +218,12 @@ function createCursor()
     
     div.style.display = 'none';
     div.style.position = 'absolute';
-    //div.style.marginLeft = '384px';
-    //div.style.marginTop = '0px';
-    div.style.marginLeft = '391px';
-    div.style.marginTop = '25px';
+    div.style.marginLeft = ((width-0)*80) + 'px';
+    div.style.marginTop = ((height - 2)*80) + 'px';
     
     timer_img = d.createElement('IMG');
-    timer_img.width = 50;
-    timer_img.height = 50;
+    timer_img.width = 100;
+    timer_img.height = 100;
     
     div.appendChild(timer_img);
     d.getElementById('world_cont2').appendChild(div);
@@ -255,11 +233,9 @@ function createCursor()
 
     div.style.display = 'none';
     div.style.position = 'absolute';
-    //div.style.marginLeft = '384px';
-    //div.style.marginTop = '96px';
-    div.style.marginLeft = ((width-0)*64) + 'px';
-    div.style.marginTop = (42 + (height - 2)*64) + 'px';
-    div.innerHTML = '<table cellpadding=0 cellspacing=0 border=0 width=64><tr><td align=center id="tdsec" class="timer_s"></td></tr></table>';
+    div.style.marginLeft = ((width-0)*80) + 'px';
+    div.style.marginTop = (42 + (height - 2)*80) + 'px';
+    div.innerHTML = '<table cellpadding=0 cellspacing=0 border=0 width=100><tr><td align=center id="tdsec" class="timer_s"></td></tr></table>';
     
     d.getElementById('world_cont2').appendChild(div);
 }
@@ -286,14 +262,14 @@ function StateReady()
         
 		MapReInit([]);
         
-        showTransport('dirizhopel', current_x, current_y, gox, goy, 16, 'png');
+        //showTransport('dirizhopel', current_x, current_y, gox, goy, 16, 'png');
         showTransport('man', current_x, current_y, gox, goy, 8, 'gif');
 
         dest_x = gox;
         dest_y = goy;
 		pause = gop;
 		
-		// Всегда будем проверять время перехода
+		// ������ ����� ��������� ����� ��������
 		var objmap = eval(arr_res[5]);
 		pause = parseInt(objmap[0]);
 
@@ -343,7 +319,7 @@ function move()
             freeMap('bottom');
         }
         
-        cur_margin_top += (Math.abs(dest_y - current_y) * 64) / (pause*1000 / move_interval);
+        cur_margin_top += (Math.abs(dest_y - current_y) * 80) / (pause*1000 / move_interval);
     } 
     else if(dest_y > current_y)
     {
@@ -360,7 +336,7 @@ function move()
             freeMap('top');
         }
         
-        cur_margin_top -= (Math.abs(dest_y - current_y) * 64) / (pause*1000 / move_interval);
+        cur_margin_top -= (Math.abs(dest_y - current_y) * 80) / (pause*1000 / move_interval);
     }
     
     if(dest_x < current_x)
@@ -378,7 +354,7 @@ function move()
             freeMap('right');
         }
         
-        cur_margin_left += (Math.abs(dest_x - current_x) * 64) / (pause*1000 / move_interval);
+        cur_margin_left += (Math.abs(dest_x - current_x) * 80) / (pause*1000 / move_interval);
     } 
     else if(dest_x > current_x)
     {
@@ -395,7 +371,7 @@ function move()
             freeMap('left');
         }
         
-        cur_margin_left -= (Math.abs(dest_x - current_x) * 64) / (pause*1000 / move_interval);
+        cur_margin_left -= (Math.abs(dest_x - current_x) * 80) / (pause*1000 / move_interval);
     }
     
     world.style.marginTop = parseInt(cur_margin_top) + 'px';
@@ -434,7 +410,7 @@ function MapReInit(obj)
                 imgid.style.cursor = 'default';
             }
 			
-			// Пишем на ячейки инфу
+			// ����� �� ������ ����
 			if ( avail[dx+'_'+dy] ) 
 			{
 			//	tdx = d.getElementById('td_'+dx+'_'+dy);
@@ -480,7 +456,7 @@ function TimerStart(secgo,mrinit)
         }
         time_left_sec = secgo*1000;
         if(!timer_img) createCursor();
-        //timer_img.src = IMG+'/map/world/timer.png';
+        timer_img.src = IMG+'/map/world/timer.png';
         d.getElementById('timerfon').style.display = 'block';
         d.getElementById('timerdiv').style.display = 'block';
         d.getElementById('tdsec').innerHTML = secgo;
@@ -500,12 +476,12 @@ function loadMap(dir)
         for(i=loaded_left; i<=loaded_right; i++) 
         {
             td = d.createElement('TD');
-            td.style.backgroundImage = 'url('+url_map+'/'+map[0][3]+'/'+img_real_path(i,0)+'_'+img_real_path(loaded_bottom,1)+'.jpg)';
+            td.style.backgroundImage = 'url(http://'+url_map+'/'+map[0][3]+'/'+img_real_path(i,0)+'_'+img_real_path(loaded_bottom,1)+'.jpg)';
 			td.id = 'td_'+(i)+'_'+(loaded_bottom);
 			img = d.createElement('IMG');
             img.src = ''+IMG+'/1x1.gif';
-            img.width = 64;
-            img.height = 64;
+            img.width = 80;
+            img.height = 80;
             img.id = 'img_'+(i)+'_'+(loaded_bottom);
             td.appendChild(img);
             tr.appendChild(td);
@@ -515,17 +491,17 @@ function loadMap(dir)
         break
         case 'top':
         
-        cur_margin_top -= 64; 
+        cur_margin_top -= 80; 
         tr = d.createElement('TR');
         for(i=loaded_left; i<=loaded_right; i++) 
         {
             td = d.createElement('TD');
-            td.style.backgroundImage = 'url('+url_map+'/'+map[0][3]+'/'+img_real_path(i,0)+'_'+img_real_path(loaded_top,1)+'.jpg)';
+            td.style.backgroundImage = 'url(http://'+url_map+'/'+map[0][3]+'/'+img_real_path(i,0)+'_'+img_real_path(loaded_top,1)+'.jpg)';
             td.id = 'td_'+(i)+'_'+(loaded_top);
 			img = d.createElement('IMG');
             img.src = IMG+'/1x1.gif';
-            img.width = 64;
-            img.height = 64;
+            img.width = 80;
+            img.height = 80;
             img.id = 'img_'+(i)+'_'+(loaded_top);
             td.appendChild(img);
             tr.appendChild(td);
@@ -540,12 +516,12 @@ function loadMap(dir)
         {
             tr = tbody.childNodes[i-loaded_top];
             td = d.createElement('TD');
-            td.style.backgroundImage = 'url('+url_map+'/'+map[0][3]+'/'+img_real_path(loaded_right,0)+'_'+img_real_path(i,1)+'.jpg)';
+            td.style.backgroundImage = 'url(http://'+url_map+'/'+map[0][3]+'/'+img_real_path(loaded_right,0)+'_'+img_real_path(i,1)+'.jpg)';
             td.id = 'td_'+(loaded_right)+'_'+(i);
 			img = d.createElement('IMG');
             img.src = IMG+'/1x1.gif';
-            img.width = 64;
-            img.height = 64;
+            img.width = 80;
+            img.height = 80;
             img.id = 'img_'+(loaded_right)+'_'+(i);
             td.appendChild(img);
             tr.appendChild(td);
@@ -554,17 +530,17 @@ function loadMap(dir)
         break
         case 'left':
         
-        cur_margin_left -= 64;
+        cur_margin_left -= 80;
         for(i=loaded_top; i<=loaded_bottom; i++) 
         {
             tr = tbody.childNodes[i-loaded_top];
             td = d.createElement('TD');
-            td.style.backgroundImage = 'url('+url_map+'/'+map[0][3]+'/'+img_real_path(loaded_left,0)+'_'+img_real_path(i,1)+'.jpg)';
+            td.style.backgroundImage = 'url(http://'+url_map+'/'+map[0][3]+'/'+img_real_path(loaded_left,0)+'_'+img_real_path(i,1)+'.jpg)';
             td.id = 'td_'+(loaded_left)+'_'+(i);
 			img = d.createElement('IMG');
             img.src = IMG+'/1x1.gif';
-            img.width = 64;
-            img.height = 64;
+            img.width = 80;
+            img.height = 80;
             img.id = 'img_'+(loaded_left)+'_'+(i);
             td.appendChild(img);
             tr.insertBefore(td, tr.firstChild);
@@ -612,7 +588,7 @@ function finFunction()
         map[1] = eval(arr_res[3]);
         MapReInit(map[1]);
 		mapbt = eval(arr_res[4]);
-		// Ставим усталку и кнопки
+		// ������ ������� � ������
         d.getElementById('ButtonPlace').innerHTML = ButtonGen();
 		d.getElementById('ustBox').innerHTML = objmap[2];
 		
@@ -647,7 +623,7 @@ function freeMap(dir)
     {
         case 'top':
 
-        cur_margin_top += 64; 
+        cur_margin_top += 80; 
         tr = tbody.firstChild;
         tbody.removeChild(tr);
         
@@ -660,7 +636,7 @@ function freeMap(dir)
         break
         case 'left':
 
-        cur_margin_left += 64; 
+        cur_margin_left += 80; 
         for (i=loaded_top; i<=loaded_bottom; i++) 
         {
             tr = tbody.childNodes[i-loaded_top];
@@ -688,11 +664,8 @@ function ButtonGen()
     bavail = new Array();
     for(var i=0; i<mapbt.length; i++)
     {
-        bavail[mapbt[i][0]] = [mapbt[i][2], mapbt[i][3]];
-        
-        str += ' <img src="/images/nav/out/' + mapbt[i][0] + '.png" id="' + mapbt[i][0] + '" title="' + mapbt[i][1] + '" onclick=\'ButClick("' + mapbt[i][0] + '")\' style="cursor:pointer;">';
-        
-        //str += ' <input type=button class="jBut2" id="'+mapbt[i][0]+'" value="'+mapbt[i][1]+'" onclick=\'ButClick("'+mapbt[i][0]+'")\'>';
+        bavail[mapbt[i][0]] = [mapbt[i][2],mapbt[i][3]];
+        str += ' <input type=button class="jBut2" id="'+mapbt[i][0]+'" value="'+mapbt[i][1]+'" onclick=\'ButClick("'+mapbt[i][0]+'")\'>';
     }
     return str;
 }
@@ -706,7 +679,7 @@ function ButClick(id)
         case 'bots': ohota(); break;
 		case 'fish': fishing(); break; 
 		case 'herb': herbals(); break; 
-		case 'wood': woods(); break; 
+		case 'wood': MessBoxDiv('��������� �� �������������.'); break; 
 		case 'telep': teleport(); break;
 		case 'quest': QActive(); break; 
 		default: goloc = 'main.php?goloc='+id+'&time='+bavail[id][0]; break;
@@ -722,11 +695,11 @@ function ohota()
 		if( parseInt(arr[2]) ) TimerStart( parseInt(arr[2]),1);
 		switch (arr[0])
 		{
-			case 'US': MessBoxDiv('Вы слишком устали, отдохните, после вы сможете возобновить охоту на монстров.'); break;
+			case 'US': MessBoxDiv('�� ������� ������, ���������, ����� �� ������� ����������� ����� �� ��������.'); break;
 			case 'F5': location = '/main.php?f5=1'; break;
 			case 'OK': viewModBox(eval(arr[1]), 2); break;
-			case 'NO': MessBoxDiv('Монстры не найдены.'); break;
-			default: MessBoxDiv('Ошибка.'); break;
+			case 'NO': MessBoxDiv('������� �� �������.'); break;
+			default: MessBoxDiv('������.'); break;
 		}
 	});
 }
@@ -739,8 +712,8 @@ function teleport()
 		{
 			case 'F5': location = '/main.php?f5=1'; break;
 			case 'OK': viewModBox(eval(arr[1]), 3); break;
-			case 'NO': MessBoxDiv('Телепорт не обнаружен.'); break;
-			default: MessBoxDiv('Ошибка.'); break;
+			case 'NO': MessBoxDiv('�������� �� ���������.'); break;
+			default: MessBoxDiv('������.'); break;
 		}
 	});
 }
@@ -753,20 +726,7 @@ function herbals()
 		{
 			case 'F5': location = '/main.php?f5=1'; break;
 			case 'OK': TimerStart(40,1);viewModBox(eval(arr[1]), 0); break;
-			default: MessBoxDiv('Ошибка.'); break;
-		}
-	});
-}
-
-function woods()
-{
-	$.get('/gameplay/ajax/woods.php', {'act':1}, function(r){
-		arr = r.split('@');
-		switch (arr[0])
-		{
-			case 'F5': location = '/main.php?f5=1'; break;
-			case 'OK': TimerStart(40,1);viewModBox(eval(arr[1]), 0); break;
-			default: MessBoxDiv('Ошибка.'); break;
+			default: MessBoxDiv('������.'); break;
 		}
 	});
 }
@@ -779,7 +739,7 @@ function fishing()
 		{
 			case 'F5': location = '/main.php?f5=1'; break;
 			case 'OK': viewModBox(eval(arr[1]), 1); break;
-			default: MessBoxDiv('Ошибка.'); break;
+			default: MessBoxDiv('������.'); break;
 		}
 	});
 }
@@ -794,7 +754,7 @@ function ButtonSt(st)
 	{
 		for(var i=0; i<mapbt.length; i++)
 		{
-			d.getElementById(mapbt[i][0]).disabled = st;    
+	//		d.getElementById(mapbt[i][0]).disabled = st;    
 		}
 	}
 }
@@ -880,7 +840,7 @@ function viewModBox(arr_res, act)
 		ND = d.createElement('div');
 		ND.className = 'png';
 			
-		// окно с данными
+		// ���� � �������
 		var buttons = '';
 		var ingr = arr_res;//eval(arr_res);
 		var did = 'uni';
@@ -895,10 +855,9 @@ function viewModBox(arr_res, act)
 				{
 					tr++;
 					if(tr == 1) messal += '<tr>';
-					messal += '<td bgcolor=#FFFFFF valign=top width=25%><div align=center>'+((ingr[i][2]==0) ? '<i>Срезано</i>' : (!ingr[i][3] ? '<input type=button class=but2 value="Срезать" DISABLED>' : '<input type=button class=lbut value="Срезать" onclick="getHerbal(\''+ingr[i][1]+'\',\''+ingr[i][2]+'\');">'))+'<br><br><img src="/images/weapons/herbals/'+ingr[i][1]+'.gif" width=60 height=60><br><font class=freetxt><b>'+ingr[i][0]+'</b><br></div></td>';
+					messal += '<td bgcolor=#FFFFFF valign=top width=25%><div align=center>'+((ingr[i][2]==0) ? '<i>�������</i>' : (!ingr[i][3] ? '<input type=button class=but2 value="�������" DISABLED>' : '<input type=button class=lbut value="�������" onclick="getHerbal(\''+ingr[i][1]+'\',\''+ingr[i][2]+'\');">'))+'<br><br><img src="/images/weapons/herbals/'+ingr[i][1]+'.gif" width=60 height=60><br><font class=freetxt><b>'+ingr[i][0]+'</b><br></div></td>';
 					if(tr == 4) {messal += '</tr>';tr = 0;}    
 				}
-				
 				tr++;
 				if(tr != 1)
 				{
@@ -908,12 +867,12 @@ function viewModBox(arr_res, act)
 				messal += '</table></td></tr></table>';
 			break;
 			case 1:
-				var messal = '<FORM id="FISHF"><table cellspacing=0 cellpadding=0 border=0 width=100%><tr><td bgcolor=#CCCCCC><table cellspacing=1 cellpadding=5 border=0 width=100%><tr><td bgcolor=#FFFFFF colspan=5 class="centr" class=nickname><font class=inv><b>'+((ingr[0][2] - ingr[0][1]) > 10 ? '' : '<font color=#CC0000>Внимание! Возможен перегруз.</font> ')+'Масса Вашего инвентаря: '+ingr[0][1]+'/'+ingr[0][2]+'</b></font></td></tr><tr><td bgcolor=#FFFFFF colspan=2></td><td bgcolor=#FFFFFF class="centr" width=60%><b>Название приманки</b></td><td bgcolor=#FFFFFF class="centr" width=40%><b>В наличии</b></td></tr>';
+				var messal = '<FORM id="FISHF"><table cellspacing=0 cellpadding=0 border=0 width=100%><tr><td bgcolor=#CCCCCC><table cellspacing=1 cellpadding=5 border=0 width=100%><tr><td bgcolor=#FFFFFF colspan=5 class="centr" class=nickname><font class=inv><b>'+((ingr[0][2] - ingr[0][1]) > 10 ? '' : '<font color=#CC0000>��������! �������� ��������.</font> ')+'����� ������ ���������: '+ingr[0][1]+'/'+ingr[0][2]+'</b></font></td></tr><tr><td bgcolor=#FFFFFF colspan=2></td><td bgcolor=#FFFFFF class="centr" width=60%><b>�������� ��������</b></td><td bgcolor=#FFFFFF class="centr" width=40%><b>� �������</b></td></tr>';
 				for(var i=1; i<ingr.length; i++)
 					messal += '<tr><td bgcolor=#FFFFFF class="centr"><input type=radio name=primid value='+ingr[i][1]+'></td><td bgcolor=#FFFFFF><img src="/images/weapons/'+ingr[i][2]+'.gif" width=60 height=60></td><td bgcolor=#FFFFFF class="centr"><b>'+ingr[i][0]+'</b></td><td bgcolor=#FFFFFF class="centr"><b>'+ingr[i][3]+'/'+ingr[i][4]+'</b></td></tr>';
-				messal += (!ingr[1] ? '<tr><td bgcolor=#FFFFFF colspan=5 class="centr"><img src='+IMG+'/1x1.gif width=1 height=10><br><img src="/gameplay/code/code.php?" width=134 height=60><br><img src='+IMG+'/1x1.gif width=1 height=10><br>Код: <input type=text name=code size=4 class=gr_text id=CAPCODE><br><img src='+IMG+'/1x1.gif width=1 height=10></td></tr>' : '<input type=hidden name=code size=4 value="12345" class=gr_text id=CAPCODE>')+'</table></td></tr></table></FORM>';
+				messal += (!ingr[1] ? '<tr><td bgcolor=#FFFFFF colspan=5 class="centr"><img src='+IMG+'/1x1.gif width=1 height=10><br><img src="/gameplay/code/code.php?" width=134 height=60><br><img src='+IMG+'/1x1.gif width=1 height=10><br>���: <input type=text name=code size=4 class=gr_text id=CAPCODE><br><img src='+IMG+'/1x1.gif width=1 height=10></td></tr>' : '<input type=hidden name=code size=4 value="12345" class=gr_text id=CAPCODE>')+'</table></td></tr></table></FORM>';
 				
-				buttons = '<div align="center"><br>'+(!ingr[0][0] ? '<font color=#CC0000>Не найдена удочка.</font>' : '<a class="gBut" href="javascript:getFishing();">Ловить</a>')+'</div>'; 
+				buttons = '<div align="center"><br>'+(!ingr[0][0] ? '<font color=#CC0000>�� ������� ������.</font>' : '<a class="gBut" href="javascript:getFishing();">������</a>')+'</div>'; 
 			break;
 			case 2:
 				var messal = '<table cellspacing=1 cellpadding=5 border=0 width=100%>';
@@ -927,29 +886,10 @@ function viewModBox(arr_res, act)
 				{
 					tr++;
 					if(tr == 1) messal += '<tr>';
-					messal+= '<td bgcolor="#FFFFFF" valign="top" width="25%"><div align="center"><b>'+ingr[i][2]+'</b><br>('+ingr[i][0]+' : '+ingr[i][1]+')<br><br><input type="button" class="jBut2" onClick="goTeleport(\''+ingr[i][0]+'\',\''+ingr[i][1]+'\');" value="'+ingr[i][3]+' зм." /></div></td>';
+					messal+= '<td bgcolor="#FFFFFF" valign="top" width="25%"><div align="center"><b>'+ingr[i][2]+'</b><br>('+ingr[i][0]+' : '+ingr[i][1]+')<br><br><input type="button" class="jBut2" onClick="goTeleport(\''+ingr[i][0]+'\',\''+ingr[i][1]+'\');" value="'+ingr[i][3]+' LN" /></div></td>';
 					if(tr == 4){messal+= '</tr>';tr = 0;}  
 				}
 				messal += '</table>';
-			break;
-			case 4:
-				var tr = 0;
-				var messal = '<table cellpadding=0 cellspacing=0 border=0 width=100%><tr><td bgcolor=#CCCCCC><table cellpadding=10 cellspacing=1 border=0 width=100%>';
-				for(var i=0; i<ingr.length; i++)
-				
-				{
-					tr++;
-					if(tr == 1) messal += '<tr>';
-					messal += '<td bgcolor=#FFFFFF valign=top width=25%><div align=center>'+((ingr[i][2]==0) ? '<i>Срублено</i>' : (!ingr[i][3] ? '<input type=button class=but2 value="Срубить" DISABLED>' : '<input type=button class=lbut value="Срубить" onclick="getWood(\''+ingr[i][1]+'\',\''+ingr[i][2]+'\');">'))+'<br><br><img src="/images/weapons/trees/'+ingr[i][1]+'.gif" width=60 height=60><br><font class=freetxt><b>'+ingr[i][0]+'</b><br></div></td>';
-					if(tr == 4) {messal += '</tr>';tr = 0;}    
-				}
-				tr++;
-				if(tr != 1)
-				{
-					for(var i=tr; i<5; i++) messal += '<td bgcolor=#FFFFFF width=25%>&nbsp;</td>';
-					messal += '</tr>';
-				}
-				messal += '</table></td></tr></table>';
 			break;
 				
 		}
@@ -979,27 +919,26 @@ function vState(a)
 {
 //	alert(a);
 	r = '<table width="100%">';
-		r+= '<tr><td><b>Сила</b>: '+a[0]+'</td><td><b>Крит. удара</b>: '+a[6]+'%</td></tr>';
-		r+= '<tr><td><b>Ловкость</b>: '+a[1]+'</td><td><b>Уворота</b>: '+a[7]+'%</td></tr>';
-		r+= '<tr><td><b>Удача</b>: '+a[2]+'</td><td><b>Анти уворота</b>: '+a[8]+'%</td></tr>';
-		r+= '<tr><td><b>Уровень Жизни</b>: '+a[3]+'</td><td><b>Анти крит. удара</b>: '+a[9]+'%</td></tr>';
-		r+= '<tr><td><b>Урон</b>: '+a[4]+'</td><td><b>Пробой Брони</b>: '+a[10]+'</td></tr>';
-		r+= '<tr><td><b>Броня</b>: '+a[5]+'</td><td><b>Мощь персонажа</b>: '+a[11]+'</td></tr>';
+		r+= '<tr><td><b>����</b>: '+a[0]+'</td><td><b>����������</b>: '+a[6]+'%</td></tr>';
+		r+= '<tr><td><b>�������</b>: '+a[1]+'</td><td><b>������</b>: '+a[7]+'%</td></tr>';
+		r+= '<tr><td><b>�����</b>: '+a[2]+'</td><td><b>��������</b>: '+a[8]+'%</td></tr>';
+		r+= '<tr><td><b>HP</b>: '+a[3]+'</td><td><b>���������</b>: '+a[9]+'%</td></tr>';
+		r+= '<tr><td><b>����</b>: '+a[4]+'</td><td><b>������ �����</b>: '+a[10]+'</td></tr>';
+		r+= '<tr><td><b>����� �����</b>: '+a[5]+'</td><td><b>�����������</b>: '+a[11]+'</td></tr>';
 	r+= '</table>';
 	return r;
 }
 
 function getBattle(id)
 {
-    RemoveDialogDiv();
 	$.get('/gameplay/ajax/get_bots.php', {'act':2, 'bid':id}, function(r){
 		arr = r.split('@');
 		switch (arr[0])
 		{
 			case 'F5': location = '/main.php?f5=1'; break;
 			case 'OK': location = '/main.php?reset=1'; break;
-			case 'NO': MessBoxDiv('Монстры не найдены.'); break;
-			default: MessBoxDiv('Ошибка.'); break;
+			case 'NO': MessBoxDiv('������� �� �������.'); break;
+			default: MessBoxDiv('������.'); break;
 		}
 	});
 }
@@ -1007,18 +946,7 @@ function getBattle(id)
 function goTeleport(x,y)
 {
 	$.get('/gameplay/ajax/map.php', {'gotel':1, 'tx':x, 'ty':y}, function(r){
-		if ( r=='NO' ) MessBoxDiv('Недостаточно деняг или телепорт не существует.');
-		else location = '/main.php?reset=1';
-	});
-}
-
-function getWood(id,code)
-{
-	RemoveDialogDiv();
-	$.get('/gameplay/ajax/woods.php', {'act':2, 'rid':id, 'code':code}, function(r){
-		arr = r.split('@');
-		if ( arr[0]=='NO' ) MessBoxDiv('Не удалось срубить дерево.');
-		else if ( arr[0]=='OK' ) MessBoxDiv('Дерево успешно срублено.<br><b>'+arr[1]+'</b>');
+		if ( r=='NO' ) MessBoxDiv('������������ ����� ��� �������� �� ����������.');
 		else location = '/main.php?reset=1';
 	});
 }
@@ -1028,8 +956,8 @@ function getHerbal(id,code)
 	RemoveDialogDiv();
 	$.get('/gameplay/ajax/herbals.php', {'act':2, 'rid':id, 'code':code}, function(r){
 		arr = r.split('@');
-		if ( arr[0]=='NO' ) MessBoxDiv('Не удалось срезать растение.');
-		else if ( arr[0]=='OK' ) MessBoxDiv('Растение успешно срезано.<br><b>'+arr[1]+'</b>');
+		if ( arr[0]=='NO' ) MessBoxDiv('�� ������� ������� ��������.');
+		else if ( arr[0]=='OK' ) MessBoxDiv('�������� ������� �������.<br><b>'+arr[1]+'</b>');
 		else location = '/main.php?reset=1';
 	});
 }
@@ -1058,7 +986,7 @@ function getFishing()
 				else location = '/main.php?reset=1';
 				if( parseInt(arr[2]) ) TimerStart( parseInt(arr[2]),1);
 			});
-		} else errm = 'Не выбрана приманка.';       
-    } else errm = 'Введите защитный код.';
+		} else errm = '�� ������� ��������.';       
+    } else errm = '������� �������� ���.';
     if(errm) MessBoxDiv(errm);
 }
