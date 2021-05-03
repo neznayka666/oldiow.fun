@@ -2,7 +2,7 @@
 
 define('MAX_FISH_COUNT', 3); // Максимальное число пойманых рыб может быть
 define('MAX_TIRE', 90);		// Максимальная усталка чтоб ловить
-define('TIMEOUT_FISH', ($this->pers['priveleged'] ? 1 : 180)); // Таймаут после заброса
+define('TIMEOUT_FISH', ($pers['priveleged'] ? 1 : 180)); // Таймаут после заброса
 define('PLUS_TIRE', 3);		// Сколько добавлять усталки за раз
 
 class Fishing
