@@ -96,7 +96,7 @@ setInterval("if(document.getElementById('timeout').innerHTML>0)document.getEleme
 if(_closed)
 	s+= '<b class=hp title="Никто не может вмешаться">[ЗАКРЫТЫЙ]</b>';
 s+=' | <img src="images/icons/battle/clock.gif" title="Таймаут">: <font title="Таймаут[Лог боя]" style="color:red;" class="timef" id="timeout">'+timeout+'</font><a href="fight.php?id='+logid+'" target="_blank" class="timef"><img src="images/icons/battle/log.png" title="Лог поединка №'+logid+'"></a> <a href="main.php?vs_id=' + persvs_id + '"> <img src="images/icons/battle/refrash.png" title="Обновить"></a></td></tr><tr><td id="odd" width="50%" align="center">111</td></tr></table>';
-f_f.innerHTML = sbox2('<hr><div id=TOP>'+s+'</div>',1,2);
+f_f.innerHTML = sbox2('<div id=TOP>'+s+'</div>',1,2);
 var t='';
 t='<table border=0 width=100% cellspacing=0 cellspadding=0><tr><td width=50% align=center><span class=gray onclick="top.group_private(\''+t1u.join("|")+'|\')" style="cursor:pointer;">Сообщение</span></td><td width=50% align=center ><span class=gray onclick="top.group_private(\''+t2u.join("|")+'|\')"  style="cursor:pointer;">Сообщение</span></td></tr>';
 var mmax = t1u.length;
@@ -231,7 +231,7 @@ if (!noone) noone='<input class=login type=button value="Ничья" onclick="de
 else noone='<input class=login type=button value="Ничья" DISABLED style="width:100%; height:'+Button_HEIGHT+'px; FONT-WEIGHT: bold;">';
 var can_turn_text = '';
 if(can_turn) can_turn_text = '<tr> <td align=center id=buttons_f style="padding:10px 0;width:100%;">1</td></tr></table><table border=0 width=100% cellspacing=0 cellpadding=0 style="cursor:pointer;display:none;"> <tr><td width=40%><input class=login type=button value="Атака" onclick="attack();" id=attack_button style="width:100%; height:'+Button_HEIGHT+'px; FONT-WEIGHT: bold; cursor:pointer;"></td><td id=_container>'+minimap+'<table width=100% border=0 cellspacing=0 cellspadding=0 id="ftypes" style="display:'+tmpB+';"><tr><td class='+j1+' title="Ближний бой" onclick="location=\'main.php?fstate=1\'"><img border=0 src="images/arena/15.gif" width=80></td> <td class='+j3+' title="Магия" onclick="location=\'main.php?fstate=3\'"><img border=0 src="images/arena/44.gif" width=80></td></tr></table></td> <td width=40% align=right>'+noone+'</td></tr>';
-f_f.innerHTML +='<table width=400 border=1 cellspacing=0 cellspadding=0 style="margin:0 auto;border:1 px solid #ccc;"> <tr><td id=field align=center>'+field+'</td></tr>'+can_turn_text+'</table><div id="information" class=ma align=center></div></form>';
+f_f.innerHTML +='<table width=400 border=1 cellspacing=0 cellspadding=0 style="margin:0 auto;border:1 px solid #ccc;"><tr><td id="odd"></td></tr> <tr><td id=field align=center>'+field+'</td></tr>'+can_turn_text+'</table><div id="information" class=ma align=center></div></form>';
 if (mid>0)put_heroes();
 else 
 	attack();
@@ -476,7 +476,8 @@ if (fs==3 && attack_ident!=2 && attack_ident!=3) document.getElementById('inform
 ///////////////	
 if (fs==2) {zz1 = arrow_name; attack_ident=1;}
 	text = '<form method=POST name=battle action=main.php?vs_id='+persvs_id+'&rand='+Math.random()+'><input type=hidden name=vs value='+persvs_id+'><table border="0" width="400" cellspacing="0" cellpadding="0" style="border:1 px solid #ccc;"><tr><td align="center" width="50%" class=but>'+zz1+'</td><td align="center" width="50%" class=but>'+zz2+'</td></tr><tr><td align="center" width="25%">';
-if (attack_ident!=3 && NEAR)
+	if (attack_ident != 3 && NEAR)
+		
 	text += `<table border="0" width="200" cellspacing="1" cellpadding="3" style="margin:10px 0;background-color: #fadddc;" >
 		<tr><td colspan="3" align="center"><strong>Атака</strong></td></tr>
 		<tr>
@@ -641,7 +642,7 @@ function ch_od(odc)
 	{
 		w1 = (odc/od)*100;
 		w2 = 100-w1;
-		document.getElementById('odd').innerHTML = '<table width="400" style="background:#f5f5f5;"><tr><td align=center><span class="items" id="odtext">Очки действия [<b class=user>'+odc+'</b>/<b class=user>'+od+'</b>]</span></td></tr><!--tr><td align=center><table border=0 cellspacing=0 cellspadding=0 width=100><tr><td align=right><img src=images/design/new/2ma.gif width='+w1+' height=8 id=_odn></td><td><img src=images/no.png width='+w2+' height=8 id=_odz></td></tr></table></td></!--tr--></table>';
+		document.getElementById('odd').innerHTML = '<table width="400" class="whiteBlock"><tr><td align=center><span class="items" id="odtext">Очки действия [<b class=user>'+odc+'</b>/<b class=user>'+od+'</b>]</span></td></tr><!--tr><td align=center><table border=0 cellspacing=0 cellspadding=0 width=100><tr><td align=right><img src=images/design/new/2ma.gif width='+w1+' height=8 id=_odn></td><td><img src=images/no.png width='+w2+' height=8 id=_odz></td></tr></table></td></!--tr--></table>';
 	}
 	else
 	{

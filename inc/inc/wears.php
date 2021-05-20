@@ -7,6 +7,7 @@ if (@$http->get["use"] and $player->pers["cfight"]>10 and $player->pers["chp"])
 		if ($v["durability"]>0)
 	{
 		if (substr_count($index,"hp$"))
+	
 		{
 			$hp_value = intval(str_replace("hp$","",$index));
 			if ($hp_value>abs($player->pers["hp"]-$player->pers["chp"]))$hp_value=abs($player->pers["hp"]-$player->pers["chp"]);
