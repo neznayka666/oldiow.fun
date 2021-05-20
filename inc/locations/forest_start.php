@@ -1,6 +1,6 @@
 <?php
-if ( $player->pers["waiter"]>tme() )
-	echo "<center><div id=waiter class=items align=center></div><script>waiter(".($player->pers["waiter"]-tme()).");</script></center>";
+if ( $player->pers["waiter_forest"]>tme() )
+	echo "<center><div id=waiter class=items align=center></div><script>waiter(".($player->pers["waiter_forest"]-tme()).");</script></center>";
 
 define("LFOREST1",50);
 define("LFOREST2",120);
@@ -33,7 +33,7 @@ if ( $http->_get('lbuy') > 0 and $http->_get('lbuy')<13 and !$player->AuraSpecia
 	$cat = (int)$http->_get('lbuy');
 	if ($cat==1 and $player->pers["money"]>LFOREST1)
 	{
-		$a["image"] = 'i/lic/lic_sh';
+		$a["image"] = 'i/lic/lic_forest';
 		$a["params"] = '';
 		$a["esttime"] = 3600;
 		$a["name"] = 'Лицензия Старетеля';
@@ -44,7 +44,7 @@ if ( $http->_get('lbuy') > 0 and $http->_get('lbuy')<13 and !$player->AuraSpecia
 	}
 	elseif ($cat==2 and $player->pers["money"]>LFOREST2)
 	{
-		$a["image"] = 'i/lic/lic_sh';
+		$a["image"] = 'i/lic/lic_forest';
 		$a["params"] = '';
 		$a["esttime"] = 3600*2;
 		$a["name"] = 'Лицензия Старетеля';
@@ -55,7 +55,7 @@ if ( $http->_get('lbuy') > 0 and $http->_get('lbuy')<13 and !$player->AuraSpecia
 	}
 	elseif ($cat==3 and $player->pers["money"]>LFOREST3)
 	{
-		$a["image"] = 'i/lic/lic_sh';
+		$a["image"] = 'i/lic/lic_forest';
 		$a["params"] = '';
 		$a["esttime"] = 3600*3;
 		$a["name"] = 'Лицензия Старетеля';
@@ -66,7 +66,7 @@ if ( $http->_get('lbuy') > 0 and $http->_get('lbuy')<13 and !$player->AuraSpecia
 	}
 	elseif ($cat==5 and $player->pers["money"]>LFOREST5)
 	{
-		$a["image"] = 'i/lic/lic_sh';
+		$a["image"] = 'i/lic/lic_forest';
 		$a["params"] = '';
 		$a["esttime"] = 3600*5;
 		$a["name"] = 'Лицензия Старетеля';
@@ -77,7 +77,7 @@ if ( $http->_get('lbuy') > 0 and $http->_get('lbuy')<13 and !$player->AuraSpecia
 	}
 	elseif ($cat==8 and $player->pers["money"]>LFOREST8)
 	{
-		$a["image"] = 'i/lic/lic_sh';
+		$a["image"] = 'i/lic/lic_forest';
 		$a["params"] = '';
 		$a["esttime"] = 3600*8;
 		$a["name"] = 'Лицензия Старетеля';
@@ -88,7 +88,7 @@ if ( $http->_get('lbuy') > 0 and $http->_get('lbuy')<13 and !$player->AuraSpecia
 	}
 	elseif ($cat==12 and $player->pers["money"]>LFOREST12)
 	{
-		$a["image"] = 'i/lic/lic_sh';
+		$a["image"] = 'i/lic/lic_forest';
 		$a["params"] = '';
 		$a["esttime"] = 3600*12;
 		$a["name"] = 'Лицензия Старетеля';
@@ -108,7 +108,7 @@ echo "<td width='25%'></td>";
 echo "</tr></table>";
 
 if ($player->AuraSpecial[14] and !$player->AuraSpecial[15]) {
-	echo "<div class='greenBlock margin-5' style='margin:15px auto; width:100%;max-width:1200px;text-align:center;'><input type=button class='inv_but' onclick=\"location='main.php?goFOREST=1'\" value='Спуститься в шахту'>
+	echo "<div class='greenBlock margin-5' style='margin:15px auto; width:100%;max-width:1200px;text-align:center;'><input type=button class='inv_but' onclick=\"location='main.php?GOFOREST=1'\" value='Зайти в Лес'>
 	<hr>Осталось: <b>".tp($player->AuraSpecial[14])."</b>.</div>";
 }
 if ($player->AuraSpecial[15]) {

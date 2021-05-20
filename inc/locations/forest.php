@@ -31,7 +31,7 @@ $tu = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"])." and
 	}
 	*/
 
-	if ( @$http->get["forestgo"] and $player->pers["waiter"]<=$t and $player->jKey(1) )
+	if ( @$http->get["forestgo"] and $player->pers["waiter_forest"]<=$t and $player->jKey(1) )
 	{
 		$res = $db->sql("SELECT * FROM resources ORDER BY RAND()", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		$r1 = mysql_fetch_array($res);
@@ -81,8 +81,8 @@ $tu = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"])." and
 			elseif ($td["time_ready"]>$t)
 				$db->sql("UPDATE forest SET time_ready=".($t+($td["time_ready"]-$t)*($td["countp"]-1)/$td["countp"]).",countp=countp+1 WHERE x='".($player->pers["forestx"])."' and y='".($player->pers["foresty"])."' and forest=".$forest_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		}
-		set_vars("forestx=".$player->pers["forestx"].",foresty=".$player->pers["foresty"].",waiter=".($t+$tper)."",$player->pers["uid"]);
-		$player->pers["waiter"]=$t+$tper;
+		set_vars("forestx=".$player->pers["forestx"].",foresty=".$player->pers["foresty"].",waiter_forest=".($t+$tper)."",$player->pers["uid"]);
+		$player->pers["waiter_forest"]=$t+$tper;
 
 		$tr = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"]+1)." and y=".$player->pers["foresty"]." and forest=".$forest_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		$tl = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"]-1)." and y=".$player->pers["foresty"]." and forest=".$forest_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
@@ -99,7 +99,7 @@ sql("UPDATE forest SET r1k=r1k+".rand(1,30).",r2k=r2k+".rand(2,15).",r3k=r3k+".r
 ############################################
 $inst = $db->sqla("SELECT id,udmin,udmax,durability,price FROM wp WHERE uidp=".$player->pers["uid"]." and weared=1 and p_type=5", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 if (!$inst["id"]) $no_make=1;
-if (@$http->get["beginr"] and !$no_make and $player->pers["waiter"]<$t and $player->pers["tire"]<100)
+if (@$http->get["beginr"] and !$no_make and $player->pers["waiter_forest"]<$t and $player->pers["tire"]<100)
 {
 	include("forest/resource.php");
 	$inst = $db->sqla("SELECT id,udmin,udmax,durability FROM wp WHERE uidp=".$player->pers["uid"]." and weared=1 and p_type=5", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
@@ -132,16 +132,16 @@ else
 	$cursor .= '<b>Тоннель ['.($player->pers["forestx"]).';'.$player->pers["foresty"]*(-1).']</b>';
 
 	$t=$t;
-	if ($t<$player->pers["waiter"] or $tunnel["time_ready"]>$t)
+	if ($t<$player->pers["waiter_forest"] or $tunnel["time_ready"]>$t)
 	{
 		if ($t<$tunnel["time_ready"])
 		{
-			$player->pers["waiter"]=$tunnel["time_ready"];
-			set_vars ("waiter='".$tunnel["time_ready"]."'",$player->pers["uid"]);
-			$cursor .= "<br><div id=waiter  align=center></div><script>waiter(".($player->pers["waiter"]-$t).");</script><br><font >Раскапывают этот тоннель: ".$tunnel["countp"]."</font>";
+			$player->pers["waiter_forest"]=$tunnel["time_ready"];
+			set_vars ("waiter_forest='".$tunnel["time_ready"]."'",$player->pers["uid"]);
+			$cursor .= "<br><div id=waiter  align=center></div><script>waiter(".($player->pers["waiter_forest"]-$t).");</script><br><font >Раскапывают этот тоннель: ".$tunnel["countp"]."</font>";
 		}
 		else
-		$cursor .= "<br><div id=waiter  align=center></div><script>waiter(".($player->pers["waiter"]-$t).");</script>";
+		$cursor .= "<br><div id=waiter  align=center></div><script>waiter(".($player->pers["waiter_forest"]-$t).");</script>";
 	$no_make=1;
 	}
 	else

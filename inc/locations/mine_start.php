@@ -1,6 +1,6 @@
 <?php
 if ( $player->pers["waiter"]>tme() )
-	echo "<center><div id=waiter class=items align=center></div><s!cript>waiter(".($player->pers["waiter"]-tme()).");</s!cript></center>";
+	echo "<center><div id=waiter class=items align=center></div><script>waiter(".($player->pers["waiter"]-tme()).");</script></center>";
 
 define("LMINE1",50);
 define("LMINE2",120);
