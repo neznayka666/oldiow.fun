@@ -342,6 +342,6 @@ build_forest();
 
 function go_confirm(where) {
     if (confirm("Вы действительно хотите раскопать новый тоннель?"))
-        location = 'main.php?forestgo=' + where + '&<?=$player->jKey();?>';
+        location = 'main.php?forestgo='+where+'&<?=$player->jKey();?>';
 }
 </script>
