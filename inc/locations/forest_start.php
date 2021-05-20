@@ -36,7 +36,7 @@ if ( $http->_get('lbuy') > 0 and $http->_get('lbuy')<13 and !$player->AuraSpecia
 		$a["image"] = 'i/lic/lic_sh';
 		$a["params"] = '';
 		$a["esttime"] = 3600;
-		$a["name"] = 'Лицензия шахтёра';
+		$a["name"] = 'Лицензия Старетеля';
 		$a["special"] = 14;
 		light_aura_on($a,$player->pers["uid"]);
 		set_vars("money=money-".LFOREST1,UID);
@@ -47,7 +47,7 @@ if ( $http->_get('lbuy') > 0 and $http->_get('lbuy')<13 and !$player->AuraSpecia
 		$a["image"] = 'i/lic/lic_sh';
 		$a["params"] = '';
 		$a["esttime"] = 3600*2;
-		$a["name"] = 'Лицензия шахтёра';
+		$a["name"] = 'Лицензия Старетеля';
 		$a["special"] = 14;
 		light_aura_on($a,$player->pers["uid"]);
 		set_vars("money=money-".LFOREST2,UID);
@@ -58,7 +58,7 @@ if ( $http->_get('lbuy') > 0 and $http->_get('lbuy')<13 and !$player->AuraSpecia
 		$a["image"] = 'i/lic/lic_sh';
 		$a["params"] = '';
 		$a["esttime"] = 3600*3;
-		$a["name"] = 'Лицензия шахтёра';
+		$a["name"] = 'Лицензия Старетеля';
 		$a["special"] = 14;
 		light_aura_on($a,$player->pers["uid"]);
 		set_vars("money=money-".LFOREST3,UID);
@@ -69,7 +69,7 @@ if ( $http->_get('lbuy') > 0 and $http->_get('lbuy')<13 and !$player->AuraSpecia
 		$a["image"] = 'i/lic/lic_sh';
 		$a["params"] = '';
 		$a["esttime"] = 3600*5;
-		$a["name"] = 'Лицензия шахтёра';
+		$a["name"] = 'Лицензия Старетеля';
 		$a["special"] = 14;
 		light_aura_on($a,$player->pers["uid"]);
 		set_vars("money=money-".LFOREST5,UID);
@@ -80,7 +80,7 @@ if ( $http->_get('lbuy') > 0 and $http->_get('lbuy')<13 and !$player->AuraSpecia
 		$a["image"] = 'i/lic/lic_sh';
 		$a["params"] = '';
 		$a["esttime"] = 3600*8;
-		$a["name"] = 'Лицензия шахтёра';
+		$a["name"] = 'Лицензия Старетеля';
 		$a["special"] = 14;
 		light_aura_on($a,$player->pers["uid"]);
 		set_vars("money=money-".LFOREST8,UID);
@@ -91,7 +91,7 @@ if ( $http->_get('lbuy') > 0 and $http->_get('lbuy')<13 and !$player->AuraSpecia
 		$a["image"] = 'i/lic/lic_sh';
 		$a["params"] = '';
 		$a["esttime"] = 3600*12;
-		$a["name"] = 'Лицензия шахтёра';
+		$a["name"] = 'Лицензия Старетеля';
 		$a["special"] = 14;
 		light_aura_on($a,$player->pers["uid"]);
 		set_vars("money=money-".LFOREST12,UID);
@@ -103,7 +103,7 @@ if ( $http->_get('lbuy') > 0 and $http->_get('lbuy')<13 and !$player->AuraSpecia
 
 echo "<table border=0 cellspacing=0 cellspadding=0 style='margin:40px auto; width:100%;max-width:1200px;' class='margin-5'><tr>";
 echo "<td width='25%'>У вас с собой: <b>".round($player->pers["money"],2)."</b> зм.</td>";
-echo "<td width='50%'><div class='titleCity'>Вход в Шахту</div></td>";
+echo "<td width='50%'><div class='titleCity'>Вход в Лес</div></td>";
 echo "<td width='25%'></td>";
 echo "</tr></table>";
 
@@ -119,12 +119,12 @@ if ($player->AuraSpecial[15]) {
 
 if (!$player->AuraSpecial[14] and !$player->AuraSpecial[15]) {
 	echo "<table border=0 cellspacing=0 cellspadding=0 style='margin:0 auto; width:100%;max-width:1200px;' class='greyBlock margin-5'><tr>
-	<td width=16% class=margin-5 align=center><p>Лицензия на добычу<br> на <b>1 час</b></p><p><img src='images/weapons/i/lic/lic_sh.gif' alt='Лицензия Шахтера'></p><p>Цена: <b>".LFOREST1."</b> зм.</p><p><input type=button class='inv_but' onclick=\"location='main.php?lbuy=1'\" value='Купить'> </p></td>
-	<td width=16% class=margin-5 align=center><p>Лицензия на добычу<br> на <b>2 часа</b></p><p><img src='images/weapons/i/lic/lic_sh.gif' alt='Лицензия Шахтера'></p><p>Цена: <b>".LFOREST2."</b> зм.</p><p><input type=button class='inv_but' onclick=\"location='main.php?lbuy=2'\" value='Купить'></p></td>
-	<td width=16% class=margin-5 align=center><p>Лицензия на добычу<br> на <b>3 часа</b></p><p><img src='images/weapons/i/lic/lic_sh.gif' alt='Лицензия Шахтера'></p><p>Цена: <b>".LFOREST3."</b> зм.</p><p><input type=button class='inv_but' onclick=\"location='main.php?lbuy=3'\" value='Купить'></p></td>
-	<td width=16% class=margin-5 align=center><p>Лицензия на добычу<br> на <b>5 часов</b></p><p><img src='images/weapons/i/lic/lic_sh.gif' alt='Лицензия Шахтера'></p><p>Цена: <b>".LFOREST5."</b> зм.</p><p><input type=button class='inv_but' onclick=\"location='main.php?lbuy=5'\" value='Купить'></p></td>
-	<td width=16% class=margin-5 align=center><p>Лицензия на добычу<br> на <b>8 часов</b></p><p><img src='images/weapons/i/lic/lic_sh.gif' alt='Лицензия Шахтера'></p><p>Цена: <b>".LFOREST8."</b> зм.</p><p><input type=button class='inv_but' onclick=\"location='main.php?lbuy=8'\" value='Купить'></p></td>
-	<td width=16% class=margin-5 align=center><p>Лицензия на добычу<br> на <b>12 часов</b></p><p><img src='images/weapons/i/lic/lic_sh.gif' alt='Лицензия Шахтера'></p><p>Цена: <b>".LFOREST12."</b> зм.</p><p><input type=button class='inv_but' onclick=\"location='main.php?lbuy=12'\" value='Купить'></p></td>
+	<td width=16% class=margin-5 align=center><p>Лицензия на добычу<br> на <b>1 час</b></p><p><img src='images/weapons/i/lic/lic_forest.gif' alt='Лицензия Старателя'></p><p>Цена: <b>".LFOREST1."</b> зм.</p><p><input type=button class='inv_but' onclick=\"location='main.php?lbuy=1'\" value='Купить'> </p></td>
+	<td width=16% class=margin-5 align=center><p>Лицензия на добычу<br> на <b>2 часа</b></p><p><img src='images/weapons/i/lic/lic_forest.gif' alt='Лицензия Старателя'></p><p>Цена: <b>".LFOREST2."</b> зм.</p><p><input type=button class='inv_but' onclick=\"location='main.php?lbuy=2'\" value='Купить'></p></td>
+	<td width=16% class=margin-5 align=center><p>Лицензия на добычу<br> на <b>3 часа</b></p><p><img src='images/weapons/i/lic/lic_forest.gif' alt='Лицензия Старателя'></p><p>Цена: <b>".LFOREST3."</b> зм.</p><p><input type=button class='inv_but' onclick=\"location='main.php?lbuy=3'\" value='Купить'></p></td>
+	<td width=16% class=margin-5 align=center><p>Лицензия на добычу<br> на <b>5 часов</b></p><p><img src='images/weapons/i/lic/lic_forest.gif' alt='Лицензия Старателя'></p><p>Цена: <b>".LFOREST5."</b> зм.</p><p><input type=button class='inv_but' onclick=\"location='main.php?lbuy=5'\" value='Купить'></p></td>
+	<td width=16% class=margin-5 align=center><p>Лицензия на добычу<br> на <b>8 часов</b></p><p><img src='images/weapons/i/lic/lic_forest.gif' alt='Лицензия Старателя'></p><p>Цена: <b>".LFOREST8."</b> зм.</p><p><input type=button class='inv_but' onclick=\"location='main.php?lbuy=8'\" value='Купить'></p></td>
+	<td width=16% class=margin-5 align=center><p>Лицензия на добычу<br> на <b>12 часов</b></p><p><img src='images/weapons/i/lic/lic_forest.gif' alt='Лицензия Старателя'></p><p>Цена: <b>".LFOREST12."</b> зм.</p><p><input type=button class='inv_but' onclick=\"location='main.php?lbuy=12'\" value='Купить'></p></td>
 	</tr></table>";
 }
 
