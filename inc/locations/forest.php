@@ -206,7 +206,7 @@ else
 
 if ($player->pers["tire"]>99) { $no_make = 1;}
 $resources = '';
-if ($inst) $resources3 .= 'Долговечность кирки: <b>'.$inst["durability"].'</b><br>Шахтёр: <b>'.($player->pers["sp7"]).'</b><br>Рудокоп: <b>'.($player->pers["sp12"]).'</b>';
+if ($inst) $resources3 .= 'Долговечность корзины: <b>'.$inst["durability"].'</b><br>Лесник: <b>'.($player->pers["sp7"]).'</b><br>Старатель: <b>'.($player->pers["sp12"]).'</b>';
 if ($r1["image"] and ($r1["price"]<2 or $r1["price"]<$player->pers["sp7"]/16) and mtrunc($r1["k"]))
 {
 	
