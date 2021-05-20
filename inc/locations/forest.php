@@ -126,7 +126,7 @@ else
  $maked_str[$cc["x"]][$cc["y"]] = 'inv';
 
 	//if ()
-	$cursor .= '<b>Тропика ['.($player->pers["forestx"]).';'.$player->pers["foresty"]*(-1).']</b>';
+	$cursor .= '<b>Поляна ['.($player->pers["forestx"]).';'.$player->pers["foresty"]*(-1).']</b>';
 
 	$t=$t;
 	if ($t<$player->pers["waiter_forest"] or $tunnel["time_ready"]>$t)
@@ -278,7 +278,7 @@ $resources2 .= '</table>';
 			}
 			?></td>
         <td width='50%'>
-            <div class='titleCity'>Шахта [v2.0]</div>
+            <div class='titleCity'>Лес [v1.0]</div>
         </td>
         <td width='25%'><?=$resources3;?></td>
     </tr>
@@ -301,7 +301,7 @@ $resources2 .= '</table>';
             <?php
 	echo "<font class=green>Усталость: <b>".floor($player->pers["tire"])."%</b></font><br>";
 	if ($x==0 and $y==0) {
-		echo "<center class=but><input type=button class=inv_but onclick=\"location='main.php?outforest=".$FOREST_ID."&".$player->jKey()."'\" value='Подняться из шахты'>";
+		echo "<center class=but><input type=button class=inv_but onclick=\"location='main.php?outforest=".$FOREST_ID."&".$player->jKey()."'\" value='Выйти из Леса'>";
 	}
 	else {
 		echo $resources2;
@@ -324,7 +324,7 @@ echo "Вы слишком устали.";
 
             <?php			
 	if ($player->pers["forestx"]==0 and $player->pers["foresty"]==0) {
-	$help .= '<hr><b>Помощь:</b><br><p >Для того чтобы начать добычу нужно пройти к тунелю с ресурсами и начать добычу. Если ресурсы в тунеле закончились, вы можете раскопать новый тоннель. Это можно делать группой. Просто нажмите на белую стрелку и согласитесь , тогда ваш персонаж начнёт раскапывать новый тоннель. Если в это время этот тоннель кто-то уже раскапывал, то время раскопок снизиться и т.д. чем больше раскопщиков - тем быстрее создастся тоннель.</p><hr>';
+	$help .= '<hr><b>Помощь:</b><br><p >Для того чтобы начать добычу нужно пройти к поляне с ресурсами и начать добычу. Если ресурсы на поляне закончились, вы можете разведать новую поляну. Это можно делать группой. Просто нажмите на белую стрелку и согласитесь , тогда ваш персонаж начнёт разведывать новую поляну. Если в это время этоту поляну кто-то уже разведал, то время разведки снизиться и т.д. чем больше разведчиков - тем быстрее разведаеться новая поляна.</p><hr>';
 	echo $help ;
 	//echo '<p >Умение "ШАХТЁР" помогает разглядеть более дорогие ресурсы в стенах тунеля, а так же быстрее разрывать новые тунели.<br>Умение "ДОБЫЧА КАМНЕЙ" повышает кол-во добываемых ресурсов за единицу времени.</p><hr>';
 }
@@ -341,7 +341,7 @@ echo "Вы слишком устали.";
 build_forest();
 
 function go_confirm(where) {
-    if (confirm("Вы действительно хотите раскопать новый тоннель?"))
+    if (confirm("Вы действительно хотите разведать новую поляну?"))
         location = 'main.php?forestgo='+where+'&<?=$player->jKey();?>';
 }
 </script>
