@@ -107,9 +107,6 @@ if (@$http->get["beginr"] and !$no_make and $player->pers["waiter_forest"]<$t an
 ############################################
 
 	$cursor = '';
-	
-
-
 
 	if (empty($tr["forest"]) or $tr["time_ready"]>$t) $cltr='class=fader onclick="go_confirm(\'right\')"'; else $cltr='onclick="location=\'main.php?forestgo=right&'.$player->jKey().'\'"';
 	if (empty($tl["forest"]) or $tl["time_ready"]>$t) $cltl='class=fader onclick="go_confirm(\'left\')"'; else $cltl='onclick="location=\'main.php?forestgo=left&'.$player->jKey().'\'"';
