@@ -29,9 +29,9 @@
 				insert_wp($v["id"],$player->pers["uid"],-1,0,$player->pers["user"]);
 				$r_get .= "Разрывая клоки земли, вы откопали руну!<hr>";
 				say_to_chat('s','Разрывая клоки земли, вы откопали руну!',1,$player->pers["user"],'*',0);
-				$player->pers["waiter"]=$t+$timed;
+				$player->pers["waiter_forest"]=$t+$timed;
 				$db->sql("UPDATE wp SET `durability`=durability-".round($kk+1)." WHERE id='".$inst["id"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
-				set_vars("waiter=".$player->pers["waiter"]."",$player->pers["uid"]);
+				set_vars("waiter_forest=".$player->pers["waiter_forest"]."",$player->pers["uid"]);
 				include(ROOT."/inc/inc/weapon2.php");
 				$r_get .= "<script>".$text."</script>";
 				$za = 1;
@@ -46,10 +46,10 @@
 				//$r_get .= "Вы добываете: <b>".$r["name"]."</b> в количестве:  <b>".$kk."</b> ед.<br><b>".$kk*$r["price"]."</b> зм.</font><br>Долговечность кирки понизилась на ".round($kk).".<br>Рудокоп +".round(10/($kk+3),2).".<br>Шахтёрство +".round(5/($kk+3),2).".";
 				say_to_chat ("s","Вы добываете: <b>".$r["name"]."</b> в количестве: <b>".$kk."</b> ед. Долговечность кирки понизилась на <b>-".round($kk)."</b>. Навык Рудокоп <b>+".round(10/($kk+3),2)."</b>. Навык Шахтёра <b>+".round(5/($kk+3),2)."</b>",1,$player->pers["user"],'*',0); 
 				if (!$inst2["id"]) $r_get .= '<hr><div class=return_win><i>Совет: Без телеги количество добываемого ресурса в 2 раза меньше чем с телегой.</i></div><hr>';
-				$player->pers["waiter"]=$t+$timed;
+				$player->pers["waiter_forest"]=$t+$timed;
 				$db->sql("UPDATE wp SET `durability`=durability-".round($kk+1)." WHERE id='".$inst["id"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 
-				set_vars("sp12=sp12+'".round(10/($kk+3),2)."',sp7=sp7+'".round(5/($kk+3),2)."',peace_exp=peace_exp+3,waiter=".$player->pers["waiter"].",tire=tire+10",$player->pers["uid"]);
+				set_vars("sp12=sp12+'".round(10/($kk+3),2)."',sp7=sp7+'".round(5/($kk+3),2)."',peace_exp=peace_exp+3,waiter_forest=".$player->pers["waiter_forest"].",tire=tire+10",$player->pers["uid"]);
 
 				//echo "sp12=sp12+'".(10/($kk+3))."',sp7=sp7+'".(5/($kk+3))."',peace_exp=peace_exp+3,waiter=".$player->pers["waiter"].",tire=tire+10",$player->pers["uid"];
 
@@ -66,23 +66,23 @@
 				//$db->sql("INSERT INTO `wp` ( `id` , `uidp` , `weared` ,`id_in_w`, `price` , `dprice` , `image` , `index` , `type` , `stype` , `name` , `describe` , `weight` , `where_buy` , `max_durability` , `durability` ,`p_type`)
 						//VALUES (0, '".$player->pers["uid"]."', '0','res..".$r["image"]."','".$kk*$r["price"]."', '0', 'resources/".$r["image"]."', '0', 'resources', 'resources', '".$r["name"]."', '', '1', '0', '".$kk."', '".$kk."','7');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 				//}
-				if ($r["image"]==$tunnel["r1id"]){$db->sql("UPDATE mine SET r1k=r1k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and mine=".$tunnel["mine"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r1k"]-=$kk;}
-				if ($r["image"]==$tunnel["r2id"]){$db->sql("UPDATE mine SET r2k=r2k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and mine=".$tunnel["mine"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r2k"]-=$kk;}
-				if ($r["image"]==$tunnel["r3id"]){$db->sql("UPDATE mine SET r3k=r3k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and mine=".$tunnel["mine"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r3k"]-=$kk;}
+				if ($r["image"]==$tunnel["r1id"]){$db->sql("UPDATE forest SET r1k=r1k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and forest=".$tunnel["forest"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r1k"]-=$kk;}
+				if ($r["image"]==$tunnel["r2id"]){$db->sql("UPDATE forest SET r2k=r2k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and forest=".$tunnel["forest"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r2k"]-=$kk;}
+				if ($r["image"]==$tunnel["r3id"]){$db->sql("UPDATE forest SET r3k=r3k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and forest=".$tunnel["forest"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r3k"]-=$kk;}
 				###
 				loges_proffesions($kk*$r["price"], 2, 'Ш: '.round($player->pers['sp7']).'; Д: '.round($player->pers['sp12']),UID);
 			}
 			else
 			{
 				$r_get .= "Неудачным ударом кирки, вы испортили ресурс.<br>Долговечность кирки понизилась на ".round($kk+1).".<br>Рудокоп -".round((5/($player->pers["sp12"]+1)),3).".<hr><i>Совет: Это происходит из-за слишком малого количества вашего умения \"Рудокоп\". Поднять это умение можно в университете.</i><hr>";
-				$player->pers["waiter"]=$t+$timed;
+				$player->pers["waiter_forest"]=$t+$timed;
 				$mm = round((5/($player->pers["sp12"]+1)),3);
 				if ($player->pers["sp12"]<1) $mm=0;
 				$db->sql("UPDATE wp SET durability=durability-".round($kk+1)." WHERE id='".$inst["id"]."'");
-				set_vars("sp12=sp12-".$mm.",peace_exp=peace_exp+1,waiter=".$player->pers["waiter"].",tire=tire+8",$player->pers["uid"]);
-				if ($r["image"]==$tunnel["r1id"]){$db->sql("UPDATE mine SET r1k=r1k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and mine=".$tunnel["mine"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r1k"]-=$kk;}
-				if ($r["image"]==$tunnel["r2id"]){$db->sql("UPDATE mine SET r2k=r2k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and mine=".$tunnel["mine"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r2k"]-=$kk;}
-				if ($r["image"]==$tunnel["r3id"]){$db->sql("UPDATE mine SET r3k=r3k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and mine=".$tunnel["mine"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r3k"]-=$kk;}
+				set_vars("sp12=sp12-".$mm.",peace_exp=peace_exp+1,waiter_forest=".$player->pers["waiter_forest"].",tire=tire+8",$player->pers["uid"]);
+				if ($r["image"]==$tunnel["r1id"]){$db->sql("UPDATE forest SET r1k=r1k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and forest=".$tunnel["forest"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r1k"]-=$kk;}
+				if ($r["image"]==$tunnel["r2id"]){$db->sql("UPDATE forest SET r2k=r2k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and forest=".$tunnel["forest"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r2k"]-=$kk;}
+				if ($r["image"]==$tunnel["r3id"]){$db->sql("UPDATE forest SET r3k=r3k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and forest=".$tunnel["forest"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r3k"]-=$kk;}
 			}
 }
 }
