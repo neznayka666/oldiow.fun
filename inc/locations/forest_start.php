@@ -108,7 +108,7 @@ echo "<td width='25%'></td>";
 echo "</tr></table>";
 
 if ($player->AuraSpecial[14] and !$player->AuraSpecial[15]) {
-	echo "<div class='greenBlock margin-5' style='margin:15px auto; width:100%;max-width:1200px;text-align:center;'><input type=button class='inv_but' onclick=\"location='main.php?GOFOREST=1'\" value='Зайти в Лес'>
+	echo "<div class='greenBlock margin-5' style='margin:15px auto; width:100%;max-width:1200px;text-align:center;'><input type=button class='inv_but' onclick=\"location='main.php?goforest=1'\" value='Зайти в Лес'>
 	<hr>Осталось: <b>".tp($player->AuraSpecial[14])."</b>.</div>";
 }
 if ($player->AuraSpecial[15]) {
