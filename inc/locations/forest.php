@@ -1,10 +1,10 @@
 <SCRIPT LANGUAGE='JavaScript' SRC='/js/forest.js'></SCRIPT>
 <?php
-$forest_ID = 32;//($player->pers["x"]*$player->pers["y"])%65500;
-$tr = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"]+1)." and y=".$player->pers["foresty"]." and forest=".$forest_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
-$tl = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"]-1)." and y=".$player->pers["foresty"]." and forest=".$forest_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
-$td = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"])." and y=".($player->pers["foresty"]+1)." and forest=".$forest_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
-$tu = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"])." and y=".($player->pers["foresty"]-1)." and forest=".$forest_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+$FOREST_ID = 32;//($player->pers["x"]*$player->pers["y"])%65500;
+$tr = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"]+1)." and y=".$player->pers["foresty"]." and forest=".$FOREST_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+$tl = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"]-1)." and y=".$player->pers["foresty"]." and forest=".$FOREST_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+$td = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"])." and y=".($player->pers["foresty"]+1)." and forest=".$FOREST_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+$tu = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"])." and y=".($player->pers["foresty"]-1)." and forest=".$FOREST_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 
 	$t = tme();
 	//$t = "";
@@ -50,47 +50,47 @@ $tu = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"])." and
 			$player->pers["forestx"]=$player->pers["forestx"]-1;
 			$player->pers["foresty"]=$player->pers["foresty"];
 			if (!$tl["forest"]) $db->sql("INSERT INTO `forest` (`x`,`y`,`time_ready`,`r1id`,`r2id`,`r3id` , `r1k` , `r2k` , `r3k`,`forest`,`countp`)
-				VALUES ('".($player->pers["forestx"])."', '".($player->pers["foresty"])."', '".($t+$timep-$player->pers["sp7"])."','".$r1["image"]."', '".$r2["image"]."', '".$r3["image"]."', '".$kr1."', '".$kr2."', '".$kr3."', '".$forest_ID."', '1');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+				VALUES ('".($player->pers["forestx"])."', '".($player->pers["foresty"])."', '".($t+$timep-$player->pers["sp7"])."','".$r1["image"]."', '".$r2["image"]."', '".$r3["image"]."', '".$kr1."', '".$kr2."', '".$kr3."', '".$FOREST_ID."', '1');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			elseif ($tl["time_ready"]>$t)
-				$db->sql("UPDATE forest SET time_ready=".($t+($tl["time_ready"]-$t)*($tl["countp"]-1)/$tl["countp"]).",countp=countp+1 WHERE x='".($player->pers["forestx"])."' and y='".($player->pers["foresty"])."' and forest=".$forest_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+				$db->sql("UPDATE forest SET time_ready=".($t+($tl["time_ready"]-$t)*($tl["countp"]-1)/$tl["countp"]).",countp=countp+1 WHERE x='".($player->pers["forestx"])."' and y='".($player->pers["foresty"])."' and forest=".$FOREST_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		}
 		if ($http->get["forestgo"]=='right')
 		{
 			$player->pers["forestx"]=$player->pers["forestx"]+1;
 			$player->pers["foresty"]=$player->pers["foresty"];
 			if (!$tr["forest"]) $db->sql("INSERT INTO `forest` ( `x` , `y` , `time_ready` , `r1id` , `r2id` , `r3id` , `r1k` , `r2k` , `r3k` ,`forest` , `countp` ) 
-				VALUES ('".($player->pers["forestx"])."', '".($player->pers["foresty"])."', '".($t+$timep-$player->pers["sp7"])."','".$r1["image"]."', '".$r2["image"]."', '".$r3["image"]."', '".$kr1."', '".$kr2."', '".$kr3."', '".$forest_ID."', '1');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+				VALUES ('".($player->pers["forestx"])."', '".($player->pers["foresty"])."', '".($t+$timep-$player->pers["sp7"])."','".$r1["image"]."', '".$r2["image"]."', '".$r3["image"]."', '".$kr1."', '".$kr2."', '".$kr3."', '".$FOREST_ID."', '1');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			elseif ($tr["time_ready"]>$t)
-				$db->sql("UPDATE forest SET time_ready=".($t+($tr["time_ready"]-$t)*($tr["countp"]-1)/$tr["countp"]).",countp=countp+1 WHERE x='".($player->pers["forestx"])."' and y='".($player->pers["foresty"])."' and forest=".$forest_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+				$db->sql("UPDATE forest SET time_ready=".($t+($tr["time_ready"]-$t)*($tr["countp"]-1)/$tr["countp"]).",countp=countp+1 WHERE x='".($player->pers["forestx"])."' and y='".($player->pers["foresty"])."' and forest=".$FOREST_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		}
 		if ($http->get["forestgo"]=='up')
 		{
 			$player->pers["forestx"]=$player->pers["forestx"];
 			$player->pers["foresty"]=$player->pers["foresty"]-1;
 			if (!$tu["forest"]) $db->sql("INSERT INTO `forest` ( `x` , `y` , `time_ready` , `r1id` , `r2id` , `r3id` , `r1k` , `r2k` , `r3k` ,`forest` , `countp` )
-				VALUES ('".($player->pers["forestx"])."', '".($player->pers["foresty"])."', '".($t+$timep-$player->pers["sp7"])."','".$r1["image"]."', '".$r2["image"]."', '".$r3["image"]."', '".$kr1."', '".$kr2."', '".$kr3."', '".$forest_ID."', '1');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+				VALUES ('".($player->pers["forestx"])."', '".($player->pers["foresty"])."', '".($t+$timep-$player->pers["sp7"])."','".$r1["image"]."', '".$r2["image"]."', '".$r3["image"]."', '".$kr1."', '".$kr2."', '".$kr3."', '".$FOREST_ID."', '1');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			elseif ($tu["time_ready"]>$t)
-			$db->sql("UPDATE forest SET time_ready=".($t+($tu["time_ready"]-$t)*($tu["countp"]-1)/$tu["countp"]).",countp=countp+1 WHERE x='".($player->pers["forestx"])."' and y='".($player->pers["foresty"])."' and forest=".$forest_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+			$db->sql("UPDATE forest SET time_ready=".($t+($tu["time_ready"]-$t)*($tu["countp"]-1)/$tu["countp"]).",countp=countp+1 WHERE x='".($player->pers["forestx"])."' and y='".($player->pers["foresty"])."' and forest=".$FOREST_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		}
 		if ($http->get["forestgo"]=='down')
 		{
 			$player->pers["forestx"]=$player->pers["forestx"];
 			$player->pers["foresty"]=$player->pers["foresty"]+1;
 			if (!$td["forest"]) $db->sql("INSERT INTO `forest` ( `x` , `y` , `time_ready` , `r1id` , `r2id` , `r3id` , `r1k` , `r2k` , `r3k` ,`forest` , `countp` )
-				VALUES ('".($player->pers["forestx"])."', '".($player->pers["foresty"])."', '".($t+$timep-$player->pers["sp7"])."','".$r1["image"]."', '".$r2["image"]."', '".$r3["image"]."', '".$kr1."', '".$kr2."', '".$kr3."', '".$forest_ID."', '1');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+				VALUES ('".($player->pers["forestx"])."', '".($player->pers["foresty"])."', '".($t+$timep-$player->pers["sp7"])."','".$r1["image"]."', '".$r2["image"]."', '".$r3["image"]."', '".$kr1."', '".$kr2."', '".$kr3."', '".$FOREST_ID."', '1');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			elseif ($td["time_ready"]>$t)
-				$db->sql("UPDATE forest SET time_ready=".($t+($td["time_ready"]-$t)*($td["countp"]-1)/$td["countp"]).",countp=countp+1 WHERE x='".($player->pers["forestx"])."' and y='".($player->pers["foresty"])."' and forest=".$forest_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+				$db->sql("UPDATE forest SET time_ready=".($t+($td["time_ready"]-$t)*($td["countp"]-1)/$td["countp"]).",countp=countp+1 WHERE x='".($player->pers["forestx"])."' and y='".($player->pers["foresty"])."' and forest=".$FOREST_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		}
 		set_vars("forestx=".$player->pers["forestx"].",foresty=".$player->pers["foresty"].",waiter_forest=".($t+$tper)."",$player->pers["uid"]);
 		$player->pers["waiter_forest"]=$t+$tper;
 
-		$tr = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"]+1)." and y=".$player->pers["foresty"]." and forest=".$forest_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
-		$tl = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"]-1)." and y=".$player->pers["foresty"]." and forest=".$forest_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
-		$td = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"])." and y=".($player->pers["foresty"]+1)." and forest=".$forest_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
-		$tu = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"])." and y=".($player->pers["foresty"]-1)." and forest=".$forest_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+		$tr = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"]+1)." and y=".$player->pers["foresty"]." and forest=".$FOREST_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+		$tl = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"]-1)." and y=".$player->pers["foresty"]." and forest=".$FOREST_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+		$td = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"])." and y=".($player->pers["foresty"]+1)." and forest=".$FOREST_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+		$tu = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"])." and y=".($player->pers["foresty"]-1)." and forest=".$FOREST_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 
 	} elseif (@$http->get["forestgo"]) var_dump($player->jKey(1));
-$tunnel = $db->sqla("SELECT * FROM forest WHERE x=".$player->pers["forestx"]." and y=".$player->pers["foresty"]." and forest=".$forest_ID."");
+$tunnel = $db->sqla("SELECT * FROM forest WHERE x=".$player->pers["forestx"]." and y=".$player->pers["foresty"]." and forest=".$FOREST_ID."");
 ############################################
 
 if (!$tunnel["r1k"] and !$tunnel["r2k"] and !$tunnel["r3k"] and $t%20==0)
@@ -116,7 +116,7 @@ if (@$http->get["beginr"] and !$no_make and $player->pers["waiter_forest"]<$t an
 $x = $player->pers["forestx"];
 $y = $player->pers["foresty"];
 
-	$cells_around = $db->sql("SELECT x,y,time_ready FROM forest WHERE x>=".($player->pers["forestx"]-3)." and x<=".($player->pers["forestx"]+3)." and y>=".($player->pers["foresty"]-2)." and y<=".($player->pers["foresty"]+2)." and forest=".$forest_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+	$cells_around = $db->sql("SELECT x,y,time_ready FROM forest WHERE x>=".($player->pers["forestx"]-3)." and x<=".($player->pers["forestx"]+3)." and y>=".($player->pers["foresty"]-2)." and y<=".($player->pers["foresty"]+2)." and forest=".$FOREST_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 
 $maked_str = Array();
 while ($cc = mysql_fetch_array($cells_around))
@@ -126,7 +126,7 @@ else
  $maked_str[$cc["x"]][$cc["y"]] = 'inv';
 
 	//if ()
-	$cursor .= '<b>Тоннель ['.($player->pers["forestx"]).';'.$player->pers["foresty"]*(-1).']</b>';
+	$cursor .= '<b>Тропика ['.($player->pers["forestx"]).';'.$player->pers["foresty"]*(-1).']</b>';
 
 	$t=$t;
 	if ($t<$player->pers["waiter_forest"] or $tunnel["time_ready"]>$t)
@@ -135,7 +135,7 @@ else
 		{
 			$player->pers["waiter_forest"]=$tunnel["time_ready"];
 			set_vars ("waiter_forest='".$tunnel["time_ready"]."'",$player->pers["uid"]);
-			$cursor .= "<br><div id=waiter  align=center></div><script>waiter(".($player->pers["waiter_forest"]-$t).");</script><br><font >Раскапывают этот тоннель: ".$tunnel["countp"]."</font>";
+			$cursor .= "<br><div id=waiter  align=center></div><script>waiter(".($player->pers["waiter_forest"]-$t).");</script><br><font >Разведать сектор: ".$tunnel["countp"]."</font>";
 		}
 		else
 		$cursor .= "<br><div id=waiter  align=center></div><script>waiter(".($player->pers["waiter_forest"]-$t).");</script>";
@@ -301,7 +301,7 @@ $resources2 .= '</table>';
             <?php
 	echo "<font class=green>Усталость: <b>".floor($player->pers["tire"])."%</b></font><br>";
 	if ($x==0 and $y==0) {
-		echo "<center class=but><input type=button class=inv_but onclick=\"location='main.php?outforest=".$forest_ID."&".$player->jKey()."'\" value='Подняться из шахты'>";
+		echo "<center class=but><input type=button class=inv_but onclick=\"location='main.php?outforest=".$FOREST_ID."&".$player->jKey()."'\" value='Подняться из шахты'>";
 	}
 	else {
 		echo $resources2;
