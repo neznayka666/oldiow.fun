@@ -9,7 +9,7 @@
     </tr>
 </table>
 <?php
-$sps = Array("sp1","sp2","sp5","sp7","sp12");
+$sps = Array("sp1","sp2","sp5","sp7","sp12","sp16","sp17");
 //$sps = Array("sp1","sp2","sp5","sp6","sp7","sp9","sp11","sp12","sp13");
 echo '<table cellspacing="5" cellpadding="5" style="margin:0 auto;width:100%;max-width:1200px;" class="greyBlock margin-5">';
 /*
