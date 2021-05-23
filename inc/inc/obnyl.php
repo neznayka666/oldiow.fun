@@ -6,7 +6,7 @@ if (@$http->get["gopers"]=="obnyl" and ($player->pers["zeroing"]>0 or $player->p
 	$player->remove_all_auras();
 	remove_all_weapons ();
 	$zeroyed = 1;
-	$db->sql ("UPDATE `users` SET zeroing=zeroing-1, `s1` =3, `s2` =3, `s3` =3, `s4` =3, `s5` =1, `s6` =1, `free_stats` =14, mf1=0, mf2=0, mf3=0, mf4=0, mf5=0, `level` =0, `udmin`=1, `udmax`=1, `hp`=15, `ma`=9, `kb`=0, sb1=0,sb2=0,sb3=0,sb4=0,sb5=0,sb6=0,sb7=0,sb8=0,sb9=0,sb10=0,sb11=0,sb12=0,sb13=0,sb14=0,sm1=0,sm2=0,sm3=0,sm4=0,sm5=0,sm6=0,sm7=0, `free_f_skills` =5, `free_m_skills` =5, `refr`=1, `aura`='',action=0 WHERE `uid`='".$player->pers["uid"]."'");
+	$db->sql ("UPDATE `users` SET zeroing=zeroing-1, `s1` =3, `s2` =3, `s3` =3, `s4` =3, `s5` =1, `s6` =1, `free_stats` =14, mf1=0, mf2=0, mf3=0, mf4=0, mf5=0, `level` =0, `udmin`=1, `udmax`=1, `hp`=15, `ma`=9, `kb`=0, sb1=0,sb2=0,sb3=0,sb4=0,sb5=0,sb6=0,sb7=0,sb8=0,sb9=0,sb10=0,sb11=0,sb12=0,sb13=0,sb14=0,sb16=0,sb17=0,sm1=0,sm2=0,sm3=0,sm4=0,sm5=0,sm6=0,sm7=0, `free_f_skills` =5, `free_m_skills` =5, `refr`=1, `aura`='',action=0 WHERE `uid`='".$player->pers["uid"]."'");
 	if ($player->pers["action"]==-10) $db->sql("UPDATE `users` SET zeroing=zeroing+1 WHERE `uid`='".$player->pers["uid"]."'");
 	$player->pers["action"] = 0;
 }
@@ -18,7 +18,7 @@ if (@$http->get["fz"])
 	remove_all_weapons ();
 	$db->sql("DELETE FROM wp WHERE uidp=".$player->pers["uid"]." and dprice=0 and clan_sign=''");
 	$db->sql("UPDATE wp SET weared=0 WHERE uidp=".$player->pers["uid"].";");
-	$db->sql("UPDATE `users` SET `s1` =3, `s2` =3, `s3` =3, `s4` =3, `s5` =1, `s6` =1, `free_stats` =14, mf1=0, mf2=0, mf3=0, mf4=0, mf5=0, `level` =0, `udmin`=1, `udmax`=1, `hp`=15, `ma`=9, `kb`=0, sb1=0,sb2=0,sb3=0,sb4=0,sb5=0,sb6=0,sb7=0,sb8=0,sb9=0,sb10=0,sb11=0,sb12=0,sb13=0,sb14=0,sm1=0,sm2=0,sm3=0,sm4=0,sm5=0,sm6=0,sm7=0, `free_f_skills` =5, `free_m_skills` =5, `refr`=1, `aura`='',exp=0, losses=0, victories = 0, peace_exp=0,action=0,money=250 WHERE `uid`=".$player->pers["uid"]."");
+	$db->sql("UPDATE `users` SET `s1` =3, `s2` =3, `s3` =3, `s4` =3, `s5` =1, `s6` =1, `free_stats` =14, mf1=0, mf2=0, mf3=0, mf4=0, mf5=0, `level` =0, `udmin`=1, `udmax`=1, `hp`=15, `ma`=9, `kb`=0, sb1=0,sb2=0,sb3=0,sb4=0,sb5=0,sb6=0,sb7=0,sb8=0,sb9=0,sb10=0,sb11=0,sb12=0,sb13=0,sb14=0,sb16=0,sb17=0,sm1=0,sm2=0,sm3=0,sm4=0,sm5=0,sm6=0,sm7=0, `free_f_skills` =5, `free_m_skills` =5, `refr`=1, `aura`='',exp=0, losses=0, victories = 0, peace_exp=0,action=0,money=250 WHERE `uid`=".$player->pers["uid"]."");
 	if($player->pers["level"]<2) $db->sql("UPDATE `users` SET coins=0 WHERE `uid`=".$player->pers["uid"]."");
 	$db->sql("UPDATE `bank_account` SET `money`=250 WHERE `uid`=".$player->pers["uid"]."");
 	$player->pers["action"] = 0;
