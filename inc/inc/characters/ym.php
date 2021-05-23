@@ -185,6 +185,18 @@ $nworked = '<b style="color:red;">*</b> ';
             <div id=m14></div>
         </td>
     </tr>
+	 <tr style="display:none;">
+        <td width="50%"><?=$worked.name_of_skill("sp16");?></td>
+        <td width="50%">
+            <div id=m16></div>
+        </td>
+    </tr>
+    <tr style="display:none;">
+        <td width="50%"><?=$worked.name_of_skill("sp17");?></td>
+        <td width="50%">
+            <div id=m17></div>
+        </td>
+    </tr>
     <tr>
         <td colspan=2>
             <? if (($player->pers["free_f_skills"] + $player->pers["free_p_skills"] + $player->pers["free_m_skills"])>0) echo "<center><b><a href='javascript:document.ym.submit()' class=bga>Сохранить</a></b></center>"; ?>

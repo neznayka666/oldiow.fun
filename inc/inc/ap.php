@@ -178,6 +178,8 @@ if ( @$p["hjkl"] )
 		$player->pers["sb12"] = $p["bs12"];
 		$player->pers["sb13"] = $p["bs13"];
 		$player->pers["sb14"] = $p["bs14"];
+		$player->pers["sb16"] = $p["bs16"];
+		$player->pers["sb17"] = $p["bs17"];
 		$player->pers["sm1"] = $p["ss1"];
 		$player->pers["sm2"] = $p["ss2"];
 		$player->pers["sm3"] = $p["ss3"];
