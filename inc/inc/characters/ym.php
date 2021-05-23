@@ -185,13 +185,13 @@ $nworked = '<b style="color:red;">*</b> ';
             <div id=m14></div>
         </td>
     </tr>
-	 <tr style="display:none;">
+	 <tr>
         <td width="50%"><?=$worked.name_of_skill("sp16");?></td>
         <td width="50%">
             <div id=m16></div>
         </td>
     </tr>
-    <tr style="display:none;">
+    <tr>
         <td width="50%"><?=$worked.name_of_skill("sp17");?></td>
         <td width="50%">
             <div id=m17></div>
