@@ -196,7 +196,7 @@ if ($preveleg)
 		if ($player->pers["sms"]) $INFO_INC .= "<td>Пользовался смс-сервисом</td><td class=babout>".$player->pers["sms"]."</b> раз. Последний мобильный номер <b>+".$player->pers["phone_no"]."</b></td></tr><tr>";
 		if ($clan["dmoney"]) $INFO_INC .= "<td>Денег на счету клана:</td><td class=babout>".$clan["dmoney"]."</td></tr><tr>";
 
-		for($sp = 1;$sp<15; $sp++)
+		for($sp = 1;$sp<18; $sp++)
 		{
 			$color = "#DDDDDD";
 			if($sp%2==0) $color = "#EEEEEE";
