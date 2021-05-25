@@ -131,14 +131,14 @@ var bs='b';
 var bf='bs';
 nym = document.ym.nbs.value;
 nsym = document.ym.nss.value;
-for (b=1;b<15;b++) {
+for (b=1;b<16;b++) {
 bs = 'b' + b;
 bf = 'bs' + b;
 d.getElementById(bs).innerHTML = '['+getByName(bf).value+'/30]';
 if (nym>0) d.getElementById(bs).innerHTML+='<img src=\'/images/DS/plus.png\' onclick="um_up(\'b\','+b+')" style="cursor:pointer;"> <img src=\'/images/DS/minus.png\' onclick="um_down(\'b\','+b+')" style="cursor:pointer;">';
 }
 
-for (m=1;m<15;m++) {
+for (m=1;m<16;m++) {
 bs = 'm' + m;
 bf = 'ms' + m;
 if (getByName(bf).value>max_m) getByName(bf).value=max_m;
