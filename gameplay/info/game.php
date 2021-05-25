@@ -27,7 +27,7 @@ if ($rank_i<>$player->pers["rank_i"] and $player->pers["rank_i"]=$rank_i)
 //
 ?>
 <div id=inf_from_php style='visibility:hidden;position:absolute;top:0px;height:0;'>
-    <?
+    <?php
 $prison = explode('|',$player->pers["prison"]);
 if ($player->pers["punishment"]>=tme()) $punished = tp($player->pers["punishment"]-tme()); else $punished = '';
 if ($player->pers["silence_forum"]>=tme()) $fm = tp($player->pers['silence_forum']-tme()); else $fm = '';
