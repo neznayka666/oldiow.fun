@@ -250,7 +250,7 @@ if( $player->pers['maridge'] )
 if ( true )
 {
 	// Кузнец (sp5): Рыбак (sp6): Шахтер (sp7): Ориентирование на местности (sp8): Торговец (sp9): Охотник (sp10): Алхимик (sp11): Добыча камней (sp12): Дровосек (sp13): Выделка кожи (sp14): 
-	$asum = 0; $pcount = 5; $pcount2 = 17; $rlist = '';
+	$asum = 0; $pcount = 5; $pcount2 = 16; $rlist = '';
 	for ( $i=$pcount; $i<=$pcount2; $i++ )
 	{
 		$u = $player->pers['sp'.$i];
