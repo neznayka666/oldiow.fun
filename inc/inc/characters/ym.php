@@ -213,7 +213,7 @@ $nworked = '<b style="color:red;">*</b> ';
 	echo "<input type=hidden name=ss".$i." id=ss".$i." value=".floor($player->pers["sm".$i])."><input type=hidden name=sf".$i." id=sf".$i." value=".floor($player->pers["sm".$i]).">";
 ?>
     <input type=hidden name=nbs id=nbs value=<? echo $player->pers["free_f_skills"];?>><input type=hidden name=nbh
-        id=nbh value=<?php echo $player->pers["free_f_skills"];?>>
+        id=nbh value=<? echo $player->pers["free_f_skills"];?>>
     <input type=hidden name=nss id=nss value=<? echo $player->pers["free_m_skills"];?>><input type=hidden name=nsh
         id=nsh value=<? echo $player->pers["free_m_skills"];?>>
     <input type=hidden name=hjkl value=1>
