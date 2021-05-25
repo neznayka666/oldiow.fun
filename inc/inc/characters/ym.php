@@ -48,7 +48,7 @@ $nworked = '<b style="color:red;">*</b> ';
     <tr style="background:#e2e0e0;">
         <td colspan="2"><b>Второстепенные умения</b></td>
     </tr>
-    <?
+    <?php
 	for($i=1;$i<=7;$i++)
 	{
 		echo "<tr style='background:#f5f5f5;'>";
@@ -207,7 +207,7 @@ $nworked = '<b style="color:red;">*</b> ';
     <?php
 	for ($i=1;$i<=14;$i++)
 	echo "<input type=hidden name=bs".$i." id=bs".$i." value=".floor($player->pers["sb".$i])."><input type=hidden name=bf".$i." id=bf".$i." value=".floor($player->pers["sb".$i]).">";
-	for ($i=1;$i<=14;$i++)
+	for ($i=1;$i<=16;$i++)
 	echo "<input type=hidden name=ms".$i." id=ms".$i." value=".floor($player->pers["sp".$i])."><input type=hidden name=mf".$i." id=mf".$i." value=".floor($player->pers["sp".$i]).">";
 	for ($i=1;$i<=7;$i++)
 	echo "<input type=hidden name=ss".$i." id=ss".$i." value=".floor($player->pers["sm".$i])."><input type=hidden name=sf".$i." id=sf".$i." value=".floor($player->pers["sm".$i]).">";
