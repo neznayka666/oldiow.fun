@@ -199,7 +199,7 @@ $nworked = '<b style="color:red;">*</b> ';
     </tr>
     <tr>
         <td colspan=2>
-            <? if (($player->pers["free_f_skills"] + $player->pers["free_p_skills"] + $player->pers["free_m_skills"])>0) echo "<center><b><a href='javascript:document.ym.submit()' class=bga>Сохранить</a></b></center>"; ?>
+            <?php if (($player->pers["free_f_skills"] + $player->pers["free_p_skills"] + $player->pers["free_m_skills"])>0) echo "<center><b><a href='javascript:document.ym.submit()' class=bga>Сохранить</a></b></center>"; ?>
         </td>
     </tr>
 </table>
@@ -212,10 +212,10 @@ $nworked = '<b style="color:red;">*</b> ';
 	for ($i=1;$i<=7;$i++)
 	echo "<input type=hidden name=ss".$i." id=ss".$i." value=".floor($player->pers["sm".$i])."><input type=hidden name=sf".$i." id=sf".$i." value=".floor($player->pers["sm".$i]).">";
 ?>
-    <input type=hidden name=nbs id=nbs value=<? echo $player->pers["free_f_skills"];?>><input type=hidden name=nbh
-        id=nbh value=<? echo $player->pers["free_f_skills"];?>>
-    <input type=hidden name=nss id=nss value=<? echo $player->pers["free_m_skills"];?>><input type=hidden name=nsh
-        id=nsh value=<? echo $player->pers["free_m_skills"];?>>
+    <input type=hidden name=nbs id=nbs value=<?php echo $player->pers["free_f_skills"];?>><input type=hidden name=nbh
+        id=nbh value=<?php echo $player->pers["free_f_skills"];?>>
+    <input type=hidden name=nss id=nss value=<?php echo $player->pers["free_m_skills"];?>><input type=hidden name=nsh
+        id=nsh value=<?php echo $player->pers["free_m_skills"];?>>
     <input type=hidden name=hjkl value=1>
 </form>
 <script>
