@@ -199,7 +199,7 @@ $nworked = '<b style="color:red;">*</b> ';
     </tr>
     <tr>
         <td colspan=2>
-            <?php if (($player->pers["free_f_skills"] + $player->pers["free_p_skills"] + $player->pers["free_m_skills"])>0) echo "<center><b><a href='javascript:document.ym.submit()' class=bga>Сохранить</a></b></center>"; ?>
+            <? if (($player->pers["free_f_skills"] + $player->pers["free_p_skills"] + $player->pers["free_m_skills"])>0) echo "<center><b><a href='javascript:document.ym.submit()' class=bga>Сохранить</a></b></center>"; ?>
         </td>
     </tr>
 </table>
