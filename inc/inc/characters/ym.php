@@ -186,15 +186,15 @@ $nworked = '<b style="color:red;">*</b> ';
         </td>
     </tr>
 	 <tr>
-        <td width="50%"><?=$worked.name_of_skill("sp16");?></td>
+        <td width="50%"><?=$worked.name_of_skill("sp15");?></td>
         <td width="50%">
-            <div id=m16></div>
+            <div id=m15></div>
         </td>
     </tr>
     <tr>
-        <td width="50%"><?=$worked.name_of_skill("sp17");?></td>
+        <td width="50%"><?=$worked.name_of_skill("sp16");?></td>
         <td width="50%">
-            <div id=m17></div>
+            <div id=m16></div>
         </td>
     </tr>
     <tr>
