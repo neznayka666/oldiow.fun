@@ -99,7 +99,7 @@ $nworked = '<b style="color:red;">*</b> ';
         </tr>
     </div>
     <tr style="background:#e2e0e0;">
-        <td colspan="2" class=but><b>Мирные умения</b></td>
+        <td colspan="2"><b>Мирные умения</b></td>
     </tr>
     <tr style="">
         <td width="50%"><?=$worked.name_of_skill("sp1");?></td>
@@ -185,6 +185,18 @@ $nworked = '<b style="color:red;">*</b> ';
             <div id=m14></div>
         </td>
     </tr>
+	 <tr>
+        <td width="50%"><?=$worked.name_of_skill("sp15");?></td>
+        <td width="50%">
+            <div id=m15></div>
+        </td>
+    </tr>
+    <tr>
+        <td width="50%"><?=$worked.name_of_skill("sp16");?></td>
+        <td width="50%">
+            <div id=m16></div>
+        </td>
+    </tr>
     <tr>
         <td colspan=2>
             <? if (($player->pers["free_f_skills"] + $player->pers["free_p_skills"] + $player->pers["free_m_skills"])>0) echo "<center><b><a href='javascript:document.ym.submit()' class=bga>Сохранить</a></b></center>"; ?>
@@ -195,7 +207,7 @@ $nworked = '<b style="color:red;">*</b> ';
     <?php
 	for ($i=1;$i<=14;$i++)
 	echo "<input type=hidden name=bs".$i." id=bs".$i." value=".floor($player->pers["sb".$i])."><input type=hidden name=bf".$i." id=bf".$i." value=".floor($player->pers["sb".$i]).">";
-	for ($i=1;$i<=14;$i++)
+	for ($i=1;$i<=16;$i++)
 	echo "<input type=hidden name=ms".$i." id=ms".$i." value=".floor($player->pers["sp".$i])."><input type=hidden name=mf".$i." id=mf".$i." value=".floor($player->pers["sp".$i]).">";
 	for ($i=1;$i<=7;$i++)
 	echo "<input type=hidden name=ss".$i." id=ss".$i." value=".floor($player->pers["sm".$i])."><input type=hidden name=sf".$i." id=sf".$i." value=".floor($player->pers["sm".$i]).">";
