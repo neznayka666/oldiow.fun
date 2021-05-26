@@ -28,7 +28,7 @@ if ( $http->_get('buy') and $http->_get("kolvo")>0 and $http->_get("kolvo")<100 
 	} else echo 'Вещь не существует.';
 }
 
-if ( $http->_get('lbuy') > 0 and $http->_get('lbuy')<13 and !$player->AuraSpecial[14] )
+if ( $http->_get('lbuy') > 0 and $http->_get('lbuy')<13 and !$player->AuraSpecial[20] )
 {
 	$cat = (int)$http->_get('lbuy');
 	if ($cat==1 and $player->pers["money"]>LFOREST1)
@@ -37,7 +37,7 @@ if ( $http->_get('lbuy') > 0 and $http->_get('lbuy')<13 and !$player->AuraSpecia
 		$a["params"] = '';
 		$a["esttime"] = 3600;
 		$a["name"] = 'Лицензия Лесника';
-		$a["special"] = 14;
+		$a["special"] = 20;
 		light_aura_on($a,$player->pers["uid"]);
 		set_vars("money=money-".LFOREST1,UID);
 		$player->pers["money"]-=LFOREST1;
@@ -48,7 +48,7 @@ if ( $http->_get('lbuy') > 0 and $http->_get('lbuy')<13 and !$player->AuraSpecia
 		$a["params"] = '';
 		$a["esttime"] = 3600*2;
 		$a["name"] = 'Лицензия Лесника';
-		$a["special"] = 14;
+		$a["special"] = 20;
 		light_aura_on($a,$player->pers["uid"]);
 		set_vars("money=money-".LFOREST2,UID);
 		$player->pers["money"]-=LFOREST2;
@@ -59,7 +59,7 @@ if ( $http->_get('lbuy') > 0 and $http->_get('lbuy')<13 and !$player->AuraSpecia
 		$a["params"] = '';
 		$a["esttime"] = 3600*3;
 		$a["name"] = 'Лицензия Лесника';
-		$a["special"] = 14;
+		$a["special"] = 20;
 		light_aura_on($a,$player->pers["uid"]);
 		set_vars("money=money-".LFOREST3,UID);
 		$player->pers["money"]-=LFOREST3;
@@ -70,7 +70,7 @@ if ( $http->_get('lbuy') > 0 and $http->_get('lbuy')<13 and !$player->AuraSpecia
 		$a["params"] = '';
 		$a["esttime"] = 3600*5;
 		$a["name"] = 'Лицензия Лесника';
-		$a["special"] = 14;
+		$a["special"] = 20;
 		light_aura_on($a,$player->pers["uid"]);
 		set_vars("money=money-".LFOREST5,UID);
 		$player->pers["money"]-=LFOREST5;
@@ -81,7 +81,7 @@ if ( $http->_get('lbuy') > 0 and $http->_get('lbuy')<13 and !$player->AuraSpecia
 		$a["params"] = '';
 		$a["esttime"] = 3600*8;
 		$a["name"] = 'Лицензия Лесника';
-		$a["special"] = 14;
+		$a["special"] = 20;
 		light_aura_on($a,$player->pers["uid"]);
 		set_vars("money=money-".LFOREST8,UID);
 		$player->pers["money"]-=LFOREST8;
@@ -92,12 +92,12 @@ if ( $http->_get('lbuy') > 0 and $http->_get('lbuy')<13 and !$player->AuraSpecia
 		$a["params"] = '';
 		$a["esttime"] = 3600*12;
 		$a["name"] = 'Лицензия Лесника';
-		$a["special"] = 14;
+		$a["special"] = 20;
 		light_aura_on($a,$player->pers["uid"]);
 		set_vars("money=money-".LFOREST12,UID);
 		$player->pers["money"]-=LFOREST12;
 	}
-	$player->AuraSpecial[14] = 3600*$cat;
+	$player->AuraSpecial[20] = 3600*$cat;
 }
 
 
@@ -107,17 +107,17 @@ echo "<td width='50%'><div class='titleCity'>Вход в Лес</div></td>";
 echo "<td width='25%'></td>";
 echo "</tr></table>";
 
-if ($player->AuraSpecial[14] and !$player->AuraSpecial[15]) {
+if ($player->AuraSpecial[20] and !$player->AuraSpecial[21]) {
 	echo "<div class='greenBlock margin-5' style='margin:15px auto; width:100%;max-width:1200px;text-align:center;'><input type=button class='inv_but' onclick=\"location='main.php?goforest=1'\" value='Зайти в Лес'>
-	<hr>Осталось: <b>".tp($player->AuraSpecial[14])."</b>.</div>";
+	<hr>Осталось: <b>".tp($player->AuraSpecial[20])."</b>.</div>";
 }
-if ($player->AuraSpecial[15]) {
-	echo "<center class=but>Отдышка: Осталось: <b>".tp($player->AuraSpecial[15])."</b>.</center>";
+if ($player->AuraSpecial[21]) {
+	echo "<center class=but>Отдышка: Осталось: <b>".tp($player->AuraSpecial[21])."</b>.</center>";
 }
 
 
 
-if (!$player->AuraSpecial[14] and !$player->AuraSpecial[15]) {
+if (!$player->AuraSpecial[20] and !$player->AuraSpecial[21]) {
 	echo "<table border=0 cellspacing=0 cellspadding=0 style='margin:0 auto; width:100%;max-width:1200px;' class='greyBlock margin-5'><tr>
 	<td width=16% class=margin-5 align=center><p>Лицензия на добычу<br> на <b>1 час</b></p><p><img src='images/weapons/i/lic/lic_forest.gif' alt='Лицензия Лесника'></p><p>Цена: <b>".LFOREST1."</b> зм.</p><p><input type=button class='inv_but' onclick=\"location='main.php?lbuy=1'\" value='Купить'> </p></td>
 	<td width=16% class=margin-5 align=center><p>Лицензия на добычу<br> на <b>2 часа</b></p><p><img src='images/weapons/i/lic/lic_forest.gif' alt='Лицензия Лесника'></p><p>Цена: <b>".LFOREST2."</b> зм.</p><p><input type=button class='inv_but' onclick=\"location='main.php?lbuy=2'\" value='Купить'></p></td>
