@@ -1,9 +1,5 @@
 <script>
 <?php
-##############################
-#### Mod Joe. 13.04.2013 #####
-##############################
-
 define('MICROLOAD', true);
 // Загружаем файл конфига, ВАЖНЫЙ.
 include ($_SERVER['DOCUMENT_ROOT'].'/configs/config.php');
