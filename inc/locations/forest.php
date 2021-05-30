@@ -250,7 +250,7 @@ if (!$resources_forest) $resources_forest .= '<div class="redBlock">Вы не о
 $resources_forest2 .= '<hr><b>Уже найдено</b>';
 $resources_forest2 .= '<table border=0 width=100% cellspacing="3" cellpadding="3">';
 
-$_r = $db->sql("SELECT count(*) as a, `name`, `price` FROM `wp` WHERE `type`='resources_forest' and `uidp`='".$player->pers["uid"]."' GROUP BY `name` ORDER BY `name`", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+$_r = $db->sql("SELECT count(*) as a, `name`, `price` FROM `wp` WHERE `type`='resources' and `uidp`='".$player->pers["uid"]."' GROUP BY `name` ORDER BY `name`", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 	if(mysql_num_rows($_r)>0)
 		{	
 			while ($v = mysql_fetch_array($_r,MYSQL_ASSOC))
