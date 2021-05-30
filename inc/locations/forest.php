@@ -247,7 +247,7 @@ if (!$no_make) $begin = '<input class=inv_but type=button value="Начать д
 	$resources_forest .= '</table>';
 }
 if (!$resources_forest) $resources_forest .= '<div class="redBlock">Вы не обнаружили здесь никаких ресурсов.</div>';
-$resources_forest2 .= '<hr><b>Уже добыто</b>';
+$resources_forest2 .= '<hr><b>Уже найдено</b>';
 $resources_forest2 .= '<table border=0 width=100% cellspacing="3" cellpadding="3">';
 
 $_r = $db->sql("SELECT count(*) as a, `name`, `price` FROM `wp` WHERE `type`='resources_forest' and `uidp`='".$player->pers["uid"]."' GROUP BY `name` ORDER BY `name`", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
@@ -273,8 +273,8 @@ $resources_forest2 .= '</table>';
 <table border=0 cellspacing=0 cellspadding=0 style='margin:40px auto; width:100%;max-width:1200px;' class='margin-5'>
     <tr>
         <td width='25%'><?php
-			if ($player->AuraSpecial[14]) {
-				echo "Осталось: <b>".tp($player->AuraSpecial[14])."</b>";
+			if ($player->AuraSpecial[21]) {
+				echo "Осталось: <b>".tp($player->AuraSpecial[21])."</b>";
 			}
 			?></td>
         <td width='50%'>
