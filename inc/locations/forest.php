@@ -33,7 +33,7 @@ $tu = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"])." and
 
 	if ( @$http->get["forestgo"] and $player->pers["waiter_forest"]<=$t and $player->jKey(1) )
 	{
-		$res = $db->sql("SELECT * FROM resources ORDER BY RAND()", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+		$res = $db->sql("SELECT * FROM resources_forest ORDER BY RAND()", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		$r1 = mysql_fetch_array($res);
 		$r2 = mysql_fetch_array($res);
 		$r3 = mysql_fetch_array($res);
@@ -197,76 +197,76 @@ else
 </table>';
 	}
 
-	if ($tunnel["r1id"]) $r1 = $db->sqla("SELECT * FROM resources WHERE image='".$tunnel["r1id"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+	if ($tunnel["r1id"]) $r1 = $db->sqla("SELECT * FROM resources_forest WHERE image='".$tunnel["r1id"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 	$r1["k"]=$tunnel["r1k"];
-	if ($tunnel["r2id"]) $r2 = $db->sqla("SELECT * FROM resources WHERE image='".$tunnel["r2id"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+	if ($tunnel["r2id"]) $r2 = $db->sqla("SELECT * FROM resources_forest WHERE image='".$tunnel["r2id"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 	$r2["k"]=$tunnel["r2k"];
-	if ($tunnel["r3id"]) $r3 = $db->sqla("SELECT * FROM resources WHERE image='".$tunnel["r3id"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+	if ($tunnel["r3id"]) $r3 = $db->sqla("SELECT * FROM resources_forest WHERE image='".$tunnel["r3id"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 	$r3["k"]=$tunnel["r3k"];
 
 if ($player->pers["tire"]>99) { $no_make = 1;}
-$resources = '';
-if ($inst) $resources3 .= 'Долговечность корзины: <b>'.$inst["durability"].'</b><br>Лесник: <b>'.($player->pers["sp7"]).'</b><br>Старатель: <b>'.($player->pers["sp12"]).'</b>';
+$resources_forest = '';
+if ($inst) $resources_forest3 .= 'Долговечность корзины: <b>'.$inst["durability"].'</b><br>Лесник: <b>'.($player->pers["sp7"]).'</b><br>Старатель: <b>'.($player->pers["sp12"]).'</b>';
 if ($r1["image"] and ($r1["price"]<2 or $r1["price"]<$player->pers["sp7"]/16) and mtrunc($r1["k"]))
 {
 	
 if (!$no_make)
 $begin = '<input class=inv_but type=button value="Начать добычу" onclick="location=\'main.php?beginr='.$r1["image"].'\'">';
 else $begin = '';
-	$resources .= '<table border=0 width=100% cellspacing="5" cellpadding="5" class="whiteBlock margin-5">';
-	$resources .= '<tr>';
-	$resources .= '<td align=center width=60><img src=images/weapons/resources/'.$r1["image"].'.gif></td>';
-	$resources .= '<td ><b>'.$r1["name"].'</b><br>Единица: <b>'.$r1["name_of_once"].'</b>';
-	$resources .= '<br> Цена: <b>'.$r1["price"].' зм.</b><br> Обнаружено: <b>'.$r1["k"].'</b>&nbsp;единиц<br></td>';
-	$resources .= '<td align=center>'.$begin.'</td>';
-	$resources .= '</tr>';
-	$resources .= '</table>';
+	$resources_forest .= '<table border=0 width=100% cellspacing="5" cellpadding="5" class="whiteBlock margin-5">';
+	$resources_forest .= '<tr>';
+	$resources_forest .= '<td align=center width=60><img src=images/weapons/resources_forest/'.$r1["image"].'.gif></td>';
+	$resources_forest .= '<td ><b>'.$r1["name"].'</b><br>Единица: <b>'.$r1["name_of_once"].'</b>';
+	$resources_forest .= '<br> Цена: <b>'.$r1["price"].' зм.</b><br> Обнаружено: <b>'.$r1["k"].'</b>&nbsp;единиц<br></td>';
+	$resources_forest .= '<td align=center>'.$begin.'</td>';
+	$resources_forest .= '</tr>';
+	$resources_forest .= '</table>';
 }
 if ($r2["image"] and ($r2["price"]<2 or $r2["price"]<$player->pers["sp7"]/16) and mtrunc($r2["k"]))
 {
 if (!$no_make) $begin = '<input class=inv_but type=button value="Начать добычу" onclick="location=\'main.php?beginr='.$r2["image"].'\'">'; else $begin = '';
-	$resources .= '<table border=0 width=100% cellspacing="5" cellpadding="5" class="whiteBlock margin-5">';
-	$resources .= '<tr>';
-	$resources .= '<td align=center width=60><img src=images/weapons/resources/'.$r2["image"].'.gif></td>';
-	$resources .= '<td ><b>'.$r2["name"].'</b><br>Единица: <b>'.$r2["name_of_once"].'</b>';
-	$resources .= '<br> Цена: <b>'.$r2["price"].' </b> зм.<br> Обнаружено: <b>'.$r2["k"].'</b>&nbsp;единиц<br></td>';
-	$resources .= '<td align=center>'.$begin.'</td>';
-	$resources .= '</tr>';
-	$resources .= '</table>';
+	$resources_forest .= '<table border=0 width=100% cellspacing="5" cellpadding="5" class="whiteBlock margin-5">';
+	$resources_forest .= '<tr>';
+	$resources_forest .= '<td align=center width=60><img src=images/weapons/resources_forest/'.$r2["image"].'.gif></td>';
+	$resources_forest .= '<td ><b>'.$r2["name"].'</b><br>Единица: <b>'.$r2["name_of_once"].'</b>';
+	$resources_forest .= '<br> Цена: <b>'.$r2["price"].' </b> зм.<br> Обнаружено: <b>'.$r2["k"].'</b>&nbsp;единиц<br></td>';
+	$resources_forest .= '<td align=center>'.$begin.'</td>';
+	$resources_forest .= '</tr>';
+	$resources_forest .= '</table>';
 }
 if ($r3["image"] and ($r3["price"]<2 or $r3["price"]<$player->pers["sp7"]/16) and mtrunc($r3["k"]))
 {
 if (!$no_make) $begin = '<input class=inv_but type=button value="Начать добычу" onclick="location=\'main.php?beginr='.$r3["image"].'\'">'; else $begin = '';
-	$resources .= '<table border=0 width=100% cellspacing="5" cellpadding="5" class="whiteBlock margin-5">';
-	$resources .= '<tr>';
-	$resources .= '<td align=center width=60><img src=images/weapons/resources/'.$r3["image"].'.gif></td>';
-	$resources .= '<td ><b>'.$r3["name"].'</b><br>Единица: <b>'.$r3["name_of_once"].'</b>';
-	$resources .= '<br> Цена: <b>'.$r3["price"].' </b> зм.<br> Обнаружено: <b>'.$r3["k"].'</b>&nbsp;единиц<br></td>';	
-	$resources .= '<td align=center >'.$begin.'</td>';
-	$resources .= '</tr>';
-	$resources .= '</table>';
+	$resources_forest .= '<table border=0 width=100% cellspacing="5" cellpadding="5" class="whiteBlock margin-5">';
+	$resources_forest .= '<tr>';
+	$resources_forest .= '<td align=center width=60><img src=images/weapons/resources_forest/'.$r3["image"].'.gif></td>';
+	$resources_forest .= '<td ><b>'.$r3["name"].'</b><br>Единица: <b>'.$r3["name_of_once"].'</b>';
+	$resources_forest .= '<br> Цена: <b>'.$r3["price"].' </b> зм.<br> Обнаружено: <b>'.$r3["k"].'</b>&nbsp;единиц<br></td>';	
+	$resources_forest .= '<td align=center >'.$begin.'</td>';
+	$resources_forest .= '</tr>';
+	$resources_forest .= '</table>';
 }
-if (!$resources) $resources .= '<div class="redBlock">Вы не обнаружили здесь никаких ресурсов.</div>';
-$resources2 .= '<hr><b>Уже добыто</b>';
-$resources2 .= '<table border=0 width=100% cellspacing="3" cellpadding="3">';
+if (!$resources_forest) $resources_forest .= '<div class="redBlock">Вы не обнаружили здесь никаких ресурсов.</div>';
+$resources_forest2 .= '<hr><b>Уже добыто</b>';
+$resources_forest2 .= '<table border=0 width=100% cellspacing="3" cellpadding="3">';
 
-$_r = $db->sql("SELECT count(*) as a, `name`, `price` FROM `wp` WHERE `type`='resources' and `uidp`='".$player->pers["uid"]."' GROUP BY `name` ORDER BY `name`", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+$_r = $db->sql("SELECT count(*) as a, `name`, `price` FROM `wp` WHERE `type`='resources_forest' and `uidp`='".$player->pers["uid"]."' GROUP BY `name` ORDER BY `name`", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 	if(mysql_num_rows($_r)>0)
 		{	
 			while ($v = mysql_fetch_array($_r,MYSQL_ASSOC))
 			{
-				$resources2 .= "<tr>";
-				$resources2 .= "<td class='whiteBlock' style='padding:5px;'><b>".$v["name"]."</b><p> Кол-во: <b>".$v["a"]."</b> шт. на сумму <b>".($v["price"]*$v["a"])."</b> зм.</p></td>";
-				//$resources2 .= "<td width=100> <b>".($v["price"]*$v["a"])."</b> зм.</td>";
-				$resources2 .= "</tr>";
+				$resources_forest2 .= "<tr>";
+				$resources_forest2 .= "<td class='whiteBlock' style='padding:5px;'><b>".$v["name"]."</b><p> Кол-во: <b>".$v["a"]."</b> шт. на сумму <b>".($v["price"]*$v["a"])."</b> зм.</p></td>";
+				//$resources_forest2 .= "<td width=100> <b>".($v["price"]*$v["a"])."</b> зм.</td>";
+				$resources_forest2 .= "</tr>";
 			}
 		}
 		
-$resources2 .= '</table>';
+$resources_forest2 .= '</table>';
 
 //else  
 
-//$resources = '<img src="service/_gameplay_SYMBOLS.php?code='.md5($lastom_new).'"><br><input class=inv_but type=text name=code value="" id=code>'.$resources;
+//$resources_forest = '<img src="service/_gameplay_SYMBOLS.php?code='.md5($lastom_new).'"><br><input class=inv_but type=text name=code value="" id=code>'.$resources_forest;
 
 ?>
 
@@ -280,7 +280,7 @@ $resources2 .= '</table>';
         <td width='50%'>
             <div class='titleCity'>Лес [v1.0]</div>
         </td>
-        <td width='25%'><?=$resources3;?></td>
+        <td width='25%'><?=$resources_forest3;?></td>
     </tr>
 </table>
 
@@ -304,7 +304,7 @@ $resources2 .= '</table>';
 		echo "<center class=but><input type=button class=inv_but onclick=\"location='main.php?outforest=".$FOREST_ID."&".$player->jKey()."'\" value='Выйти из Леса'>";
 	}
 	else {
-		echo $resources2;
+		echo $resources_forest2;
 	}
 
 ?>
@@ -314,7 +314,7 @@ $resources2 .= '</table>';
         <td width=50% valign=top><b>Обнаруженные ресурсы:</b><br>
             <?php
 if ($player->pers["tire"]<100){
-echo $resources;
+echo $resources_forest;
 }  
 else 
 {
