@@ -9,7 +9,7 @@
 	{
 		$inst2 = $db->sqla("SELECT id FROM wp WHERE uidp=".$player->pers["uid"]." and weared=1 and p_type=13", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		//$r_get.= "<i class=user>Добыча</i><br>";
-		$r = $db->sqla("SELECT * FROM resources WHERE image='".$r."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+		$r = $db->sqla("SELECT * FROM resources_forest WHERE image='".$r."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		$r["k"]=$k;
 		$instp = $inst["durability"]/$inst["price"];
 		if ($inst2["id"])
@@ -60,11 +60,11 @@
 				//if ($rr["id"]) {
 				for($i = 0; $i < $kk; ++$i) {
     				$db->sql("INSERT INTO `wp` ( `id` , `uidp` , `weared` ,`id_in_w`, `price` , `dprice` , `image` , `index` , `type` , `stype` , `name` , `describe` , `weight` , `where_buy` , `max_durability` , `durability` ,`p_type`)
-						VALUES (0, '".$player->pers["uid"]."', '0','res..".$r["image"]."','".$r["price"]."', '0', 'resources/".$r["image"]."', '0', 'resources', 'resources', '".$r["name"]."', '', '1', '0', '1', '1','7');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+						VALUES (0, '".$player->pers["uid"]."', '0','res..".$r["image"]."','".$r["price"]."', '0', 'resources_forest/".$r["image"]."', '0', 'resources_forest', 'resources_forest', '".$r["name"]."', '', '1', '0', '1', '1','7');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 				}
 				//}
 				//$db->sql("INSERT INTO `wp` ( `id` , `uidp` , `weared` ,`id_in_w`, `price` , `dprice` , `image` , `index` , `type` , `stype` , `name` , `describe` , `weight` , `where_buy` , `max_durability` , `durability` ,`p_type`)
-						//VALUES (0, '".$player->pers["uid"]."', '0','res..".$r["image"]."','".$kk*$r["price"]."', '0', 'resources/".$r["image"]."', '0', 'resources', 'resources', '".$r["name"]."', '', '1', '0', '".$kk."', '".$kk."','7');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+						//VALUES (0, '".$player->pers["uid"]."', '0','res..".$r["image"]."','".$kk*$r["price"]."', '0', 'resources_forest/".$r["image"]."', '0', 'resources_forest', 'resources_forest', '".$r["name"]."', '', '1', '0', '".$kk."', '".$kk."','7');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 				//}
 				if ($r["image"]==$tunnel["r1id"]){$db->sql("UPDATE forest SET r1k=r1k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and forest=".$tunnel["forest"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r1k"]-=$kk;}
 				if ($r["image"]==$tunnel["r2id"]){$db->sql("UPDATE forest SET r2k=r2k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and forest=".$tunnel["forest"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r2k"]-=$kk;}
