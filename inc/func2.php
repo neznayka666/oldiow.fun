@@ -103,7 +103,7 @@ function all_params()
 	{
 		$r[]='sp'.$i;
 	}
-	for ($i=1;$i<15;$i++)
+	for ($i=1;$i<17;$i++)
 	{
 		$r[]='sb'.$i;
 	}
