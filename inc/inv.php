@@ -89,7 +89,7 @@ elseif($player->pers["alchemy_m"] == 0)
         var __types = '<?=$types;?>';
         var _herbal = <?=$db->sqlr("SELECT COUNT(*) FROM wp WHERE uidp=".$player->pers["uid"]." and type='herbal'");?>;
         var _resources =
-            <?=$db->sqlr("SELECT COUNT(*) FROM wp WHERE uidp=".$player->pers["uid"]." and type='resources'");?>;
+            <?=$db->sqlr("SELECT COUNT(*) FROM wp WHERE uidp=".$player->pers["uid"]." and (type='resources' and type='resources_forest')");?>;
         var _fish = <?=$db->sqlr("SELECT COUNT(*) FROM wp WHERE uidp=".$player->pers["uid"]." and type='fish'");?>;
         </script>
         <script type="text/javascript" src="/js/inv.js"></script>
