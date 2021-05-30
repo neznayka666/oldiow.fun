@@ -50,7 +50,7 @@ $tu = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"])." and
 			$player->pers["forestx"]=$player->pers["forestx"]-1;
 			$player->pers["foresty"]=$player->pers["foresty"];
 			if (!$tl["forest"]) $db->sql("INSERT INTO `forest` (`x`,`y`,`time_ready`,`r1id`,`r2id`,`r3id` , `r1k` , `r2k` , `r3k`,`forest`,`countp`)
-				VALUES ('".($player->pers["forestx"])."', '".($player->pers["foresty"])."', '".($t+$timep-$player->pers["sp7"])."','".$r1["image"]."', '".$r2["image"]."', '".$r3["image"]."', '".$kr1."', '".$kr2."', '".$kr3."', '".$FOREST_ID."', '1');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+				VALUES ('".($player->pers["forestx"])."', '".($player->pers["foresty"])."', '".($t+$timep-$player->pers["sp20"])."','".$r1["image"]."', '".$r2["image"]."', '".$r3["image"]."', '".$kr1."', '".$kr2."', '".$kr3."', '".$FOREST_ID."', '1');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			elseif ($tl["time_ready"]>$t)
 				$db->sql("UPDATE forest SET time_ready=".($t+($tl["time_ready"]-$t)*($tl["countp"]-1)/$tl["countp"]).",countp=countp+1 WHERE x='".($player->pers["forestx"])."' and y='".($player->pers["foresty"])."' and forest=".$FOREST_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		}
@@ -59,7 +59,7 @@ $tu = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"])." and
 			$player->pers["forestx"]=$player->pers["forestx"]+1;
 			$player->pers["foresty"]=$player->pers["foresty"];
 			if (!$tr["forest"]) $db->sql("INSERT INTO `forest` ( `x` , `y` , `time_ready` , `r1id` , `r2id` , `r3id` , `r1k` , `r2k` , `r3k` ,`forest` , `countp` ) 
-				VALUES ('".($player->pers["forestx"])."', '".($player->pers["foresty"])."', '".($t+$timep-$player->pers["sp7"])."','".$r1["image"]."', '".$r2["image"]."', '".$r3["image"]."', '".$kr1."', '".$kr2."', '".$kr3."', '".$FOREST_ID."', '1');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+				VALUES ('".($player->pers["forestx"])."', '".($player->pers["foresty"])."', '".($t+$timep-$player->pers["sp20"])."','".$r1["image"]."', '".$r2["image"]."', '".$r3["image"]."', '".$kr1."', '".$kr2."', '".$kr3."', '".$FOREST_ID."', '1');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			elseif ($tr["time_ready"]>$t)
 				$db->sql("UPDATE forest SET time_ready=".($t+($tr["time_ready"]-$t)*($tr["countp"]-1)/$tr["countp"]).",countp=countp+1 WHERE x='".($player->pers["forestx"])."' and y='".($player->pers["foresty"])."' and forest=".$FOREST_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		}
@@ -68,7 +68,7 @@ $tu = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"])." and
 			$player->pers["forestx"]=$player->pers["forestx"];
 			$player->pers["foresty"]=$player->pers["foresty"]-1;
 			if (!$tu["forest"]) $db->sql("INSERT INTO `forest` ( `x` , `y` , `time_ready` , `r1id` , `r2id` , `r3id` , `r1k` , `r2k` , `r3k` ,`forest` , `countp` )
-				VALUES ('".($player->pers["forestx"])."', '".($player->pers["foresty"])."', '".($t+$timep-$player->pers["sp7"])."','".$r1["image"]."', '".$r2["image"]."', '".$r3["image"]."', '".$kr1."', '".$kr2."', '".$kr3."', '".$FOREST_ID."', '1');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+				VALUES ('".($player->pers["forestx"])."', '".($player->pers["foresty"])."', '".($t+$timep-$player->pers["sp20"])."','".$r1["image"]."', '".$r2["image"]."', '".$r3["image"]."', '".$kr1."', '".$kr2."', '".$kr3."', '".$FOREST_ID."', '1');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			elseif ($tu["time_ready"]>$t)
 			$db->sql("UPDATE forest SET time_ready=".($t+($tu["time_ready"]-$t)*($tu["countp"]-1)/$tu["countp"]).",countp=countp+1 WHERE x='".($player->pers["forestx"])."' and y='".($player->pers["foresty"])."' and forest=".$FOREST_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		}
@@ -77,7 +77,7 @@ $tu = $db->sqla("SELECT * FROM forest WHERE x=".($player->pers["forestx"])." and
 			$player->pers["forestx"]=$player->pers["forestx"];
 			$player->pers["foresty"]=$player->pers["foresty"]+1;
 			if (!$td["forest"]) $db->sql("INSERT INTO `forest` ( `x` , `y` , `time_ready` , `r1id` , `r2id` , `r3id` , `r1k` , `r2k` , `r3k` ,`forest` , `countp` )
-				VALUES ('".($player->pers["forestx"])."', '".($player->pers["foresty"])."', '".($t+$timep-$player->pers["sp7"])."','".$r1["image"]."', '".$r2["image"]."', '".$r3["image"]."', '".$kr1."', '".$kr2."', '".$kr3."', '".$FOREST_ID."', '1');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+				VALUES ('".($player->pers["forestx"])."', '".($player->pers["foresty"])."', '".($t+$timep-$player->pers["sp20"])."','".$r1["image"]."', '".$r2["image"]."', '".$r3["image"]."', '".$kr1."', '".$kr2."', '".$kr3."', '".$FOREST_ID."', '1');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			elseif ($td["time_ready"]>$t)
 				$db->sql("UPDATE forest SET time_ready=".($t+($td["time_ready"]-$t)*($td["countp"]-1)/$td["countp"]).",countp=countp+1 WHERE x='".($player->pers["forestx"])."' and y='".($player->pers["foresty"])."' and forest=".$FOREST_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		}
@@ -206,8 +206,8 @@ else
 
 if ($player->pers["tire"]>99) { $no_make = 1;}
 $resources_forest = '';
-if ($inst) $resources_forest3 .= 'Долговечность корзины: <b>'.$inst["durability"].'</b><br>Лесник: <b>'.($player->pers["sp7"]).'</b><br>Старатель: <b>'.($player->pers["sp12"]).'</b>';
-if ($r1["image"] and ($r1["price"]<2 or $r1["price"]<$player->pers["sp7"]/16) and mtrunc($r1["k"]))
+if ($inst) $resources_forest3 .= 'Долговечность корзины: <b>'.$inst["durability"].'</b><br>Лесник: <b>'.($player->pers["sp20"]).'</b><br>Старатель: <b>'.($player->pers["sp21"]).'</b>';
+if ($r1["image"] and ($r1["price"]<2 or $r1["price"]<$player->pers["sp20"]/16) and mtrunc($r1["k"]))
 {
 	
 if (!$no_make)
@@ -222,7 +222,7 @@ else $begin = '';
 	$resources_forest .= '</tr>';
 	$resources_forest .= '</table>';
 }
-if ($r2["image"] and ($r2["price"]<2 or $r2["price"]<$player->pers["sp7"]/16) and mtrunc($r2["k"]))
+if ($r2["image"] and ($r2["price"]<2 or $r2["price"]<$player->pers["sp20"]/16) and mtrunc($r2["k"]))
 {
 if (!$no_make) $begin = '<input class=inv_but type=button value="Начать добычу" onclick="location=\'main.php?beginr='.$r2["image"].'\'">'; else $begin = '';
 	$resources_forest .= '<table border=0 width=100% cellspacing="5" cellpadding="5" class="whiteBlock margin-5">';
@@ -234,7 +234,7 @@ if (!$no_make) $begin = '<input class=inv_but type=button value="Начать д
 	$resources_forest .= '</tr>';
 	$resources_forest .= '</table>';
 }
-if ($r3["image"] and ($r3["price"]<2 or $r3["price"]<$player->pers["sp7"]/16) and mtrunc($r3["k"]))
+if ($r3["image"] and ($r3["price"]<2 or $r3["price"]<$player->pers["sp20"]/16) and mtrunc($r3["k"]))
 {
 if (!$no_make) $begin = '<input class=inv_but type=button value="Начать добычу" onclick="location=\'main.php?beginr='.$r3["image"].'\'">'; else $begin = '';
 	$resources_forest .= '<table border=0 width=100% cellspacing="5" cellpadding="5" class="whiteBlock margin-5">';
