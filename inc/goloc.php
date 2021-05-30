@@ -17,14 +17,14 @@ if ( (@($http->get["outmine"] and $player->pers["minex"]==0 and $player->pers["m
 }
 
 //работа с лесом
-if ( @$http->get["goforest"] and $player->AuraSpecial[14] and !$player->AuraSpecial[15] )
+if ( @$http->get["goforest"] and $player->AuraSpecial[20] and !$player->AuraSpecial[21] )
 {
     set_vars('`forestx`=0, `foresty`=0, `waiter_forest`='.($tm).', `location`="forest"', $player->pers["uid"]);
     $player->pers['location'] = 'forest';
     $player->pers['waiter_forest']	= $tm;
 }
 
-if ( (@($http->get["outforest"] and $player->pers["forestx"]==0 and $player->pers["foresty"]==0) or !$player->AuraSpecial[14] or $player->AuraSpecial[15]) and $player->pers["location"]=='forest' )
+if ( (@($http->get["outforest"] and $player->pers["forestx"]==0 and $player->pers["foresty"]==0) or !$player->AuraSpecial[20] or $player->AuraSpecial[21]) and $player->pers["location"]=='forest' )
 {
     set_vars("waiter_forest=".($tm).",location='forest_start'",$player->pers["uid"]);
     $player->pers['location'] = 'forest_start';
