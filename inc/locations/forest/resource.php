@@ -23,7 +23,7 @@
 		
 		if (rand(1,500)==1)
 		{
-			$v = $db->sqla("SELECT * FROM weapons WHERE type='rune' and price/10<".$player->pers["sp20"]." and dprice=0 ORDER BY RAND()", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+			$v = $db->sqla("SELECT * FROM weapons WHERE type='rune' and price/10<".$player->pers["sp15"]." and dprice=0 ORDER BY RAND()", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			if ($v)
 			{
 				insert_wp($v["id"],$player->pers["uid"],-1,0,$player->pers["user"]);
@@ -49,9 +49,9 @@
 				$player->pers["waiter_forest"]=$t+$timed;
 				$db->sql("UPDATE wp SET `durability`=durability-".round($kk+1)." WHERE id='".$inst["id"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 
-				set_vars("sp16=sp16+'".round(10/($kk+3),2)."',sp20=sp20+'".round(5/($kk+3),2)."',peace_exp=peace_exp+3,waiter_forest=".$player->pers["waiter_forest"].",tire=tire+10",$player->pers["uid"]);
+				set_vars("sp16=sp16+'".round(10/($kk+3),2)."',sp15=sp15+'".round(5/($kk+3),2)."',peace_exp=peace_exp+3,waiter_forest=".$player->pers["waiter_forest"].",tire=tire+10",$player->pers["uid"]);
 
-				//echo "sp16=sp16+'".(10/($kk+3))."',sp20=sp20+'".(5/($kk+3))."',peace_exp=peace_exp+3,waiter=".$player->pers["waiter"].",tire=tire+10",$player->pers["uid"];
+				//echo "sp16=sp16+'".(10/($kk+3))."',sp15=sp15+'".(5/($kk+3))."',peace_exp=peace_exp+3,waiter=".$player->pers["waiter"].",tire=tire+10",$player->pers["uid"];
 
 				$rr = $db->sqla("SELECT * FROM wp WHERE uidp='".$player->pers["uid"]."' and in_bank=0 and id_in_w='res..".$r["image"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 				//if ($rr["id"]) $db->sql("UPDATE wp SET price=price+".$kk*$r["price"].",weight=weight+".$kk.",durability=durability+".$kk.",max_durability=max_durability+".$kk." WHERE id=".$rr["id"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
@@ -70,7 +70,7 @@
 				if ($r["image"]==$tunnel["r2id"]){$db->sql("UPDATE forest SET r2k=r2k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and forest=".$tunnel["forest"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r2k"]-=$kk;}
 				if ($r["image"]==$tunnel["r3id"]){$db->sql("UPDATE forest SET r3k=r3k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and forest=".$tunnel["forest"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r3k"]-=$kk;}
 				###
-				loges_proffesions($kk*$r["price"], 2, 'Ш: '.round($player->pers['sp20']).'; Д: '.round($player->pers['sp16']),UID);
+				loges_proffesions($kk*$r["price"], 2, 'Ш: '.round($player->pers['sp15']).'; Д: '.round($player->pers['sp16']),UID);
 			}
 			else
 			{
