@@ -48,8 +48,8 @@ class Player
 	}
 	
 	private function getAurasSpecial()
-	{ // 5, 50 - осложненные травмы, 14 - лицензия шахты, 15 - отдышка после шахты, 
-		$res = $this->db->sql('SELECT `special`, `esttime` FROM `p_auras` WHERE `uid` = '.$this->pers['uid'].' and (`special`=5 or `special`=50 or `special`=14 or `special`=15) and `esttime` >'.tme().' ORDER BY `esttime` ASC;', __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+	{ // 5, 50 - осложненные травмы, 14 - лицензия шахты, 15 - отдышка после шахты, 20 - лицензия лес, 21 - отдышка после леса, 
+		$res = $this->db->sql('SELECT `special`, `esttime` FROM `p_auras` WHERE `uid` = '.$this->pers['uid'].' and (`special`=5 or `special`=50 or `special`=14 or `special`=15 or `special`=20 or `special`=21) and `esttime` >'.tme().' ORDER BY `esttime` ASC;', __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		while ( $r = mysql_fetch_assoc($res) )
 		{
 			if ( !$this->AuraSpecial[$r['special']] ) $this->AuraSpecial[$r['special']] = abs($r['esttime'] - tme());
@@ -82,6 +82,15 @@ class Player
 				$a['esttime'] = 18000 - (tme() - $a['esttime']);
 				$a['name'] = 'Отдышка после шахты';
 				$a['special'] = 15;
+				light_aura_on($a, $this->pers['uid']);
+			}
+			if ($a['special']==20)
+			{
+				$a['image'] = 68;
+				$a['params'] = '';
+				$a['esttime'] = 18000 - (tme() - $a['esttime']);
+				$a['name'] = 'Отдышка после леса';
+				$a['special'] = 21;
 				light_aura_on($a, $this->pers['uid']);
 			}
 		}
