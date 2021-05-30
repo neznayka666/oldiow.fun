@@ -13,17 +13,17 @@
 		$r["k"]=$k;
 		$instp = $inst["durability"]/$inst["price"];
 		if ($inst2["id"])
-			$kk = mtrunc(floor((rand($inst["udmin"],$inst["udmax"])*sqrt($player->pers["sp12"]*100)/175)/sqrt($r["price"]*4) + rand(2,3)));
+			$kk = mtrunc(floor((rand($inst["udmin"],$inst["udmax"])*sqrt($player->pers["sp16"]*100)/175)/sqrt($r["price"]*4) + rand(2,3)));
 		else
-			$kk = mtrunc(floor((rand($inst["udmin"],$inst["udmax"])*sqrt($player->pers["sp12"]*100)/350)/sqrt($r["price"]*4) + rand(1,2)));
-		//$mdur = mtrunc($instp*$kk*($r["price"]/mtrunc(sqrt($player->pers["sp12"]/25)+1)))+1;
+			$kk = mtrunc(floor((rand($inst["udmin"],$inst["udmax"])*sqrt($player->pers["sp16"]*100)/350)/sqrt($r["price"]*4) + rand(1,2)));
+		//$mdur = mtrunc($instp*$kk*($r["price"]/mtrunc(sqrt($player->pers["sp16"]/25)+1)))+1;
 		
 		//if ($mdur>$inst["durability"]) $mdur = $kk;
 			//$za = 0;
 		
 		if (rand(1,500)==1)
 		{
-			$v = $db->sqla("SELECT * FROM weapons WHERE type='rune' and price/10<".$player->pers["sp7"]." and dprice=0 ORDER BY RAND()", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+			$v = $db->sqla("SELECT * FROM weapons WHERE type='rune' and price/10<".$player->pers["sp20"]." and dprice=0 ORDER BY RAND()", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			if ($v)
 			{
 				insert_wp($v["id"],$player->pers["uid"],-1,0,$player->pers["user"]);
@@ -40,7 +40,7 @@
 
 		if ($za==0)
 		{
-			if (rand(sqrt($player->pers["sp12"]),$player->pers["sp12"]*2)>$r["price"])
+			if (rand(sqrt($player->pers["sp16"]),$player->pers["sp16"]*2)>$r["price"])
 			{
 				if ($kk>$r["k"]) $kk=$r["k"];
 				//$r_get .= "Вы добываете: <b>".$r["name"]."</b> в количестве:  <b>".$kk."</b> ед.<br><b>".$kk*$r["price"]."</b> зм.</font><br>Долговечность кирки понизилась на ".round($kk).".<br>Рудокоп +".round(10/($kk+3),2).".<br>Шахтёрство +".round(5/($kk+3),2).".";
@@ -49,9 +49,9 @@
 				$player->pers["waiter_forest"]=$t+$timed;
 				$db->sql("UPDATE wp SET `durability`=durability-".round($kk+1)." WHERE id='".$inst["id"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 
-				set_vars("sp12=sp12+'".round(10/($kk+3),2)."',sp7=sp7+'".round(5/($kk+3),2)."',peace_exp=peace_exp+3,waiter_forest=".$player->pers["waiter_forest"].",tire=tire+10",$player->pers["uid"]);
+				set_vars("sp16=sp16+'".round(10/($kk+3),2)."',sp20=sp20+'".round(5/($kk+3),2)."',peace_exp=peace_exp+3,waiter_forest=".$player->pers["waiter_forest"].",tire=tire+10",$player->pers["uid"]);
 
-				//echo "sp12=sp12+'".(10/($kk+3))."',sp7=sp7+'".(5/($kk+3))."',peace_exp=peace_exp+3,waiter=".$player->pers["waiter"].",tire=tire+10",$player->pers["uid"];
+				//echo "sp16=sp16+'".(10/($kk+3))."',sp20=sp20+'".(5/($kk+3))."',peace_exp=peace_exp+3,waiter=".$player->pers["waiter"].",tire=tire+10",$player->pers["uid"];
 
 				$rr = $db->sqla("SELECT * FROM wp WHERE uidp='".$player->pers["uid"]."' and in_bank=0 and id_in_w='res..".$r["image"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 				//if ($rr["id"]) $db->sql("UPDATE wp SET price=price+".$kk*$r["price"].",weight=weight+".$kk.",durability=durability+".$kk.",max_durability=max_durability+".$kk." WHERE id=".$rr["id"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
@@ -70,16 +70,16 @@
 				if ($r["image"]==$tunnel["r2id"]){$db->sql("UPDATE forest SET r2k=r2k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and forest=".$tunnel["forest"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r2k"]-=$kk;}
 				if ($r["image"]==$tunnel["r3id"]){$db->sql("UPDATE forest SET r3k=r3k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and forest=".$tunnel["forest"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r3k"]-=$kk;}
 				###
-				loges_proffesions($kk*$r["price"], 2, 'Ш: '.round($player->pers['sp7']).'; Д: '.round($player->pers['sp12']),UID);
+				loges_proffesions($kk*$r["price"], 2, 'Ш: '.round($player->pers['sp20']).'; Д: '.round($player->pers['sp16']),UID);
 			}
 			else
 			{
-				$r_get .= "Неудачным ударом кирки, вы испортили ресурс.<br>Долговечность кирки понизилась на ".round($kk+1).".<br>Рудокоп -".round((5/($player->pers["sp12"]+1)),3).".<hr><i>Совет: Это происходит из-за слишком малого количества вашего умения \"Рудокоп\". Поднять это умение можно в университете.</i><hr>";
+				$r_get .= "Неудачным ударом кирки, вы испортили ресурс.<br>Долговечность кирки понизилась на ".round($kk+1).".<br>Рудокоп -".round((5/($player->pers["sp16"]+1)),3).".<hr><i>Совет: Это происходит из-за слишком малого количества вашего умения \"Рудокоп\". Поднять это умение можно в университете.</i><hr>";
 				$player->pers["waiter_forest"]=$t+$timed;
-				$mm = round((5/($player->pers["sp12"]+1)),3);
-				if ($player->pers["sp12"]<1) $mm=0;
+				$mm = round((5/($player->pers["sp16"]+1)),3);
+				if ($player->pers["sp16"]<1) $mm=0;
 				$db->sql("UPDATE wp SET durability=durability-".round($kk+1)." WHERE id='".$inst["id"]."'");
-				set_vars("sp12=sp12-".$mm.",peace_exp=peace_exp+1,waiter_forest=".$player->pers["waiter_forest"].",tire=tire+8",$player->pers["uid"]);
+				set_vars("sp16=sp16-".$mm.",peace_exp=peace_exp+1,waiter_forest=".$player->pers["waiter_forest"].",tire=tire+8",$player->pers["uid"]);
 				if ($r["image"]==$tunnel["r1id"]){$db->sql("UPDATE forest SET r1k=r1k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and forest=".$tunnel["forest"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r1k"]-=$kk;}
 				if ($r["image"]==$tunnel["r2id"]){$db->sql("UPDATE forest SET r2k=r2k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and forest=".$tunnel["forest"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r2k"]-=$kk;}
 				if ($r["image"]==$tunnel["r3id"]){$db->sql("UPDATE forest SET r3k=r3k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and forest=".$tunnel["forest"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r3k"]-=$kk;}
