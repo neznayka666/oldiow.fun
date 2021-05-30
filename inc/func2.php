@@ -99,7 +99,7 @@ function all_params()
 	$r[]='ma';
 	$r[]='udmin';
 	$r[]='udmax';
-	for ($i=1;$i<15;$i++)
+	for ($i=1;$i<17;$i++)
 	{
 		$r[]='sp'.$i;
 	}
