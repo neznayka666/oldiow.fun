@@ -60,7 +60,7 @@
 				//if ($rr["id"]) {
 				for($i = 0; $i < $kk; ++$i) {
     				$db->sql("INSERT INTO `wp` ( `id` , `uidp` , `weared` ,`id_in_w`, `price` , `dprice` , `image` , `index` , `type` , `stype` , `name` , `describe` , `weight` , `where_buy` , `max_durability` , `durability` ,`p_type`)
-						VALUES (0, '".$player->pers["uid"]."', '0','res..".$r["image"]."','".$r["price"]."', '0', 'resources_forest/".$r["image"]."', '0', 'resources_forest', 'resources_forest', '".$r["name"]."', '', '1', '0', '1', '1','7');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+						VALUES (0, '".$player->pers["uid"]."', '0','res..".$r["image"]."','".$r["price"]."', '0', 'resources_forest/".$r["image"]."', '0', 'resources', 'resources', '".$r["name"]."', '', '1', '0', '1', '1','7');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 				}
 				//}
 				//$db->sql("INSERT INTO `wp` ( `id` , `uidp` , `weared` ,`id_in_w`, `price` , `dprice` , `image` , `index` , `type` , `stype` , `name` , `describe` , `weight` , `where_buy` , `max_durability` , `durability` ,`p_type`)
