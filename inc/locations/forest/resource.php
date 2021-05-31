@@ -7,7 +7,7 @@
 	($r==$tunnel["r2id"] and $k=$tunnel["r2k"]) or
 	($r==$tunnel["r3id"] and $k=$tunnel["r3k"]))
 	{
-		$inst2 = $db->sqla("SELECT id FROM wp WHERE uidp=".$player->pers["uid"]." and weared=1 and p_type=13", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+		$inst2 = $db->sqla("SELECT id FROM wp WHERE uidp=".$player->pers["uid"]." and weared=1 and p_type=17", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		//$r_get.= "<i class=user>Добыча</i><br>";
 		$r = $db->sqla("SELECT * FROM resources_forest WHERE image='".$r."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		$r["k"]=$k;
