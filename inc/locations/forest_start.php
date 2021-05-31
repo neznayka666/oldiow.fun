@@ -144,7 +144,7 @@ while ($v=mysql_fetch_array ($enures))
 }
 echo "</form>";
 
-var_dump($player->lastom_new);
+//var_dump($player->lastom_new);
 
 ?>
 
