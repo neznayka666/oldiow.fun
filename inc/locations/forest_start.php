@@ -12,7 +12,7 @@ define("LFOREST12",1000);
 if ( $http->_get('buy') and $http->_get("kolvo")>0 and $http->_get("kolvo")<100 and $player->jKey(1) )
 {
 	$buy = intval($http->_get("buy"));
-	$v = $db->sqla("SELECT price,name,id,max_durability,dprice FROM `weapons` WHERE `id`='".$buy."' and (p_type=5 or p_type=13) and `dprice` = 0;", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+	$v = $db->sqla("SELECT price,name,id,max_durability,dprice FROM `weapons` WHERE `id`='".$buy."' and (p_type=5 or p_type=17) and `dprice` = 0;", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 	if ( $v )
 	{
 		$kolvo = intval($http->get["kolvo"]);
