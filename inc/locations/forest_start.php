@@ -129,7 +129,7 @@ if (!$player->AuraSpecial[20] and !$player->AuraSpecial[21]) {
 }
 
 $lavka = 1;
-$enures= $db->sql("SELECT * FROM `weapons` WHERE (`p_type`='5' or `p_type`='13' or `p_type`='18') AND `where_buy`='0' or `name`='Малый рюкзак' ORDER BY `price` ASC", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+$enures= $db->sql("SELECT * FROM `weapons` WHERE `p_type`='17' AND `where_buy`='0' or `name`='Малый рюкзак' ORDER BY `price` ASC", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 echo "<form action=main.php onsubmit='return false;' name=lavka1>";
 while ($v=mysql_fetch_array ($enures))
 {
