@@ -7,6 +7,7 @@
 <div class="bb"><a href="?act=5"><img src="images/info/bull.gif"> Рейтинг Игроков</a></div>
 <div class="bb"><a href="?act=3"><img src="images/info/bull.gif"> Правила игры</a></div>
 <div class="bb"><a href="?act=6"><img src="images/info/bull.gif"> Ресурсы Шахты</a></div>
+<div class="bb"><a href="?act=7"><img src="images/info/bull.gif"> Ресурсы Леса</a></div>
 <!--div class="bb"><a href="?act=4"><img src="images/info/bull.gif"> Соглашение</a></!--div-->
 
 <!--img src="img/long_dash.gif" style="padding-top:10px; padding-bottom:10px;" alt="" />
