@@ -247,7 +247,7 @@ if (!$no_make) $begin = '<input class=inv_but type=button value="Начать д
 	$resources_forest .= '</table>';
 }
 if (!$resources_forest) $resources_forest .= '<div class="redBlock">Вы не обнаружили здесь никаких ресурсов.</div>';
-$resources_forest2 .= '<hr><b>Уже найдено</b>';
+$resources_forest2 .= '<hr><b>Уже собрано</b>';
 $resources_forest2 .= '<table border=0 width=100% cellspacing="3" cellpadding="3">';
 
 $_r = $db->sql("SELECT count(*) as a, `name`, `price` FROM `wp` WHERE `type`='resources_forest' and `uidp`='".$player->pers["uid"]."' GROUP BY `name` ORDER BY `name`", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
