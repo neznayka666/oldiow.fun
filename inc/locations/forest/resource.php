@@ -45,7 +45,7 @@
 				if ($kk>$r["k"]) $kk=$r["k"];
 				//$r_get .= "Вы добываете: <b>".$r["name"]."</b> в количестве:  <b>".$kk."</b> ед.<br><b>".$kk*$r["price"]."</b> зм.</font><br>Долговечность кирки понизилась на ".round($kk).".<br>Рудокоп +".round(10/($kk+3),2).".<br>Шахтёрство +".round(5/($kk+3),2).".";
 				say_to_chat ("s","Вы добываете: <b>".$r["name"]."</b> в количестве: <b>".$kk."</b> ед. Долговечность корзины понизилась на <b>-".round($kk)."</b>. Навык Старателя <b>+".round(10/($kk+3),2)."</b>. Навык Лесника <b>+".round(5/($kk+3),2)."</b>",1,$player->pers["user"],'*',0); 
-				if (!$inst2["id"]) $r_get .= '<hr><div class=return_win><i>Совет: Без телеги количество добываемого ресурса в 2 раза меньше чем с телегой.</i></div><hr>';
+				if (!$inst2["id"]) $r_get .= '<!--hr><div class=return_win><i>Совет: Без телеги количество добываемого ресурса в 2 раза меньше чем с телегой.</i></div><hr-->';
 				$player->pers["waiter_forest"]=$t+$timed;
 				$db->sql("UPDATE wp SET `durability`=durability-".round($kk+1)." WHERE id='".$inst["id"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 
