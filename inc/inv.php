@@ -145,7 +145,7 @@ $type_sort='';
 if (@$_FILTER["sorti"] and $_FILTER["sorti"]<>'all')
 	$type_sort="(`type`='".addslashes($_FILTER["sorti"])."')and";
 elseif($_FILTER["sorti"]=='all')
-	$type_sort="(`type`<>'herbal' and `type`<>'resources' and `type`<>'fish')and";
+	$type_sort="(`type`<>'herbal' and `type`<>'resources' and `type`<>'fish' and `type`<>'resources_forest')and";
 
 if (empty($_FILTER["sortp"]) or $_FILTER["sortp"]=="price") 
 	$sort="price";
