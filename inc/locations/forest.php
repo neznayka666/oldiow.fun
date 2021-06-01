@@ -97,7 +97,7 @@ if (!$tunnel["r1k"] and !$tunnel["r2k"] and !$tunnel["r3k"] and $t%20==0)
 sql("UPDATE forest SET r1k=r1k+".rand(1,30).",r2k=r2k+".rand(2,15).",r3k=r3k+".rand(15,40)." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and forest=".$tunnel["forest"]."");
 
 ############################################
-$inst = $db->sqla("SELECT id,udmin,udmax,durability,price FROM wp WHERE uidp=".$player->pers["uid"]." and weared=1 and p_type=5", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+$inst = $db->sqla("SELECT id,udmin,udmax,durability,price FROM wp WHERE uidp=".$player->pers["uid"]." and weared=1 and p_type=17", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 if (!$inst["id"]) $no_make=1;
 if (@$http->get["beginr"] and !$no_make and $player->pers["waiter_forest"]<$t and $player->pers["tire"]<100)
 {
