@@ -207,7 +207,7 @@ else
 if ($player->pers["tire"]>99) { $no_make = 1;}
 $resources_forest = '';
 if ($inst) $resources_forest3 .= 'Долговечность корзины: <b>'.$inst["durability"].'</b><br>Лесник: <b>'.($player->pers["sp15"]).'</b><br>Старатель: <b>'.($player->pers["sp16"]).'</b>';
-if ($r1["image"] and ($r1["price"]<2 or $r1["price"]<$player->pers["sp15"]/8) and mtrunc($r1["k"]))
+if ($r1["image"] and ($r1["price"]<2 or $r1["price"]<$player->pers["sp15"]/32) and mtrunc($r1["k"]))
 {
 	
 if (!$no_make)
@@ -222,7 +222,7 @@ else $begin = '';
 	$resources_forest .= '</tr>';
 	$resources_forest .= '</table>';
 }
-if ($r2["image"] and ($r2["price"]<2 or $r2["price"]<$player->pers["sp15"]/8) and mtrunc($r2["k"]))
+if ($r2["image"] and ($r2["price"]<2 or $r2["price"]<$player->pers["sp15"]/32) and mtrunc($r2["k"]))
 {
 if (!$no_make) $begin = '<input class=inv_but type=button value="Начать собирать" onclick="location=\'main.php?beginr='.$r2["image"].'\'">'; else $begin = '';
 	$resources_forest .= '<table border=0 width=100% cellspacing="5" cellpadding="5" class="whiteBlock margin-5">';
@@ -234,7 +234,7 @@ if (!$no_make) $begin = '<input class=inv_but type=button value="Начать с
 	$resources_forest .= '</tr>';
 	$resources_forest .= '</table>';
 }
-if ($r3["image"] and ($r3["price"]<2 or $r3["price"]<$player->pers["sp15"]/8) and mtrunc($r3["k"]))
+if ($r3["image"] and ($r3["price"]<2 or $r3["price"]<$player->pers["sp15"]/32) and mtrunc($r3["k"]))
 {
 if (!$no_make) $begin = '<input class=inv_but type=button value="Начать собирать" onclick="location=\'main.php?beginr='.$r3["image"].'\'">'; else $begin = '';
 	$resources_forest .= '<table border=0 width=100% cellspacing="5" cellpadding="5" class="whiteBlock margin-5">';
