@@ -207,11 +207,11 @@ else
 if ($player->pers["tire"]>99) { $no_make = 1;}
 $resources_forest = '';
 if ($inst) $resources_forest3 .= 'Долговечность корзины: <b>'.$inst["durability"].'</b><br>Лесник: <b>'.($player->pers["sp15"]).'</b><br>Старатель: <b>'.($player->pers["sp16"]).'</b>';
-if ($r1["image"] and ($r1["price"]<2 or $r1["price"]<$player->pers["sp15"]/16) and mtrunc($r1["k"]))
+if ($r1["image"] and ($r1["price"]<2 or $r1["price"]<$player->pers["sp15"]/8) and mtrunc($r1["k"]))
 {
 	
 if (!$no_make)
-$begin = '<input class=inv_but type=button value="Начать добычу" onclick="location=\'main.php?beginr='.$r1["image"].'\'">';
+$begin = '<input class=inv_but type=button value="Начать собирать" onclick="location=\'main.php?beginr='.$r1["image"].'\'">';
 else $begin = '';
 	$resources_forest .= '<table border=0 width=100% cellspacing="5" cellpadding="5" class="whiteBlock margin-5">';
 	$resources_forest .= '<tr>';
@@ -222,9 +222,9 @@ else $begin = '';
 	$resources_forest .= '</tr>';
 	$resources_forest .= '</table>';
 }
-if ($r2["image"] and ($r2["price"]<2 or $r2["price"]<$player->pers["sp15"]/16) and mtrunc($r2["k"]))
+if ($r2["image"] and ($r2["price"]<2 or $r2["price"]<$player->pers["sp15"]/8) and mtrunc($r2["k"]))
 {
-if (!$no_make) $begin = '<input class=inv_but type=button value="Начать добычу" onclick="location=\'main.php?beginr='.$r2["image"].'\'">'; else $begin = '';
+if (!$no_make) $begin = '<input class=inv_but type=button value="Начать собирать" onclick="location=\'main.php?beginr='.$r2["image"].'\'">'; else $begin = '';
 	$resources_forest .= '<table border=0 width=100% cellspacing="5" cellpadding="5" class="whiteBlock margin-5">';
 	$resources_forest .= '<tr>';
 	$resources_forest .= '<td align=center width=60><img src=images/weapons/resources_forest/'.$r2["image"].'.gif></td>';
@@ -234,9 +234,9 @@ if (!$no_make) $begin = '<input class=inv_but type=button value="Начать д
 	$resources_forest .= '</tr>';
 	$resources_forest .= '</table>';
 }
-if ($r3["image"] and ($r3["price"]<2 or $r3["price"]<$player->pers["sp15"]/16) and mtrunc($r3["k"]))
+if ($r3["image"] and ($r3["price"]<2 or $r3["price"]<$player->pers["sp15"]/8) and mtrunc($r3["k"]))
 {
-if (!$no_make) $begin = '<input class=inv_but type=button value="Начать добычу" onclick="location=\'main.php?beginr='.$r3["image"].'\'">'; else $begin = '';
+if (!$no_make) $begin = '<input class=inv_but type=button value="Начать собирать" onclick="location=\'main.php?beginr='.$r3["image"].'\'">'; else $begin = '';
 	$resources_forest .= '<table border=0 width=100% cellspacing="5" cellpadding="5" class="whiteBlock margin-5">';
 	$resources_forest .= '<tr>';
 	$resources_forest .= '<td align=center width=60><img src=images/weapons/resources_forest/'.$r3["image"].'.gif></td>';
@@ -324,7 +324,7 @@ echo "Вы слишком устали.";
 
             <?php			
 	if ($player->pers["forestx"]==0 and $player->pers["foresty"]==0) {
-	$help .= '<hr><b>Помощь:</b><br><p >Для того чтобы начать добычу нужно пройти к поляне с ресурсами и начать добычу. Если ресурсы на поляне закончились, вы можете разведать новую поляну. Это можно делать группой. Просто нажмите на белую стрелку и согласитесь , тогда ваш персонаж начнёт разведывать новую поляну. Если в это время этоту поляну кто-то уже разведал, то время разведки снизиться и т.д. чем больше разведчиков - тем быстрее разведаеться новая поляна.</p><hr>';
+	$help .= '<hr><b>Помощь:</b><br><p >Для того чтобы Начать собирать нужно пройти к поляне с ресурсами и Начать собирать. Если ресурсы на поляне закончились, вы можете разведать новую поляну. Это можно делать группой. Просто нажмите на белую стрелку и согласитесь , тогда ваш персонаж начнёт разведывать новую поляну. Если в это время этоту поляну кто-то уже разведал, то время разведки снизиться и т.д. чем больше разведчиков - тем быстрее разведаеться новая поляна.</p><hr>';
 	echo $help ;
 	//echo '<p >Умение "ШАХТЁР" помогает разглядеть более дорогие ресурсы в стенах тунеля, а так же быстрее разрывать новые тунели.<br>Умение "ДОБЫЧА КАМНЕЙ" повышает кол-во добываемых ресурсов за единицу времени.</p><hr>';
 }
