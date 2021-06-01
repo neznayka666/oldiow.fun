@@ -152,8 +152,8 @@ function types()
 	//$r['herbal'] = 'Травы';
 	//$r['fishing'] = 'Рыболовные снасти';
 	//$r['fish'] = 'Рыба';
-	$r['resources'] = 'Ресурсы Шахты';
-	$r['resources_forest'] = 'Ресурсы Леса';
+	$r['resources'] = 'Ресурсы из шахты';
+	$r['resources_forest'] = 'Ресурсы из леса';
 	$r['rune'] = 'Руны';
 	//$r['byxlo'] = 'Выпивка';
 	//$r['prim'] = 'Приманки';
