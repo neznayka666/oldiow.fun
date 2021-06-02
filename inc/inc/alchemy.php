@@ -14,7 +14,7 @@
 		$db->sql("UPDATE wp SET p_type=200 WHERE weared=0 and uidp=".$player->pers["uid"]." and id=".intval($http->get["g"])." and p_type=201");
 	}
 	
-	if ($http->get["alchemy_go"]==1)
+	if ($http->get["alchemy_go"]==1 and $cell_type==6)
 	{
 		if ($player->pers["sp11"]>2300) $player->pers["sp11"] = 2300;
 		$rcount = $db->sqlr("SELECT COUNT(image) FROM `wp` WHERE `uidp`=".$player->pers["uid"]." and weared=0 and p_type=201");
@@ -193,7 +193,7 @@
 	}
 	echo "</table>";
 	if ($count_r==8) echo "Дистиллятор полный.<br>";
-	if ($count_r>0) echo "<a href='main.php?alchemy_go=1&inv=cat5' class=but>Варить</a>";
+	if ($count_r>0 and $cell_type==6) echo "<a href='main.php?alchemy_go=1&inv=cat5' class=but>Варить</a>";
 	echo "</center>";
 	
 	$res = $db->sql("SELECT * FROM `wp` WHERE `uidp`=".$player->pers["uid"]." and weared=0 and p_type=200");
