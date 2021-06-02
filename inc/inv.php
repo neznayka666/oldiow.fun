@@ -34,13 +34,13 @@
             <tr>
                 <Td><a href="javascript:inv_conf()" class=bga>Фильтр</a>
                 </Td>
-                <!--Td><a href="main.php?inv=weapons" class='bga'>Вещи</a></Td-->
-                <!--Td><a href="main.php?inv=magic" class=Blocked>Магия</a></Td-->
+                <Td><a href="main.php?inv=weapons" class='bga'>Вещи</a></Td>
+                <!--Td><a href="main.php?inv=magic" class=Blocked>Магия</a></!--Td-->
                 <Td><a href="main.php?inv=presents" class=bga>Подарки</a></Td>
                 <Td><a href="main.php?inv=cat3" class=bga>Комплекты</a></Td>
                 <?php
-						if ($weared_count) echo "<td><a href=main.php?snall=all class=bga>Снять всё</a></td>"; 
-					?>
+if ($weared_count) echo "<td><a href=main.php?snall=all class=bga>Снять всё</a></td>"; 
+?>
                 <?php
 if ($player->pers["priveleged"]>=1) {
 
@@ -96,7 +96,6 @@ elseif($player->pers["alchemy_m"] == 0)
         </script>
         <script type="text/javascript" src="/js/inv.js"></script>
         <?php
-		  if ($player->pers["priveleged"]) {
 /*
 $fish = $db->sqlr("SELECT COUNT(id) FROM wp WHERE type='fish' and weared=0 and uidp=".$player->pers["uid"]."");
 if ($fish>1 and strpos(" ".$player->pers["location"],"lavka")>0) echo "<input type=button class=loc value='Сдать всю рыбу' onclick=\"location='main.php?give=allfish'\">";
