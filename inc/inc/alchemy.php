@@ -193,7 +193,7 @@
 	}
 	echo "</table>";
 	if ($count_r==8) echo "Дистиллятор полный.<br>";
-	if ($count_r>0 and $cell_type==6) echo "<a href='main.php?alchemy_go=1&inv=cat5' class=but>Варить</a>";
+	if ($count_r>0) echo "<a href='main.php?alchemy_go=1&inv=cat5' class=but>Варить</a>";
 	echo "</center>";
 	
 	$res = $db->sql("SELECT * FROM `wp` WHERE `uidp`=".$player->pers["uid"]." and weared=0 and p_type=200");
