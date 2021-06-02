@@ -14,7 +14,7 @@
 		$db->sql("UPDATE wp SET p_type=200 WHERE weared=0 and uidp=".$player->pers["uid"]." and id=".intval($http->get["g"])." and p_type=201");
 	}
 	
-	if ($http->get["alchemy_go"]==1 and $cell_type==6)
+	if ($http->get["alchemy_go"]==1)
 	{
 		if ($player->pers["sp11"]>2300) $player->pers["sp11"] = 2300;
 		$rcount = $db->sqlr("SELECT COUNT(image) FROM `wp` WHERE `uidp`=".$player->pers["uid"]." and weared=0 and p_type=201");
