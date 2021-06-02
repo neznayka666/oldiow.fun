@@ -26,11 +26,12 @@ function w_buy(id) {
     </tr>
 </table>
 <?php
-//echo "<table style='width:100%;' cellspacing=0 cellspacing=0 class=but><tr>";
-//echo "<td style='width: 25%' align=center><div><a href=# ".build_go_string('pr_shop',$lastom_new)." class=But>Второй этаж</a> Магазин подарков</div></td> <td style='width: 25%' align=center><div><a href=# ".build_go_string('warehouse',$lastom_new)." class=But>Третий этаж</a> Аукцион</div></td>";
-//echo "<td style='width: 25%' align=center><div><a href=# ".build_go_string('alchemy',$lastom_new)." class=But>Подвал</a> </div></td>";
-//echo "</tr></table>";
-
+if ($player->pers["priveleged"]>=1) {
+echo "<table style='width:100%;' cellspacing=0 cellspacing=0 class=but><tr>";
+echo "<td style='width: 25%' align=center><div><a href=# ".build_go_string('pr_shop',$lastom_new)." class=But>Второй этаж</a> Магазин подарков</div></td> <td style='width: 25%' align=center><div><a href=# ".build_go_string('warehouse',$lastom_new)." class=But>Третий этаж</a> Аукцион</div></td>";
+echo "<td style='width: 25%' align=center><div><a href=# ".build_go_string('alchemy',$lastom_new)." class=But>Подвал</a> </div></td>";
+echo "</tr></table>";
+}
 //Покупаем  вещь
 if (isset($_GET["buy"]) and isset($_GET["kolvo"]) and $_GET["kolvo"]>0 and $_GET["kolvo"]<100)
 {
