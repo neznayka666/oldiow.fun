@@ -34,15 +34,15 @@
             <tr>
                 <Td><a href="javascript:inv_conf()" class=bga>Фильтр</a>
                 </Td>
-                <Td><a href="main.php?inv=weapons" class='bga'>Вещи</a></Td>
-                <!--Td><a href="main.php?inv=magic" class=Blocked>Магия</a></!--Td-->
+                <!--Td><a href="main.php?inv=weapons" class='bga'>Вещи</a></Td-->
+                <!--Td><a href="main.php?inv=magic" class=Blocked>Магия</a></Td-->
                 <Td><a href="main.php?inv=presents" class=bga>Подарки</a></Td>
                 <Td><a href="main.php?inv=cat3" class=bga>Комплекты</a></Td>
                 <?php
 if ($weared_count) echo "<td><a href=main.php?snall=all class=bga>Снять всё</a></td>"; 
 ?>
                 <?php
-/*
+if ($player->pers["priveleged"]) {
 if ($player->pers["alchemy_d"]>0 and $player->pers["alchemy_b"]>0 and $player->pers["alchemy_m"]>0) echo "<td><a href=main.php?inv=cat5 class=bg>Алхимия</a></td>";
 elseif($player->pers["alchemy_d"] == 0)
 	echo "<td><a class=bg onclick=\"alert('Кончилась долговечность дистиллятора.')\">Алхимия</a></td>";
@@ -50,7 +50,7 @@ elseif($player->pers["alchemy_b"] == 0)
 	echo "<td><a class=bg onclick=\"alert('Кончились пустые ёмкости.')\">Алхимия</a></td>";
 elseif($player->pers["alchemy_m"] == 0)
 	echo "<td><a class=bg onclick=\"alert('Кончилась долговечность ступки.')\">Алхимия</a></td>";
-*/
+}
 ?>
             </tr>
         </table>
@@ -94,6 +94,7 @@ elseif($player->pers["alchemy_m"] == 0)
         </script>
         <script type="text/javascript" src="/js/inv.js"></script>
         <?php
+		  if ($player->pers["priveleged"]) {
 /*
 $fish = $db->sqlr("SELECT COUNT(id) FROM wp WHERE type='fish' and weared=0 and uidp=".$player->pers["uid"]."");
 if ($fish>1 and strpos(" ".$player->pers["location"],"lavka")>0) echo "<input type=button class=loc value='Сдать всю рыбу' onclick=\"location='main.php?give=allfish'\">";
