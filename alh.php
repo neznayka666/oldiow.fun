@@ -12,7 +12,7 @@ include (ROOT.'/inc/func.php');
 
 $ra = Array();
 
-$h = $db->sql("SELECT `name`,`image` FROM `herbals` ORDER BY `image`");
+$h = $db->sql("SELECT `name`,`image` FROM `resources_forest` ORDER BY `image`");
 
 while ( $r = mysql_fetch_row($h) )
 {
