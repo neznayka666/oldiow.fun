@@ -199,7 +199,7 @@
 	$res = $db->sql("SELECT * FROM `wp` WHERE `uidp`=".$player->pers["uid"]." and weared=0 and p_type=7");
 echo "<center class=but><table width=90%>";
 $unique_herbal = '';
-$counter=0;
+//$counter=0;
 while ($vesh=mysql_fetch_array($res))
 {
 	if (!substr_count($unique_herbal,substr($vesh["image"],8,8)))
