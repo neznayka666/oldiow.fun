@@ -4,14 +4,14 @@
 	
 	if ($http->get["d"])
 	{
-		$db->sql("UPDATE wp SET p_type=201 WHERE weared=0 and uidp=".$player->pers["uid"]." and id=".intval($http->get["d"])." and p_type=200");
+		$db->sql("UPDATE wp SET p_type=201 WHERE weared=0 and uidp=".$player->pers["uid"]." and id=".intval($http->get["d"])." and p_type=7");
 		$db->sql("UPDATE users SET alchemy_m=alchemy_m-1 WHERE uid=".$player->pers["uid"]."");
 		$player->pers["alchemy_m"]--;
 	}
 	
 	if ($http->get["g"])
 	{
-		$db->sql("UPDATE wp SET p_type=200 WHERE weared=0 and uidp=".$player->pers["uid"]." and id=".intval($http->get["g"])." and p_type=201");
+		$db->sql("UPDATE wp SET p_type=7 WHERE weared=0 and uidp=".$player->pers["uid"]." and id=".intval($http->get["g"])." and p_type=201");
 	}
 	
 	if ($http->get["alchemy_go"]==1 and $cell_type==6)
@@ -196,7 +196,7 @@
 	if ($count_r>0 and $cell_type==6) echo "<a href='main.php?alchemy_go=1&inv=cat5' class=but>Варить</a>";
 	echo "</center>";
 	
-	$res = $db->sql("SELECT * FROM `wp` WHERE `uidp`=".$player->pers["uid"]." and weared=0 and p_type=200");
+	$res = $db->sql("SELECT * FROM `wp` WHERE `uidp`=".$player->pers["uid"]." and weared=0 and p_type=7");
 echo "<center class=but><table width=90%>";
 $unique_herbal = '';
 $counter=0;
