@@ -196,16 +196,16 @@
 	if ($count_r>0 and $cell_type==6) echo "<a href='main.php?alchemy_go=1&inv=cat5' class=but>Варить</a>";
 	echo "</center>";
 	
-	$res = $db->sql("SELECT * FROM `wp` WHERE `uidp`=".$player->pers["uid"]." and weared=0 and p_type=7");
+$res = $db->sql("SELECT * FROM `wp` WHERE `uidp`=".$player->pers["uid"]." and weared=0 and p_type=7");
 echo "<center class=but><table width=90%>";
 $unique_herbal = '';
-//$counter=0;
+$counter=0;
 while ($vesh=mysql_fetch_array($res))
 {
 	if (!substr_count($unique_herbal,substr($vesh["image"],8,8)))
 	{
 	$unique_herbal .= substr($vesh["image"],8,8).'#';
-	//$sht = 1;
+	$sht = 1;
 	$item_lib = $vesh["id"];
 	echo "<tr><td class=weapons_box>";
 	include ("weapon.php");
@@ -216,6 +216,7 @@ while ($vesh=mysql_fetch_array($res))
 	echo "<tr><td>".$buttons."</td></tr>";
 	}
 }
+unset($res);
 echo "</table>";
 if ($counter==0) echo "У вас нет ингредиентов.";
 echo "</center>";
