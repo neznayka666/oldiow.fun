@@ -196,10 +196,11 @@
 	if ($count_r>0 and $cell_type==6) echo "<a href='main.php?alchemy_go=1&inv=cat5' class=but>Варить</a>";
 	echo "</center>";
 	
+$counter=0;	
 $res = $db->sql("SELECT * FROM `wp` WHERE `uidp`=".$player->pers["uid"]." and weared=0 and p_type=7");
 echo "<center class=but><table width=90%>";
 $unique_herbal = '';
-$counter=0;
+
 while ($vesh=mysql_fetch_array($res))
 {
 	if (!substr_count($unique_herbal,substr($vesh["image"],8,8)))
