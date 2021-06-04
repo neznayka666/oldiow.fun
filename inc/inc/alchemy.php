@@ -195,16 +195,16 @@
 	if ($count_r==8) echo "Дистиллятор полный.<br>";
 	if ($count_r>0 and $cell_type==6) echo "<a href='main.php?alchemy_go=1&inv=cat5' class=but>Варить</a>";
 	echo "</center>";
-	
+
 $counter=0;	
-$res = $db->sql("SELECT * FROM `wp` WHERE `uidp`=".$player->pers["uid"]." and weared=0 and p_type=7");
+$res = $db->sql("SELECT * FROM `wp` WHERE `uidp`=".$player->pers["uid"]." and weared=0 and p_type=7 GROUP BY `name` ");
 echo "<center class=but><table width=90%>";
 $unique_herbal = '';
 
 while ($vesh=mysql_fetch_array($res))
 {
-	if (!substr_count($unique_herbal,substr($vesh["image"],8,8)))
-	{
+	//if (!substr_count($unique_herbal,substr($vesh["image"],8,8)))
+	//{
 	$unique_herbal .= substr($vesh["image"],8,8).'#';
 	$sht = '';
 	$item_lib = $vesh["id"];
@@ -215,7 +215,7 @@ while ($vesh=mysql_fetch_array($res))
 	$buttons = '';
 	if ($count_r<8) $buttons .= "<input type=button class=inv_but value='Размельчить и поместить в дистиллятор' onclick=\"location='main.php?d=".$vesh["id"]."&inv=cat5'\"> | <input type=button class=inv_but value='Информация' onclick=\"window.open('rec.php?id=".substr($vesh["image"],8,8)."','','resize=auto,width=520,height=400,left=300,top=300')\">";
 	echo "<tr><td>".$buttons."</td></tr>";
-	}
+	//}
 }
 unset($res);
 echo "</table>";
