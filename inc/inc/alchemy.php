@@ -205,7 +205,7 @@ while ($vesh=mysql_fetch_array($res))
 	if (!substr_count($unique_herbal,substr($vesh["image"],8,8)))
 	{
 	$unique_herbal .= substr($vesh["image"],8,8).'#';
-	$sht = 1;
+	$sht = '';
 	$item_lib = $vesh["id"];
 	echo "<tr><td class=weapons_box>";
 	include ("weapon.php");
