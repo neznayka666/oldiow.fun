@@ -20,7 +20,13 @@ function show_w (name,sht,img,d,m_d,cena,pric,dprice,art,attr,describe,present,c
 	<td width="40%" align="center" style="background:#e2e0e0;vertical-align:top;"><b>Действие предмета</b></td>
 	
 	<td rowspan=2 align="center" style="border-left:1px solid #ccc;border-right:1px solid #ccc;vertical-align:top;">
+	<div style="position: relative;">
 	<img src="/images/weapons/${img}.gif">
+	<div style="position: absolute; bottom: 8px; left: 16px;">
+	<div class="width:5px;height:5px;background:green;"></div>
+	<div class="width:5px;height:5px;background:reg;"></div>
+	</div>
+	</div>
 	<div id='${img}_${d}_${pric}_${index}'>${sht}</div></td>
 	<td width="40%" align="center" style="background:#e2e0e0;vertical-align:top;"><b>Минимальные требования</b></td>
 	</tr><tr>`);
