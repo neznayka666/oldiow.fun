@@ -23,8 +23,8 @@ function show_w (name,sht,img,d,m_d,cena,pric,dprice,art,attr,describe,present,c
 	<div style="position: relative;">
 	<img src="/images/weapons/${img}.gif">
 	<div style="position: absolute; bottom: 8px; left: 16px;">
-	<div class="width:5px;height:5px;background:green;"></div>
-	<div class="width:5px;height:5px;background:reg;"></div>
+	<div style="width:5px;height:5px;background:green;"></div>
+	<div style="width:5px;height:5px;background:reg;"></div>
 	</div>
 	</div>
 	<div id='${img}_${d}_${pric}_${index}'>${sht}</div></td>
