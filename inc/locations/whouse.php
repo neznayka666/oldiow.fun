@@ -100,10 +100,10 @@ function add_form(){
         <tr>
             <td width="250" class="weapons_box" valign="top">
                 <ul>
-                    <li><a href="">Ножи</a></li>
-                    <li><a href="">Ножи</a></li>
-                    <li></li>
-                    <li></li>
+                    <li><a href="#" onClick="location='main.php?act=add_form&stype=noji&set_type=form_noji'">Ножи</a></li>
+                    <li><a href="#" onClick="location='main.php?act=add_form&stype=mech&set_type=form_mech'">Мечи</a></li>
+                    <li><a href="#" onClick="location='main.php?act=add_form&stype=drob&set_type=form_drob'">Дробящее</a></li>
+                    <li><a href="#" onClick="location='main.php?act=add_form&stype=topo&set_type=form_topo'">Топоры</a></li>
                     <li></li>
                     <li></li>
                     <li></li>
