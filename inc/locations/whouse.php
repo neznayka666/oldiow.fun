@@ -125,14 +125,15 @@ function add_form(){
                     <li><a href="#" onClick="location='main.php?act=add_form&stype=kolc&set_type=form_kolc'">Кольца</a></li>
                     <li><a href="#" onClick="location='main.php?act=add_form&stype=kylo&set_type=form_kylo'">Ожерелья</a></li>                                      
                 </ul>
-
-					  <!--b style="COLOR: 315A94;margin-left:0px;text-decoration: underline;">Магические предметы:</!--b>
-                <ul-->
+						<!--
+					  <b style="COLOR: 315A94;margin-left:0px;text-decoration: underline;">Магические предметы:</b>
+                <ul>
                     <li><a href="#" onClick="location='main.php?act=add_form&stype=noji&set_type=form_noji'">Ножи и кинжалы</a></li>
                     <li><a href="#" onClick="location='main.php?act=add_form&stype=mech&set_type=form_mech'">Мечи</a></li>
                     <li><a href="#" onClick="location='main.php?act=add_form&stype=drob&set_type=form_drob'">Дубины и Булавы</a></li>
                     <li><a href="#" onClick="location='main.php?act=add_form&stype=topo&set_type=form_topo'">Топоры и Секиры</a></li>                    
-                </ul-->               
+                </ul>        
+						-->       
                 
 	<!--
 
@@ -182,12 +183,12 @@ function add_form(){
     if (isset($filtr[1])) $stype = $filtr[1];
     else $stype = 'shit';
   }
-  $num = $db->sqlr('SELECT count(*) FROM `wp` WHERE `auction`<> 1 AND `stype`="'.$stype.'" AND in_bank=0 AND art=1 AND clan_sign=\'\' AND dprice=0 AND`uidp`='.UID);
+  $num = $db->sqlr('SELECT count(*) FROM `wp` WHERE `auction`<> 1 AND `stype`="'.$stype.'" AND in_bank=0 AND art=0 AND clan_sign=\'\' AND dprice=0 AND`uidp`='.UID);
   if ($num < 1) show_err('У вас нет предметов этого типа','e');
   else
   {
     echo '<table width="100%" cellspacing="5" cellpadding="5" >';
-    $sql = $db->sql('SELECT * FROM `wp` WHERE `uidp`= '.UID.' AND `stype`="'.$stype.'" AND dprice=0 AND art=1 AND weared=0 AND `auction` <> 1');
+    $sql = $db->sql('SELECT * FROM `wp` WHERE `uidp`= '.UID.' AND `stype`="'.$stype.'" AND dprice=0 AND art=0 AND weared=0 AND `auction` <> 1');
     while ($res = mysql_fetch_array($sql)){
       echo '<tr><td class="weapons_box" valign="top">';
       $vesh = $res;
