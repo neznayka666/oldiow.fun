@@ -200,12 +200,12 @@ function add_form(){
     if (isset($filtr[1])) $stype = $filtr[1];
     else $stype = 'shit';
   }
-  $num = $db->sqlr('SELECT count(*) FROM `wp` WHERE `auction`<> 1 AND `stype`="'.$stype.'" AND in_bank=0 AND clan_sign=\'\' AND`uidp`='.UID);
+  $num = $db->sqlr('SELECT count(*) FROM `wp` WHERE `auction`<> 1 AND `stype`="'.$stype.'" AND in_bank=0 AND clan_sign=\'\' AND dprice=0 AND`uidp`='.UID);
   if ($num < 1) show_err('У вас нет предметов этого типа','e');
   else
   {
     echo '<table width="100%" cellspacing="5" cellpadding="5" >';
-    $sql = $db->sql('SELECT * FROM `wp` WHERE `uidp`= '.UID.' AND `stype`="'.$stype.'" AND weared=0 AND `auction` <> 1');
+    $sql = $db->sql('SELECT * FROM `wp` WHERE `uidp`= '.UID.' AND `stype`="'.$stype.'" AND dprice=0 AND weared=0 AND `auction` <> 1');
     while ($res = mysql_fetch_array($sql)){
       echo '<tr><td class="weapons_box" valign="top">';
       $vesh = $res;
