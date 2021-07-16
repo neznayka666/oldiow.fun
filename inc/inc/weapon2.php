@@ -50,7 +50,7 @@ if ( !empty($v['id']) )
 			else
 				{$v["describe"].='<span class=timef>Пропадёт через '.tp($v["timeout"]-$t)."</span>";}
 		}
-		if ($v["type"]=="rune") {$v["describe"].='<br>Чтобы вставить руну в предмет, нужно чтобы этот предмет был надет на вас, и ничего больше.';if ($v["udmax"])$v["udmin"]=1;}
+		if ($v["type"]=="rune") {$v["describe"].='<br>Чтобы вставить руну в предмет, нужно чтобы этот предмет был надет на вас, и ничего больше.'; if ($v["udmax"])$v["udmin"]=1;}
 		if ($v["upgrated"]) {$v["describe"].='<br><b class=green>УЛУЧШЕНА</b>';}
 
 		$attrs = '<table style="border-width:0px; font-size:10px;width:100%" cellspacing=0><tr><td>';
