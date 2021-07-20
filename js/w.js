@@ -1,5 +1,5 @@
 
-function show_w (name,sht,img,d,m_d,cena,pric,dprice,art,attr,describe,present,clan_sign,clan_name,slots,radius,arrows,arrows_max,arrow_name,z_time,weight,index,trbs,stype)
+function show_w (name,sht,img,d,m_d,cena,pric,dprice,art,attr,describe,present,clan_sign,clan_name,slots,radius,arrows,arrows_max,arrow_name,z_time,weight,index,stype,trbs)
 {
 	var text = '';
 	if (sht==1 || sht=='') sht=''; else sht = sht+'шт.';
