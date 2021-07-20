@@ -23,7 +23,6 @@ function show_w (name,sht,img,d,m_d,cena,pric,dprice,art,attr,describe,present,c
 	<div style="position: relative;width:100%;">
 	<img src="/images/weapons/${img}.gif">	
 	<div style="position: absolute; bottom: 2px; left: 2px;">
-	${stype}
 	<div style="width:5px;height:5px;background:green;"></div>
 	<div style="width:5px;height:5px;background:red;"></div>
 	</div>
