@@ -263,7 +263,7 @@ while($r = mysql_fetch_array ($rep))
 	<?php
 	}
 	
-if ( $http->_get('clan') and $priv['equests']>0 )
+if ( $http->_get('clan') and $priv['eclans']>0 )
 {
 	$noatcion = true;
 echo'<form action="?main.php?go=clans" method="post"><input type="hidden" name="clan" value="1" />  <table cellpadding="3" cellspacing="1" width="70%" border="0" style="background:#D8CDAF;" align="center">
