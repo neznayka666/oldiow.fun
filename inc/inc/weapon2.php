@@ -41,8 +41,7 @@ if ( !empty($v['id']) )
 		if ($v["index"]=="k")	{$v["describe"] .= "<div class=but>Свиток кулачного нападения</div>";}
 		if ($v["index"]=="k_z")	{$v["describe"] .= "<div class=but>Свиток кулачного нападения <div class=hp>ЗАКРЫТЫЙ БОЙ</div></div>";}
 		
-		if ($v["stype"]=="resources")
-		{$v["describe"] .= "Полезный ресурс";}
+		if ($v["stype"]=="resources") {$v["describe"] .= "Полезный ресурс";}
 		if ($v["timeout"])
 		{
 			if($v["describe"])
