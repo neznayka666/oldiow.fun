@@ -263,9 +263,9 @@ while($r = mysql_fetch_array ($rep))
 	<?php
 	}
 	
-if ( $http->_get('clan') and $priv['eclans']>0 )
-{
-	$noatcion = true;
+//if ( $http->_get('clan') and $priv['eclans']>0 )
+//{
+	//$noatcion = false;
 echo'<form action="?main.php?go=clans" method="post"><input type="hidden" name="clan" value="1" />  <table cellpadding="3" cellspacing="1" width="70%" border="0" style="background:#D8CDAF;" align="center">
     <tr>
       <td bgcolor="#D8CDAF" colspan="2"><div align=center><font class=invtitle>Регистрация клана</font></div></td>
@@ -297,7 +297,7 @@ echo'<form action="?main.php?go=clans" method="post"><input type="hidden" name="
     </tr>
   </table>
 </form>';
-}	
+//}	
 	
 	
 	
