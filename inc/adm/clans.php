@@ -1,25 +1,15 @@
 <?php
 if ( $priv['eclans']==2 ) //; else exit;
-	$adm = true; else $adm = false; $noatcion = true;
+	$adm = true; else $adm = false;
 
 ?>
 <center class="inv">
 	<table width="90%" class="but">
 		<tr>
-			<td class=but2 width=30% colspan=6><a class=bga href=main.php?go=administration>Назад</a></td><tr>
-			<td class=but2 width=30% colspan=6><a class=bga href=main.php?go=clans&clan=1>Создать Клан</a></td>
+			<td class=but2 width=30% colspan=6><a class=bga href=main.php?go=administration>Назад</a></td>
 		</tr>
 	</table>
 <?php
-
-if ( $http->_post('clan') and $priv['eclans']==2 )
-{
-	$db->sql("INSERT INTO `clans` (`clan_id`, `clan_sclon`, `clan_gif`, `clan_name`,`clan_menu`,`clan_status`) 
-		VALUES ('".$http->_post('clan_id')."', '".$http->_post('clan_sclon')."', '".$http->_post('clan_id').".gif', '".$http->_post('clan_name')."', '1|1|1|0',1);");
-		$db->sql("UPDATE `user` SET `clan_id` = '".$http->_post('clan_id')."', `clan` = '".$http->_post('clan_name')."', `clan_gif` = '".$http->_post('clan_id').".gif', `sklon` = '".$http->_post('clan_sclon')."', `clan_d` = 'Глава клана', `clan_accesses` = '1|2|4|8', `clan_status` = '9' WHERE `login` = '".$http->_post('glav_name')."' LIMIT 1;");
-}
-
-
 if( empty($http->get['editor']) )
 {
 	$cl = $db->sql("SELECT * FROM `clans` WHERE `sign`<>'watchers'");
@@ -83,7 +73,7 @@ elseif ( isset($http->get['editor']) and !empty($http->get['editor']) )
 		exit;
 	}
 	
-	echo "<center><table border=0 cellspacing=0 width=500 class=but><tr><td width=250><a href='javascript:give_money()' class=blocked> <img src=http://".IMG."/money.gif> <b>".$clan["money"]." зм.</b></a><a href='javascript:take_clan()' class=blocked>Снять деньги</a></td><td width=250><div class=but align=center> <img src=http://".IMG."/signs/diler.gif> <b>".$clan["dmoney"]."</b> сп.</div></td></tr><tr><td class=but id=money colspan=3 align=center></td></tr></table></center>";
+	echo "<center><table border=0 cellspacing=0 width=500 class=but><tr><td width=250><a href='javascript:give_money()' class=blocked> <img src=http://".IMG."/money.gif> <b>".$clan["money"]." LN</b></a><a href='javascript:take_clan()' class=blocked>Снять деньги</a></td><td width=250><div class=but align=center> <img src=http://".IMG."/signs/diler.gif> <b>".$clan["dmoney"]."</b> Бр.</div></td></tr><tr><td class=but id=money colspan=3 align=center></td></tr></table></center>";
 	$ch_site = ' | <a href="javascript:ch_site(\''.$clan['sait'].'\')" class=timef>Сменить</a>';
 	echo "<center><table class=combofight width=500 cellspacing=0 cellspadding=0><tr><form method=POST><td align=center><input type=text name=delclan class=login size=40><input type=submit class=login value='Расформировать'></td></form></tr><tr><td align=center>Администрирование клана <img src='http://".IMG."/signs/".$clan['sign'].".gif'> <b class=user>".$clan['name']."[".$clan['level']."]</b></div></td></tr><tr align=center><td class=but>Глава Клана <font class=user>".$clan['glav']."</font><img src='http://".IMG."/info.gif' onclick=\"javascript:window.open('info.php?p=".$clan['glav']."','_blank')\" style='cursor:pointer'> | <a href='http://".$clan['sait']."' target=_blank class=bold>".$clan['sait']."</a>".$ch_site."</td></tr></table></center>";
 	
@@ -263,41 +253,7 @@ while($r = mysql_fetch_array ($rep))
 	<?php
 	}
 	
-if (empty($http->get['clan']))
-{
-	//$noatcion = false;
-echo'<form action="/main.php?go=clans" method="post"><input type="hidden" name="clan" value="1" />  <table cellpadding="3" cellspacing="1" width="70%" border="0" style="background:#D8CDAF;" align="center">
-    <tr>
-      <td bgcolor="#D8CDAF" colspan="2"><div align=center><font class=invtitle>Регистрация клана</font></div></td>
-    </tr>
-    <tr>
-      <td bgcolor="#FCFAF3"><font class=weaponch><b>ID Клана:</b></font></td>
-      <td bgcolor="#FCFAF3"><input type="text" name="clan_id" class="lbut" /></td>
-    </tr>
-    <tr>
-      <td bgcolor="#FCFAF3"><font class=weaponch><b>Имя Клана:</b></font></td>
-      <td bgcolor="#FCFAF3"><input type="text" name="clan_name" class="lbut" /></td>
-    </tr>
-    <tr>
-      <td bgcolor="#FCFAF3"><font class=weaponch><b>Склонность клана:</b></font></td>
-      <td bgcolor="#FCFAF3"><select name="clan_sclon" class="lbut">
-        <option value="0">Без склоности</option>
-        <option value="1">Дети Тьмы</option>
-        <option value="2">Дети Света</option>
-        <option value="3">Дети Сумерек</option>
-        <option value="4">Дети Хаоса</option>
-      </select></td>
-    </tr>
-    <tr>
-      <td bgcolor="#FCFAF3"><font class=weaponch><b>Глава клана:</b></font></td>
-      <td bgcolor="#FCFAF3"><input type="text" name="glav_name" class="lbut" /></td>
-    </tr>
-    <tr>
-      <td bgcolor="#FCFAF3" align="center" colspan="2"><input type="submit" class="lbut" name="reg" /></td>
-    </tr>
-  </table>
-</form>';
-}	
+	
 	
 	
 	
