@@ -92,6 +92,7 @@ function give(id) {
             <ul style="margin-left: 0px;padding-left: 15px;">
                 <li><a href=main.php?a=1&set_type=fish>Рыба</a></li>
                 <li><a href=main.php?a=1&set_type=resources>resources</a></li>
+					 <li><a href=main.php?a=1&set_type=resources_forest>resources_forest</a></li>
                 <li><a href=main.php?a=1&set_type=herbal>herbal</a></li>
                 <li><a href=main.php?a=1&set_type=rune>rune</a></li>
             </ul>
