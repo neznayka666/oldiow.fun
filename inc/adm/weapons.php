@@ -37,6 +37,7 @@ if (@$_GET["new_wp"])
 		if ($p["type"]=="poya") $type = "poyas";
 		if ($p["type"]=="bron") $type = "bronya";
 		if ($p["type"]=="brt") $type = "braslet";
+		if ($p["type"]=="resources") $type = "resources";
 	$mid = $db->sqlr("SELECT MAX(idn) FROM weapons",0)+1;
 	if ($mid<500) $mid+=500;
 	$db->sql("INSERT INTO weapons (`id`,`idn`,`type`,`stype`,`name`) VALUES
