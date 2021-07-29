@@ -116,7 +116,7 @@ function give(id) {
                     echo $_FILTER["lavkaminlevel"];else echo "0";?>" class=laar>до<input type="text" name="maxlevel"
                         size="7" value=<?php if ($_FILTER["lavkamaxlevel"]<>"") echo $_FILTER["lavkamaxlevel"];else echo
                     $pers["level"];?> class=laar>Уровня.&nbsp;
-                    Не дороже <input type="text" name="maxcena" size="7" value="<?php if ($_FILTER[" lavkamaxcena"]<>"")
+                    Не дороже <input type="text" name="maxcena" size="7" value="<?php if ($_FILTER["lavkamaxcena"]<>"")
                     echo $_FILTER["lavkamaxcena"];else echo"1000";?>" class=laar><input type="submit" value="Ок"
                         class=loc></font>
                 <hr>
