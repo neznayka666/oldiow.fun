@@ -98,7 +98,7 @@ return a[0];
 
 function editw()
 {
-	
+	d.write('<div style="margin:40px auto; width:100%;max-width:1200px;" class="margin-5">');
 	d.write('<a class=bga href=main.php>НАЗАД</a><input class=login type=button value="[  OK  ]" align=center style="width:100%" onclick="sbmt()"><form method=post action=main.php>');
 	var _params = params.split('@');
 	var np;
@@ -108,6 +108,7 @@ function editw()
 	d.write('<tr><td class=inv id=o width=50% valign=bottom></td><td class=inv id=t width=50% valign=bottom></td></tr>');
 	d.write('</table><div class=return_win id=sec_params></div>');
 	d.write('</form>');
+	d.write('</div>');
 	params_upd();
 	main_inf();
 }

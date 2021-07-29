@@ -140,7 +140,7 @@ function give(id) {
 	$enures= $db->sql ("SELECT * FROM `weapons` WHERE `tlevel`>='".$_FILTER["lavkaminlevel"]."' and `tlevel`<='".$_FILTER["lavkamaxlevel"]."' and `price`<='".$_FILTER["lavkamaxcena"]."' and ".$stype." ORDER BY `".$_FILTER["lavkasort"]."`,`where_buy` ASC");
 	else
 	$enures= $db->sql ("SELECT * FROM `weapons` WHERE `tlevel`>='".$_FILTER["lavkaminlevel"]."' and `tlevel`<='".$_FILTER["lavkamaxlevel"]."' and `price`<='".$_FILTER["lavkamaxcena"]."' ORDER BY `".$_FILTER["lavkasort"]."`,`where_buy` ASC");
-echo '<table border="1" width="100%" cellspacing="5" cellpadding="5" class="LinedTable" style="width:80%; margin:0 auto;">';
+echo '<table border="1" width="100%" cellspacing="5" cellpadding="5" class="LinedTable">';
 while ($v=mysql_fetch_array ($enures,MYSQL_ASSOC)) 
 {
 	if( @$_GET["view"]!='l' )
