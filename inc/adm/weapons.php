@@ -83,7 +83,7 @@ function give(id) {
 }
 </script>
 
-<table width="100%" cellspacing=5 cellspadding=5>
+<table width="100%" cellspacing="5" cellspadding="5" style="width:80%; margin:0 auto;">
     <tr>
         <td valign=top class="whiteBlock">
             <script>
