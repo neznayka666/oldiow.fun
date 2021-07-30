@@ -149,12 +149,12 @@ while ($v=mysql_fetch_array ($enures,MYSQL_ASSOC))
 		$rank_i = ($v["s1"]+$v["s2"]+$v["s3"]+$v["s4"]+$v["s5"]+$v["s6"]+$v["kb"])*0.3 + ($v["mf1"]+$v["mf2"]+$v["mf3"]+$v["mf4"]+$v["mf5"])*0.03 + ($v["hp"]+$v["ma"])*0.04+($v["udmin"]+$v["udmax"])*0.3;
 		echo "<td><a href=main.php?edit=".$v["id"]."><img src='http://".IMG."/weapons/".$v["image"].".gif' height='30'></a></td><td><b>".$v["name"]."</b> (<b>".$rank_i."</b>)  [".$v["index"]."] (<b>".$v["id"]."</b>)</td>
 		";
-		echo"<td>"
-		if ($v["where_buy"]==0) echo "<b class='green'>Гос. Магазин</b>";
-		elseif ($v["where_buy"]==1) echo "<b class='blue'>Бутик</b>";		
-		elseif ($v["where_buy"]==3) echo "<b class='Aquamarine'>ДРОП</b>";
-		elseif echo "<b class='red'>нигде</b>";		
-		echo"</td>";		
+		echo "<td>";
+		if ($v["where_buy"]==0) echo "<b class=green>Гос. Магазин</b>";
+		elseif ($v["where_buy"]==1) echo "<b class=blue>Бутик</b>";
+		elseif ($v["where_buy"]==3) echo "<b class='Aquamarine'>ДРОП</b>";		
+		else echo "<b class=red>нигде</b>";
+		echo "</td>";
 		echo "<td class=lvl>Уровень: ".$v["tlevel"]."</td>";
 		echo "<td >".$v["price"]." зм.; ".$v["dprice"]." сп.</td>";
 		echo "<td >".$v["slots"]."</td>";	
