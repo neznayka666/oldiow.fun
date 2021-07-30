@@ -34,7 +34,7 @@ function show_w (name,sht,img,d,m_d,cena,pric,dprice,art,attr,describe,present,c
 	text+= ('<td style="vertical-align:top;">');	
 
 	
-	if (art==1 && present=='') text+= ('<br><img src=/images/art.gif> <font class=hp>Артефакт</font>');
+	if (art==1) text+= ('<br><img src=/images/art.gif> <font class=hp>Артефакт</font>');
 	else if (present!='') text+= ('<br><img src=/images/art.gif> Подарок от <b>'+present+'</b>');
 	text+= (attr);
 	if (slots!=0) text+= ('<font class=items> Слотов для заклинаний или рун: <b>'+slots+'</b></font><br>');
