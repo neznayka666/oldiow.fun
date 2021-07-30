@@ -116,7 +116,9 @@ function show_head(curstate,fourthname,code,apps,trvm,help,priveleged,level,sign
 		if (curstate==3 || apps || trvm) add='DISABLED';
 		if (curstate==2 || apps || trvm) back='DISABLED';
 		d.write('<div class="nav">'); 
-		d.write('<div class="navLeft"></div>'); 
+		d.write('<div class="navLeft">'); 
+		if (free_stats > 0 || free_f_skills > 0 || free_m_skills > 0) { d.write('!!!'); }
+		d.write('</div>'); 
 		d.write('<div class="navCenter">'); 
 		if (priveleged == true) { d.write(" <img src='/images/nav/top/admin.gif' onclick=\"location='main.php?go=administration'\" " + mouser('Админка') + " style='cursor:pointer;'>"); }
 		d.write('<img src="/images/nav/top/settings.gif" onclick="location=\'main.php?go=pers\'" '+pers+' id="but1" '+mouser("Персонаж")+' style="cursor:pointer;">'); 
@@ -135,9 +137,11 @@ function show_head(curstate,fourthname,code,apps,trvm,help,priveleged,level,sign
 		d.write('<img src="/images/nav/top/back.gif" onclick="location=\'main.php?go=back\'" id="but5"  '+back+' '+mouser("Назад")+' style="cursor:pointer;">');
 		d.write('<img src="/images/nav/top/refresh.gif" onclick="location=\'main.php\'" id="but9" '+mouser("Обновить")+' style="cursor:pointer;">'); 		
 		d.write('<img src="/images/nav/top/exit.gif" onclick="exit();" id="but8" '+mouser("Выход")+' style="cursor:pointer;">'); 
+		
+		d.write('</div>'); 
+		d.write('<div class="navRight">'); 
 		if (free_stats > 0 || free_f_skills > 0 || free_m_skills > 0) { d.write('!!!'); }
 		d.write('</div>'); 
-		d.write('<div class="navRight"></div>'); 
 		d.write('</div>'); 
 		//d.write('<table border="0" width="100%" cellspacing="0" cellpadding="0" background="/public_content/upimg/bg_top_up.gif" height=40> <tr> <td width="50%"> <table border="0" width="100%" height="100%" cellspacing="0" cellpadding="0" background="/public_content/upimg/left_top_up2.gif" style="background-repeat:no-repeat"> <tr> <td align="center"><input class="head" type="button" value="Персонаж" onclick="location=\'main.php?go=pers\'" style="width: 160; height: 18" '+pers+' id=but1></td> <td align="center"><input class="head" type="button" value="Рюкзак" onclick="location=\'main.php?go=inv\'" style="width: 160; height: 18" '+inv+' id=but2></td>  </tr>  </table> </td> <td><table border="0" width="375" height="40" cellspacing="0" cellpadding="0"> <tr> <td width="124" align="right" valign="top" height="29"><input class="head" type="button" value="Обновить" onclick="location=\'main.php\'" style="width:68; height: 20; font-size:11;" id=but9 ></td> <td height="29" valign="top"><input class="head" type="button" value="Выход" onclick="exit();" style="width: 68; height: 20; font-size:11" id=but8></td> </tr> </table> </td> <td width="50%" background="/public_content/upimg/bg_top_up.gif"> <table border="0" width="100%" cellspacing="0" cellpadding="0" height="100%" background="/public_content/upimg/right_top_up2.gif" style="background-repeat:no-repeat;background-position: right center;"> <tr> <td align="center"></td> <td align="center">'+fourth+'</td> <td align="center"  id=but5td><input class="head" type="button" value="Назад" onclick="location=\'main.php?go=back\'" style="width: 70; height: 20" id=but5  '+back+'></td> </tr> </table> </td> </tr> </table> '); 
 		// Вывод инфы
