@@ -99,7 +99,10 @@ return a[0];
 function editw()
 {
 	d.write('<div style="margin:40px auto; width:100%;max-width:1200px;" class="margin-5">');
-	d.write('<a class="bga" href="main.php">НАЗАД</a><hr><input class="inv_but" type="button" value="[  OK  ]" onclick="sbmt()">');
+	d.write('<table border="1" width="100%" cellspacing="5" cellpadding="5" class="whiteBlock margin-5"><tr>');
+	d.write('<td width="50%" align="center"><a style="width:50%;" class="bga" href="main.php">НАЗАД</a></td>');
+	d.write('<td width="50%" align="center"><input class="inv_but" type="button" value="Сохранить" onclick="sbmt()"></td>');
+	d.write('</tr></table>');
 	d.write('<form method="post" action="main.php">');
 	var _params = params.split('@');
 	var np;
