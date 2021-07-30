@@ -142,7 +142,7 @@ function params_upd()
 		if (np[0].substr(0,2)=='ma') {par = '<font class=ma>+'+par+' MP</font>';}
 		if (np[0].substr(0,1)=='s' && par>0 && np[0].length==2) {opts+=parseInt(par);par = '+'+par;CLS = 'blue';}
 		o += 
-		'<tr style="background:#'+((i1%2)?"EEEEEE":"DDDDDD")+'"><td width=10><img src=http://'+img_pack+'/drop.gif onclick="par_set(\''+np[0]+'\',0);params_upd();" style="cursor:pointer"></td>';
+		'<tr style="background:#'+((i1%2)?"EEEEEE":"DDDDDD")+'"><td width=10><img src="http://'+img_pack+'/icons/del.png" onclick="par_set(\''+np[0]+'\',0);params_upd();" style="cursor:pointer"></td>';
 		o += '<td width=50% class="'+CLS+'"><i>'+nos(np[0])+'</i>:</td><td> <b onclick="par_div_set(\''+np[0]+'\','+parseInt(np[1])+')" class=ym style="width:100%;cursor:pointer">'+par+'</b></td><td width=50> '+fast_up(np[0],np[1])+'</td></tr>';
 		}
 		}
@@ -158,7 +158,7 @@ function params_upd()
 			if (np[0].substr(0,2)=='ma') par = '<font class=ma>'+par+'</font>';
 			if (np[0].substr(1,1)=='s') {reqs += parseInt(par);}
 			t += 
-			'<tr style="background:#'+((i2%2)?"EEEEEE":"DDDDDD")+'"><td width=10><img src=http://'+img_pack+'/drop.gif onclick="par_set(\''+np[0]+'\',0);params_upd();" style="cursor:pointer"></td>';
+			'<tr style="background:#'+((i2%2)?"EEEEEE":"DDDDDD")+'"><td width=10><img src="http://'+img_pack+'/icons/del.png" onclick="par_set(\''+np[0]+'\',0);params_upd();" style="cursor:pointer"></td>';
 			t += '<td width=50%><i>'+nos(np[0].substr(1,np[0].length-1))+'</i>:</td><td> <b onclick="par_div_set(\''+np[0]+'\','+parseInt(np[1])+')" class=ym style="width:100%;cursor:pointer">'+par+'</b></td><td width=50> '+fast_up(np[0],np[1])+'</td></tr>';
 			}
 		}
@@ -331,7 +331,7 @@ function new_tb()
 function fast_up(par,val)
 {
 	val = parseInt(val);
-	return '<img src="http://'+img_pack+'/fixed_on.gif" onclick="par_set(\''+par+'\','+(val*2)+')" ondblclick="par_set(\''+par+'\','+(val*3)+')"><img src="http://'+img_pack+'/DS/minus.png" onclick="par_set(\''+par+'\','+(val-1)+')" ondblclick="par_set(\''+par+'\','+(val-3)+')"><img src="http://'+img_pack+'/DS/plus.png" onclick="par_set(\''+par+'\','+(val+1)+')" ondblclick="par_set(\''+par+'\','+(val+3)+')"><img src="http://'+img_pack+'/fixed_off.gif" onclick="par_set(\''+par+'\','+(val/2)+')" ondblclick="par_set(\''+par+'\','+(val/3)+')">';
+	return '<img src="http://'+img_pack+'/fixed_on.gif" onclick="par_set(\''+par+'\','+(val*2)+')" ondblclick="par_set(\''+par+'\','+(val*3)+')"> <img src="http://'+img_pack+'/DS/minus.png" onclick="par_set(\''+par+'\','+(val-1)+')" ondblclick="par_set(\''+par+'\','+(val-3)+')"> <img src="http://'+img_pack+'/DS/plus.png" onclick="par_set(\''+par+'\','+(val+1)+')" ondblclick="par_set(\''+par+'\','+(val+3)+')"> <img src="http://'+img_pack+'/fixed_off.gif" onclick="par_set(\''+par+'\','+(val/2)+')" ondblclick="par_set(\''+par+'\','+(val/3)+')">';
 }
 
 function change_img(par)
