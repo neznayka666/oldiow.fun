@@ -104,7 +104,7 @@ function editw()
 	var _params = params.split('@');
 	var np;
 	d.write('<div class=return_win id=main></div>');
-	d.write('<table border="1" width="100%" cellspacing="0" cellpadding="0" bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>');
+	d.write('<table border="1" width="100%" cellspacing="5" cellpadding="5" bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>');
 	d.write('<tr><td class=login align=center width=50% id=opts>СВОЙСТВА</td><td class=login width=50% align=center id=reqs>ТРЕБОВАНИЯ</td></tr>');
 	d.write('<tr><td class=inv id=o width=50% valign=bottom></td><td class=inv id=t width=50% valign=bottom></td></tr>');
 	d.write('</table><div class=return_win id=sec_params></div>');
@@ -120,8 +120,8 @@ function params_upd()
 	var np,o,t,par;
 	var i1=0,i2=0;
 	var CLS='';
-	o='<table border="1" width="100%" cellspacing="0" cellpadding="0" bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>';
-	t='<table border="1" width="100%" cellspacing="0" cellpadding="0" bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>';
+	o='<table border="1" width="100%" cellspacing="5" cellpadding="5" bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>';
+	t='<table border="1" width="100%" cellspacing="5" cellpadding="5" bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>';
 	var noss;
 	var opts = 0,reqs = 0;
 	for (i=0;i<=_params.length;i++)
@@ -175,7 +175,7 @@ function params_upd()
 function main_inf()
 {
 	var z;
-	z = '<table border="1" width="100%" cellspacing="0" cellpadding="0" bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>';
+	z = '<table border="1" width="100%" cellspacing="5" cellpadding="5" bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>';
 	z += '<tr><td align=center colspan=10>';
 	z += '<center class=user onclick="ch_name()">'+par_val('name')+'</center>';
 	z += '</td></tr>';
@@ -189,7 +189,7 @@ function main_inf()
 function sec_inf()
 {
 	var z;
-	z = '<table border="1" width="100%" cellspacing="0" cellpadding="0" bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>';
+	z = '<table border="1" width="100%" cellspacing="5" cellpadding="5" bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>';
 	z += '<tr><td align=Left width=50%>';
 	z += '<img src="http://'+img_pack+'/money.gif" width=10>Стоимость | <strong class=user onclick="ch_price()"> '+par_val('price')+' зм.<br></strong><img src=http://'+img_pack+'/signs/diler.gif  width=10>Стоимость |<strong class=user onclick="ch_price()"> '+par_val('dprice')+' сп.<br></strong>';
 	z += '</td><td width=50%>';
