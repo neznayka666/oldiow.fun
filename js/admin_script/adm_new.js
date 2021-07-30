@@ -331,7 +331,7 @@ function new_tb()
 function fast_up(par,val)
 {
 	val = parseInt(val);
-	return '<img src=http://'+img_pack+'/fixed_on.gif onclick="par_set(\''+par+'\','+(val*2)+')" ondblclick="par_set(\''+par+'\','+(val*3)+')"><img src=http://'+img_pack+'/battle/down.gif onclick="par_set(\''+par+'\','+(val-1)+')" ondblclick="par_set(\''+par+'\','+(val-3)+')"><img src=http://'+img_pack+'/battle/up.gif onclick="par_set(\''+par+'\','+(val+1)+')" ondblclick="par_set(\''+par+'\','+(val+3)+')"><img src=http://'+img_pack+'/fixed_off.gif onclick="par_set(\''+par+'\','+(val/2)+')" ondblclick="par_set(\''+par+'\','+(val/3)+')">';
+	return '<img src="http://'+img_pack+'/fixed_on.gif" onclick="par_set(\''+par+'\','+(val*2)+')" ondblclick="par_set(\''+par+'\','+(val*3)+')"><img src="http://'+img_pack+'/DS/minus.png" onclick="par_set(\''+par+'\','+(val-1)+')" ondblclick="par_set(\''+par+'\','+(val-3)+')"><img src="http://'+img_pack+'/DS/plus.png" onclick="par_set(\''+par+'\','+(val+1)+')" ondblclick="par_set(\''+par+'\','+(val+3)+')"><img src="http://'+img_pack+'/fixed_off.gif" onclick="par_set(\''+par+'\','+(val/2)+')" ondblclick="par_set(\''+par+'\','+(val/3)+')">';
 }
 
 function change_img(par)
