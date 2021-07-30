@@ -91,7 +91,7 @@ for (var i=1;i<=7;i++)
 }
 }
 
-function show_head(curstate,fourthname,code,apps,trvm,help,priveleged,level,sign)
+function show_head(curstate,fourthname,code,apps,trvm,help,priveleged,level,sign,free_stats,free_f_skills,free_m_skills)
 {
 //	d.write ('<body topmargin="0" style="word-spacing: 0; margin-left: 0; margin-right: 0" leftmargin=0 onresize="on_resize()">');
 	if (curstate!=4)
@@ -135,6 +135,7 @@ function show_head(curstate,fourthname,code,apps,trvm,help,priveleged,level,sign
 		d.write('<img src="/images/nav/top/back.gif" onclick="location=\'main.php?go=back\'" id="but5"  '+back+' '+mouser("Назад")+' style="cursor:pointer;">');
 		d.write('<img src="/images/nav/top/refresh.gif" onclick="location=\'main.php\'" id="but9" '+mouser("Обновить")+' style="cursor:pointer;">'); 		
 		d.write('<img src="/images/nav/top/exit.gif" onclick="exit();" id="but8" '+mouser("Выход")+' style="cursor:pointer;">'); 
+		if (free_stats > 0 || free_f_skills > 0 || free_m_skills > 0) { d.write('!!!'); }
 		d.write('</div>'); 
 		d.write('<div class="navRight"></div>'); 
 		d.write('</div>'); 
