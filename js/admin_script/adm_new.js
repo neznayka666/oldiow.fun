@@ -106,11 +106,11 @@ function editw()
 	d.write('<form method="post" action="main.php">');
 	var _params = params.split('@');
 	var np;
-	d.write('<div class=return_win id=main></div>');
+	d.write('<div class="greenBlock" id="main" style="margin:40px auto;font-weight: bold;"></div>');
 	d.write('<table border="1" width="100%" cellspacing="5" cellpadding="5" class="whiteBlock margin-5">');
 	d.write('<tr><td align=center width=50% id=opts>СВОЙСТВА</td><td width=50% align=center id=reqs>ТРЕБОВАНИЯ</td></tr>');
 	d.write('<tr><td class=inv id=o width=50% valign=bottom></td><td class=inv id=t width=50% valign=bottom></td></tr>');
-	d.write('</table><div class=return_win id=sec_params></div>');
+	d.write('</table><div class="greenBlock" id="sec_params" style="margin:40px auto;font-weight: bold;"></div>');
 	d.write('</form>');
 	d.write('</div>');
 	params_upd();
