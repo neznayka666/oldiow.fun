@@ -143,7 +143,7 @@ function params_upd()
 		if (np[0].substr(0,1)=='s' && par>0 && np[0].length==2) {opts+=parseInt(par);par = '+'+par;CLS = 'blue';}
 		o += 
 		'<tr style="background:#'+((i1%2)?"EEEEEE":"DDDDDD")+'"><td width=10><img src="http://'+img_pack+'/icons/del.png" onclick="par_set(\''+np[0]+'\',0);params_upd();" style="cursor:pointer"></td>';
-		o += '<td width=50% class="'+CLS+'"><i>'+nos(np[0])+'</i>:</td><td> <b onclick="par_div_set(\''+np[0]+'\','+parseInt(np[1])+')" class=ym style="width:100%;cursor:pointer">'+par+'</b></td><td width=50> '+fast_up(np[0],np[1])+'</td></tr>';
+		o += '<td width="30%" class="'+CLS+'"><i>'+nos(np[0])+'</i>:</td><td width="30%"> <b onclick="par_div_set(\''+np[0]+'\','+parseInt(np[1])+')" class=ym style="cursor:pointer">'+par+'</b></td><td width="35%"> '+fast_up(np[0],np[1])+'</td></tr>';
 		}
 		}
 		else
