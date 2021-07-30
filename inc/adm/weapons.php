@@ -152,7 +152,7 @@ while ($v=mysql_fetch_array ($enures,MYSQL_ASSOC))
 		if ($v["where_buy"]==0) echo "<td class='green'>Гос. Магазин</td>";
 		elseif ($v["where_buy"]==1) echo "<td class='blue'>Бутик</td>";
 		elseif ($v["where_buy"]==2) echo "<td class='red'>нигде</td>";
-		elseif ($v["where_buy"]==3) echo "<td class='Aquamarine'>Бутик</td>";			
+		elseif ($v["where_buy"]==3) echo "<td class='Aquamarine'>ДРОП</td>";			
 		echo "<td class=lvl>Уровень: ".$v["tlevel"]."</td>";
 		echo "<td >".$v["price"]." зм.; ".$v["dprice"]." сп.</td>";
 		echo "<td >".$v["slots"]."</td>";	
