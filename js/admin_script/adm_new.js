@@ -175,11 +175,12 @@ function main_inf()
 {
 	var z;	
 	z = '<table border="1" width="100%" cellspacing="5" cellpadding="5" bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>';
-	z += '<tr><td align=Left width=50%>';
-	z += 'Стоимость | <a href="#" onclick="ch_price()"> '+par_val('price')+'</a> зм.<br> Стоимость | <a href="#" onclick="ch_price()"> '+par_val('dprice')+'</a> сп.<br>';
-	z += '</td><td width=50%>';
-	z += 'МАКС. Долговечность <a href="#" onclick="ch_dur_qs()"> '+par_val('max_durability')+'</a><br> Текущее кол-во в лавке <a href="#" onclick="ch_dur_qs()"> '+par_val('q_s')+'</a> шт.<br>';
-	z += '</td></tr><tr><td align=center colspan=10 width=90%>';
+	//z += '<tr><td align=Left width=50%>';
+	//z += 'Стоимость | <a href="#" onclick="ch_price()"> '+par_val('price')+'</a> зм.<br> Стоимость | <a href="#" onclick="ch_price()"> '+par_val('dprice')+'</a> сп.<br>';
+	//z += '</td><td width=50%>';
+	//z += 'МАКС. Долговечность <a href="#" onclick="ch_dur_qs()"> '+par_val('max_durability')+'</a><br> Текущее кол-во в лавке <a href="#" onclick="ch_dur_qs()"> '+par_val('q_s')+'</a> шт.<br>';
+	//z += '</td></tr><tr><td align=center colspan=10 width=90%>';
+	z += '<tr><td align=center colspan=10 width=90%>';
 	z += '<i><a href="#" onclick="ch_describe()"> Описание: '+par_val('describe')+'</a></i>';
 	z += '</td></tr><tr><td align=center colspan=10 width=90%>';
 	z += 'Название заряда: <a href="#" onclick="ch_arrows()">'+par_val('arrow_name')+'</a><br>';
@@ -192,10 +193,14 @@ function main_inf()
 	z += '</table>';
 	//$('sec_params').innerHTML = p;
 	z += '<table border="1" width="100%" cellspacing="5" cellpadding="5" bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>';
-	z += '<tr><td align=center colspan=10>';
-	z += '<a href="#" onclick="ch_name()">'+par_val('name')+'</a>';
+	z += '<tr><td align="center">';
+	z += 'Название: <a href="#" onclick="ch_name()">'+par_val('name')+'</a>';
+	z += '| Название картинки: <a href="#" onclick="ch_img()">'+par_val('image')+'</a>';
+	z += '| Стоимость | <a href="#" onclick="ch_price()"> '+par_val('price')+'</a> зм. ';
+	z += '| <a href="#" onclick="ch_price()"> '+par_val('dprice')+'</a> сп. <hr>';
+	z += 'МАКС. Долговечность <a href="#" onclick="ch_dur_qs()"> '+par_val('max_durability')+'</a> | Текущее кол-во в лавке <a href="#" onclick="ch_dur_qs()"> '+par_val('q_s')+'</a> шт.<br>';
 	z += '</td></tr>';
-	z += '<tr><td align=center colspan=10>';
+	z += '<tr><td align="center">';
 	z += '<a href="#" onclick="ch_img()">'+par_val('image')+'</a>';
 	z += '</td></tr>';
 	z += '<tr><td width=50% id=ptype align=center>&nbsp;</td>';
