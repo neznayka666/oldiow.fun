@@ -17,7 +17,7 @@ if(@$_GET["delartfullline"])
 }
 if (isset($_GET["delete"]))
 {
-	if ($db->sql("DELETE FROM weapons WHERE id='".$_GET["delete"]."'")) echo "<center class=return_win>Удалено!</center>";
+	if ($db->sql("DELETE FROM weapons WHERE id='".$_GET["delete"]."'")) echo "<div class='redBlock margin-5' style='width: 400px;text-align: center;'><b class='green'>Удалено!</b></div>";
 }
 if (@$_GET["edit"]) 
 {
@@ -61,7 +61,7 @@ if (@$_GET["copy"])
 	$part1 = substr($part1,0,strlen($part1)-1);
 	$part2 = substr($part2,0,strlen($part2)-1);
 	$db->sql($part1.$part2.");");
-	echo "<div class='greenBlock margin-5'><b class='green'>Скопировано.</b></div>";
+	echo "<div class='greenBlock margin-5' style='width: 400px;text-align: center;'><b class='green'>Скопировано.</b></div>";
 }
 if (@$_GET["give"])
 {
@@ -69,7 +69,7 @@ if (@$_GET["give"])
 	if ( $uid>0 )
 	{
 		insert_wp($_GET['give'],$uid);
-		echo "<div class='greenBlock margin-5'><b class='green'>Удачно выдано.</b></div>";
+		echo "<div class='greenBlock margin-5' style='width: 400px;text-align: center;'><b class='green'>Удачно выдано.</b></div>";
 	}
 }
 }

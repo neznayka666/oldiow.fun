@@ -15,7 +15,7 @@
 			$q .= ", `".$key."`='".$val."'";
 		}
 		$q = substr($q,1,strlen($q)-1);
-		if ($db->sql("UPDATE weapons SET ".$q." WHERE id='".$_GET["edit"]."'")) echo "<div class='greenBlock margin-5'><b class='green'>".$p["name"]." удачно изменен!</b></div>";
+		if ($db->sql("UPDATE weapons SET ".$q." WHERE id='".$_GET["edit"]."'")) echo "<div class='greenBlock margin-5' style='width: 400px;text-align: center;'><b class='green'>".$p["name"]." удачно изменен!</b></div>";
 	}
 ?>
 
