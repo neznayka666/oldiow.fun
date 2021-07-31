@@ -146,7 +146,7 @@ function params_upd()
 		if (np[0].substr(0,1)=='s' && par>0 && np[0].length==2) {opts+=parseInt(par);par = '+'+par;CLS = 'blue';}
 		o += 
 		'<tr style="background:#'+((i1%2)?"EEEEEE":"DDDDDD")+'"><td width=10><img src="http://'+img_pack+'/icons/del.png" onclick="par_set(\''+np[0]+'\',0);params_upd();" style="cursor:pointer"></td>';
-		o += '<td width="50%" class="'+CLS+'"><i>'+nos(np[0])+'</i>:</td><td width="25%"> <a href="#" onclick="par_div_set(\''+np[0]+'\','+parseInt(np[1])+')" class="ym" style="cursor:pointer">'+par+'</a></td><td width="20%"> '+fast_up(np[0],np[1])+'</td></tr>';
+		o += '<td width="50%" class="'+CLS+'"><i>'+nos(np[0])+'</i>:</td><td width="25%"> <a href="#" onclick="par_div_set(\''+np[0]+'\','+parseInt(np[1])+')"  style="cursor:pointer">'+par+'</a></td><td width="20%"> '+fast_up(np[0],np[1])+'</td></tr>';
 		}
 		}
 		else
@@ -162,7 +162,7 @@ function params_upd()
 			if (np[0].substr(1,1)=='s') {reqs += parseInt(par);}
 			t += 
 			'<tr style="background:#'+((i2%2)?"EEEEEE":"DDDDDD")+'"><td width=10><img src="http://'+img_pack+'/icons/del.png" onclick="par_set(\''+np[0]+'\',0);params_upd();" style="cursor:pointer"></td>';
-			t += '<td width="50%"><i>'+nos(np[0].substr(1,np[0].length-1))+'</i>:</td><td width="25%"> <a href="#" onclick="par_div_set(\''+np[0]+'\','+parseInt(np[1])+')" class="ym" style="cursor:pointer">'+par+'</a></td><td width="20%"> '+fast_up(np[0],np[1])+'</td></tr>';
+			t += '<td width="50%"><i>'+nos(np[0].substr(1,np[0].length-1))+'</i>:</td><td width="25%"> <a href="#" onclick="par_div_set(\''+np[0]+'\','+parseInt(np[1])+')"  style="cursor:pointer">'+par+'</a></td><td width="20%"> '+fast_up(np[0],np[1])+'</td></tr>';
 			}
 		}
 	}
@@ -197,11 +197,11 @@ function sec_inf()
 	var z;
 	z = '<table border="1" width="100%" cellspacing="5" cellpadding="5" bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>';
 	z += '<tr><td align=Left width=50%>';
-	z += 'Стоимость | <a href="#" onclick="ch_price()"> '+par_val('price')+'</a> зм.<br> Стоимость | <a href="#" onclick="ch_price()"> '+par_val('dprice')+' сп.<br></a>';
+	z += 'Стоимость | <a href="#" onclick="ch_price()"> '+par_val('price')+'</a> зм.<br> Стоимость | <a href="#" onclick="ch_price()"> '+par_val('dprice')+'</a> сп.<br>';
 	z += '</td><td width=50%>';
-	z += 'МАКС. Долговечность <a href="#" onclick="ch_dur_qs()"> '+par_val('max_durability')+'</a><br> Текущее кол-во в лавке <a href="#" onclick="ch_dur_qs()"> '+par_val('q_s')+' шт.</a><br>';
+	z += 'МАКС. Долговечность <a href="#" onclick="ch_dur_qs()"> '+par_val('max_durability')+'</a><br> Текущее кол-во в лавке <a href="#" onclick="ch_dur_qs()"> '+par_val('q_s')+'</a> шт.<br>';
 	z += '</td></tr><tr><td align=center colspan=10 width=90%>';
-	z += '<i>Описание: <a href="#" onclick="ch_describe()">'+par_val('describe')+'</a></i>';
+	z += '<i><a href="#" onclick="ch_describe()"> Описание: '+par_val('describe')+'</a></i>';
 	z += '</td></tr><tr><td align=center colspan=10 width=90%>';
 	z += 'Название заряда: <a href="#" onclick="ch_arrows()">'+par_val('arrow_name')+'</a><br>';
 	z += 'Цена заряда: <a href="#" onclick="ch_arrows()">'+par_val('arrow_price')+'</a><br>';
@@ -563,7 +563,7 @@ function sh_types()
 	a += '<option value="16">Боевая нападалка</option>';
 	a += '</select>';
 	$('ptype').innerHTML = a;
-	a = '<select size="1" id="stype" class="items" onchange="up_types()"><option value="shle">Шлем</option><option value="kylo">Кулон</option><option value="mech">Меч</option><option value="noji">Нож</option><option value="shit">Щит</option><option value="topo">топор</option><option value="drob">Дробящее</option><option value="poya">Пояс</option><option value="zeli">Зелье/камень</option><option value="sapo">Сапоги</option><option value="naru">Наручи</option><option value="perc">Перчатки</option><option value="kolc">Кольцо</option><option value="bron">Броня</option><option value="kolchuga">Кольчуга</option><option value="napadk">Нападалка[Класс]</option><option value="napadt">Нападалка[Такт]</option><option value="zakl">свиток</option><option value="kam">Зелье/свиток</option><option value="fishing">Рыболовные снасти</option><option value="book">Книга</option><option value="teleport">Телепорт</option><option value="instrument">Инструмент</option><option value="rune">Руна</option><option value="braslet">Браслет</option></select><hr>Вес : <b onclick="ch_weight()"> '+par_val('weight')+' </b>';
+	a = '<select size="1" id="stype" class="items" onchange="up_types()"><option value="shle">Шлем</option><option value="kylo">Кулон</option><option value="mech">Меч</option><option value="noji">Нож</option><option value="shit">Щит</option><option value="topo">топор</option><option value="drob">Дробящее</option><option value="poya">Пояс</option><option value="zeli">Зелье/камень</option><option value="sapo">Сапоги</option><option value="naru">Наручи</option><option value="perc">Перчатки</option><option value="kolc">Кольцо</option><option value="bron">Броня</option><option value="kolchuga">Кольчуга</option><option value="napadk">Нападалка[Класс]</option><option value="napadt">Нападалка[Такт]</option><option value="zakl">свиток</option><option value="kam">Зелье/свиток</option><option value="fishing">Рыболовные снасти</option><option value="book">Книга</option><option value="teleport">Телепорт</option><option value="instrument">Инструмент</option><option value="rune">Руна</option><option value="braslet">Браслет</option></select><hr>Вес : <a href="#" onclick="ch_weight()"> '+par_val('weight')+' </a>';
 	$('pstype').innerHTML = a;
 
 	var objtype = $('type');
