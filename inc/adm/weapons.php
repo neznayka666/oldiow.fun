@@ -61,7 +61,7 @@ if (@$_GET["copy"])
 	$part1 = substr($part1,0,strlen($part1)-1);
 	$part2 = substr($part2,0,strlen($part2)-1);
 	$db->sql($part1.$part2.");");
-	echo "<center class=return_win>Скопировано.</center>";
+	echo "<div class='greenBlock margin-5'><b class='green'>Скопировано.</b></div>";
 }
 if (@$_GET["give"])
 {
@@ -69,7 +69,7 @@ if (@$_GET["give"])
 	if ( $uid>0 )
 	{
 		insert_wp($_GET['give'],$uid);
-		echo "<center class=return_win>Удачно выдано.</center>";
+		echo "<div class='greenBlock margin-5'><b class='green'>Удачно выдано.</b></div>";
 	}
 }
 }
