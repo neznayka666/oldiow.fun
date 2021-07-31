@@ -188,20 +188,18 @@ function main_inf()
 	z += 'Максимально зарядов: <a href="#" onclick="ch_arrows()">'+par_val('arrows')+'</a><br>';
 	z += 'Радиус поражения: <a href="#" onclick="ch_arrows()">'+par_val('radius')+'</a><br>';
 	z += 'Кол-во слотов: <a href="#" onclick="ch_arrows()">'+par_val('slots')+'</a><br>';
-	z += '</td></tr><tr><td align=center colspan=10 width=90%>';
-	z += '<a href="javascript:void(0)" onclick="all_pars()" class=bga>ПЕРЕЧЕНЬ ВСЕХ ПАРАМЕТРОВ ВРУЧНУЮ</a>';
+	z += '</td></tr>';	
 	z += '</table>';
 	//$('sec_params').innerHTML = p;
 	z += '<table border="1" width="100%" cellspacing="5" cellpadding="5" bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>';
 	z += '<tr><td align="center">';
-	z += 'Название: <a href="#" onclick="ch_name()">'+par_val('name')+'</a>';
-	z += '| Название картинки: <a href="#" onclick="ch_img()">'+par_val('image')+'</a>';
-	z += '| Стоимость | <a href="#" onclick="ch_price()"> '+par_val('price')+'</a> зм. ';
-	z += '| <a href="#" onclick="ch_price()"> '+par_val('dprice')+'</a> сп. <hr>';
-	z += 'МАКС. Долговечность <a href="#" onclick="ch_dur_qs()"> '+par_val('max_durability')+'</a> | Текущее кол-во в лавке <a href="#" onclick="ch_dur_qs()"> '+par_val('q_s')+'</a> шт.<br>';
+	z += 'Название: <a href="#" onclick="ch_name()">'+par_val('name')+'</a> ';
+	z += '| Название картинки: <a href="#" onclick="ch_img()">'+par_val('image')+'</a> ';
+	z += '| Стоимость: <a href="#" onclick="ch_price()"> '+par_val('price')+'</a> зм. ';
+	z += '| <a href="#" onclick="ch_price()"> '+par_val('dprice')+'</a> сп.';	
 	z += '</td></tr>';
 	z += '<tr><td align="center">';
-	z += '<a href="#" onclick="ch_img()">'+par_val('image')+'</a>';
+	z += 'МАКС. Долговечность <a href="#" onclick="ch_dur_qs()"> '+par_val('max_durability')+'</a> | Текущее кол-во в лавке <a href="#" onclick="ch_dur_qs()"> '+par_val('q_s')+'</a> шт.<br>';
 	z += '</td></tr>';
 	z += '<tr><td width=50% id=ptype align=center>&nbsp;</td>';
 	z += '<td align=center width=62><img src=http://'+img_pack+'/weapons/'+par_val('image')+'.gif onclick="change_img()"></td>';
@@ -216,8 +214,10 @@ function sec_inf()
 	z ='<table border="1" width="100%" cellspacing="5" cellpadding="5" class="whiteBlock margin-5"><tr>';
 	z +='<td width="50%" align="center"><a style="width:50%;" class="bga" href="main.php">НАЗАД</a></td>';
 	z +='<td width="50%" align="center"><input class="inv_but" type="button" value="Сохранить" onclick="sbmt()"></td>';
-	z +='</tr></table>';
-	//$('sec_params').innerHTML = z;
+	z +='</tr>';
+	z += '<tr><td align=center colspan=10 width=90%><a href="javascript:void(0)" onclick="all_pars()" class=bga>ПЕРЕЧЕНЬ ВСЕХ ПАРАМЕТРОВ ВРУЧНУЮ</a></td></tr>';
+	z += '</table>';
+	$('sec_params').innerHTML = z;
 }
 
 function nos(id)
