@@ -180,10 +180,10 @@ function main_inf()
 	var z;
 	z = '<table border="1" width="100%" cellspacing="5" cellpadding="5" bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>';
 	z += '<tr><td align=center colspan=10>';
-	z += '<center class=user onclick="ch_name()">'+par_val('name')+'</center>';
+	z += '<a href="#" onclick="ch_name()">'+par_val('name')+'</a>';
 	z += '</td></tr>';
 	z += '<tr><td align=center colspan=10>';
-	z += '<center class=user onclick="ch_imgName()">'+par_val('image')+'</center>';
+	z += '<a href="#" onclick="ch_img()">'+par_val('image')+'</a>';
 	z += '</td></tr>';
 	z += '<tr><td width=50% id=ptype align=center>&nbsp;</td>';
 	z += '<td align=center width=62>2<img src=http://'+img_pack+'/weapons/'+par_val('image')+'.gif onclick="change_img()"></td>';
@@ -409,6 +409,23 @@ function ch_nameM()
 	disable_main_layer();
 	main_inf();
 }
+
+//img
+function ch_img()
+{
+	init_main_layer();
+	ml.innerHTML += '<form onsubmit="ch_imgM();return false;"><input class=login type=text value="'+par_val('image')+'" id="wpimage" size=30><hr><input class=login type=submit value=[OK]></form>';
+}
+
+function ch_imgM()
+{
+	par_set('image',$('wpimage').value);
+	disable_main_layer();
+	main_inf();
+}
+
+
+
 function ch_weight()
 {
 	init_main_layer();
@@ -448,18 +465,7 @@ function ch_dqM()
 	disable_main_layer();
 	sec_inf();
 }
-function ch_imgName()
-{
-	par_set('image',parseInt($('image').value));		
-	disable_main_layer();
-	sec_inf();
-}
 
-function ch_imgName_qi()
-{
-	init_main_layer();
-	ml.innerHTML += '<form onsubmit="ch_dqM();return false;">Долговечность <input class=login type=text value="'+par_val('image')+'" id="image" size=25><hr><input class=login type=submit value=[OK]></form>';
-}
 
 function ch_describe()
 {
