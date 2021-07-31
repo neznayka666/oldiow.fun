@@ -445,6 +445,18 @@ function ch_dqM()
 	disable_main_layer();
 	sec_inf();
 }
+function ch_imgName()
+{
+	par_set('image',parseInt($('image').value));		
+	disable_main_layer();
+	sec_inf();
+}
+
+function ch_imgName_qi()
+{
+	init_main_layer();
+	ml.innerHTML += '<form onsubmit="ch_dqM();return false;">Долговечность <input class=login type=text value="'+par_val('image')+'" id="image" size=25><hr><input class=login type=submit value=[OK]></form>';
+}
 
 function ch_describe()
 {
