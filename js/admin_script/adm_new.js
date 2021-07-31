@@ -109,7 +109,7 @@ function editw()
 	d.write('<div class="return_win" id="main"></div>');
 	d.write('<table border="1" width="100%" cellspacing="5" cellpadding="5" class="whiteBlock margin-5">');
 	d.write('<tr><td align=center width=50% id=opts>СВОЙСТВА</td><td width=50% align=center id=reqs>ТРЕБОВАНИЯ</td></tr>');
-	d.write('<tr><td class=inv id=o width=50% valign=bottom></td><td class=inv id=t width=50% valign=bottom></td></tr>');
+	d.write('<tr><td class=inv id=o width=50%></td><td class=inv id=t width=50%></td></tr>');
 	d.write('</table><div class="return_win" id="sec_params">111</div>');
 	d.write('</form>');
 	d.write('</div>');
@@ -146,7 +146,7 @@ function params_upd()
 		if (np[0].substr(0,1)=='s' && par>0 && np[0].length==2) {opts+=parseInt(par);par = '+'+par;CLS = 'blue';}
 		o += 
 		'<tr style="background:#'+((i1%2)?"EEEEEE":"DDDDDD")+'"><td width=10><img src="http://'+img_pack+'/icons/del.png" onclick="par_set(\''+np[0]+'\',0);params_upd();" style="cursor:pointer"></td>';
-		o += '<td width="50%" class="'+CLS+'"><i>'+nos(np[0])+'</i>:</td><td width="25%"> <b onclick="par_div_set(\''+np[0]+'\','+parseInt(np[1])+')" class="ym" style="cursor:pointer">'+par+'</b></td><td width="20%"> '+fast_up(np[0],np[1])+'</td></tr>';
+		o += '<td width="50%" class="'+CLS+'"><i>'+nos(np[0])+'</i>:</td><td width="25%"> <a href="#" onclick="par_div_set(\''+np[0]+'\','+parseInt(np[1])+')" class="ym" style="cursor:pointer">'+par+'</a></td><td width="20%"> '+fast_up(np[0],np[1])+'</td></tr>';
 		}
 		}
 		else
@@ -162,7 +162,7 @@ function params_upd()
 			if (np[0].substr(1,1)=='s') {reqs += parseInt(par);}
 			t += 
 			'<tr style="background:#'+((i2%2)?"EEEEEE":"DDDDDD")+'"><td width=10><img src="http://'+img_pack+'/icons/del.png" onclick="par_set(\''+np[0]+'\',0);params_upd();" style="cursor:pointer"></td>';
-			t += '<td width="50%"><i>'+nos(np[0].substr(1,np[0].length-1))+'</i>:</td><td width="25%"> <b onclick="par_div_set(\''+np[0]+'\','+parseInt(np[1])+')" class="ym" style="cursor:pointer">'+par+'</b></td><td width="20%"> '+fast_up(np[0],np[1])+'</td></tr>';
+			t += '<td width="50%"><i>'+nos(np[0].substr(1,np[0].length-1))+'</i>:</td><td width="25%"> <a href="#" onclick="par_div_set(\''+np[0]+'\','+parseInt(np[1])+')" class="ym" style="cursor:pointer">'+par+'</a></td><td width="20%"> '+fast_up(np[0],np[1])+'</td></tr>';
 			}
 		}
 	}
@@ -186,7 +186,7 @@ function main_inf()
 	z += '<a href="#" onclick="ch_img()">'+par_val('image')+'</a>';
 	z += '</td></tr>';
 	z += '<tr><td width=50% id=ptype align=center>&nbsp;</td>';
-	z += '<td align=center width=62>2<img src=http://'+img_pack+'/weapons/'+par_val('image')+'.gif onclick="change_img()"></td>';
+	z += '<td align=center width=62><img src=http://'+img_pack+'/weapons/'+par_val('image')+'.gif onclick="change_img()"></td>';
 	z += '<td width=50% id=pstype align=center>&nbsp;</td></tr></table>';
 	$('main').innerHTML = z;
 	sh_types();
@@ -197,17 +197,17 @@ function sec_inf()
 	var z;
 	z = '<table border="1" width="100%" cellspacing="5" cellpadding="5" bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>';
 	z += '<tr><td align=Left width=50%>';
-	z += '<img src="http://'+img_pack+'/money.gif" width=10>Стоимость | <strong class=user onclick="ch_price()"> '+par_val('price')+' зм.<br></strong><img src=http://'+img_pack+'/signs/diler.gif  width=10>Стоимость |<strong class=user onclick="ch_price()"> '+par_val('dprice')+' сп.<br></strong>';
+	z += 'Стоимость | <a href="#" onclick="ch_price()"> '+par_val('price')+'</a> зм.<br> Стоимость | <a href="#" onclick="ch_price()"> '+par_val('dprice')+' сп.<br></a>';
 	z += '</td><td width=50%>';
-	z += 'МАКС. Долговечность <strong class=user onclick="ch_dur_qs()"> '+par_val('max_durability')+'<br></strong>Текущее кол-во в лавке <strong class=user onclick="ch_dur_qs()"> '+par_val('q_s')+' шт.<br></strong>';
+	z += 'МАКС. Долговечность <a href="#" onclick="ch_dur_qs()"> '+par_val('max_durability')+'</a><br> Текущее кол-во в лавке <a href="#" onclick="ch_dur_qs()"> '+par_val('q_s')+' шт.</a><br>';
 	z += '</td></tr><tr><td align=center colspan=10 width=90%>';
-	z += '<i onclick="ch_describe()">Описание: <b>'+par_val('describe')+'</b></i>';
+	z += '<i>Описание: <a href="#" onclick="ch_describe()">'+par_val('describe')+'</a></i>';
 	z += '</td></tr><tr><td align=center colspan=10 width=90%>';
-	z += 'Название заряда: <b onclick="ch_arrows()">'+par_val('arrow_name')+'</b><br>';
-	z += 'Цена заряда: <b onclick="ch_arrows()">'+par_val('arrow_price')+'</b><br>';
-	z += 'Максимально зарядов: <b onclick="ch_arrows()">'+par_val('arrows')+'</b><br>';
-	z += 'Радиус поражения: <b onclick="ch_arrows()">'+par_val('radius')+'</b><br>';
-	z += 'Кол-во слотов: <b onclick="ch_arrows()">'+par_val('slots')+'</b><br>';
+	z += 'Название заряда: <a href="#" onclick="ch_arrows()">'+par_val('arrow_name')+'</a><br>';
+	z += 'Цена заряда: <a href="#" onclick="ch_arrows()">'+par_val('arrow_price')+'</a><br>';
+	z += 'Максимально зарядов: <a href="#" onclick="ch_arrows()">'+par_val('arrows')+'</a><br>';
+	z += 'Радиус поражения: <a href="#" onclick="ch_arrows()">'+par_val('radius')+'</a><br>';
+	z += 'Кол-во слотов: <a href="#" onclick="ch_arrows()">'+par_val('slots')+'</a><br>';
 	z += '</td></tr><tr><td align=center colspan=10 width=90%>';
 	z += '<a href="javascript:void(0)" onclick="all_pars()" class=bga>ПЕРЕЧЕНЬ ВСЕХ ПАРАМЕТРОВ ВРУЧНУЮ</a>';
 	z += '</table>';
