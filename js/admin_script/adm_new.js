@@ -98,6 +98,7 @@ return a[0];
 
 function editw()
 {
+	d.write('<div style="margin:40px auto; width:100%;max-width:1200px;" class="margin-5">');	
 	d.write('<form method="post" action="main.php">');
 	var _params = params.split('@');
 	var np;
@@ -206,12 +207,10 @@ function sec_inf()
 	z += '</td></tr><tr><td align=center colspan=10 width=90%>';
 	z += '<a href="javascript:void(0)" onclick="all_pars()" class=bga>ПЕРЕЧЕНЬ ВСЕХ ПАРАМЕТРОВ ВРУЧНУЮ</a>';
 	z += '</table>';
-	z +='<div style="margin:40px auto; width:100%;max-width:1200px;" class="margin-5">';
 	z +='<table border="1" width="100%" cellspacing="5" cellpadding="5" class="whiteBlock margin-5"><tr>';
 	z +='<td width="50%" align="center"><a style="width:50%;" class="bga" href="main.php">НАЗАД</a></td>';
 	z +='<td width="50%" align="center"><input class="inv_but" type="button" value="Сохранить" onclick="sbmt()"></td>';
 	z +='</tr></table>';
-
 	$('sec_params').innerHTML = z;
 }
 
