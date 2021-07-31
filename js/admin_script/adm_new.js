@@ -182,6 +182,9 @@ function main_inf()
 	z += '<tr><td align=center colspan=10>';
 	z += '<center class=user onclick="ch_name()">'+par_val('name')+'</center>';
 	z += '</td></tr>';
+	z += '<tr><td align=center colspan=10>';
+	z += '<center class=user onclick="ch_imgName()">'+par_val('image')+'</center>';
+	z += '</td></tr>';
 	z += '<tr><td width=50% id=ptype align=center>&nbsp;</td>';
 	z += '<td align=center width=62>2<img src=http://'+img_pack+'/weapons/'+par_val('image')+'.gif onclick="change_img()"></td>';
 	z += '<td width=50% id=pstype align=center>&nbsp;</td></tr></table>';
