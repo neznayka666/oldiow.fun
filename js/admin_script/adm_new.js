@@ -213,7 +213,7 @@ function sec_inf()
 	z +='<td width="50%" align="center"><a style="width:50%;" class="bga" href="main.php">НАЗАД</a></td>';
 	z +='<td width="50%" align="center"><input class="inv_but" type="button" value="Сохранить" onclick="sbmt()"></td>';
 	z +='</tr></table>';
-	$('sec_params').innerHTML = z;
+	//$('sec_params').innerHTML = z;
 }
 
 function nos(id)
