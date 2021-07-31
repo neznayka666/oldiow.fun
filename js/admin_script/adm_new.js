@@ -173,25 +173,24 @@ function params_upd()
 
 function main_inf()
 {
-	var z;
-	var p;
-	p = '<table border="1" width="100%" cellspacing="5" cellpadding="5" bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>';
-	p += '<tr><td align=Left width=50%>';
-	p += 'Стоимость | <a href="#" onclick="ch_price()"> '+par_val('price')+'</a> зм.<br> Стоимость | <a href="#" onclick="ch_price()"> '+par_val('dprice')+'</a> сп.<br>';
-	p += '</td><td width=50%>';
-	p += 'МАКС. Долговечность <a href="#" onclick="ch_dur_qs()"> '+par_val('max_durability')+'</a><br> Текущее кол-во в лавке <a href="#" onclick="ch_dur_qs()"> '+par_val('q_s')+'</a> шт.<br>';
-	p += '</td></tr><tr><td align=center colspan=10 width=90%>';
-	p += '<i><a href="#" onclick="ch_describe()"> Описание: '+par_val('describe')+'</a></i>';
-	p += '</td></tr><tr><td align=center colspan=10 width=90%>';
-	p += 'Название заряда: <a href="#" onclick="ch_arrows()">'+par_val('arrow_name')+'</a><br>';
-	p += 'Цена заряда: <a href="#" onclick="ch_arrows()">'+par_val('arrow_price')+'</a><br>';
-	p += 'Максимально зарядов: <a href="#" onclick="ch_arrows()">'+par_val('arrows')+'</a><br>';
-	p += 'Радиус поражения: <a href="#" onclick="ch_arrows()">'+par_val('radius')+'</a><br>';
-	p += 'Кол-во слотов: <a href="#" onclick="ch_arrows()">'+par_val('slots')+'</a><br>';
-	p += '</td></tr><tr><td align=center colspan=10 width=90%>';
-	p += '<a href="javascript:void(0)" onclick="all_pars()" class=bga>ПЕРЕЧЕНЬ ВСЕХ ПАРАМЕТРОВ ВРУЧНУЮ</a>';
-	p += '</table>';
-	$('sec_params').innerHTML = p;
+	var z;	
+	z = '<table border="1" width="100%" cellspacing="5" cellpadding="5" bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>';
+	z += '<tr><td align=Left width=50%>';
+	z += 'Стоимость | <a href="#" onclick="ch_price()"> '+par_val('price')+'</a> зм.<br> Стоимость | <a href="#" onclick="ch_price()"> '+par_val('dprice')+'</a> сп.<br>';
+	z += '</td><td width=50%>';
+	z += 'МАКС. Долговечность <a href="#" onclick="ch_dur_qs()"> '+par_val('max_durability')+'</a><br> Текущее кол-во в лавке <a href="#" onclick="ch_dur_qs()"> '+par_val('q_s')+'</a> шт.<br>';
+	z += '</td></tr><tr><td align=center colspan=10 width=90%>';
+	z += '<i><a href="#" onclick="ch_describe()"> Описание: '+par_val('describe')+'</a></i>';
+	z += '</td></tr><tr><td align=center colspan=10 width=90%>';
+	z += 'Название заряда: <a href="#" onclick="ch_arrows()">'+par_val('arrow_name')+'</a><br>';
+	z += 'Цена заряда: <a href="#" onclick="ch_arrows()">'+par_val('arrow_price')+'</a><br>';
+	z += 'Максимально зарядов: <a href="#" onclick="ch_arrows()">'+par_val('arrows')+'</a><br>';
+	z += 'Радиус поражения: <a href="#" onclick="ch_arrows()">'+par_val('radius')+'</a><br>';
+	z += 'Кол-во слотов: <a href="#" onclick="ch_arrows()">'+par_val('slots')+'</a><br>';
+	z += '</td></tr><tr><td align=center colspan=10 width=90%>';
+	z += '<a href="javascript:void(0)" onclick="all_pars()" class=bga>ПЕРЕЧЕНЬ ВСЕХ ПАРАМЕТРОВ ВРУЧНУЮ</a>';
+	z += '</table>';
+	//$('sec_params').innerHTML = p;
 	z += '<table border="1" width="100%" cellspacing="5" cellpadding="5" bordercolorlight=#C0C0C0 bordercolordark=#FFFFFF>';
 	z += '<tr><td align=center colspan=10>';
 	z += '<a href="#" onclick="ch_name()">'+par_val('name')+'</a>';
