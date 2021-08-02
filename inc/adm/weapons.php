@@ -113,7 +113,7 @@ function give(id) {
                             Где
                             купить</option>
                     </select>от<input type="text" name="minlevel" size="7" value="<?php if ($_FILTER["lavkaminlevel"]<>"")
-                    echo $_FILTER["lavkaminlevel"];else echo "0";?>" class=laar>до<input type="text" name="maxlevel"
+                    echo $_FILTER["lavkaminlevel"]; else echo "0";?>" class=laar>до<input type="text" name="maxlevel"
                         size="7" value=<?php if ($_FILTER["lavkamaxlevel"]<>"") echo $_FILTER["lavkamaxlevel"];else echo
                     $pers["level"];?> class=laar>Уровня.&nbsp;
                     Не дороже <input type="text" name="maxcena" size="7" value="<?php if ($_FILTER["lavkamaxcena"]<>"")
@@ -147,7 +147,7 @@ while ($v=mysql_fetch_array ($enures,MYSQL_ASSOC))
 	{
 		echo "<tr>";		
 		$rank_i = ($v["s1"]+$v["s2"]+$v["s3"]+$v["s4"]+$v["s5"]+$v["s6"]+$v["kb"])*0.3 + ($v["mf1"]+$v["mf2"]+$v["mf3"]+$v["mf4"]+$v["mf5"])*0.03 + ($v["hp"]+$v["ma"])*0.04+($v["udmin"]+$v["udmax"])*0.3;
-		echo "<td><a href=main.php?edit=".$v["id"]."><img src='http://".IMG."/weapons/".$v["image"].".gif' height='30'></a></td><td><b>".$v["name"]."</b> (<b>".$rank_i."</b>)  [".$v["index"]."] (<b>".$v["id"]."</b>)</td>
+		echo "<td><a href=main.php?edit=".$v["id"]."><img src='http://".IMG."/weapons/".$v["image"].".gif' height='30'></a></td><td><b>".$v["name"]."</b> (<b>".$rank_i."</b>)  [".$v["image"]."] (<b>".$v["id"]."</b>)</td>
 		";
 		echo "<td>";
 		if ($v["where_buy"]==0) echo "<b class=green>Гос. Магазин</b>";
