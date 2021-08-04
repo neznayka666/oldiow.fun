@@ -84,7 +84,7 @@ function ajaxFileUpload()
 
 
 	
-document.write('<div style="position:absolute; left:0px; top:0px; z-index: 2; width:300 ; height:400; visibility:hidden; background-color: #FFFFFF;" id="ml" class=loc>&nbsp;</div>');
+document.write('<div style="position:absolute; left:0px; top:0px; z-index: 2; width:300 ; height:400; visibility:hidden; background-color: #FFFFFF;padding:15px;" id="ml" class="loc">&nbsp;</div>');
 var ml = document.getElementById('ml');
 var i=0;
 var $ = function(id){
