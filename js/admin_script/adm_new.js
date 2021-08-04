@@ -179,11 +179,11 @@ function main_inf()
 	z += 'Название: <a href="#" onclick="ch_name()">'+par_val('name')+'</a> ';
 	z += '| Название картинки: <a href="#" onclick="ch_img()">'+par_val('image')+'</a> ';
 	z += '| Стоимость: <a href="#" onclick="ch_price()"> '+par_val('price')+'</a> зм. ';
-	z += '| <a href="#" onclick="ch_price()"> '+par_val('dprice')+'</a> сп.';	
+	z += '| <a href="#" onclick="ch_price()"> '+par_val('dprice')+'</a> сп. | Вес : <a href="#" onclick="ch_weight()"> '+par_val('weight')+' </a>';	
 	z += '</td></tr>';
 	z += '<tr><td align="center" colspan="3">';
-	z += 'МАКС. Долговечность <a href="#" onclick="ch_dur_qs()"> '+par_val('max_durability')+'</a> | ';
-	z += 'Текущее кол-во в лавке <a href="#" onclick="ch_dur_qs()"> '+par_val('q_s')+'</a> шт. | ';
+	z += 'МАКС. Долговечность: <a href="#" onclick="ch_dur_qs()"> '+par_val('max_durability')+'</a> | ';
+	z += 'Текущее кол-во в лавке: <a href="#" onclick="ch_dur_qs()"> '+par_val('q_s')+'</a> шт. | ';
 	z += '<a href="#" onclick="ch_describe()"> Описание: '+par_val('describe')+'</a>';
 	z += '</td></tr>';
 	z += '<tr><td align="center" colspan="3">';
@@ -561,7 +561,7 @@ function sh_types()
 	a += '<option value="16">Боевая нападалка</option>';
 	a += '</select>';
 	$('ptype').innerHTML = a;
-	a = '<select size="1" id="stype" class="items" onchange="up_types()"><option value="shle">Шлем</option><option value="kylo">Кулон</option><option value="mech">Меч</option><option value="noji">Нож</option><option value="shit">Щит</option><option value="topo">топор</option><option value="drob">Дробящее</option><option value="poya">Пояс</option><option value="zeli">Зелье/камень</option><option value="sapo">Сапоги</option><option value="naru">Наручи</option><option value="perc">Перчатки</option><option value="kolc">Кольцо</option><option value="bron">Броня</option><option value="kolchuga">Кольчуга</option><option value="napadk">Нападалка[Класс]</option><option value="napadt">Нападалка[Такт]</option><option value="zakl">свиток</option><option value="kam">Зелье/свиток</option><option value="fishing">Рыболовные снасти</option><option value="book">Книга</option><option value="teleport">Телепорт</option><option value="instrument">Инструмент</option><option value="rune">Руна</option><option value="braslet">Браслет</option></select><hr>Вес : <a href="#" onclick="ch_weight()"> '+par_val('weight')+' </a>';
+	a = '<select size="1" id="stype" class="items" onchange="up_types()"><option value="shle">Шлем</option><option value="kylo">Кулон</option><option value="mech">Меч</option><option value="noji">Нож</option><option value="shit">Щит</option><option value="topo">топор</option><option value="drob">Дробящее</option><option value="poya">Пояс</option><option value="zeli">Зелье/камень</option><option value="sapo">Сапоги</option><option value="naru">Наручи</option><option value="perc">Перчатки</option><option value="kolc">Кольцо</option><option value="bron">Броня</option><option value="kolchuga">Кольчуга</option><option value="napadk">Нападалка[Класс]</option><option value="napadt">Нападалка[Такт]</option><option value="zakl">свиток</option><option value="kam">Зелье/свиток</option><option value="fishing">Рыболовные снасти</option><option value="book">Книга</option><option value="teleport">Телепорт</option><option value="instrument">Инструмент</option><option value="rune">Руна</option><option value="braslet">Браслет</option></select><hr>';
 	$('pstype').innerHTML = a;
 
 	var objtype = $('type');
