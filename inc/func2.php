@@ -172,7 +172,7 @@ function name_of_skill ($skill)
 	elseif ($skill=='mf2') return "Увёртливости";
 	elseif ($skill=='mf3') return "Против увёртливости";
 	elseif ($skill=='mf4') return "Против критического удара";
-	elseif ($skill=='mf5') return "Брони";
+	elseif ($skill=='mf5') return "Пробой брони";
 	elseif ($skill=='udmin') return "Минимальный удар";
 	elseif ($skill=='udmax') return "Максимальный удар";
 	elseif ($skill=='rank_i') return "Сила предмета";
