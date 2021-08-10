@@ -205,8 +205,12 @@ while ($vesh=mysql_fetch_array($res))
 			###
 			if ( $claner==true )
 			{
-				if ( $z==1 and $napad=='' and ($v["type"]=='shlem' or $v["type"]=='orujie' or $v["type"]=='kolco' or $v["type"]=='bronya' or $v["type"]=='naruchi' or $v["type"]=='perchatki' or $v["type"]=='ojerelie' or $v["type"]=='sapogi' or $v["type"]=='poyas' or $v["type"]=='kam' or $v["type"]=='kolchuga' or $v["type"]=='braslet') and ($no_uz or $player->pers['sign']=='watchers'))
+				if ($v["delete"]==0) {
+				if ( $z==1 and $napad=='' and ($v["type"]=='shlem' or $v["type"]=='orujie' or $v["type"]=='kolco' or $v["type"]=='bronya' or $v["type"]=='naruchi' or $v["type"]=='perchatki' or $v["type"]=='ojerelie' or $v["type"]=='sapogi' or $v["type"]=='poyas' or $v["type"]=='kam' or $v["type"]=='kolchuga' or $v["type"]=='braslet') and ($no_uz or $player->pers['sign']=='watchers')) {
 					$buttons .= "<td><input type='button' class=inv_but value='Надеть' onclick=\"location='main.php?wear=".$vesh["id"]."'\"></td>";
+				}
+			}
+
 				if ( $v["arrows_max"]<>$v["arrows"])
 					$buttons .= "<td><input type=button class=inv_but value='Зарядить[".($v["arrows_max"]-$v["arrows"])." > ".(($v["arrows_max"]-$v["arrows"])*$v["arrow_price"])." LN]' onclick=\"location='main.php?zzz=".$vesh["id"]."'\"></td>";
 				if ( $weared_count==1 and $v["type"]=='rune')
