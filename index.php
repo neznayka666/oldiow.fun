@@ -193,6 +193,13 @@ $db = new MySQL(SQL_USER, SQL_PASS, SQL_BASE);
                                                 href='http://lib.oldiow.fun/?act=5' target='_blank'>Рейтинг
                                                 игроков</a></p>
                                     </td>
+												<td>
+													<p>
+														<a href="https://freekassa.ru" target="_blank" rel="noopener noreferrer">
+  														<img src="https://cdn.freekassa.ru/banners/small-white-2.png" title="Прием платежей">
+													</a>
+													</p>
+												</td>
                                 </tr>
                             </table>
                         </TD>
