@@ -199,17 +199,18 @@ while ($vesh=mysql_fetch_array($res))
 			$counter++;
 			$buttons = '';
 			###
+			$delete = ($v['delete']=='0') ? disabled : ;
 			$no_uz = true;//($v['sign']=='watchers') ? false : true;
 			$claner = ( !empty($v['clan_sign']) and $v['clan_sign']!=$player->pers['sign'] ) ? false : true;
 //			if (UID==7) $claner = true;
 			###
 			if ( $claner==true )
 			{
-				if ($v["delete"]==0) {
+				//if ($v["delete"]==0) {
 				if ( $z==1 and $napad=='' and ($v["type"]=='shlem' or $v["type"]=='orujie' or $v["type"]=='kolco' or $v["type"]=='bronya' or $v["type"]=='naruchi' or $v["type"]=='perchatki' or $v["type"]=='ojerelie' or $v["type"]=='sapogi' or $v["type"]=='poyas' or $v["type"]=='kam' or $v["type"]=='kolchuga' or $v["type"]=='braslet') and ($no_uz or $player->pers['sign']=='watchers')) {
-					$buttons .= "<td><input type='button' class=inv_but value='Надеть' onclick=\"location='main.php?wear=".$vesh["id"]."'\"></td>";
+					$buttons .= "<td><input type='button' $delete class=inv_but value='Надеть' onclick=\"location='main.php?wear=".$vesh["id"]."'\"></td>";
 				}
-			}
+			//}
 
 				if ( $v["arrows_max"]<>$v["arrows"])
 					$buttons .= "<td><input type=button class=inv_but value='Зарядить[".($v["arrows_max"]-$v["arrows"])." > ".(($v["arrows_max"]-$v["arrows"])*$v["arrow_price"])." LN]' onclick=\"location='main.php?zzz=".$vesh["id"]."'\"></td>";
