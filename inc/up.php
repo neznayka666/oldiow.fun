@@ -188,13 +188,13 @@ else $_OVERWEIGHT = 0;
 
     <div class="but" style="position:absolute; left:-5px; top:-5px; z-index: 65000; width:0px; height:0px;display:none;"
         id="ec">&nbsp;</div>
-	<div style="position:fixed;right:15px;z-index:1;">
-   <script>
+	   <script>
    	<?php
 			echo "var img_pack = '".IMG."';\n";
 			echo "show_head('".$player->pers['curstate']."','".$out['name']."','".addslashes(build_go_string($location['go_id'], $player->lastom_new))."',".intval($player->pers['apps_id']).",".@($player->AuraSpecial[5]+$_OVERWEIGHT).",".intval($player->pers['help']).",".intval($player->pers['priveleged']).",".$player->pers['level'].",'".addslashes($player->pers['sign'])."');\n";
 		?>
    </script>
+	<div style="position:fixed;right:15px;z-index:1;">
    	<?php
 		//if ($player->pers['mail_good']<>1) echo '<div class="greenBlock" style="width:90%;text-align:center;"><font class=green>Подтвердите свой E-Mail адрес, <a href="/mail.php" target="_blank">подробнее</a>..</font></div>';
 		?>
