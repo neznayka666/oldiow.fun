@@ -208,62 +208,63 @@ while ($vesh=mysql_fetch_array($res))
 			{
 				//if ($v["delete"]==0) {
 				if ( $z==1 and $napad=='' and ($v["type"]=='shlem' or $v["type"]=='orujie' or $v["type"]=='kolco' or $v["type"]=='bronya' or $v["type"]=='naruchi' or $v["type"]=='perchatki' or $v["type"]=='ojerelie' or $v["type"]=='sapogi' or $v["type"]=='poyas' or $v["type"]=='kam' or $v["type"]=='kolchuga' or $v["type"]=='braslet') and ($no_uz or $player->pers['sign']=='watchers')) {
-					$buttons .= "<td><input type='button' ".$delete." class=inv_but value='Надеть' onclick=\"location='main.php?wear=".$vesh["id"]."'\"></td>";
+					$buttons .= "<td><input type='button' ".$delete." class='inv_but' value='Надеть' onclick=\"location='main.php?wear=".$vesh["id"]."'\"></td>";
 				}
 			//}
 
 				if ( $v["arrows_max"]<>$v["arrows"])
-					$buttons .= "<td><input type=button class=inv_but value='Зарядить[".($v["arrows_max"]-$v["arrows"])." > ".(($v["arrows_max"]-$v["arrows"])*$v["arrow_price"])." LN]' onclick=\"location='main.php?zzz=".$vesh["id"]."'\"></td>";
+					{$buttons .= "<td><input type='button' ".$delete." class='inv_but' value='Зарядить[".($v["arrows_max"]-$v["arrows"])." > ".(($v["arrows_max"]-$v["arrows"])*$v["arrow_price"])." LN]' onclick=\"location='main.php?zzz=".$vesh["id"]."'\"></td>";}
 				if ( $weared_count==1 and $v["type"]=='rune')
-					$buttons .= "<td><input type=button class=inv_but value='Вставить в ".$weared_name."' onclick=\"location='main.php?rune_join=".$v["id"]."'\"></td>";
+					{$buttons .= "<td><input type='button' ".$delete." class='inv_but' value='Вставить в ".$weared_name."' onclick=\"location='main.php?rune_join=".$v["id"]."'\"></td>";}
 				if ( $z==1 and $napad==1 and $vesh["index"]!="invis" and $vesh["index"]!="k" and $vesh["index"]!="k_z" and $vesh["index"]!="b" and $vesh["index"]!="b_z")
-					$buttons .= "<td><input type=button class=inv_but value=Использовать onclick=\"napad('".$item_lib."')\"></td>";
+					{$buttons .= "<td><input type='button' ".$delete." class='inv_but' value='Использовать' onclick=\"napad('".$item_lib."')\"></td>";}
 				if ( $z==1 and $napad==2 and $vesh["index"]!="invis" and $vesh["index"]!="k" and $vesh["index"]!="k_z" and $vesh["index"]!="b" and $vesh["index"]!="b_z")
-					$buttons .= "<td><input type=button class=inv_but value=Использовать onclick=\"zakl('".$item_lib."','".$v['name']."','1')\"></td>";
+					{$buttons .= "<td><input type='button' ".$delete." class='inv_but' value='Использовать' onclick=\"zakl('".$item_lib."','".$v['name']."','1')\"></td>";}
 				if ( $z==1 and $vesh["type"]=="ustal")
-					$buttons .= "<td><input type=button class=inv_but value=Использовать onclick=\"ustal('".$item_lib."','".$v['name']."')\"></td>";
+					{$buttons .= "<td><input type='button' ".$delete." class='inv_but' value='Использовать' onclick=\"ustal('".$item_lib."','".$v['name']."')\"></td>";}
 				if ( $z==1 and $vesh["type"]=="teleport")
-					$buttons .= "<td><input type=button class=inv_but value=Использовать onclick=\"teleport('".$item_lib."','".$v['name']."')\"></td>";
+					{$buttons .= "<td><input type='button' ".$delete." class='inv_but' value='Использовать' onclick=\"teleport('".$item_lib."','".$v['name']."')\"></td>";}
 				if ( $z==1 and $vesh["index"]=="invis") // Свитки анти невид.
-					$buttons .= "<td><input type=button class=inv_but value=Использовать onclick=\"scroll('".$item_lib."','".$v['name']."')\"></td>";
+					{$buttons .= "<td><input type='button' ".$delete." class='inv_but' value='Использовать' onclick=\"scroll('".$item_lib."','".$v['name']."')\"></td>";}
 				if ( $z==1 and ($vesh["index"]=="k" or $vesh["index"]=="k_z") ) //  Кулачка
-					$buttons .= "<td><input type=button class=inv_but value=Использовать onclick=\"napad_new('".$item_lib."','".$v['name']."')\"></td>";
+					{$buttons .= "<td><input type='button' ".$delete." class='inv_but' value='Использовать' onclick=\"napad_new('".$item_lib."','".$v['name']."')\"></td>";}
 				if ( $z==1 and ($vesh["index"]=="b" or $vesh["index"]=="b_z") ) // Боевое
-					$buttons .= "<td><input type=button class=inv_but value=Использовать onclick=\"napad_b('".$item_lib."','".$v['name']."')\"></td>";
+					{$buttons .= "<td><input type='button' ".$delete." class='inv_but' value='Использовать' onclick=\"napad_b('".$item_lib."','".$v['name']."')\"></td>";}
 				if ( $z==1 and $vesh["type"]=="potion")
-					$buttons .= "<td><input type=button class=inv_but value=Использовать onclick=\"potion('".$item_lib."','".$v['name']."')\"></td>";
+					{$buttons .= "<td><input type='button' ".$delete." class='inv_but' value='Использовать' onclick=\"potion('".$item_lib."','".$v['name']."')\"></td>";}
 				if ( $z==1 and $vesh["type"]=="antinevid")
-					$buttons .= "<td><input type=button class=inv_but value=Использовать onclick=\"antinevid('".$item_lib."','".$v['name']."')\"></td>";
+					{$buttons .= "<td><input type='button' ".$delete." class='inv_but' value='Использовать' onclick=\"antinevid('".$item_lib."','".$v['name']."')\"></td>";}
 				if ( $z==1 and $vesh["type"]=="prim" )
-					$buttons .= "<td><input type=button class=inv_but value=Приманить onclick=\"prim('".$item_lib."','".$v['name']."')\"></td>";
-if ($z==1 and $vesh["type"]=="snejok") $buttons .= "<td><input type=button class=inv_but value=Кинуть onclick=\"snejok('".$item_lib."','".$v['name']."')\"></td>";
+					{$buttons .= "<td><input type='button' ".$delete." class='inv_but' value='Приманить' onclick=\"prim('".$item_lib."','".$v['name']."')\"></td>";}
+				if ($z==1 and $vesh["type"]=="snejok") 
+				   {$buttons .= "<td><input type='button' ".$delete." class='inv_but' value='Кинуть' onclick=\"snejok('".$item_lib."','".$v['name']."')\"></td>";}
 				
 				
 				if ( ($v["where_buy"]<>1 and $v["where_buy"]<>2 or $v["type"]=="rune") and $v["clan_name"]=="" and $player->pers["level"]>4 and $player->pers["punishment"]<time() and $no_uz) 
 				{
-					$buttons .= "<td><input type=button class=inv_but value=Передать onclick=\"peredat('".$vesh["id"]."','".$v["name"]."')\"></td>";
-					$buttons .= "<td><input type=button class=inv_but value='Продать' onclick=\"sellingform('".$vesh["id"]."','".$v["name"]."')\" ></td>";
+					$buttons .= "<td><input type='button' ".$delete." class='inv_but' value='Передать' onclick=\"peredat('".$vesh["id"]."','".$v["name"]."')\"></td>";
+					$buttons .= "<td><input type='button' ".$delete." class='inv_but' value='Продать' onclick=\"sellingform('".$vesh["id"]."','".$v["name"]."')\" ></td>";
 				}
 				if ( strpos(" ".$player->pers["location"],"lavka")>0 and $v["where_buy"]<>1 and ($v["where_buy"]<>2 or $v["p_type"]==5 or $v["p_type"]==6 or $v["type"]=="rune") and ($v["clan_name"]=="" or $status=='a' or $status=='wg') and $no_uz)
-					$buttons .= "<td><input type=button class=inv_but value='Сдать за ".round(($v["price"]*$koef*$koef_cur)*(($v["durability"]+1)/($v["max_durability"]+1)),2)."' onclick=\"conf_sale('main.php?lavkasdat=".$vesh["id"]."')\"></td>";
+					$buttons .= "<td><input type='button' class='inv_but' value='Сдать за ".round(($v["price"]*$koef*$koef_cur)*(($v["durability"]+1)/($v["max_durability"]+1)),2)."' onclick=\"conf_sale('main.php?lavkasdat=".$vesh["id"]."')\"></td>";
 				
 				if ( strpos(" ".$player->pers["location"],"bank")>0 and $v["where_buy"]<>1 and ($v["where_buy"]<>2 or $v["p_type"]==5 or $v["p_type"]==6 or $v["type"]=="rune") and $v["clan_name"]=="" and $player->pers["money"]>=round(($v["price"]*0.1),2) and $no_uz)
-					$buttons .= "<td><input type=button class=inv_but value='Сдать в банк на хранение [".round(($v["price"]*0.1),2)." LN]' onclick=\"conf_sale('main.php?bank=".$vesh["id"]."')\"></td>";
+					$buttons .= "<td><input type='button' ".$delete." class='inv_but' value='Сдать в банк на хранение [".round(($v["price"]*0.1),2)." LN]' onclick=\"conf_sale('main.php?bank=".$vesh["id"]."')\"></td>";
 				if ( strpos(" ".$player->pers["location"],"dhouse")>0 and $v["where_buy"]=='1' and $v["clan_name"]=="" and $v["timeout"]==0 and $v["dprice"]>5 and $no_uz)
-					$buttons .= "<td><input type=button class=inv_but value='Сдать за ".($v["dprice"]*1)*(($v["durability"]+1)/($v["max_durability"]+1))." сп.' onclick=\"conf_sale('main.php?dhousesdat=".$vesh["id"]."')\"></td>";
+					$buttons .= "<td><input type='button' ".$delete." class='inv_but' value='Сдать за ".($v["dprice"]*1)*(($v["durability"]+1)/($v["max_durability"]+1))." сп.' onclick=\"conf_sale('main.php?dhousesdat=".$vesh["id"]."')\"></td>";
 				if ( strpos(" ".$player->pers["location"],"dhouse")>0 and $v["where_buy"]=='1' and $v["clan_name"]<>"" and $v["timeout"]==0	and ($status=='a' or $status=='wg') and $no_uz)
-					$buttons .= "<td><input type=button class=inv_but value='Сдать за ".($v["dprice"]*1)*(($v["durability"]+1)/($v["max_durability"]+1))." сп.' onclick=\"conf_sale('main.php?dchousesdat=".$vesh["id"]."')\"></td>";
+					$buttons .= "<td><input type='button' ".$delete." class='inv_but' value='Сдать за ".($v["dprice"]*1)*(($v["durability"]+1)/($v["max_durability"]+1))." сп.' onclick=\"conf_sale('main.php?dchousesdat=".$vesh["id"]."')\"></td>";
 				if ( $v["where_buy"]<>1 and $v["where_buy"]<>2 and $v["clan_name"]=="" and $player->pers["clan_tr"] and $clan["treasury"]<($clan["maxtreasury"]+30) and $v["p_type"]<>200) 
 				{
-					$buttons .= "<td><input type=button class=inv_but value='Сдать клану' onclick=\"confc('main.php?to_clan=".$vesh["id"]."')\" title='Сдать клану'></td>";
+					$buttons .= "<td><input type='button' ".$delete." class='inv_but' value='Сдать клану' onclick=\"confc('main.php?to_clan=".$vesh["id"]."')\" title='Сдать клану'></td>";
 				}
 				if ( (($v["where_buy"]<>1 and $v["where_buy"]<>2) or $v["p_type"]!=13) and ($v["clan_name"]=="" or ($v["clan_name"]<>"" and $v["price"]<1400 and $v["dprice"]<1 and ($status='a' or $status=='wg'))) and $no_uz) 
 				{
-					$buttons .= "</td><td align=right width=50%><img src=http://".IMG."/icons/delete.png onclick=\"conf('main.php?drop=".$vesh["id"]."')\" title='Выкинуть' style='cursor:pointer'></td>";
+					$buttons .= "</td><td align='right' width='50%'><img src=http://".IMG."/icons/delete.png onclick=\"conf('main.php?drop=".$vesh["id"]."')\" title='Выкинуть' style='cursor:pointer'></td>";
 				}
 			}
 			###
-			if ( !empty($buttons) ) echo "<table border=0 width=100%><tr><td>".$buttons."</td></tr></table></td></tr>";
+			if ( !empty($buttons) ) echo "<table border='0' width='100%'><tr><td>".$buttons."</td></tr></table></td></tr>";
 		}
 	}
 	else
