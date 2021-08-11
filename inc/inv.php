@@ -246,8 +246,9 @@ while ($vesh=mysql_fetch_array($res))
 					$buttons .= "<td><input type='button' ".$delete." class='inv_but' value='Продать' onclick=\"sellingform('".$vesh["id"]."','".$v["name"]."')\" ></td>";
 				}
 				if ( strpos(" ".$player->pers["location"],"lavka")>0 and $v["where_buy"]<>1 and ($v["where_buy"]<>2 or $v["p_type"]==5 or $v["p_type"]==6 or $v["type"]=="rune") and ($v["clan_name"]=="" or $status=='a' or $status=='wg') and $no_uz)
-					$buttons .= "<td><input type='button' class='inv_but' value='Сдать за ".round(($v["price"]*$koef*$koef_cur)*(($v["durability"]+1)/($v["max_durability"]+1)),2)."' onclick=\"conf_sale('main.php?lavkasdat=".$vesh["id"]."')\"></td>";
-				
+					{
+				$buttons .= "<td><input type='button' class='inv_but' value='Сдать за ".round(($v["price"]*$koef*$koef_cur)*(($v["durability"]+1)/($v["max_durability"]+1)),2)." зм.' onclick=\"conf_sale('main.php?lavkasdat=".$vesh["id"]."')\"></td>";
+					}
 				if ( strpos(" ".$player->pers["location"],"bank")>0 and $v["where_buy"]<>1 and ($v["where_buy"]<>2 or $v["p_type"]==5 or $v["p_type"]==6 or $v["type"]=="rune") and $v["clan_name"]=="" and $player->pers["money"]>=round(($v["price"]*0.1),2) and $no_uz)
 					$buttons .= "<td><input type='button' ".$delete." class='inv_but' value='Сдать в банк на хранение [".round(($v["price"]*0.1),2)." LN]' onclick=\"conf_sale('main.php?bank=".$vesh["id"]."')\"></td>";
 				if ( strpos(" ".$player->pers["location"],"dhouse")>0 and $v["where_buy"]=='1' and $v["clan_name"]=="" and $v["timeout"]==0 and $v["dprice"]>5 and $no_uz)
