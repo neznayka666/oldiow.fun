@@ -199,7 +199,7 @@ while ($vesh=mysql_fetch_array($res))
 			$counter++;
 			$buttons = '';
 			###
-			$delete = ($v['delete']==0) ? 'disabled' : '';
+			$delete = ($v['delete']==1) ? 'disabled' : '';
 			$no_uz = true;//($v['sign']=='watchers') ? false : true;
 			$claner = ( !empty($v['clan_sign']) and $v['clan_sign']!=$player->pers['sign'] ) ? false : true;
 //			if (UID==7) $claner = true;
