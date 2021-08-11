@@ -199,7 +199,7 @@ else $_OVERWEIGHT = 0;
 		//if ($player->pers['mail_good']<>1) echo '<div class="greenBlock" style="width:90%;text-align:center;"><font class=green>Подтвердите свой E-Mail адрес, <a href="/mail.php" target="_blank">подробнее</a>..</font></div>';
 		?>
    	<?php
-			if(($player->pers["free_stats"]>0) || ($player->pers["free_f_skills"]>0) || ($player->pers["free_m_skills"]>0)) echo '<div class="greenBlock"><font class=green>Распределите характеристики!</font> <a href="main.php?go=pers">Распределить</a></div>';
+			if(($player->pers["free_stats"]>0) || ($player->pers["free_f_skills"]>0) || ($player->pers["free_m_skills"]>0)) echo '<div class="greenBlock"><font class=green>Распределите характеристики!</font><br> <a href="main.php?go=pers">Распределить</a></div>';
 		?>
    	<?php		
 			$all_weight = $db->sqla("SELECT SUM(weight) as w,COUNT(*) as c FROM `wp` WHERE uidp=".$player->pers["uid"]." and in_bank=0 and `auction` = 0;");
