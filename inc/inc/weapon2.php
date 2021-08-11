@@ -73,6 +73,7 @@ if ( !empty($v['id']) )
 		}
 		//if($v["material_show"]) $attrs.= '<tr><td>Материал: </td><td>'.$v["material_show"].'</td></tr>';
 		//else $attrs.= '<tr><td>Материал: </td><td><i>неизвестно</i></td></tr>';
+		$attrs.= 'stype: <i>'.$v["stype"].'</i><br>';
 		if ($rank_i>0) $attrs.= 'Мощь предмета: <i>'.$rank_i.'</i><br>';
 		$attrs .= '</td></tr></table>';
 		if (!$v_count) $attrs = '';
