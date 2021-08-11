@@ -188,30 +188,27 @@ else $_OVERWEIGHT = 0;
 
     <div class="but" style="position:absolute; left:-5px; top:-5px; z-index: 65000; width:0px; height:0px;display:none;"
         id="ec">&nbsp;</div>
-
-    <script>
-    <?php
-	echo "var img_pack = '".IMG."';\n";
-	echo "show_head('".$player->pers['curstate']."','".$out['name']."','".addslashes(build_go_string($location['go_id'], $player->lastom_new))."',".intval($player->pers['apps_id']).",".@($player->AuraSpecial[5]+$_OVERWEIGHT).",".intval($player->pers['help']).",".intval($player->pers['priveleged']).",".$player->pers['level'].",'".addslashes($player->pers['sign'])."');\n";
-	?>
-    </script>
-    <?php
-	//if ($player->pers['mail_good']<>1) echo '<div class="greenBlock" style="width:90%;text-align:center;"><font class=green>Подтвердите свой E-Mail адрес, <a href="/mail.php" target="_blank">подробнее</a>..</font></div>';
-	?>
-    <?php
-	if(($player->pers["free_stats"]>0) || ($player->pers["free_f_skills"]>0) || ($player->pers["free_m_skills"]>0)) echo '<div class="greenBlock" style="position:fixed;right:15px;z-index:1;"><font class=green>Распределите характеристики!</font> <a href="main.php?go=pers">Распределить</a></div>';
-	?>
-    <?php		
-		$all_weight = $db->sqla("SELECT SUM(weight) as w,COUNT(*) as c FROM `wp` WHERE uidp=".$player->pers["uid"]." and in_bank=0 and `auction` = 0;");
-		$all_wp = $all_weight["c"];
-		$all_weight = $all_weight["w"];	
-		
-		if (abs(10+($player->pers["sm3"]+$player->pers["s4"])*10) < ($all_weight)) {
-		echo '';
-		echo '<div class="redBlock" style="position:fixed;left:15px;z-index:1;">';
-		echo "<b class=hp>Вы перегружены!</b></div>";
-		}
+	<div style="position:fixed;right:15px;z-index:1;">
+   <script>
+   	<?php
+			echo "var img_pack = '".IMG."';\n";
+			echo "show_head('".$player->pers['curstate']."','".$out['name']."','".addslashes(build_go_string($location['go_id'], $player->lastom_new))."',".intval($player->pers['apps_id']).",".@($player->AuraSpecial[5]+$_OVERWEIGHT).",".intval($player->pers['help']).",".intval($player->pers['priveleged']).",".$player->pers['level'].",'".addslashes($player->pers['sign'])."');\n";
 		?>
-
-
+   </script>
+   	<?php
+		//if ($player->pers['mail_good']<>1) echo '<div class="greenBlock" style="width:90%;text-align:center;"><font class=green>Подтвердите свой E-Mail адрес, <a href="/mail.php" target="_blank">подробнее</a>..</font></div>';
+		?>
+   	<?php
+			if(($player->pers["free_stats"]>0) || ($player->pers["free_f_skills"]>0) || ($player->pers["free_m_skills"]>0)) echo '<div class="greenBlock"><font class=green>Распределите характеристики!</font> <a href="main.php?go=pers">Распределить</a></div>';
+		?>
+   	<?php		
+			$all_weight = $db->sqla("SELECT SUM(weight) as w,COUNT(*) as c FROM `wp` WHERE uidp=".$player->pers["uid"]." and in_bank=0 and `auction` = 0;");
+			$all_wp = $all_weight["c"];
+			$all_weight = $all_weight["w"];		
+			if (abs(10+($player->pers["sm3"]+$player->pers["s4"])*10) < ($all_weight)) {	
+			echo '<div class="redBlock">';
+			echo "<b class=hp>Вы перегружены!</b></div>";
+			}
+		?>
+	</div>
     <!-- up end -->
