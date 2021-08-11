@@ -261,7 +261,7 @@ while ($vesh=mysql_fetch_array($res))
 				}
 				if ( (($v["where_buy"]<>1 and $v["where_buy"]<>2) or $v["p_type"]!=13) and ($v["clan_name"]=="" or ($v["clan_name"]<>"" and $v["price"]<1400 and $v["dprice"]<1 and ($status='a' or $status=='wg'))) and $no_uz) 
 				{
-					$buttons .= "</td><td align='right' width='50%'><img src=http://".IMG."/icons/delete.png onclick=\"conf('main.php?drop=".$vesh["id"]."')\" title='Выкинуть' style='cursor:pointer'></td>";
+					$buttons .= "</td><td align='right' width='50%'><img src=//".IMG."/icons/delete.png onclick=\"conf('main.php?drop=".$vesh["id"]."')\" title='Выкинуть' style='cursor:pointer'></td>";
 				}
 			}
 			###
