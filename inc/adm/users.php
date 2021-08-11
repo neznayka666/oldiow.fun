@@ -322,7 +322,7 @@ function aura_blago_mag($persto,$duration,$tp=1)
                 <a href=main.php?zeroingall=1 class=bga>Выдать всем обнуления</a>
                 <a href=main.php?szeroingall=1 class=bga>Выдать всем обнуления умения</a>
                 <a href=main.php?zeroall=1 class=bga>Принудительно обнулить всех</a>
-                <a href=main.php?fullzeroall=1 class=bga>Принудительно полностью обнулить всех</a>
+                <!--<a href=main.php?fullzeroall=1 class=bga>Принудительно полностью обнулить всех</a>-->
                 <br />
 
                 <div>
