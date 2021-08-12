@@ -51,6 +51,7 @@ if (!empty($v['id']))
 		}
 		if ($v["type"]=="rune") {$v["describe"].='<br>Чтобы вставить руну в предмет, нужно чтобы этот предмет был надет на вас, и ничего больше.'; if ($v["udmax"])$v["udmin"]=1;}
 		if ($v["upgrated"]) {$v["describe"].='<br><b class=green>УЛУЧШЕНА</b>';}
+		if ($v["describeRune"]) {$v["describe"].=".$v['describeRune'].";}
 		if ($v["delete"]==1) {$v["describe"].='<br><b class=red>Предмет выведен из игры</b>';}
 
 		$attrs = '<table style="border-width:0px; font-size:10px;width:100%" cellspacing=0><tr><td>';
