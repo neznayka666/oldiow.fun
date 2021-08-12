@@ -20,6 +20,7 @@ function show_w (name,sht,img,d,m_d,cena,pric,dprice,art,attr,describe,present,c
 	<td width="40%" align="center" style="background:#e2e0e0;vertical-align:top;"><b>Действие предмета</b></td>
 	
 	<td rowspan=2 align="center" style="border-left:1px solid #ccc;border-right:1px solid #ccc;vertical-align:top;">
+	
 	<div style="position: relative;width:100%;">
 	<img src="/images/weapons/${img}.gif">	
 	${type} / ${stype}
