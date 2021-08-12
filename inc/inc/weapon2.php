@@ -2,13 +2,13 @@
 $text = '';
 $t = tme();
 $napad = 0; 
-if ( @!$counter ) $counter = 0; if ( @!$sht ) $sht = ''; 
+if (@!$counter) $counter = 0; if (@!$sht) $sht = ''; 
 $options = explode ("|",$player->pers["options"]);
 if (is_array($vesh)) $v = $vesh;
-if ( !empty($v['id']) )
+if (!empty($v['id']))
 {
 	$text.= "show_w(";
-	if ( !empty($v["name"]) )
+	if (!empty($v["name"]))
 	{
 		$counter++; 
 		if (@$lavka == 1) $v["durability"] = $v["max_durability"];
@@ -57,7 +57,7 @@ if ( !empty($v['id']) )
 		$v_count = 0;
 		$R = all_params();
 		foreach($R as $r)
-			if ( @$v[$r] and $r<>"udmin" and $r<>"udmax" )
+			if (@$v[$r] and $r<>"udmin" and $r<>"udmax")
 			{
 				$v_count++;
 				if (substr($r,0,2)=='mf') $prc = '%'; else $prc = '';
@@ -109,7 +109,7 @@ if ( !empty($v['id']) )
 		$R = all_params();
 		foreach($R as $r)
 		{
-			if ( @$v['t'.$r] )
+			if (@$v['t'.$r])
 			{
 				$v_count++;
 				if (substr($r,0,2)=='mf') $prc = '%'; else $prc = '';
