@@ -28,9 +28,9 @@ function show_w (name,sht,type,img,d,m_d,cena,pric,dprice,art,attr,describe,pres
   case "shlem":
     h = 60, w = 60;
 	}
-	document.getElementById("demo").innerHTML;
+	
 text += (`
-	<div style="position: relative;width:100%;" id="size">
+	<div style="position: relative;width:${w};height:${h};">
 	<img src="/images/weapons/${img}.gif">	
 	${type}
 	<div style="position: absolute; bottom: 2px; left: 2px;">
