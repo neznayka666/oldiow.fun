@@ -12,7 +12,7 @@ if (!empty($v['id']))
 	{
 		$counter++; 
 		if (@$lavka == 1) $v["durability"] = $v["max_durability"];
-		$text .= "'".$v["name"]."','".$sht."','".$v["image"]."','".$v["type"]."','".$v["durability"]."','".$v["max_durability"]."','";
+		$text .= "'".$v["name"]."','".$sht."','".$v["type"]."','".$v["image"]."','".$v["durability"]."','".$v["max_durability"]."','";
 		if ($v['dprice']==0)
 		{
 			if ($v["where_buy"]==0){ $val = 'зм.'; $img='';}
