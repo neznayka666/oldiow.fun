@@ -19,9 +19,18 @@ function show_w (name,sht,type,img,d,m_d,cena,pric,dprice,art,attr,describe,pres
 	<tr>
 	<td width="40%" align="center" style="background:#e2e0e0;vertical-align:top;"><b>Действие предмета</b></td>
 	
-	<td rowspan=2 align="center" style="border-left:1px solid #ccc;border-right:1px solid #ccc;vertical-align:top;">
-	
-	<div style="position: relative;width:100%;">
+	<td rowspan=2 align="center" style="border-left:1px solid #ccc;border-right:1px solid #ccc;vertical-align:top;">`);
+
+	switch (type) {
+  case "orujie":
+    h = 80, w = 60;
+    break; 
+  case "shlem":
+    h = 60, w = 60;
+	}
+	document.getElementById("demo").innerHTML;
+text += (`
+	<div style="position: relative;width:100%;" id="size">
 	<img src="/images/weapons/${img}.gif">	
 	${type}
 	<div style="position: absolute; bottom: 2px; left: 2px;">
