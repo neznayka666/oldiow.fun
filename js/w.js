@@ -1,5 +1,5 @@
 
-function show_w (name,sht,type,img,d,m_d,cena,pric,dprice,art,attr,describe,present,clan_sign,clan_name,slots,radius,arrows,arrows_max,arrow_name,z_time,weight,index,trbs)
+function show_w (name,sht,type,img,upgrated,upgratedRune,d,m_d,cena,pric,dprice,art,attr,describe,present,clan_sign,clan_name,slots,radius,arrows,arrows_max,arrow_name,z_time,weight,index,trbs)
 {
 	var text = '';
 	if (sht==1 || sht=='') sht=''; else sht = sht+'шт.';
@@ -57,12 +57,15 @@ case "shlem":
 }	
 text += (`
 	<div style="position: relative;width:${w};height:${h};">
-	<img src="/images/weapons/${img}.gif">		
+	<img src="/images/weapons/${img}.gif">	`);
+
+if ((upgrated > 0) || (upgratedRune > 0)) text += (`	
 	<div style="position: absolute; bottom: 2px; left: 2px;">
 	<div style="width:5px;height:5px;background:green;"></div>
 	<div style="width:5px;height:5px;background:red;"></div>
-	</div>
-	</div>	
+	</div>`);
+
+text += (`</div>
 	<div id='${img}_${d}_${pric}_${index}'>${sht}</div></td>
 	<td width="40%" align="center" style="background:#e2e0e0;vertical-align:top;"><b>Минимальные требования</b></td>
 	</tr><tr>`);
