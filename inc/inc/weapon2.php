@@ -24,8 +24,8 @@ if (!empty($v['id']))
 		else $text .= "<!--img src=/images/signs/diler.gif--> <b>".$v["dprice"]." сп. </b><font class=items><br>";
 		$text .= "',".$v['price'].",'".$v["dprice"]."','";
 		$rank_i = ($v["s1"]+$v["s2"]+$v["s3"]+$v["s4"]+$v["s5"]+$v["s6"]+$v["kb"])*0.3 + ($v["mf1"]+$v["mf2"]+$v["mf3"]+$v["mf4"]+$v["mf5"])*0.03 + ($v["hp"]+$v["ma"])*0.04+($v["udmin"]+$v["udmax"])*0.3;
-		if ($v["stype"]=="shit")
-		$v["describe"] .= "<br>Защита от магии +50%";
+		//if ($v["stype"]=="shit")
+		//$v["describe"] .= "<br>Защита от магии +50%";
 		if ($v["type"]=="napad" and $v["index"]!='b' and $v["index"]!='b_z' and $v["index"]!='k' and $v["index"]!='k_z')
 		{
 			if ($v["stype"]=="napadt")
@@ -73,7 +73,7 @@ if (!empty($v['id']))
 		}
 		//if($v["material_show"]) $attrs.= '<tr><td>Материал: </td><td>'.$v["material_show"].'</td></tr>';
 		//else $attrs.= '<tr><td>Материал: </td><td><i>неизвестно</i></td></tr>';
-		$attrs.= 'stype: <i>'.$v["stype"].'</i><br>';
+		$attrs.= 'stype: <i>'.$v["stype"].'</i> / <i>'.$v["where_buy"].'</i><br>';
 		if ($rank_i>0) $attrs.= 'Мощь предмета: <i>'.$rank_i.'</i><br>';
 		$attrs .= '</td></tr></table>';
 		if (!$v_count) $attrs = '';
