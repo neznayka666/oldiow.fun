@@ -1,5 +1,5 @@
 
-function show_w (name,sht,img,d,m_d,cena,pric,dprice,art,attr,describe,present,clan_sign,clan_name,slots,radius,arrows,arrows_max,arrow_name,z_time,weight,index,trbs,type,stype)
+function show_w (name,sht,img,type,d,m_d,cena,pric,dprice,art,attr,describe,present,clan_sign,clan_name,slots,radius,arrows,arrows_max,arrow_name,z_time,weight,index,trbs)
 {
 	var text = '';
 	if (sht==1 || sht=='') sht=''; else sht = sht+'шт.';
@@ -23,7 +23,7 @@ function show_w (name,sht,img,d,m_d,cena,pric,dprice,art,attr,describe,present,c
 	
 	<div style="position: relative;width:100%;">
 	<img src="/images/weapons/${img}.gif">	
-	${type} / ${stype}
+	${type}
 	<div style="position: absolute; bottom: 2px; left: 2px;">
 	<div style="width:5px;height:5px;background:green;"></div>
 	<div style="width:5px;height:5px;background:red;"></div>
