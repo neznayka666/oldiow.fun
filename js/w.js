@@ -21,13 +21,40 @@ function show_w (name,sht,type,img,d,m_d,cena,pric,dprice,art,attr,describe,pres
 	
 	<td rowspan=2 align="center" style="border-left:1px solid #ccc;border-right:1px solid #ccc;vertical-align:top;">`);
 
-	switch (type) {
-  case "orujie":
-    h = 80, w = 60;
-    break; 
-  case "shlem":
+switch (type) {
+case "orujie":
+   h = 80, w = 60;
+   break; 
+case "ojerelie":
+   h = 20, w = 60;
+   break;
+case "poyas":
+   h = 40, w = 60;
+   break;
+case "naruchi":
+   h = 40, w = 60;
+   break;
+case "perchatki":
+   h = 40, w = 60;
+   break;
+case "kolco":
+   h = 20, w = 20;
+   break;
+case "kolchuga":
+   h = 80, w = 60;
+   break;
+case "bronya":
+   h = 80, w = 60;
+   break;
+case "braslet":
+   h = 20, w = 30;
+   break;
+case "sapogi":
+   h = 40, w = 60;
+   break;						 
+case "shlem":
     h = 60, w = 60;
-	}
+}
 	
 text += (`
 	<div style="position: relative;width:${w};height:${h};">
