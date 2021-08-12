@@ -321,7 +321,8 @@ case "s6":
 		`slots`=slots-1,
 		`price`=price+".$rune["price"].",
 		`name`='".$weared_name." [Р]', 
-		`describe`='".$weared_describe." ".$add_rune."'
+		`upgratedRune`=upgratedRune+1, 
+		`describeRune`='".$weared_describe." ".$add_rune."'
 		WHERE id=".$weared_id."
 		");
 		if ($sk[2]=="udmax")$db->sql("UPDATE wp SET `udmin`=`udmin`+1 WHERE id=".$weared_id."");

@@ -20,7 +20,7 @@ function show_w (name,sht,type,img,d,m_d,cena,pric,dprice,art,attr,describe,pres
 	<td width="40%" align="center" style="background:#e2e0e0;vertical-align:top;"><b>Действие предмета</b></td>
 	
 	<td rowspan=2 align="center" style="border-left:1px solid #ccc;border-right:1px solid #ccc;vertical-align:top;">`);
-
+// определяем размер картинки взависимости от типа предмета
 switch (type) {
 case "orujie":
    h = 80, w = 60;
@@ -54,18 +54,15 @@ case "sapogi":
    break;						 
 case "shlem":
     h = 60, w = 60;
-}
-	
+}	
 text += (`
 	<div style="position: relative;width:${w};height:${h};">
-	<img src="/images/weapons/${img}.gif">	
-	${type}
+	<img src="/images/weapons/${img}.gif">		
 	<div style="position: absolute; bottom: 2px; left: 2px;">
 	<div style="width:5px;height:5px;background:green;"></div>
 	<div style="width:5px;height:5px;background:red;"></div>
 	</div>
-	</div>
-	
+	</div>	
 	<div id='${img}_${d}_${pric}_${index}'>${sht}</div></td>
 	<td width="40%" align="center" style="background:#e2e0e0;vertical-align:top;"><b>Минимальные требования</b></td>
 	</tr><tr>`);
