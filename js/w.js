@@ -60,10 +60,10 @@ text += (`
 	<img src="/images/weapons/${img}.gif">	`);
 
 if ((upgrated > 0) || (upgratedRune > 0)) text += (`	
-	<div style="position: absolute; bottom: 2px; left: 2px;">
-	<div style="width:5px;height:5px;background:green;"></div>
-	<div style="width:5px;height:5px;background:red;"></div>
-	</div>`);
+	<div style="position: absolute; bottom: 2px; left: 2px;">`);
+	if (upgrated > 0) text += ('<div style="width:5px;height:5px;background:green;"></div>');
+	if (pgratedRune > 0) text += ('<div style="width:5px;height:5px;background:red;"></div>');
+	text += (`</div>`);
 
 text += (`</div>
 	<div id='${img}_${d}_${pric}_${index}'>${sht}</div></td>
