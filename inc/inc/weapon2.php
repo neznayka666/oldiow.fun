@@ -50,7 +50,7 @@ if (!empty($v['id']))
 				{$v["describe"].='<span class=timef>Пропадёт через '.tp($v["timeout"]-$t)."</span>";}
 		}
 		if ($v["type"]=="rune") {$v["describe"].='<br>Чтобы вставить руну в предмет, нужно чтобы этот предмет был надет на вас, и ничего больше.'; if ($v["udmax"])$v["udmin"]=1;}
-		if ($v["upgrated"]) {$v["describe"].='<br>'.$v["describeMF"].'';}
+		if ($v["upgrated"]) {$v["describe"].=''.$v["describeMF"].'';}
 		if ($v["upgratedRune"]) {$v["describe"].=''.$v["describeRune"].'';}
 		if ($v["delete"]==1) {$v["describe"].='<br><b class=red>Предмет выведен из игры</b>';}
 
