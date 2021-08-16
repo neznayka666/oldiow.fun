@@ -222,9 +222,57 @@ if (empty($http->post) and isset($http->get["id"]) and isset($http->get["param"]
 			}
 
 			//$v["name"] .= ' (МФ)';
+
+switch ($param) {
+case "udmax":    
+	$add_mf = "Руна: <b>".$param."</b> (Максимальный удар: +<b>".($kk*$eq)."</b>)<br>";
+    break;
+case "udmin":    
+	$add_mf = "Руна: <b>".$param."</b> (Минимальный удар: +<b>".($kk*$eq)."</b>)<br>";
+    break;
+case "kb":    
+	$add_mf = "Руна: <b>".$param."</b> (Броня: +<b>".($kk*$eq)."</b>)<br>";
+    break;
+case "mf1":   
+	$add_mf = "Руна: <b>".$param."</b> (Критического удара: +<b>".($kk*$eq)." %</b>)<br>";
+    break;
+case "mf2":    
+	$add_mf = "Руна: <b>".$param."</b> (Увёртливости: +<b>".($kk*$eq)." %</b>)<br>";
+    break;
+case "mf3":    
+	$add_mf = "Руна: <b>".$param."</b> (Против увёртливости: +<b>".($kk*$eq)." %</b>)<br>";
+    break;
+case "mf5":    
+	$add_mf = "Руна: <b>".$param."</b> (Против критического удара: +<b>".($kk*$eq)." %</b>)<br>";
+    break;
+case "ma":   
+	$add_mf = "Руна: <b>".$param."</b> (Уровень энергии: +<b>".($kk*$eq)." EP</b>)<br>";
+    break;
+case "hp":    
+	$add_mf = "Руна: <b>".$param."</b> (Уровень жизни: +<b>".($kk*$eq)." HP</b>)<br>";
+    break;
+case "s1":    
+	$add_mf = "Руна: <b>".$param."</b> (Сила: +<b>".($kk*$eq)."</b>)<br>";
+    break;
+case "s2":    
+	$add_mf = "Руна: <b>".$param."</b> (Ловкость: +<b>".($kk*$eq)."</b>)<br>";
+    break;
+case "s3":    
+	$add_mf = "Руна: <b>".$param."</b> (Удача: +<b>".($kk*$eq)."</b>)<br>";
+    break;
+case "s4":    
+	$add_mf = "Руна: <b>".$param."</b> (Выносливость: +<b>".($kk*$eq)."</b>)<br>";
+    break;
+case "s5":   
+	$add_mf = "Руна: <b>".$param."</b> (Разум: +<b>".($kk*$eq)."</b>)<br>";
+    break;
+case "s6":
+    $add_mf = "Руна: <b>".$param."</b> (Энергия: +<b>".($kk*$eq)."</b>)<br>";
+    break;
+}			
 			$db->sql("UPDATE wp SET 
 			`".$param."` = `".$param."` + ".($kk*$eq).",
-			`describeMF` = `".$param."` + ".($kk*$eq).",
+			`describeMF` = '".$add_mf."',
 			`upgrated`=upgrated+1,			
 			`price`=price+".UP_COST."*".$kk." 
 			WHERE 
