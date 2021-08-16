@@ -221,12 +221,11 @@ if (empty($http->post) and isset($http->get["id"]) and isset($http->get["param"]
 					$db->sql("UPDATE wp SET durability=".($tmp-$k).",weight=weight-".$k." WHERE id=".$yr["id"]."");
 			}
 
-			$v["name"] .= ' (МФ)';
+			//$v["name"] .= ' (МФ)';
 			$db->sql("UPDATE wp SET 
 			`".$param."` = `".$param."` + ".($kk*$eq).",
 			`describeMF` = `".$param."` + ".($kk*$eq).",
-			`upgrated`=upgrated+1,
-			`name`='".$v["name"]."',
+			`upgrated`=upgrated+1,			
 			`price`=price+".UP_COST."*".$kk." 
 			WHERE 
 			`id`=".$v["id"]."
