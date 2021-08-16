@@ -2,7 +2,7 @@
 
 if (@$http->get["use"] and $player->pers["cfight"]>10 and $player->pers["chp"])
 {
-	$v = $db->sqla("SELECT * FROM `wp` WHERE `id`=".intval($http->get["use"])."");
+	$v = $db->sqla("SELECT `id`,`index`,durability FROM `wp` WHERE `id`=".intval($http->get["use"])."");
 	$index = $v["index"];
 		if ($v["durability"]>0)
 	{
@@ -223,7 +223,7 @@ while ($v=mysql_fetch_array($res))
 	}
 		
 		$weared_count++;
-		if ($weared_count==1) {$weared_name=$v["name"];$weared_id=$v["id"];$weared_slots=$v["slots"];$weared_wp=$v;$weared_describe = $v["describeRune"];$upgratedRune = $v["upgratedRune"];}
+		if ($weared_count==1) {$weared_name=$v["name"];$weared_id=$v["id"];$weared_slots=$v["slots"];$weared_wp=$v;$weared_describe = $v["describe"];}
 		//if ($v["dprice"]>100) $UD_ART += $v["dprice"]/5000;
 		}
 	}
@@ -315,15 +315,13 @@ case "s6":
     break;
 }
 		//$add_rune = "<b>Руна:</b> <u>".$rune["name"]."</u> (: +<b>".$sk[1]."</b>)<br>";
-		//`upgratedRune`=upgratedRune+1, 
-		//`describeRune`='".$weared_describe." ".$add_rune."'
+		
 		$db->sql("UPDATE wp SET 
 		`".$sk[2]."`=`".$sk[2]."`+".$sk[1].",
 		`slots`=slots-1,
 		`price`=price+".$rune["price"].",
-		`upgratedRune`=upgratedRune+1, 
-		`describeRune`='".$weared_describe." ".$add_rune."'
-		`name`='".$weared_name." [Р]',
+		`name`='".$weared_name." [Р]', 
+		`describe`='".$weared_describe." ".$add_rune."'
 		WHERE id=".$weared_id."
 		");
 		if ($sk[2]=="udmax")$db->sql("UPDATE wp SET `udmin`=`udmin`+1 WHERE id=".$weared_id."");
