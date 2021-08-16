@@ -22,7 +22,7 @@ if (!empty($v['id']))
 			else $text .= "<font class=hp><!--img src=/images/".$img."--> <b>".$v["price"]." ".$val."</font></b><font class=items><br>";
 		}
 		else $text .= "<!--img src=/images/signs/diler.gif--> <b>".$v["dprice"]." сп. </b><font class=items><br>";
-		$text .= "',".$v['price'].",'".$v["dprice"]."','";
+		$text .= "',".$v['price'].",'".$v["dprice"]."','".$v["where_buy"]."','";
 		$rank_i = ($v["s1"]+$v["s2"]+$v["s3"]+$v["s4"]+$v["s5"]+$v["s6"]+$v["kb"])*0.3 + ($v["mf1"]+$v["mf2"]+$v["mf3"]+$v["mf4"]+$v["mf5"])*0.03 + ($v["hp"]+$v["ma"])*0.04+($v["udmin"]+$v["udmax"])*0.3;
 		//if ($v["stype"]=="shit")
 		//$v["describe"] .= "<br>Защита от магии +50%";

@@ -1,5 +1,5 @@
 
-function show_w (name,sht,type,img,upgrated,upgratedRune,d,m_d,cena,pric,dprice,art,attr,describe,present,clan_sign,clan_name,slots,radius,arrows,arrows_max,arrow_name,z_time,weight,index,trbs)
+function show_w (name,sht,type,img,upgrated,upgratedRune,d,m_d,cena,pric,dprice,where_buy,attr,describe,present,clan_sign,clan_name,slots,radius,arrows,arrows_max,arrow_name,z_time,weight,index,trbs)
 {
 	var text = '';
 	if (sht==1 || sht=='') sht=''; else sht = sht+'шт.';
@@ -73,8 +73,9 @@ text += (`</div>
 	text+= ('<td style="vertical-align:top;">');	
 
 	
-	if (art==1) text+= ('<br><img src=/images/art.gif> <font class=hp>Артефакт</font>');
-	else if (present!='') text+= ('<br><img src=/images/art.gif> Подарок от <b>'+present+'</b>');
+	if (dprice > 0) text+= ('<br><img src=/images/art.gif> <font class=hp>Артефакт</font>');
+	if (present!='') text+= ('<br><img src=/images/art.gif> Подарок от <b>'+present+'</b>');
+	if (where_buy==3) text+= ('<br><img src=/images/art.gif> <font class=hp>Раритет</font>');
 	text+= (attr);
 	if (slots!=0) text+= ('<font class=items> Слотов для заклинаний или рун: <b>'+slots+'</b></font><br>');
 	//if (radius!=0) text+= ('<font class=items> Радиус поражения: <b>'+radius+'</b></font><br>');

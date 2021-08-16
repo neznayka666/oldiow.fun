@@ -110,7 +110,7 @@ else
 if (empty($http->post) and isset($http->get["id"]) and isset($http->get["param"]) and empty($http->get["up"]))
 {
 	$param = base64_decode($http->get["param"]);
-	$v = $db->sqla("SELECT * FROM wp WHERE uidp=".UID." and dprice=0 and where_buy=0 and weared=0  and ".$UPGR." and price>".MIN_PRICE." and price<=".$MAX_PRICE." and id='".intval($http->get["id"])."'");
+	$v = $db->sqla("SELECT * FROM wp WHERE uidp=".UID." and dprice=0 and (where_buy=0 or where_buy=3) and weared=0  and ".$UPGR." and price>".MIN_PRICE." and price<=".$MAX_PRICE." and id='".intval($http->get["id"])."'");
 	if($v["upgrated"]==0) $UP_COST = UP_COST;
 	if($v["upgrated"]==1) $UP_COST = UP_COST*20;
 	if (!$v or $v[$param]==0)
@@ -185,7 +185,7 @@ else
 if (empty($http->post) and isset($http->get["id"]) and isset($http->get["param"]) and isset($http->get["up"]))
 {
 	$param = base64_decode($http->get["param"]);
-	$v = $db->sqla("SELECT * FROM wp WHERE uidp=".UID." and dprice=0 and where_buy=0 and weared=0  and ".$UPGR." and price>".MIN_PRICE." and price<=".$MAX_PRICE." and id='".intval($http->get["id"])."'");
+	$v = $db->sqla("SELECT * FROM wp WHERE uidp=".UID." and dprice=0 and (where_buy=0 or where_buy=3) and weared=0  and ".$UPGR." and price>".MIN_PRICE." and price<=".$MAX_PRICE." and id='".intval($http->get["id"])."'");
 	if (!$v or $v[$param]==0)
 		echo "<script>location='main.php';</script>";
 	else
