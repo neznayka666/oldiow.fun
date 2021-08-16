@@ -222,7 +222,15 @@ if (empty($http->post) and isset($http->get["id"]) and isset($http->get["param"]
 			}
 
 			$v["name"] .= ' (МФ)';
-			$db->sql("UPDATE wp SET `".$param."` = `".$param."` + ".($kk*$eq).",upgrated=upgrated+1,name='".$v["name"]."',price=price+".UP_COST."*".$kk." WHERE id=".$v["id"]."");
+			$db->sql("UPDATE wp SET 
+			`".$param."` = `".$param."` + ".($kk*$eq).",
+			`describeMF` = `".$param."` + ".($kk*$eq).",
+			`upgrated`=upgrated+1,
+			`name`='".$v["name"]."',
+			`price`=price+".UP_COST."*".$kk." 
+			WHERE 
+			`id`=".$v["id"]."
+			");
 			$v[$param] += $kk*$eq;
 			$v["price"] += UP_COST * $kk;
 			$v["upgrated"]++;
