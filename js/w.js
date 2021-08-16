@@ -87,7 +87,7 @@ text += (`</div>
 	//if (arrows_max) text+= ('<font class=items> Вмещаемость: <b>'+arrows_max+'</b></font><br>');
 	//if (arrows_max) text+= ('<font class=items> Тип заряда: <b>'+arrow_name+'</b></font><br>');
 	
-	if (describe!='') text+= ("<br><center class=but>"+describe+"</center>");
+	if (describe!='') text+= ("<div class='whiteBlock'>"+describe+"</div>");
 	if (z_time!=0) text+= ("<br>Время Действия: <b>"+z_time+"</b>");
 	text +=  ('</td>');
 	//text += ('<td rowspan=2 align="center" style="border-left:1px solid #ccc;border-right:1px solid #ccc;"><img src="/images/weapons/'+img+'.gif"><div id=\''+img+'_'+d+'_'+pric+'_'+index+'\' class=time>'+sht+'</div></td>');
