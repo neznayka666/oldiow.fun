@@ -223,7 +223,7 @@ while ($v=mysql_fetch_array($res))
 	}
 		
 		$weared_count++;
-		if ($weared_count==1) {$weared_name=$v["name"];$weared_id=$v["id"];$weared_slots=$v["slots"];$weared_wp=$v;$weared_describe = $v["describe"];}
+		if ($weared_count==1) {$weared_name=$v["name"];$weared_id=$v["id"];$weared_slots=$v["slots"];$weared_wp=$v;$weared_describe = $v["describeRune"];}
 		//if ($v["dprice"]>100) $UD_ART += $v["dprice"]/5000;
 		}
 	}
@@ -321,7 +321,7 @@ case "s6":
 		`slots`=slots-1,
 		`price`=price+".$rune["price"].",
 		`name`='".$weared_name." [Р]', 
-		`describe`='".$weared_describe." ".$add_rune."'
+		`describeRune`='".$weared_describe." ".$add_rune."'
 		WHERE id=".$weared_id."
 		");
 		if ($sk[2]=="udmax")$db->sql("UPDATE wp SET `udmin`=`udmin`+1 WHERE id=".$weared_id."");
