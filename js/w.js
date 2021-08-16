@@ -6,7 +6,7 @@ function show_w (name,sht,type,img,upgrated,upgratedRune,d,m_d,cena,pric,dprice,
 	text += (`
 	<table width=100% cellpadding="2" cellspacing="5">
 	<tr><td colspan="3">
-	<b>${name}</b> (Масса: ${weight})<br>Цена: ${cena}Долговечность предмета: `);
+	<b>${name}</b> <b>${upgrated}</b> <b>${upgratedRune}</b> (Масса: ${weight})<br>Цена: ${cena}Долговечность предмета: `);
 	if (m_d!=0 && d>0) 
 	{
 		//text += ('<div><img src="/images/DS/expline.gif" height=3 width='+(60*d/m_d)+'><img src="/images/DS/expline_empty.gif" height=3 width='+(60-60*d/m_d)+'></div>'); 
