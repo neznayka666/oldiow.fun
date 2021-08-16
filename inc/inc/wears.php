@@ -320,7 +320,8 @@ case "s6":
 		`".$sk[2]."`=`".$sk[2]."`+".$sk[1].",
 		`slots`=slots-1,
 		`price`=price+".$rune["price"].",
-		`name`='".$weared_name." [Р]', 
+		`name`='".$weared_name." [Р]',
+		`upgratedRune`=upgratedRune+1,  
 		`describeRune`='".$weared_describe." ".$add_rune."'
 		WHERE id=".$weared_id."
 		");
