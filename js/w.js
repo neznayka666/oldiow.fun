@@ -66,6 +66,7 @@ text += (`<img src="/images/weapons/${img}.gif">`);
 
 if ((upgrated > 0) || (upgratedRune > 0)) { 
 	text += ('<div style="position: absolute; bottom: 2px; left: 2px;">');
+}
 	if (upgrated > 0) text += ('<div style="width:5px;height:5px;background:green;"></div>');
 	if (upgratedRune > 0) text += ('<div style="width:5px;height:5px;background:red;"></div>');
 	text += ('</div>');
