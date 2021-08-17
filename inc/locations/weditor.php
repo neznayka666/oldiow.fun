@@ -231,7 +231,7 @@ case "udmin":
 	$add_mf = "МФ: <b>Минимальный удар</b> +<b>".($kk*$eq)."</b><br>";
     break;
 case "kb":    
-	$add_mf = "МФ: <b>Броня</b> +<b>".($kk*$eq)."</b>)<br>";
+	$add_mf = "МФ: <b>Броня</b> +<b>".($kk*$eq)."</b><br>";
     break;
 case "mf1":   
 	$add_mf = "МФ: <b>Критического удара</b> +<b>".($kk*$eq)." %</b><br>";
