@@ -66,13 +66,13 @@ case "rune":
    h = 60, w = 60;
    break;
 case "zakl":
-   h = 44, w = 30;
+   h = 30, w = 44;
    break;
 case "napad":
-   h = 44, w = 30;
+   h = 30, w = 44;
    break;	
 case "teleport":
-   h = 44, w = 30;
+   h = 30, w = 44;
    break;	
 case "kam":
    h = 40, w = 40;
