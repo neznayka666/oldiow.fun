@@ -80,9 +80,8 @@ case "kam":
 case "shlem":
     h = 60, w = 60;
 }	
-if ((upgrated > 0) || (upgratedRune > 0)) { 
-	text += (`<div style="position: relative;width:${w};height:${h};">`);
-}
+
+text += (`<div style="position: relative;width:${w};height:${h};">`);
 text += (`<img src="/images/weapons/${img}.gif">`);
 
 if ((upgrated > 0) || (upgratedRune > 0)) { 
@@ -90,9 +89,10 @@ if ((upgrated > 0) || (upgratedRune > 0)) {
 	if (upgrated > 0) text += ('<div style="width:5px;height:5px;background:green;"></div>');
 	if (upgratedRune > 0) text += ('<div style="width:5px;height:5px;background:red;"></div>');
 	text += ('</div>');
-	text += ('</div>');
+	
 }
 
+text += ('</div>');
 text += (`<div id='${img}_${d}_${pric}_${index}'>${sht}</div></td>
 	<td width="40%" align="center" style="background:#e2e0e0;vertical-align:top;"><b>Минимальные требования</b></td>
 	</tr><tr>`);
