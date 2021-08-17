@@ -9,7 +9,7 @@ d.write(`
 <META Http-Equiv=Expires Content=0>
 <LINK href=/css/main_v2.css rel=STYLESHEET type=text/css>
 <SCRIPT src="/js/mod/jquery.js"></SCRIPT>
-<script language=javascript src=js/_pers.js></script>
+<script language=javascript src=/js/_pers.js></script>
 <script language=javascript src=/js/statsup_v2.js></script>
 <body class=fightlong><form method=post name=del>
 <input type=hidden value="" name=deleterep id=deleterep></form>`);
@@ -92,7 +92,7 @@ if (ws3!='0' && ws3!=undefined)su='<b class=user>'+su+'</b>'+' ('+(su-ws3)+'<fon
 if (ws4!='0' && ws4!=undefined)szd='<b class=user>'+szd+'</b>'+' ('+(szd-ws4)+'<font color=green>'+ws4+'</font>)';
 if (ws5!='0' && ws5!=undefined)szn='<b class=user>'+szn+'</b>'+' ('+(szn-ws5)+'<font color=green>'+ws5+'</font>)';
 if (ws6!='0' && ws6!=undefined)sp='<b class=user>'+sp+'</b>'+' ('+(sp-ws6)+'<font color=green>'+ws6+'</font>)';
-d.write('<title>['+nick+']</title>');
+d.write('<title>Информация о ['+nick+'] | Инстинкты Воина: Возрождение</title>');
 
 d.write('<center><table border="0" style="width:100%;padding:10px;" cellspacing="0" cellpadding="0"><tr>');
 d.write('<td valign="top" width=250 rowspan="2" align=center id=mainpers>');
@@ -145,7 +145,7 @@ d.write('<div style="width:10%;"><img src="/images/info/isphere.gif" onmouseover
 d.write('<div style="background:#8e503a;height:2px;width:45%;"></div></div>');
 d.write('<div style="width:220px;text-align:center;padding:0 10px;">');
 d.write(''+mpr+'');
-if (dil==1) d.write('<img width="60" height="60" src="http://'+img_pack+'/info/sing/dealer.gif" alt="Консультант по финансовым вопросам" onmouseover="s_des(event,\'0|Консультант по финансовым вопросам.\')" onmouseout="h_des()" onmousemove="move_alt(event)">');
+if (dil==1) d.write('<img width="60" height="60" src="//'+img_pack+'/info/sing/dealer.gif" alt="Консультант по финансовым вопросам" onmouseover="s_des(event,\'0|Консультант по финансовым вопросам.\')" onmouseout="h_des()" onmousemove="move_alt(event)">');
 d.write('</div>');
 d.write('</div>');
 d.write('<div style="background: url(/images/info/inf_bottom.png);width:260px;height:60px;"></div>');
@@ -161,8 +161,8 @@ if (mirum!=false)
 	for (var i in mirum)
 	{
 		if ( !mirum[i] || i == 12) continue;
-		t+= ' <img src="http://'+img_pack+'/nagrads/'+i+'_'+mirum[i]+'.gif" alt="'+umnam[i]+' №'+mirum[i]+'" onmouseover="s_des(event,\'0|<b>'+umnam[i]+'</b><br>'+mirum[i]+' ступень\')" onmouseout="h_des()" onmousemove="move_alt(event)"> ';
-		if (i%7==0 && i!=0) t+= '<br/>';
+		t+= ' <img src="//'+img_pack+'/nagrads/'+i+'_'+mirum[i]+'.gif" alt="'+umnam[i]+' №'+mirum[i]+'" onmouseover="s_des(event,\'0|<b>'+umnam[i]+'</b><br>'+mirum[i]+' ступень\')" onmouseout="h_des()" onmousemove="move_alt(event)"> ';
+		if (i%6==0 && i!=0) t+= '<br/>';
 	}
 	if ( t != '' )
 	{
@@ -210,10 +210,10 @@ function report()
 
 function pr_r(WHO,LVL,SIGN,DATE,text,del)
 {
-if (SIGN!= 'none') SIGN = '<img src=http://'+img_pack+'/signs/'+SIGN+'.gif>'; else SIGN='';
+if (SIGN!= 'none') SIGN = '<img src=//'+img_pack+'/signs/'+SIGN+'.gif>'; else SIGN='';
 if (del) del = '<input type=button class=but onclick="delete_rep('+del+')" value="X">'; else del = '';
 	text = str_replace('<br>','\n',text);
-	rep_text += '<tr><td class=login>'+del+''+SIGN+' <b>'+WHO+'</b>[<font class=lvl>'+LVL+'</font>] <img src="http://'+img_pack+'/i.gif" onclick="window.open(\'info.php?'+WHO+'\',\'\',\'width=800,height=600,left=10,top=10,toolbar=no,scrollbars=yes,resizable=yes,status=no\');" style="cursor:pointer"> <font class=timef>'+DATE+'</font></td></tr><tr><td align=center><textarea cols=46 rows=3 class=gray style="width:100%;">'+text+'</textarea></td></tr>';
+	rep_text += '<tr><td class=login>'+del+''+SIGN+' <b>'+WHO+'</b>[<font class=lvl>'+LVL+'</font>] <img src="//'+img_pack+'/i.gif" onclick="window.open(\'info.php?'+WHO+'\',\'\',\'width=800,height=600,left=10,top=10,toolbar=no,scrollbars=yes,resizable=yes,status=no\');" style="cursor:pointer"> <font class=timef>'+DATE+'</font></td></tr><tr><td align=center><textarea cols=46 rows=3 class=gray style="width:100%;">'+text+'</textarea></td></tr>';
 	return true;
 }
 
