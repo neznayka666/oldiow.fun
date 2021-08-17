@@ -55,7 +55,28 @@ case "braslet":
    break;
 case "sapogi":
    h = 40, w = 60;
-   break;						 
+   break;
+case "resources":
+   h = 60, w = 60;
+   break;
+case "resources_forest":
+   h = 60, w = 60;
+   break;
+case "rune":
+   h = 60, w = 60;
+   break;
+case "zakl":
+   h = 44, w = 30;
+   break;
+case "napad":
+   h = 44, w = 30;
+   break;	
+case "teleport":
+   h = 44, w = 30;
+   break;	
+case "kam":
+   h = 40, w = 40;
+   break;										 
 case "shlem":
     h = 60, w = 60;
 }	
@@ -66,7 +87,6 @@ text += (`<img src="/images/weapons/${img}.gif">`);
 
 if ((upgrated > 0) || (upgratedRune > 0)) { 
 	text += ('<div style="position: absolute; bottom: 2px; left: 2px;">');
-}
 	if (upgrated > 0) text += ('<div style="width:5px;height:5px;background:green;"></div>');
 	if (upgratedRune > 0) text += ('<div style="width:5px;height:5px;background:red;"></div>');
 	text += ('</div>');
