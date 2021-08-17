@@ -37,7 +37,10 @@ echo"
 $rt=mysql_query("SELECT * FROM users where `block`!='NULL' order by `rank_i` desc limit 0,25");
 
 
-while ($reit = mysql_fetch_array($rt)) {{$n+=1; echo"</b></u>$n.</u></b>&nbsp;&nbsp;<img src='//oldiow.fun/images/signs/{$reit[sign]}.gif' title='{$reit[clan_name]}'> <b>$reit[user]</b> [<b>$reit[level]</b>] <a href='//oldiow.fun/info.php?{$reit[user]}' target='_blank'> <img src='//oldiow.fun/images/icons/inf.gif' border=0></a> ({$reit[rank_i]}) <br>";} }
+while ($reit = mysql_fetch_array($rt)) {{$n+=1; 
+	echo"</b></u>$n.</u></b>&nbsp;&nbsp;";
+	if ($reit[align]) { echo "<img src='//oldiow.fun/images/signs/align/{$reit[align]}.gif'> ";}
+	echo"<img src='//oldiow.fun/images/signs/{$reit[sign]}.gif' title='{$reit[clan_name]}'> <b>$reit[user]</b> [<b>$reit[level]</b>] <a href='//oldiow.fun/info.php?{$reit[user]}' target='_blank'> <img src='//oldiow.fun/images/icons/inf.gif' border=0></a> ({$reit[rank_i]}) <br>";} }
 
 unset($rt,$reit,$n);
 echo"
@@ -56,7 +59,10 @@ echo"
 $rt=mysql_query("SELECT * FROM users where `block`!='NULL' order by `inst_rait` desc limit 0,25");
 
 
-while ($reit = mysql_fetch_array($rt)) {{$n+=1; echo"</b></u>$n.</u></b>&nbsp;&nbsp;<img src='//oldiow.fun/images/signs/{$reit[sign]}.gif' title='{$reit[clan_name]}'> <b>$reit[user]</b> [<b>$reit[level]</b>] <a href='//oldiow.fun/info.php?{$reit[user]}' target='_blank'> <img src='//oldiow.fun/images/icons/inf.gif' border=0></a> ({$reit[inst_rait]}) <br>";} }
+while ($reit = mysql_fetch_array($rt)) {{$n+=1; 
+	echo"</b></u>$n.</u></b>&nbsp;&nbsp;";
+	if ($reit[align]) { echo "<img src='//oldiow.fun/images/signs/align/{$reit[align]}.gif'> ";}
+	echo"<img src='//oldiow.fun/images/signs/{$reit[sign]}.gif' title='{$reit[clan_name]}'> <b>$reit[user]</b> [<b>$reit[level]</b>] <a href='//oldiow.fun/info.php?{$reit[user]}' target='_blank'> <img src='//oldiow.fun/images/icons/inf.gif' border=0></a> ({$reit[inst_rait]}) <br>";} }
 
 unset($rt,$reit,$n);
 echo"
