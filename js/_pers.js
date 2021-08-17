@@ -96,15 +96,15 @@ if (inv==1)
 var prvte='';
 //if (inv!=2) prvte = '<img src=http://'+img_pack+'/pr.gif title="Приват" onclick="top.say_private(\''+nick+'\',1)" style="cursor:pointer" style="cursor:pointer" height=16> ';
 //if (inv==2 || window.opener) prvte = '<img src=http://'+img_pack+'/pr.gif title="Приват" onclick="window.opener.top.say_private(\''+nick+'\',1)" style="cursor:pointer" height=16> ';
-if (dil==1) dil='<img src=http://'+img_pack+'/signs/diler.gif title="Официальный дилер проекта">'; else dil='';
+if (dil==1) dil='<img src=//'+img_pack+'/signs/diler.gif title="Официальный дилер проекта">'; else dil='';
 if (align!='')
 {
 	align = align.split(';');
-	align = '<img src=http://'+img_pack+'/signs/align/'+align[0]+'.gif title="'+align[1]+'" width="12" height="15"> ';
+	align = '<img src=//'+img_pack+'/signs/align/'+align[0]+'.gif title="'+align[1]+'" width="12" height="15"> ';
 }
 if (sign!='' && sign!='none' )
 {
-	sign = '<img src="http://'+img_pack+'/signs/'+sign+'.gif" width="12" height="15"> ';
+	sign = '<img src="//'+img_pack+'/signs/'+sign+'.gif" width="12" height="12"> ';
 } else sign = '';
 
 if (!InFight) d.write(sbox2b());
@@ -118,7 +118,7 @@ d.write('<div class="tr" style="display: table-row;">');
 d.write('<div class="td" style="display: table-cell;width:100px;vertical-align: middle;">');
 show_all_hp(hp,mhp);
 d.write('</div>');
-d.write('<div class="td" style="display: table-cell;60px;text-align:center;"><img src="/images/weapons/'+sh+'.gif" width=60 height=60 onmouseover="s_des(event,\''+shd+'\')" onmouseout="h_des()" '+sha+' onmousemove=move_alt(event)></div>');
+d.write('<div class="td" style="display: table-cell;width:60px;text-align:center;"><img src="/images/weapons/'+sh+'.gif" width=60 height=60 onmouseover="s_des(event,\''+shd+'\')" onmouseout="h_des()" '+sha+' onmousemove=move_alt(event)></div>');
 d.write('<div class="td" style="display: table-cell;width:100px;vertical-align: middle;">');
 show_all_ma(ma,mma);
 d.write('</div>');
