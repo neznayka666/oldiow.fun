@@ -60,11 +60,11 @@ while ($v=mysql_fetch_array($res))
 		$dscr = $v["id"].'|';
 
 
-		//if ($v["name"]) $dscr .= '<img src="/images/art.gif"> <b>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))."</b>@";
+		if ($v["name"]) {
 		if ($v["upgrated"]==0) $dscr .= '<b>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))."</b>@";
 		if ($v["upgrated"]==1) $dscr .= '<b style="color:green;">'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>@";
-		if ($v["upgrated"]==3) $dscr .= '<b style="color:#9900CC;">'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>@";
-
+		if ($v["upgrated"]==2) $dscr .= '<b style="color:#9900CC;">'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>@";
+		}
 		
 		########		
 		if ( UID == 1 )
