@@ -1,4 +1,4 @@
-//document.write('<div style="position:absolute;left:0px; top:-100px; z-index: 65000;display:none;" id="description" onmouseover=h_des()></div>');
+document.write('<div style="position:absolute;left:0px; top:-100px; z-index: 65000;display:none;" id="description" onmouseover=h_des()></div>');
 var curHP, maxHP, intHP, curMA, maxMA, intMA, interv;
 var w = 186;
 var h = 205;
