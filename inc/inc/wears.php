@@ -156,12 +156,16 @@ while ($v=mysql_fetch_array($res))
 			$ws5 += $v["s5"];
 			$ws6 += $v["s6"];
 			$dscr = $v["id"].'|';
-			if ($v["name"]) $dscr .= '<b>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))."</b>@";
-			//if ($v["tlevel"]) $dscr .= '<b class=dark>Уровень: '.$v["tlevel"]."</b>@";
+			if ($v["name"]) {
+				if ($v["upgrated"]==0) $dscr .= '<b>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))."</b>@";
+				if ($v["upgrated"]==1) $dscr .= '<b style=color:green;>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>@";
+				if ($v["upgrated"]==2) $dscr .= '<b style=color:#9900CC;>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>@";
+		}
+					//if ($v["tlevel"]) $dscr .= '<b class=dark>Уровень: '.$v["tlevel"]."</b>@";
 			if ( $v["clan_sign"] and UID == 7 ) $dscr .= 'Клан: <img src=/images/signs/'.$v["clan_sign"].'.gif><b>'.$v["clan_name"].'</b>@';
 			//if ($v["price"]) $dscr .= '<b>'.$v["price"]." зм.</b>@";
 			//if ($v["dprice"]) $dscr .= '<b>'.$v["dprice"]." сп.</b>@";
-			if ($v["dprice"]>100) $dscr .= "<font class=green>АРТЕФАКТ</font></i>@";
+			if ($v["dprice"]!=0) $dscr .= "<font class=green>АРТЕФАКТ</font></i>@";
 			if ($v["udmax"]+$v["udmin"]) $dscr .= 'Удар: <b>'.$v["udmin"]."-".$v["udmax"]."</b>@";
 			if ($v["kb"]) $dscr .= 'Броня: <b>'.plus_param($v["kb"])."</b>@";
 			if ($v["mf5"]) $dscr .= 'Пробой брони: <b>'.plus_param($v["mf5"])."</b>@";
@@ -171,6 +175,8 @@ while ($v=mysql_fetch_array($res))
 			//if ($v["slots"]) $dscr .= 'Слотов: <B>'.$v["slots"]."</B>@";
 			//if ($v["radius"]) $dscr .= 'Радиус поражения: <B>'.$v["radius"]."</B>@";
 			$dscr .= 'Долговечность:&nbsp;<b>'.$v["durability"]." [".$v["max_durability"]."]</b>@";
+			if ($v["describeMF"]) $dscr .= ''.$v["describeMF"]."@";		
+		if ($v["describeRune"]) $dscr .= ''.$v["describeRune"]."@";
 		if ($v["type"]=="shlem" and $sh["image"]=$v["image"]) $sh["id"]=$dscr;
 		if ($v["type"]=="ojerelie" and $oj["image"]=$v["image"]) $oj["id"]=$dscr;
 		if ($v["type"]=="poyas" and $po["image"]=$v["image"]) $po["id"]=$dscr;
