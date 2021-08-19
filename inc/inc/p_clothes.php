@@ -82,7 +82,7 @@ while ($v=mysql_fetch_array($res))
 		if ($v["ma"]) $dscr .= 'Уровень энергии: <b>'.plus_param($v["ma"])." EP</b>@";
 		if ($v["d"]) $dscr .= 'Долговечность: <b>'.plus_param($v["d"]).' [<b>'.plus_param($v["d"])."</b>]</b>@";
 		if ($v["describeMF"]) $dscr .= ''.$v["describeMF"]."@";
-		$describeRune = substr($v["describeRune"], strrpos($v["describeRune"],"(")+1);
+		$describeRune = strstr($v["describeRune"], '(', true)
 		if ($v["describeRune"]) $dscr .= ''.$describeRune."@";
 		//if ($v["radius"]) $dscr .= 'Радиус поражения: <B>'.$v["radius"]."</B>@";
 	if ($v["type"]=="naruchi" and $na["image"]=$v["image"]) $na["id"]=$dscr;
