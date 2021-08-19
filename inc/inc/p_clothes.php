@@ -58,25 +58,38 @@ while ($v=mysql_fetch_array($res))
 		$ws5 += $v["s5"];
 		$ws6 += $v["s6"];
 		$dscr = $v["id"].'|';
-		if ($v["name"]) $dscr .= '<b>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))."</b>@";
+
+		$dscr .= '<table width=100% cellspacing=0 cellpadding=0 style=padding:5px;><tr>';
+		$dscr .= '<td width=70 align=center><img src=/images/weapons/'.$v["image"].'.gif></td>';
+		$dscr .= '<td>';
+		if ($v["where_buy"]==1) $dscr .= '<img src=/images/art.gif> ';
+		if ($v["where_buy"]==3) $dscr .= '<img src=/images/rar.gif> ';
+		if ($v["name"]) {
+		if ($v["upgrated"]==0) $dscr .= '<b>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))."</b>";
+		if ($v["upgrated"]==1) $dscr .= '<b style=color:green;>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>";
+		if ($v["upgrated"]==2) $dscr .= '<b style=color:#9900CC;>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>";
+		}
 		
+		$dscr .= '<ul style=margin:0px;padding-left:15px;>';
 		########		
 		if ( UID == 1 )
 		{
-			if ($v["tlevel"]) $dscr .= '<font class=red>Уровень:</font> <b class=dark>'.$v["tlevel"]."</b>@";
-			if ($v["clan_sign"]) $dscr .= '<font class=red>Клан:</font> <img src=/images/signs/'.$v["clan_sign"].'.gif>'.$v["clan_name"].'@';
-			if ($v["price"]) $dscr .= '<b class=red>'.$v["price"]." зм</b>@";
-			if ($v["dprice"]) $dscr .= '<b class=red>'.$v["dprice"]." сп</b>@";
-//			if ($v["dprice"]>100) $dscr .= "<font class=green>АРТЕФАКТ</font></i>@";
+			if ($v["tlevel"]) $dscr .= '<font class=red>Уровень:</font> <b class=dark>'.$v["tlevel"]."</b>";
+			if ($v["clan_sign"]) $dscr .= '<font class=red>Клан:</font> <img src=/images/signs/'.$v["clan_sign"].'.gif>'.$v["clan_name"].'';
+			if ($v["price"]) $dscr .= '<b class=red>'.$v["price"]." зм</b>";
+			if ($v["dprice"]) $dscr .= '<b class=red>'.$v["dprice"]." сп</b>";			
 		}
-		
-		if ($v["udmax"]+$v["udmin"]) $dscr .= 'Удар: '.$v["udmin"]."-".$v["udmax"]."@";
-		if ($v["kb"]) $dscr .= 'Класс брони: '.plus_param($v["kb"])."@";
-		if ($v["mf5"]) $dscr .= 'Пробой брони: '.plus_param($v["mf5"])."@";
-		if ($v["hp"]) $dscr .= 'HP: '.plus_param($v["hp"])."@";
-		if ($v["ma"]) $dscr .= 'Мана: '.plus_param($v["ma"])."@";
-		//if ($v["slots"]) $dscr .= 'Слотов: <B>'.$v["slots"]."</B>@";
+		$dscr .= '<li>Долговечность:&nbsp;<b>'.$v["durability"]." [".$v["max_durability"]."]</b></li>";
+		if ($v["udmax"]+$v["udmin"]) $dscr .= '<li>Удар: <b>'.$v["udmin"]."-".$v["udmax"]."</b></li>";
+		if ($v["kb"]) $dscr .= '<li>Броня: <b>'.plus_param($v["kb"])."</b></li>";
+		if ($v["mf5"]) $dscr .= '<li>Пробой брони: <b>'.plus_param($v["mf5"])."%</b></li>";
+		if ($v["hp"]) $dscr .= '<li>Уровень жизни: <b>'.plus_param($v["hp"])." HP</b></li>";
+		if ($v["ma"]) $dscr .= '<li>Уровень энергии: <b>'.plus_param($v["ma"])." EP</b></li>";
+				
+		//if ($v["describeMF"]) $dscr .= '<li>'.$v["describeMF"]."</li>";		
+		//if ($v["describeRune"]) $dscr .= '<li>'.$v["describeRune"]."</li>";
 		//if ($v["radius"]) $dscr .= 'Радиус поражения: <B>'.$v["radius"]."</B>@";
+		$dscr .= '</ul></td></tr></table>';
 	if ($v["type"]=="naruchi" and $na["image"]=$v["image"]) $na["id"]=$dscr;
 	if ($v["type"]=="ojerelie" and $oj["image"]=$v["image"]) $oj["id"]=$dscr;
 	if ($v["type"]=="poyas" and $po["image"]=$v["image"]) $po["id"]=$dscr;

@@ -2,17 +2,17 @@
 $text = '';
 $t = tme();
 $napad = 0; 
-if ( @!$counter ) $counter = 0; if ( @!$sht ) $sht = ''; 
+if (@!$counter) $counter = 0; if (@!$sht) $sht = ''; 
 $options = explode ("|",$player->pers["options"]);
 if (is_array($vesh)) $v = $vesh;
-if ( !empty($v['id']) )
+if (!empty($v['id']))
 {
 	$text.= "show_w(";
-	if ( !empty($v["name"]) )
+	if (!empty($v["name"]))
 	{
 		$counter++; 
 		if (@$lavka == 1) $v["durability"] = $v["max_durability"];
-		$text .= "'".$v["name"]."','".$sht."','".$v["image"]."','".$v["durability"]."','".$v["max_durability"]."','";
+		$text .= "'".$v["name"]."','".$sht."','".$v["type"]."','".$v["image"]."','".$v["upgrated"]."','".$v["upgratedRune"]."','".$v["durability"]."','".$v["max_durability"]."','";
 		if ($v['dprice']==0)
 		{
 			if ($v["where_buy"]==0){ $val = 'зм.'; $img='';}
@@ -22,10 +22,10 @@ if ( !empty($v['id']) )
 			else $text .= "<font class=hp><!--img src=/images/".$img."--> <b>".$v["price"]." ".$val."</font></b><font class=items><br>";
 		}
 		else $text .= "<!--img src=/images/signs/diler.gif--> <b>".$v["dprice"]." сп. </b><font class=items><br>";
-		$text .= "',".$v['price'].",'".$v["dprice"]."','";
+		$text .= "',".$v['price'].",'".$v["dprice"]."','".$v["where_buy"]."','";
 		$rank_i = ($v["s1"]+$v["s2"]+$v["s3"]+$v["s4"]+$v["s5"]+$v["s6"]+$v["kb"])*0.3 + ($v["mf1"]+$v["mf2"]+$v["mf3"]+$v["mf4"]+$v["mf5"])*0.03 + ($v["hp"]+$v["ma"])*0.04+($v["udmin"]+$v["udmax"])*0.3;
-		if ($v["stype"]=="shit")
-		$v["describe"] .= "<br>Защита от магии +50%";
+		//if ($v["stype"]=="shit")
+		//$v["describe"] .= "<br>Защита от магии +50%";
 		if ($v["type"]=="napad" and $v["index"]!='b' and $v["index"]!='b_z' and $v["index"]!='k' and $v["index"]!='k_z')
 		{
 			if ($v["stype"]=="napadt")
@@ -50,13 +50,15 @@ if ( !empty($v['id']) )
 				{$v["describe"].='<span class=timef>Пропадёт через '.tp($v["timeout"]-$t)."</span>";}
 		}
 		if ($v["type"]=="rune") {$v["describe"].='<br>Чтобы вставить руну в предмет, нужно чтобы этот предмет был надет на вас, и ничего больше.'; if ($v["udmax"])$v["udmin"]=1;}
-		if ($v["upgrated"]) {$v["describe"].='<br><b class=green>УЛУЧШЕНА</b>';}
+		if ($v["upgrated"]) {$v["describe"].=''.$v["describeMF"].'';}
+		if ($v["upgratedRune"]) {$v["describe"].=''.$v["describeRune"].'';}
+		if ($v["delete"]==1) {$v["describe"].='<br><b class=red>Предмет выведен из игры</b>';}
 
 		$attrs = '<table style="border-width:0px; font-size:10px;width:100%" cellspacing=0><tr><td>';
 		$v_count = 0;
 		$R = all_params();
 		foreach($R as $r)
-			if ( @$v[$r] and $r<>"udmin" and $r<>"udmax" )
+			if (@$v[$r] and $r<>"udmin" and $r<>"udmax")
 			{
 				$v_count++;
 				if (substr($r,0,2)=='mf') $prc = '%'; else $prc = '';
@@ -72,6 +74,7 @@ if ( !empty($v['id']) )
 		}
 		//if($v["material_show"]) $attrs.= '<tr><td>Материал: </td><td>'.$v["material_show"].'</td></tr>';
 		//else $attrs.= '<tr><td>Материал: </td><td><i>неизвестно</i></td></tr>';
+		//$attrs.= 'stype: <i>'.$v["stype"].'</i> / <i>'.$v["where_buy"].'</i><br>';
 		if ($rank_i>0) $attrs.= 'Мощь предмета: <i>'.$rank_i.'</i><br>';
 		$attrs .= '</td></tr></table>';
 		if (!$v_count) $attrs = '';
@@ -107,7 +110,7 @@ if ( !empty($v['id']) )
 		$R = all_params();
 		foreach($R as $r)
 		{
-			if ( @$v['t'.$r] )
+			if (@$v['t'.$r])
 			{
 				$v_count++;
 				if (substr($r,0,2)=='mf') $prc = '%'; else $prc = '';

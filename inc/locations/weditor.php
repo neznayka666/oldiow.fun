@@ -48,7 +48,7 @@ if (empty($http->post) and empty($http->get["id"]))
 	echo "<p class='whiteBlock margin-5'>Информация : <i>Для улучшения вещей требуются ресурсы из шахт. Среднее усиление первой степени стоит <b>".UP_COST." зм.</b> для любой вещи. Усилять вещи можно если у вас есть хотябы 20 умения кузнец. Шанс удачного усиления пишется при выборе последней ступени усиления. При неудачном усилении возвращается половина потраченного ресурса...</i></p>";
 
 	echo "<div class='whiteBlock margin-5'><div style='text-align:center;'>Вы можете улучшать вещи ценой не более <b>".$MAX_PRICE." зм.</b> и не менее <b>".MIN_PRICE." зм.</b></div><ul><li>до 500 умения - ".MAX_PRICE." зм.</li><li>от 500 до 1000 умения - ".MAX2_PRICE." зм.</li><li>от 1000 умения - ".MAX3_PRICE." зм., а так же возможность улучшать вещь повторно!</li></ul></div>";
-	$vs = $db->sql("SELECT * FROM wp WHERE uidp=".UID." and dprice=0 and where_buy=0 and weared=0  and ".$UPGR." and price>".MIN_PRICE." and price<=".$MAX_PRICE."");
+	$vs = $db->sql("SELECT * FROM wp WHERE uidp=".UID." and dprice=0 and (where_buy=0 or where_buy=3) and weared=0  and ".$UPGR." and price>".MIN_PRICE." and price<=".$MAX_PRICE."");
 	echo "<p class='padding-5'><b>Ваши вещи, доступные для улучшения:</b></p>";
 	echo "<center>";
 	
@@ -72,7 +72,7 @@ if (empty($http->post) and empty($http->get["id"]))
 else
 if (empty($http->post) and isset($http->get["id"]) and empty($http->get["param"]))
 {
-	$v = $db->sqla("SELECT * FROM wp WHERE uidp=".UID." and dprice=0 and where_buy=0 and weared=0  and ".$UPGR." and price>".MIN_PRICE." and price<=".$MAX_PRICE." and id='".intval($http->get["id"])."'");
+	$v = $db->sqla("SELECT * FROM wp WHERE uidp=".UID." and dprice=0 and (where_buy=0 or where_buy=3) and weared=0  and ".$UPGR." and price>".MIN_PRICE." and price<=".$MAX_PRICE." and id='".intval($http->get["id"])."'");
 	if (!$v)
 		echo "<script>location='main.php';</script>";
 	else
@@ -110,7 +110,7 @@ else
 if (empty($http->post) and isset($http->get["id"]) and isset($http->get["param"]) and empty($http->get["up"]))
 {
 	$param = base64_decode($http->get["param"]);
-	$v = $db->sqla("SELECT * FROM wp WHERE uidp=".UID." and dprice=0 and where_buy=0 and weared=0  and ".$UPGR." and price>".MIN_PRICE." and price<=".$MAX_PRICE." and id='".intval($http->get["id"])."'");
+	$v = $db->sqla("SELECT * FROM wp WHERE uidp=".UID." and dprice=0 and (where_buy=0 or where_buy=3) and weared=0  and ".$UPGR." and price>".MIN_PRICE." and price<=".$MAX_PRICE." and id='".intval($http->get["id"])."'");
 	if($v["upgrated"]==0) $UP_COST = UP_COST;
 	if($v["upgrated"]==1) $UP_COST = UP_COST*20;
 	if (!$v or $v[$param]==0)
@@ -185,7 +185,7 @@ else
 if (empty($http->post) and isset($http->get["id"]) and isset($http->get["param"]) and isset($http->get["up"]))
 {
 	$param = base64_decode($http->get["param"]);
-	$v = $db->sqla("SELECT * FROM wp WHERE uidp=".UID." and dprice=0 and where_buy=0 and weared=0  and ".$UPGR." and price>".MIN_PRICE." and price<=".$MAX_PRICE." and id='".intval($http->get["id"])."'");
+	$v = $db->sqla("SELECT * FROM wp WHERE uidp=".UID." and dprice=0 and (where_buy=0 or where_buy=3) and weared=0  and ".$UPGR." and price>".MIN_PRICE." and price<=".$MAX_PRICE." and id='".intval($http->get["id"])."'");
 	if (!$v or $v[$param]==0)
 		echo "<script>location='main.php';</script>";
 	else
@@ -221,13 +221,71 @@ if (empty($http->post) and isset($http->get["id"]) and isset($http->get["param"]
 					$db->sql("UPDATE wp SET durability=".($tmp-$k).",weight=weight-".$k." WHERE id=".$yr["id"]."");
 			}
 
-			$v["name"] .= ' (МФ)';
-			$db->sql("UPDATE wp SET `".$param."` = `".$param."` + ".($kk*$eq).",upgrated=upgrated+1,name='".$v["name"]."',price=price+".UP_COST."*".$kk." WHERE id=".$v["id"]."");
+			//$v["name"] .= ' (МФ)';
+
+switch ($param) {
+case "udmax":    
+	$add_mf = "МФ: <b>Максимальный удар</b> +<b>".($kk*$eq)."</b><br>";
+    break;
+case "udmin":    
+	$add_mf = "МФ: <b>Минимальный удар</b> +<b>".($kk*$eq)."</b><br>";
+    break;
+case "kb":    
+	$add_mf = "МФ: <b>Броня</b> +<b>".($kk*$eq)."</b><br>";
+    break;
+case "mf1":   
+	$add_mf = "МФ: <b>Критического удара</b> +<b>".($kk*$eq)." %</b><br>";
+    break;
+case "mf2":    
+	$add_mf = "МФ: <b>Увёртливости</b> +<b>".($kk*$eq)." %</b><br>";
+    break;
+case "mf3":    
+	$add_mf = "МФ: <b>Против увёртливости</b> +<b>".($kk*$eq)." %</b><br>";
+    break;
+case "mf5":    
+	$add_mf = "МФ: <b>Против критического удара</b> +<b>".($kk*$eq)." %</b><br>";
+    break;
+case "ma":   
+	$add_mf = "МФ: <b>Уровень энергии</b> +<b>".($kk*$eq)." EP</b><br>";
+    break;
+case "hp":    
+	$add_mf = "МФ: <b>Уровень жизни</b> +<b>".($kk*$eq)." HP</b><br>";
+    break;
+case "s1":    
+	$add_mf = "МФ: <b>Сила</b> +<b>".($kk*$eq)."</b><br>";
+    break;
+case "s2":    
+	$add_mf = "МФ: <b>Ловкость</b> +<b>".($kk*$eq)."</b><br>";
+    break;
+case "s3":    
+	$add_mf = "МФ: <b>Удача</b> +<b>".($kk*$eq)."</b><br>";
+    break;
+case "s4":    
+	$add_mf = "МФ: <b>Выносливость</b> +<b>".($kk*$eq)."</b><br>";
+    break;
+case "s5":   
+	$add_mf = "МФ: <b>Разум: +<b>".($kk*$eq)."</b><br>";
+    break;
+case "s6":
+    $add_mf = "МФ: <b>Энергия: +<b>".($kk*$eq)."</b><br>";
+    break;
+}			
+			$describeMF = $v["describeMF"];
+			$db->sql("UPDATE wp SET 
+			`".$param."` = `".$param."` + ".($kk*$eq).",
+			`describeMF` = '".$describeMF." ".$add_mf."',
+			`upgrated`=upgrated+1,			
+			`price`=price+".UP_COST."*".$kk." 
+			WHERE 
+			`id`=".$v["id"]."
+			");
 			$v[$param] += $kk*$eq;
 			$v["price"] += UP_COST * $kk;
 			$v["upgrated"]++;
+			
 			$vesh = $v;
-			echo "<b class=green>Удача!</b>";
+			echo "<b class=green>Удача!</b>";			
+
 			echo "<div class=but>";
 			include("./inc/inc/weapon.php");
 			echo "</div>";

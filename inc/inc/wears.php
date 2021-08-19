@@ -156,21 +156,37 @@ while ($v=mysql_fetch_array($res))
 			$ws5 += $v["s5"];
 			$ws6 += $v["s6"];
 			$dscr = $v["id"].'|';
-			if ($v["name"]) $dscr .= '<b>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))."</b>@";
-			//if ($v["tlevel"]) $dscr .= '<b class=dark>Уровень: '.$v["tlevel"]."</b>@";
-			if ( $v["clan_sign"] and UID == 7 ) $dscr .= 'Клан: <img src=/images/signs/'.$v["clan_sign"].'.gif><b>'.$v["clan_name"].'</b>@';
-			//if ($v["price"]) $dscr .= '<b>'.$v["price"]." зм.</b>@";
-			//if ($v["dprice"]) $dscr .= '<b>'.$v["dprice"]." сп.</b>@";
-			if ($v["dprice"]>100) $dscr .= "<font class=green>АРТЕФАКТ</font></i>@";
-			if ($v["udmax"]+$v["udmin"]) $dscr .= 'Удар: <b>'.$v["udmin"]."-".$v["udmax"]."</b>@";
-			if ($v["kb"]) $dscr .= 'Броня: <b>'.plus_param($v["kb"])."</b>@";
-			if ($v["mf5"]) $dscr .= 'Пробой брони: <b>'.plus_param($v["mf5"])."</b>@";
-			if ($v["hp"]) $dscr .= 'Уровень жизни: <b>'.plus_param($v["hp"])." HP</b>@";
-			if ($v["ma"]) $dscr .= 'Уровень енергии: <b>'.plus_param($v["ma"])." EP</b>@";
-
-			//if ($v["slots"]) $dscr .= 'Слотов: <B>'.$v["slots"]."</B>@";
-			//if ($v["radius"]) $dscr .= 'Радиус поражения: <B>'.$v["radius"]."</B>@";
-			$dscr .= 'Долговечность:&nbsp;<b>'.$v["durability"]." [".$v["max_durability"]."]</b>@";
+			$dscr .= '<table width=100% cellspacing=0 cellpadding=0 style=padding:5px;><tr>';
+		$dscr .= '<td width=70 align=center><img src=/images/weapons/'.$v["image"].'.gif></td>';
+		$dscr .= '<td>';
+		if ($v["where_buy"]==1) $dscr .= '<img src=/images/art.gif> ';
+		if ($v["where_buy"]==3) $dscr .= '<img src=/images/rar.gif> ';
+		if ($v["name"]) {
+		if ($v["upgrated"]==0) $dscr .= '<b>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))."</b>";
+		if ($v["upgrated"]==1) $dscr .= '<b style=color:green;>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>";
+		if ($v["upgrated"]==2) $dscr .= '<b style=color:#9900CC;>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>";
+		}
+		
+		$dscr .= '<ul style=margin:0px;padding-left:15px;>';
+		########		
+		if ( UID == 1 )
+		{
+			if ($v["tlevel"]) $dscr .= '<font class=red>Уровень:</font> <b class=dark>'.$v["tlevel"]."</b>";
+			if ($v["clan_sign"]) $dscr .= '<font class=red>Клан:</font> <img src=/images/signs/'.$v["clan_sign"].'.gif>'.$v["clan_name"].'';
+			if ($v["price"]) $dscr .= '<b class=red>'.$v["price"]." зм</b>";
+			if ($v["dprice"]) $dscr .= '<b class=red>'.$v["dprice"]." сп</b>";			
+		}
+		$dscr .= '<li>Долговечность:&nbsp;<b>'.$v["durability"]." [".$v["max_durability"]."]</b></li>";
+		if ($v["udmax"]+$v["udmin"]) $dscr .= '<li>Удар: <b>'.$v["udmin"]."-".$v["udmax"]."</b></li>";
+		if ($v["kb"]) $dscr .= '<li>Броня: <b>'.plus_param($v["kb"])."</b></li>";
+		if ($v["mf5"]) $dscr .= '<li>Пробой брони: <b>'.plus_param($v["mf5"])."%</b></li>";
+		if ($v["hp"]) $dscr .= '<li>Уровень жизни: <b>'.plus_param($v["hp"])." HP</b></li>";
+		if ($v["ma"]) $dscr .= '<li>Уровень энергии: <b>'.plus_param($v["ma"])." EP</b></li>";
+				
+		//if ($v["describeMF"]) $dscr .= '<li>'.$v["describeMF"]."</li>";		
+		//if ($v["describeRune"]) $dscr .= '<li>'.$v["describeRune"]."</li>";
+		//if ($v["radius"]) $dscr .= 'Радиус поражения: <B>'.$v["radius"]."</B>@";
+		$dscr .= '</ul></td></tr></table>';
 		if ($v["type"]=="shlem" and $sh["image"]=$v["image"]) $sh["id"]=$dscr;
 		if ($v["type"]=="ojerelie" and $oj["image"]=$v["image"]) $oj["id"]=$dscr;
 		if ($v["type"]=="poyas" and $po["image"]=$v["image"]) $po["id"]=$dscr;
@@ -223,7 +239,7 @@ while ($v=mysql_fetch_array($res))
 	}
 		
 		$weared_count++;
-		if ($weared_count==1) {$weared_name=$v["name"];$weared_id=$v["id"];$weared_slots=$v["slots"];$weared_wp=$v;$weared_describe = $v["describe"];}
+		if ($weared_count==1) {$weared_name=$v["name"];$weared_id=$v["id"];$weared_slots=$v["slots"];$weared_wp=$v;$weared_describe = $v["describeRune"];}
 		//if ($v["dprice"]>100) $UD_ART += $v["dprice"]/5000;
 		}
 	}
@@ -269,49 +285,49 @@ if (@$http->get["rune_join"])
 		$rune_info = $sk[2];
 		switch ($rune_info) {
   case "udmax":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Максимальный удар: +<b>".$sk[1]."</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Максимальный удар: +<b>".$sk[1]."</b>)<br>";
     break;
   case "udmin":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Минимальный удар: +<b>".$sk[1]."</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Минимальный удар: +<b>".$sk[1]."</b>)<br>";
     break;
   case "kb":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Броня: +<b>".$sk[1]."</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Броня: +<b>".$sk[1]."</b>)<br>";
     break;
 case "mf1":   
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Критического удара: +<b>".$sk[1]." %</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Критического удара: +<b>".$sk[1]." %</b>)<br>";
     break;
 case "mf2":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Увёртливости: +<b>".$sk[1]." %</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Увёртливости: +<b>".$sk[1]." %</b>)<br>";
     break;
 case "mf3":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Против увёртливости: +<b>".$sk[1]." %</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Против увёртливости: +<b>".$sk[1]." %</b>)<br>";
     break;
 case "mf5":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Против критического удара: +<b>".$sk[1]." %</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Против критического удара: +<b>".$sk[1]." %</b>)<br>";
     break;
 case "ma":   
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Уровень энергии: +<b>".$sk[1]." EP</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Уровень энергии: +<b>".$sk[1]." EP</b>)<br>";
     break;
 case "hp":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Уровень жизни: +<b>".$sk[1]." HP</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Уровень жизни: +<b>".$sk[1]." HP</b>)<br>";
     break;
 case "s1":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Сила: +<b>".$sk[1]."</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Сила: +<b>".$sk[1]."</b>)<br>";
     break;
 case "s2":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Ловкость: +<b>".$sk[1]."</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Ловкость: +<b>".$sk[1]."</b>)<br>";
     break;
 case "s3":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Удача: +<b>".$sk[1]."</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Удача: +<b>".$sk[1]."</b>)<br>";
     break;
 case "s4":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Выносливость: +<b>".$sk[1]."</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Выносливость: +<b>".$sk[1]."</b>)<br>";
     break;
 case "s5":   
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Разум: +<b>".$sk[1]."</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Разум: +<b>".$sk[1]."</b>)<br>";
     break;
 case "s6":
-    $add_rune = "Руна: <b>".$rune["name"]."</b> (Энергия: +<b>".$sk[1]."</b>)<br>";
+    $add_rune = "<b>".$rune["name"]."</b> (Энергия: +<b>".$sk[1]."</b>)<br>";
     break;
 }
 		//$add_rune = "<b>Руна:</b> <u>".$rune["name"]."</u> (: +<b>".$sk[1]."</b>)<br>";
@@ -319,9 +335,9 @@ case "s6":
 		$db->sql("UPDATE wp SET 
 		`".$sk[2]."`=`".$sk[2]."`+".$sk[1].",
 		`slots`=slots-1,
-		`price`=price+".$rune["price"].",
-		`name`='".$weared_name." [Р]', 
-		`describe`='".$weared_describe." ".$add_rune."'
+		`price`=price+".$rune["price"].",		
+		`upgratedRune`=upgratedRune+1,  
+		`describeRune`='".$weared_describe." ".$add_rune."'
 		WHERE id=".$weared_id."
 		");
 		if ($sk[2]=="udmax")$db->sql("UPDATE wp SET `udmin`=`udmin`+1 WHERE id=".$weared_id."");
