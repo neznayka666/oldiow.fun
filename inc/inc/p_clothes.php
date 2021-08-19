@@ -81,8 +81,8 @@ while ($v=mysql_fetch_array($res))
 		if ($v["hp"]) $dscr .= 'Уровень жизни: <b>'.plus_param($v["hp"])." HP</b>@";
 		if ($v["ma"]) $dscr .= 'Уровень энергии: <b>'.plus_param($v["ma"])." EP</b>@";
 		if ($v["d"]) $dscr .= 'Долговечность: <b>'.plus_param($v["d"]).' [<b>'.plus_param($v["d"])."</b>]</b>@";
-		if ($v["slots"]!=0) $dscr .= 'Слотов: <B>'.$v["slots"]."</B>@";
-		if ($v["upgrated"]!=0) $dscr .= 'Руны: <B>'.$v["upgratedRune"]."</B>@";
+		if ($v["slots"]!=0) $dscr .= 'Свободных слотов для рун: <B>'.$v["slots"]." шт.</B>@";
+		if ($v["describeRune"]) $dscr .= ''.$v["describeRune"]."@";
 		//if ($v["radius"]) $dscr .= 'Радиус поражения: <B>'.$v["radius"]."</B>@";
 	if ($v["type"]=="naruchi" and $na["image"]=$v["image"]) $na["id"]=$dscr;
 	if ($v["type"]=="ojerelie" and $oj["image"]=$v["image"]) $oj["id"]=$dscr;
