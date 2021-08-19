@@ -5,10 +5,11 @@ function show_w (name,sht,type,img,upgrated,upgratedRune,d,m_d,cena,pric,dprice,
 	if (sht==1 || sht=='') sht=''; else sht = sht+'шт.';
 	text += (`
 	<table width=100% cellpadding="2" cellspacing="5">
-	<tr><td colspan="3">
-	<b>${name}</b> `);
-	if (upgrated > 0) { text +=(` <b>[МФ+${upgrated}]</b> `);}
-	if (upgratedRune > 0) { text +=(` <b>[Р+${upgratedRune}]</b> `);} 
+	<tr><td colspan="3">`);
+	if (upgrated==0) { text +=(`<b>${name}</b>`);}	
+	if (upgrated==1) { text +=(`<b style="color:green;">${name}</b> <b>[МФ]</b>`);}
+	if (upgrated==2) { text +=(`<b style="color:#9900CC;">${name}</b> <b>[МФ]</b>`);}
+		
 	
 	text += (` (Масса: ${weight})<br>Цена: ${cena} Долговечность предмета: `);
 	if (m_d!=0 && d>0) 
