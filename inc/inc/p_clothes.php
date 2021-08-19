@@ -65,7 +65,7 @@ while ($v=mysql_fetch_array($res))
 		if ($v["upgrated"]==1) $dscr .= '<b style=color:green;>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>@";
 		if ($v["upgrated"]==2) $dscr .= '<b style=color:#9900CC;>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>@";
 		}
-		
+		$dscr .= '<ul>@';
 		########		
 		if ( UID == 1 )
 		{
@@ -75,15 +75,16 @@ while ($v=mysql_fetch_array($res))
 			if ($v["dprice"]) $dscr .= '<b class=red>'.$v["dprice"]." сп</b>@";			
 		}
 		
-		if ($v["udmax"]+$v["udmin"]) $dscr .= 'Удар: <b>'.$v["udmin"]."-".$v["udmax"]."</b>@";
-		if ($v["kb"]) $dscr .= 'Броня: <b>'.plus_param($v["kb"])."</b>@";
-		if ($v["mf5"]) $dscr .= 'Пробой брони: <b>'.plus_param($v["mf5"])."%</b>@";
-		if ($v["hp"]) $dscr .= 'Уровень жизни: <b>'.plus_param($v["hp"])." HP</b>@";
-		if ($v["ma"]) $dscr .= 'Уровень энергии: <b>'.plus_param($v["ma"])." EP</b>@";
-		$dscr .= 'Долговечность:&nbsp;<b>'.$v["durability"]." [".$v["max_durability"]."]</b>@";		
-		if ($v["describeMF"]) $dscr .= ''.$v["describeMF"]."@";		
-		if ($v["describeRune"]) $dscr .= ''.$v["describeRune"]."@";
+		if ($v["udmax"]+$v["udmin"]) $dscr .= '<li>Удар: <b>'.$v["udmin"]."-".$v["udmax"]."</b></li>@";
+		if ($v["kb"]) $dscr .= '<li>Броня: <b>'.plus_param($v["kb"])."</b</li>>@";
+		if ($v["mf5"]) $dscr .= '<li>Пробой брони: <b>'.plus_param($v["mf5"])."%</b></li>@";
+		if ($v["hp"]) $dscr .= '<li>Уровень жизни: <b>'.plus_param($v["hp"])." HP</b></li>@";
+		if ($v["ma"]) $dscr .= '<li>Уровень энергии: <b>'.plus_param($v["ma"])." EP</b></li>@";
+		$dscr .= '<li>Долговечность:&nbsp;<b>'.$v["durability"]." [".$v["max_durability"]."]</b></li>@";		
+		if ($v["describeMF"]) $dscr .= '<li>'.$v["describeMF"]."</li>@";		
+		if ($v["describeRune"]) $dscr .= '<li>'.$v["describeRune"]."</li>@";
 		//if ($v["radius"]) $dscr .= 'Радиус поражения: <B>'.$v["radius"]."</B>@";
+		$dscr .= '</ul>@';
 	if ($v["type"]=="naruchi" and $na["image"]=$v["image"]) $na["id"]=$dscr;
 	if ($v["type"]=="ojerelie" and $oj["image"]=$v["image"]) $oj["id"]=$dscr;
 	if ($v["type"]=="poyas" and $po["image"]=$v["image"]) $po["id"]=$dscr;

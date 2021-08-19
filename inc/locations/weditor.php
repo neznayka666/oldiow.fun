@@ -273,7 +273,7 @@ case "s6":
 			$describeMF = $v["describeMF"];
 			$db->sql("UPDATE wp SET 
 			`".$param."` = `".$param."` + ".($kk*$eq).",
-			`describeMF` = ' ".$describeMF." ".$add_mf."',
+			`describeMF` = '".$describeMF." ".$add_mf."',
 			`upgrated`=upgrated+1,			
 			`price`=price+".UP_COST."*".$kk." 
 			WHERE 
@@ -284,15 +284,7 @@ case "s6":
 			$v["upgrated"]++;
 			
 			$vesh = $v;
-			echo "<b class=green>Удача!</b>";
-			echo"
-			`".$param."` = `".$param."` + ".($kk*$eq).",
-			`describeMF` = ' ".$describeMF." ".$add_mf."',
-			`upgrated`=upgrated+1,			
-			`price`=price+".UP_COST."*".$kk." 
-			WHERE 
-			`id`=".$v["id"]."
-			";
+			echo "<b class=green>Удача!</b>";			
 
 			echo "<div class=but>";
 			include("./inc/inc/weapon.php");
