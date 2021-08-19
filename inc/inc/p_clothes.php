@@ -59,7 +59,9 @@ while ($v=mysql_fetch_array($res))
 		$ws6 += $v["s6"];
 		$dscr = $v["id"].'|';
 
-		$dscr .= '<table width=100% cellspacing=0 cellpadding=0><tr><td colspan=2 align=center>';
+		$dscr .= '<table width=100% cellspacing=0 cellpadding=0><tr>';
+		$dscr .= '<td width=70 align=center><img src=/images/weapons/'.$v["image"].'.gif></td>';
+		$dscr .= '<td>';
 		if ($v["where_buy"]==1) $dscr .= '<img src=/images/art.gif> ';
 		if ($v["where_buy"]==3) $dscr .= '<img src=/images/art.gif> ';
 		if ($v["name"]) {
@@ -67,8 +69,8 @@ while ($v=mysql_fetch_array($res))
 		if ($v["upgrated"]==1) $dscr .= '<b style=color:green;>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>";
 		if ($v["upgrated"]==2) $dscr .= '<b style=color:#9900CC;>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>";
 		}
-		$dscr .= '</td></tr>';
-		$dscr .= '<tr><td width=70 align=center><img src=/images/weapons/'.$v["image"].'.gif></td><td><ul style=margin:0px;padding-left:15px;>';
+		
+		$dscr .= '<ul style=margin:0px;padding-left:15px;>';
 		########		
 		if ( UID == 1 )
 		{
@@ -79,8 +81,8 @@ while ($v=mysql_fetch_array($res))
 		}
 		$dscr .= '<li>Долговечность:&nbsp;<b>'.$v["durability"]." [".$v["max_durability"]."]</b></li>";
 		if ($v["udmax"]+$v["udmin"]) $dscr .= '<li>Удар: <b>'.$v["udmin"]."-".$v["udmax"]."</b></li>";
-		//if ($v["kb"]) $dscr .= '<li>Броня: <b>'.plus_param($v["kb"])."</b></li>";
-		//if ($v["mf5"]) $dscr .= '<li>Пробой брони: <b>'.plus_param($v["mf5"])."%</b></li>";
+		if ($v["kb"]) $dscr .= '<li>Броня: <b>'.plus_param($v["kb"])."</b></li>";
+		if ($v["mf5"]) $dscr .= '<li>Пробой брони: <b>'.plus_param($v["mf5"])."%</b></li>";
 		if ($v["hp"]) $dscr .= '<li>Уровень жизни: <b>'.plus_param($v["hp"])." HP</b></li>";
 		if ($v["ma"]) $dscr .= '<li>Уровень энергии: <b>'.plus_param($v["ma"])." EP</b></li>";
 				
