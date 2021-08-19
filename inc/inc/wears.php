@@ -275,49 +275,49 @@ if (@$http->get["rune_join"])
 		$rune_info = $sk[2];
 		switch ($rune_info) {
   case "udmax":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Максимальный удар: +<b>".$sk[1]."</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Максимальный удар: +<b>".$sk[1]."</b>)<br>";
     break;
   case "udmin":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Минимальный удар: +<b>".$sk[1]."</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Минимальный удар: +<b>".$sk[1]."</b>)<br>";
     break;
   case "kb":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Броня: +<b>".$sk[1]."</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Броня: +<b>".$sk[1]."</b>)<br>";
     break;
 case "mf1":   
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Критического удара: +<b>".$sk[1]." %</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Критического удара: +<b>".$sk[1]." %</b>)<br>";
     break;
 case "mf2":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Увёртливости: +<b>".$sk[1]." %</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Увёртливости: +<b>".$sk[1]." %</b>)<br>";
     break;
 case "mf3":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Против увёртливости: +<b>".$sk[1]." %</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Против увёртливости: +<b>".$sk[1]." %</b>)<br>";
     break;
 case "mf5":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Против критического удара: +<b>".$sk[1]." %</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Против критического удара: +<b>".$sk[1]." %</b>)<br>";
     break;
 case "ma":   
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Уровень энергии: +<b>".$sk[1]." EP</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Уровень энергии: +<b>".$sk[1]." EP</b>)<br>";
     break;
 case "hp":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Уровень жизни: +<b>".$sk[1]." HP</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Уровень жизни: +<b>".$sk[1]." HP</b>)<br>";
     break;
 case "s1":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Сила: +<b>".$sk[1]."</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Сила: +<b>".$sk[1]."</b>)<br>";
     break;
 case "s2":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Ловкость: +<b>".$sk[1]."</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Ловкость: +<b>".$sk[1]."</b>)<br>";
     break;
 case "s3":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Удача: +<b>".$sk[1]."</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Удача: +<b>".$sk[1]."</b>)<br>";
     break;
 case "s4":    
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Выносливость: +<b>".$sk[1]."</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Выносливость: +<b>".$sk[1]."</b>)<br>";
     break;
 case "s5":   
-	$add_rune = "Руна: <b>".$rune["name"]."</b> (Разум: +<b>".$sk[1]."</b>)<br>";
+	$add_rune = "<b>".$rune["name"]."</b> (Разум: +<b>".$sk[1]."</b>)<br>";
     break;
 case "s6":
-    $add_rune = "Руна: <b>".$rune["name"]."</b> (Энергия: +<b>".$sk[1]."</b>)<br>";
+    $add_rune = "<b>".$rune["name"]."</b> (Энергия: +<b>".$sk[1]."</b>)<br>";
     break;
 }
 		//$add_rune = "<b>Руна:</b> <u>".$rune["name"]."</u> (: +<b>".$sk[1]."</b>)<br>";
