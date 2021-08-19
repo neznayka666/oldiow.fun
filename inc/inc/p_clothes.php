@@ -76,7 +76,7 @@ while ($v=mysql_fetch_array($res))
 		}
 		
 		if ($v["udmax"]+$v["udmin"]) $dscr .= '<li>Удар: <b>'.$v["udmin"]."-".$v["udmax"]."</b></li>@";
-		if ($v["kb"]) $dscr .= '<li>Броня: <b>'.plus_param($v["kb"])."</b</li>>@";
+		if ($v["kb"]) $dscr .= '<li>Броня: <b>'.plus_param($v["kb"])."</b></li>@";
 		if ($v["mf5"]) $dscr .= '<li>Пробой брони: <b>'.plus_param($v["mf5"])."%</b></li>@";
 		if ($v["hp"]) $dscr .= '<li>Уровень жизни: <b>'.plus_param($v["hp"])." HP</b></li>@";
 		if ($v["ma"]) $dscr .= '<li>Уровень энергии: <b>'.plus_param($v["ma"])." EP</b></li>@";
