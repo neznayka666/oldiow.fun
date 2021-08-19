@@ -62,8 +62,8 @@ while ($v=mysql_fetch_array($res))
 
 		if ($v["name"]) {
 		if ($v["upgrated"]==0) $dscr .= '<b>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))."</b>@";
-		if ($v["upgrated"]==1) $dscr .= '<b style="color:green;">'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>@";
-		if ($v["upgrated"]==2) $dscr .= '<b style="color:#9900CC;">'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>@";
+		if ($v["upgrated"]==1) $dscr .= '<b style=\"color:green;\">'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>@";
+		if ($v["upgrated"]==2) $dscr .= '<b style=\"color:#9900CC;\">'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>@";
 		}
 		
 		########		
@@ -75,11 +75,11 @@ while ($v=mysql_fetch_array($res))
 			if ($v["dprice"]) $dscr .= '<b class=red>'.$v["dprice"]." сп</b>@";			
 		}
 		
-		if ($v["udmax"]+$v["udmin"]) $dscr .= 'Удар: '.$v["udmin"]."-".$v["udmax"]."@";
-		if ($v["kb"]) $dscr .= 'Броня: '.plus_param($v["kb"])."@";
-		if ($v["mf5"]) $dscr .= 'Пробой брони: '.plus_param($v["mf5"])."% @";
-		if ($v["hp"]) $dscr .= 'Уровень жизни: '.plus_param($v["hp"])." HP@";
-		if ($v["ma"]) $dscr .= 'Уровень энергии: '.plus_param($v["ma"])." EP@";
+		if ($v["udmax"]+$v["udmin"]) $dscr .= 'Удар: <b>'.$v["udmin"]."-".$v["udmax"]."</b>@";
+		if ($v["kb"]) $dscr .= 'Броня: <b>'.plus_param($v["kb"])."</b>@";
+		if ($v["mf5"]) $dscr .= 'Пробой брони: <b>'.plus_param($v["mf5"])."%</b>@";
+		if ($v["hp"]) $dscr .= 'Уровень жизни: <b>'.plus_param($v["hp"])." HP</b>@";
+		if ($v["ma"]) $dscr .= 'Уровень энергии: <b>'.plus_param($v["ma"])." EP</b>@";
 		//if ($v["slots"]) $dscr .= 'Слотов: <B>'.$v["slots"]."</B>@";
 		//if ($v["radius"]) $dscr .= 'Радиус поражения: <B>'.$v["radius"]."</B>@";
 	if ($v["type"]=="naruchi" and $na["image"]=$v["image"]) $na["id"]=$dscr;
