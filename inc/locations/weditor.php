@@ -272,7 +272,7 @@ case "s6":
 }			
 			$db->sql("UPDATE wp SET 
 			`".$param."` = `".$param."` + ".($kk*$eq).",
-			`describeMF` = '".$add_mf."',
+			`describeMF` = describeMF+'".$add_mf."',
 			`upgrated`=upgrated+1,			
 			`price`=price+".UP_COST."*".$kk." 
 			WHERE 
