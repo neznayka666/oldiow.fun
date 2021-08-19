@@ -2,7 +2,7 @@ document.write('<div style="position:absolute;left:0px; top:-100px; z-index: 650
 var curHP, maxHP, intHP, curMA, maxMA, intMA, interv;
 var w = 186;
 var h = 205;
-//var ZW = 300;
+var ZW;
 var InFight=0;
 var sdTimeOut = -1;
 var divchp,divcma;
