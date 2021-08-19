@@ -84,10 +84,13 @@ case "shlem":
 text += (`<div style="position: relative;width:${w};height:${h};">`);
 text += (`<img src="/images/weapons/${img}.gif">`);
 
-if ((upgrated > 0) || (upgratedRune > 0)) { 
-	text += ('<div style="position: absolute; bottom: 2px; left: 2px;">');
-	if (upgrated > 0) text += (`<div style="width:8px;height:8px;background:green;cursor: help;" onmouseover="s_des(event,'|Предмет модифицирован ${upgrated} раз.')" onmouseout="h_des()" onmousemove="move_alt(event)"></div>`);
-	if (upgratedRune > 0) text += (`<div style="width:8px;height:8px;background:red;cursor: help;" onmouseover="s_des(event,'|В предмет вставленно ${upgratedRune} рун.')" onmouseout="h_des()" onmousemove="move_alt(event)"></div>`);
+if ((slots!=0) || (upgratedRune!=0)) { 
+	text += ('<div style="position: absolute; bottom: 2px; left: 2px;">');	
+
+	for (let i = 0; i < slots; i++) {
+ 	 text += (`<div style="width:8px;height:8px;background:red;cursor: help;border: 1px solid #fff;" ></div>`);
+	}
+	//if (upgratedRune > 0) { text += (`<div style="width:8px;height:8px;background:red;cursor: help;border: 1px solid #fff;" ></div>`); }
 	text += ('</div>');
 	
 }
