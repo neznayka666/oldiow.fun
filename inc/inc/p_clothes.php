@@ -59,13 +59,14 @@ while ($v=mysql_fetch_array($res))
 		$ws6 += $v["s6"];
 		$dscr = $v["id"].'|';
 
-
+		$dscr .= '<table width=100%><tr><td colspan=2 align=center>';
 		if ($v["name"]) {
 		if ($v["upgrated"]==0) $dscr .= '<b>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))."</b>@";
 		if ($v["upgrated"]==1) $dscr .= '<b style=color:green;>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>@";
 		if ($v["upgrated"]==2) $dscr .= '<b style=color:#9900CC;>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>@";
 		}
-		$dscr .= '<ul>';
+		$dscr .= '</td></tr>';
+		$dscr .= '<td width=70 align=center><img src=/images/weapons/'.$v["image"].'.gif></td><td><ul>';
 		########		
 		if ( UID == 1 )
 		{
@@ -84,7 +85,7 @@ while ($v=mysql_fetch_array($res))
 		if ($v["describeMF"]) $dscr .= '<li>'.$v["describeMF"]."</li>";		
 		if ($v["describeRune"]) $dscr .= '<li>'.$v["describeRune"]."</li>";
 		//if ($v["radius"]) $dscr .= 'Радиус поражения: <B>'.$v["radius"]."</B>@";
-		$dscr .= '</ul>';
+		$dscr .= '</ul></td></tr></table>';
 	if ($v["type"]=="naruchi" and $na["image"]=$v["image"]) $na["id"]=$dscr;
 	if ($v["type"]=="ojerelie" and $oj["image"]=$v["image"]) $oj["id"]=$dscr;
 	if ($v["type"]=="poyas" and $po["image"]=$v["image"]) $po["id"]=$dscr;
