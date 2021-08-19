@@ -59,11 +59,11 @@ while ($v=mysql_fetch_array($res))
 		$ws6 += $v["s6"];
 		$dscr = $v["id"].'|';
 
-		$dscr .= '<table width=100% cellspacing=0 cellpadding=0><tr>';
+		$dscr .= '<table width=100% cellspacing=0 cellpadding=0 style=padding:5px;><tr>';
 		$dscr .= '<td width=70 align=center><img src=/images/weapons/'.$v["image"].'.gif></td>';
 		$dscr .= '<td>';
 		if ($v["where_buy"]==1) $dscr .= '<img src=/images/art.gif> ';
-		if ($v["where_buy"]==3) $dscr .= '<img src=/images/art.gif> ';
+		if ($v["where_buy"]==3) $dscr .= '<img src=/images/rar.gif> ';
 		if ($v["name"]) {
 		if ($v["upgrated"]==0) $dscr .= '<b>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))."</b>";
 		if ($v["upgrated"]==1) $dscr .= '<b style=color:green;>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>";
