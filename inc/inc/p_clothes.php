@@ -58,7 +58,13 @@ while ($v=mysql_fetch_array($res))
 		$ws5 += $v["s5"];
 		$ws6 += $v["s6"];
 		$dscr = $v["id"].'|';
-		if ($v["name"]) $dscr .= '<b>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))."</b>@";
+
+
+		//if ($v["name"]) $dscr .= '<img src="/images/art.gif"> <b>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))."</b>@";
+		if ($v["upgrated"]==0) $dscr .= '<b>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))."</b>@";
+		if ($v["upgrated"]==1) $dscr .= '<b style="color:green;">'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>@";
+		if ($v["upgrated"]==3) $dscr .= '<b style="color:#9900CC;">'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>@";
+
 		
 		########		
 		if ( UID == 1 )
@@ -66,15 +72,14 @@ while ($v=mysql_fetch_array($res))
 			if ($v["tlevel"]) $dscr .= '<font class=red>Уровень:</font> <b class=dark>'.$v["tlevel"]."</b>@";
 			if ($v["clan_sign"]) $dscr .= '<font class=red>Клан:</font> <img src=/images/signs/'.$v["clan_sign"].'.gif>'.$v["clan_name"].'@';
 			if ($v["price"]) $dscr .= '<b class=red>'.$v["price"]." зм</b>@";
-			if ($v["dprice"]) $dscr .= '<b class=red>'.$v["dprice"]." сп</b>@";
-//			if ($v["dprice"]>100) $dscr .= "<font class=green>АРТЕФАКТ</font></i>@";
+			if ($v["dprice"]) $dscr .= '<b class=red>'.$v["dprice"]." сп</b>@";			
 		}
 		
 		if ($v["udmax"]+$v["udmin"]) $dscr .= 'Удар: '.$v["udmin"]."-".$v["udmax"]."@";
-		if ($v["kb"]) $dscr .= 'Класс брони: '.plus_param($v["kb"])."@";
-		if ($v["mf5"]) $dscr .= 'Пробой брони: '.plus_param($v["mf5"])."@";
-		if ($v["hp"]) $dscr .= 'HP: '.plus_param($v["hp"])."@";
-		if ($v["ma"]) $dscr .= 'Мана: '.plus_param($v["ma"])."@";
+		if ($v["kb"]) $dscr .= 'Броня: '.plus_param($v["kb"])."@";
+		if ($v["mf5"]) $dscr .= 'Пробой брони: '.plus_param($v["mf5"])."% @";
+		if ($v["hp"]) $dscr .= 'Уровень жизни: '.plus_param($v["hp"])." HP@";
+		if ($v["ma"]) $dscr .= 'Уровень энергии: '.plus_param($v["ma"])." EP@";
 		//if ($v["slots"]) $dscr .= 'Слотов: <B>'.$v["slots"]."</B>@";
 		//if ($v["radius"]) $dscr .= 'Радиус поражения: <B>'.$v["radius"]."</B>@";
 	if ($v["type"]=="naruchi" and $na["image"]=$v["image"]) $na["id"]=$dscr;
