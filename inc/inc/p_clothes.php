@@ -60,12 +60,12 @@ while ($v=mysql_fetch_array($res))
 		$dscr = $v["id"].'|';
 
 		$dscr .= '<table width=100% cellspacing=0 cellpadding=0><tr><td colspan=2 align=center>';
-		if ($v["where_buy"]==1) $dscr .= '<img src="/images/art.gif"> ';
-		if ($v["where_buy"]==3) $dscr .= '<img src="/images/art.gif"> ';
+		if ($v["where_buy"]==1) $dscr .= '<img src=/images/art.gif> ';
+		if ($v["where_buy"]==3) $dscr .= '<img src=/images/art.gif> ';
 		if ($v["name"]) {
-		if ($v["upgrated"]==0) $dscr .= '<b>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))."</b>@";
-		if ($v["upgrated"]==1) $dscr .= '<b style=color:green;>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>@";
-		if ($v["upgrated"]==2) $dscr .= '<b style=color:#9900CC;>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>@";
+		if ($v["upgrated"]==0) $dscr .= '<b>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))."</b>";
+		if ($v["upgrated"]==1) $dscr .= '<b style=color:green;>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>";
+		if ($v["upgrated"]==2) $dscr .= '<b style=color:#9900CC;>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>";
 		}
 		$dscr .= '</td></tr>';
 		$dscr .= '<tr><td width=70 align=center><img src=/images/weapons/'.$v["image"].'.gif></td><td><ul style=margin:0px;padding-left:15px;>';
