@@ -66,7 +66,7 @@ while ($v=mysql_fetch_array($res))
 		if ($v["upgrated"]==2) $dscr .= '<b style=color:#9900CC;>'.str_replace(' ','&nbsp;',str_replace('"','*',$v["name"]))." [МФ]</b>@";
 		}
 		$dscr .= '</td></tr>';
-		$dscr .= '<tr><td width=70 align=center><img src=/images/weapons/'.$v["image"].'.gif></td><td><ul style=margin:0;padding:0;>';
+		$dscr .= '<tr><td width=70 align=center><img src=/images/weapons/'.$v["image"].'.gif></td><td><ul style=margin:5px;padding:0;>';
 		########		
 		if ( UID == 1 )
 		{
