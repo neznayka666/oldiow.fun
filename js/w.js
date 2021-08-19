@@ -87,9 +87,17 @@ text += (`<img src="/images/weapons/${img}.gif">`);
 if ((slots!=0) || (upgratedRune!=0)) { 
 	text += ('<div style="position: absolute; bottom: 2px; left: 2px;">');	
 
+	if ((slots!=0) {
 	for (let i = 0; i < slots; i++) {
- 	 text += (`<div style="width:8px;height:8px;background:red;cursor: help;border: 1px solid #fff;" ></div>`);
+ 	 text += (`<div style="width:5px;height:5px;cursor: help; border: 1px solid #fff;" ></div>`);
 	}
+}
+if ((upgratedRune!=0) {
+	for (let i = 0; i < upgratedRune; i++) {
+ 	 text += (`<div style="width:4px;height:4px;cursor: help; padding:1px; background:#fff; border: 1px solid #fff;" ></div>`);
+	}
+}
+
 	//if (upgratedRune > 0) { text += (`<div style="width:8px;height:8px;background:red;cursor: help;border: 1px solid #fff;" ></div>`); }
 	text += ('</div>');
 	
