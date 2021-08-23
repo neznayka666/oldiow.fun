@@ -23,9 +23,9 @@ DEFINE ('FOR_HOST', 'forum.'. HOST );						###
 
 // Настройка подключения к базе данных
 DEFINE ('SQL_HOST', 'localhost');
-DEFINE ('SQL_USER', 'newiowfun');		
+DEFINE ('SQL_USER', 'oldiowru');		
 DEFINE ('SQL_PASS', 'rd3oFkiFZB218v3I');			
-DEFINE ('SQL_BASE', 'new_oldiow_fun');	#
+DEFINE ('SQL_BASE', 'main_oldiow');	#
 
 
 	# Делаем минифильтрация всякой ВЦ
