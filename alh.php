@@ -47,6 +47,7 @@ $umelka = isset($http->get['um']) ? intval($http->get['um']) : 1000;
 if ($umelka>2300) $umelka = 2300;
 
 ?>
+<H1>111</H1>
 <LINK href="/css/main_v2.css" rel=STYLESHEET type=text/css>
 <form action="?" method="GET" align="center">
     <input type="hidden" name="do" value="1">
