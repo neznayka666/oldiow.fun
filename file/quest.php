@@ -22,8 +22,8 @@ function qjob_type($qu)
 	$r = '';
 	switch ($qu['job_type'])
 	{
-		case 1: $r = 'отобрать у <a href="https://oldiow.fun/binfo.php?name='.$qu['job_botname'].'" target="_blank"><b>'.$qu['job_botname'].'</b></a><br />Нужно:&nbsp;'.$qu['job_count'].'&nbsp;шт.<hr>'; break;
-		case 2: $r = 'охота на <a href="https://oldiow.fun/binfo.php?name='.$qu['job_botname'].'" target="_blank"><b>'.$qu['job_botname'].'</b></a><br />Нужно:&nbsp;'.$qu['job_count'].'&nbsp;шт.<hr>'; break;
+		case 1: $r = 'отобрать у <a href="https://oldiow.ru/binfo.php?name='.$qu['job_botname'].'" target="_blank"><b>'.$qu['job_botname'].'</b></a><br />Нужно:&nbsp;'.$qu['job_count'].'&nbsp;шт.<hr>'; break;
+		case 2: $r = 'охота на <a href="https://oldiow.ru/binfo.php?name='.$qu['job_botname'].'" target="_blank"><b>'.$qu['job_botname'].'</b></a><br />Нужно:&nbsp;'.$qu['job_count'].'&nbsp;шт.<hr>'; break;
 		case 3: $r = 'принести <b>'.$qu['job_botname'].'</b><br />Нужно:&nbsp;'.$qu['job_count'].'&nbsp;шт.<hr>'; break;
 		case 4: $res = explode('|', $qu['job_botname']);
 				$r = 'посетить <b>'.$qu['job_lutname'].'</b>';
@@ -41,7 +41,7 @@ function qjob_type($qu)
 			echo '<table width="100%" style="text-align: center; border-collapse:collapse;">';
 			echo '<tr valign="top" style="border: 1px solid #222222;"><td width="140" style="border: 1px solid #222222; padding: 5px;">
 			<b>'.$nps['name'].'</b><br />
-			<img src="https://oldiow.fun/public_content/faces/'.$nps['img'].'" width="130" height="130" border="0" style="cursor:pointer;" /><hr>
+			<img src="https://oldiow.ru/public_content/faces/'.$nps['img'].'" width="130" height="130" border="0" style="cursor:pointer;" /><hr>
 			Корд: '.$nps['x'].' : '.$nps['y'].'<br />
 			</td><td style="border: 1px solid #222222; padding: 5px; text-align:left;">';
 			

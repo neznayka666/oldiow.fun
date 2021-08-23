@@ -14,11 +14,11 @@ $rt=mysql_query("SELECT * FROM users where `block`!='NULL' order by `level` desc
 
 while ($reit = mysql_fetch_array($rt)) {{$n+=1; 
 	echo"</b></u>$n.</u></b>&nbsp;&nbsp;";
-	if ($reit[align]) { echo "<img src='//oldiow.fun/images/signs/align/{$reit[align]}.gif'> ";}
-	echo"<img src='//oldiow.fun/images/signs/{$reit[sign]}.gif' title='{$reit[clan_name]}'> 
+	if ($reit[align]) { echo "<img src='//oldiow.ru/images/signs/align/{$reit[align]}.gif'> ";}
+	echo"<img src='//oldiow.ru/images/signs/{$reit[sign]}.gif' title='{$reit[clan_name]}'> 
 	<b>$reit[user]</b> [<b>$reit[level]</b>] 
-	<a href='//oldiow.fun/info.php?{$reit[user]}' target='_blank'> 
-	<img src='//oldiow.fun/images/icons/inf.gif' border=0></a><br>";
+	<a href='//oldiow.ru/info.php?{$reit[user]}' target='_blank'> 
+	<img src='//oldiow.ru/images/icons/inf.gif' border=0></a><br>";
 } 
 }
 
@@ -39,8 +39,8 @@ $rt=mysql_query("SELECT * FROM users where `block`!='NULL' order by `rank_i` des
 
 while ($reit = mysql_fetch_array($rt)) {{$n+=1; 
 	echo"</b></u>$n.</u></b>&nbsp;&nbsp;";
-	if ($reit[align]) { echo "<img src='//oldiow.fun/images/signs/align/{$reit[align]}.gif'> ";}
-	echo"<img src='//oldiow.fun/images/signs/{$reit[sign]}.gif' title='{$reit[clan_name]}'> <b>$reit[user]</b> [<b>$reit[level]</b>] <a href='//oldiow.fun/info.php?{$reit[user]}' target='_blank'> <img src='//oldiow.fun/images/icons/inf.gif' border=0></a> ({$reit[rank_i]}) <br>";} }
+	if ($reit[align]) { echo "<img src='//oldiow.ru/images/signs/align/{$reit[align]}.gif'> ";}
+	echo"<img src='//oldiow.ru/images/signs/{$reit[sign]}.gif' title='{$reit[clan_name]}'> <b>$reit[user]</b> [<b>$reit[level]</b>] <a href='//oldiow.ru/info.php?{$reit[user]}' target='_blank'> <img src='//oldiow.ru/images/icons/inf.gif' border=0></a> ({$reit[rank_i]}) <br>";} }
 
 unset($rt,$reit,$n);
 echo"
@@ -61,8 +61,8 @@ $rt=mysql_query("SELECT * FROM users where `block`!='NULL' order by `inst_rait` 
 
 while ($reit = mysql_fetch_array($rt)) {{$n+=1; 
 	echo"</b></u>$n.</u></b>&nbsp;&nbsp;";
-	if ($reit[align]) { echo "<img src='//oldiow.fun/images/signs/align/{$reit[align]}.gif'> ";}
-	echo"<img src='//oldiow.fun/images/signs/{$reit[sign]}.gif' title='{$reit[clan_name]}'> <b>$reit[user]</b> [<b>$reit[level]</b>] <a href='//oldiow.fun/info.php?{$reit[user]}' target='_blank'> <img src='//oldiow.fun/images/icons/inf.gif' border=0></a> ({$reit[inst_rait]}) <br>";} }
+	if ($reit[align]) { echo "<img src='//oldiow.ru/images/signs/align/{$reit[align]}.gif'> ";}
+	echo"<img src='//oldiow.ru/images/signs/{$reit[sign]}.gif' title='{$reit[clan_name]}'> <b>$reit[user]</b> [<b>$reit[level]</b>] <a href='//oldiow.ru/info.php?{$reit[user]}' target='_blank'> <img src='//oldiow.ru/images/icons/inf.gif' border=0></a> ({$reit[inst_rait]}) <br>";} }
 
 unset($rt,$reit,$n);
 echo"
