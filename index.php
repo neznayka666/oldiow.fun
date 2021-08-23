@@ -25,11 +25,11 @@ $db = new MySQL(SQL_USER, SQL_PASS, SQL_BASE);
     <meta http-equiv="Expires" content="3">
     <meta name="robots" content="ALL">
     <meta name="keywords"
-        content="ролевая игра, браузерная игра, интернет игра, интернет игры, лучшие интернет игры, лучшая онлайн игра, новая онлайн игра, online game, бесплатная онлайн игра, неоландс, новая браузерная онлайн игра, играть бесплатно, играть игры, игры онлайн бесплатно, лучшие игры, популярные игры, популярная онлайн игра, online игра">
-    <meta name="description" content="oldiow.fun - online game!">
+        content="ролевая игра, браузерная игра, интернет игра, интернет игры, лучшие интернет игры, лучшая онлайн игра, новая онлайн игра, online game, бесплатная онлайн игра, новая браузерная онлайн игра, играть бесплатно, играть игры, игры онлайн бесплатно, лучшие игры, популярные игры, популярная онлайн игра, online игра">
+    <meta name="description" content="oldiow.ru - online game!">
     <meta name="rating" content="General">
     <meta name="distribution" content="GLOBAL">
-    <meta name="Classification" content="On-line oldiow.fun">
+    <meta name="Classification" content="On-line oldiow.ru">
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel=stylesheet type="text/css" href="/images/index/main.css">
     <!--link rel="stylesheet" type="text/css" href="./css/index_v2.css" /-->
@@ -106,6 +106,7 @@ $db = new MySQL(SQL_USER, SQL_PASS, SQL_BASE);
                 </TABLE>
             </TD>
             <TD align="center" valign=bottom rowspan=2>
+					<h1>Мы переехали на новый домен: <a href="https://oldiow.ru"> https://oldiow.ru</a></h1>
                 <!--
                 Всего:
                 <?php echo " [<b>" . mysql_num_rows(mysql_query("SELECT `id` FROM `players` WHERE bloked = 0 AND `rank` <> '60'")) . "</b>]"; ?>
@@ -188,9 +189,9 @@ $db = new MySQL(SQL_USER, SQL_PASS, SQL_BASE);
                                         <p></p>
                                     </td>
                                     <td>
-                                        <p style='margin-top:40px;'><a href='http://lib.oldiow.fun/'
+                                        <p style='margin-top:40px;'><a href='http://lib.oldiow.ru/'
                                                 target='_blank'>Новости</a> | <a href='#' target='_blank'>Форум</a> | <a
-                                                href='http://lib.oldiow.fun/?act=5' target='_blank'>Рейтинг
+                                                href='http://lib.oldiow.ru/?act=5' target='_blank'>Рейтинг
                                                 игроков</a></p>
                                     </td>
 												<td>
