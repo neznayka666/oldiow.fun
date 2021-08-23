@@ -126,13 +126,13 @@ function show_head(curstate,fourthname,code,apps,trvm,help,priveleged,level,sign
 		d.write('' + fourth + ''); 		
 		d.write('<img src="/images/nav/top/friends.gif" onclick="location=\'main.php?go=friends\'" '+mouser("Список Друзей")+' style="cursor:pointer;">'); 		
 		if (priveleged == true) { d.write('<img src="/images/nav/top/forum.gif" onclick="QActive();" ' + mouser("Форум") + ' style="cursor:pointer;">'); }
-		//if (priveleged == true) { d.write('<img src="/images/nav/top/forum.gif" onclick="window.open(\'//forum.oldiow.fun/\')" ' + mouser("Форум") + ' style="cursor:pointer;">'); } 
+		//if (priveleged == true) { d.write('<img src="/images/nav/top/forum.gif" onclick="window.open(\'//forum.oldiow.ru/\')" ' + mouser("Форум") + ' style="cursor:pointer;">'); } 
 		if (sign != 'none') { d.write("<img src='/images/nav/top/clan.gif' onclick=\"location='main.php?go=orden'\" " + mouser("Клан") + " style='cursor: pointer; '>"); }
 		//if (level >= 10) { d.write('<img src="/images/nav/top/student.gif" onclick="location=\'main.php?gopers=student\'" ' + mouser("Панель наставника") + ' style="cursor:pointer;">'); }
 		d.write('<img src="/images/nav/top/quest.gif" onclick="location=\'main.php?addon=action&do=4\'" ' + mouser("Квесты") + ' style="cursor:pointer;">'); 
-		d.write('<img src="/images/nav/top/exp.gif" onclick="window.open(\'http://lib.oldiow.fun/?act=4\')" ' + mouser("Таблица опыта") + ' style="cursor:pointer;">');
-		d.write('<img src="/images/nav/top/stat.gif" onclick="window.open(\'http://lib.oldiow.fun/?act=5\')" ' + mouser("Рейтинг Игроков") + ' style="cursor:pointer;">');
-		d.write('<img src="/images/nav/top/news.gif" onclick="window.open(\'http://lib.oldiow.fun\')" ' + mouser("Новости") + ' style="cursor:pointer;">'); 
+		d.write('<img src="/images/nav/top/exp.gif" onclick="window.open(\'http://lib.oldiow.ru/?act=4\')" ' + mouser("Таблица опыта") + ' style="cursor:pointer;">');
+		d.write('<img src="/images/nav/top/stat.gif" onclick="window.open(\'http://lib.oldiow.ru/?act=5\')" ' + mouser("Рейтинг Игроков") + ' style="cursor:pointer;">');
+		d.write('<img src="/images/nav/top/news.gif" onclick="window.open(\'http://lib.oldiow.ru\')" ' + mouser("Новости") + ' style="cursor:pointer;">'); 
 		//d.write('<img src="/images/nav/top/work.gif" onclick="location=\'main.php?gopers=service\'" ' + mouser("Сервис") + ' style="cursor:pointer;">'); 
 		d.write('<img src="/images/nav/top/back.gif" onclick="location=\'main.php?go=back\'" id="but5"  '+back+' '+mouser("Назад")+' style="cursor:pointer;">');
 		d.write('<img src="/images/nav/top/refresh.gif" onclick="location=\'main.php\'" id="but9" '+mouser("Обновить")+' style="cursor:pointer;">'); 		
