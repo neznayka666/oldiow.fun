@@ -11,7 +11,7 @@ echo '
 <table border="0" cellspacing="0" width="100%" class="greyBlock" style="margin:10px 0;">
 <tr>
 <td width="50%"><a href="main.php?do=1" class="'.(($do==1) ? 'blocked' : 'bga').'">В битву с драконом</a></td>
-<td width="50%"><a href="main.php?do=2" class="'.(($do==2) ? 'blocked' : 'bga').'">Лавка Драконоборца</a></td>
+<!--td width="50%"><a href="main.php?do=2" class="'.(($do==2) ? 'blocked' : 'bga').'">Лавка Драконоборца</a></!--td>
 <!--td width="30%"><a href="main.php?do=3" class="'.(($do==3) ? 'bga' : 'blocked').'">Стражник у врат подземелья</a></!--td-->	
 </tr>
 </table>
@@ -21,8 +21,8 @@ echo '
 switch( $do )
 {
 	case 1: include('instant/dragons.php'); break;
-	case 2: include('instant/lavka.php'); break;
-	case 3: include('instant/vhod.php'); break;
+	//case 2: include('instant/lavka.php'); break;
+	//case 3: include('instant/vhod.php'); break;
 	default: echo 'Выберите раздел.';
 }
 ?>
