@@ -20,7 +20,7 @@
 		
 		//if ($mdur>$inst["durability"]) $mdur = $kk;
 			//$za = 0;
-		
+		/*
 		if (rand(1,500)==1)
 		{
 			$v = $db->sqla("SELECT * FROM weapons WHERE type='rune' and price/10<".$player->pers["sp15"]." and dprice=0 ORDER BY RAND()", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
@@ -37,7 +37,7 @@
 				$za = 1;
 			}
 		}
-
+		*/
 		if ($za==0)
 		{
 			if (rand(sqrt($player->pers["sp16"]),$player->pers["sp16"]*2)>$r["price"])
