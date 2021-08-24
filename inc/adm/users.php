@@ -15,7 +15,7 @@ if ( isset($_GET['bot_agres']) and $player->jKey(1) )
 
 if ( isset($_GET['go_home']) and $player->jKey(1) )
 {
-	$db->sql('UPDATE `users` SET `location`="arena", `x`="0", `y`="-18", `cfight`=0, `curstate`=0;');
+	$db->sql('UPDATE `users` SET `location`="lavka", `x`="0", `y`="-18", `cfight`=0, `curstate`=0;');
 	say_to_chat('a','<b class=red>Ангел призвал всех жителей в город!</b>',0,'','*',0); 
 	$actMess = 'ТП в город!';
 }
