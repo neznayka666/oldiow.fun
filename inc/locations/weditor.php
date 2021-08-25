@@ -128,7 +128,7 @@ if (empty($http->post) and isset($http->get["id"]) and isset($http->get["param"]
 	$param = base64_decode($http->get["param"]);
 	$v = $db->sqla("SELECT * FROM wp WHERE uidp=".UID." 
 	and dprice=0 
-	and (stype='kolchuga' or stype='naru' or stype='kylo' or stype='poya' or stype='sapo' or stype='shle' or stype='perc' or stype='bron' or stype='noji' or stype='mech' or stype='topo' or stype='drob' or stype='brt' or stype='kolc')
+	and (stype='kolchuga' or stype='naru' or stype='kylo' or stype='poya' or stype='sapo' or stype='shle' or stype='perc' or stype='bron' or stype='noji' or stype='mech' or stype='topo' or stype='drob' or stype='braslet' or stype='kolc' or stype='shit')
 	and (where_buy=0 or where_buy=3) 
 	and weared=0 
 	and ".$UPGR." 
