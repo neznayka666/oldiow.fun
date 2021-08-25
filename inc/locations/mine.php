@@ -9,7 +9,11 @@ $tu = $db->sqla("SELECT * FROM mine WHERE x=".($player->pers["minex"])." and y="
 	$t = tme();
 	//$t = "";
 	$timep = 600;
-	$timed = 240; // 240
+	if ($player->pers["priveleged"]>=1) {
+	$timed = 0; // 240
+	} else {
+		$timed = 240; // 240
+	}
 	$tper = 5;
 	$no_make=0;
 	/*
