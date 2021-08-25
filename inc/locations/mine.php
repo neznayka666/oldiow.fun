@@ -1,7 +1,5 @@
 <SCRIPT LANGUAGE='JavaScript' SRC='/js/mine.js'></SCRIPT>
 <?php
-//$test = ($player->pers["x"]*$player->pers["y"])%65500;
-//echo "".$test."";
 $MINE_ID = 32;//($player->pers["x"]*$player->pers["y"])%65500;
 $tr = $db->sqla("SELECT * FROM mine WHERE x=".($player->pers["minex"]+1)." and y=".$player->pers["miney"]." and mine=".$MINE_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 $tl = $db->sqla("SELECT * FROM mine WHERE x=".($player->pers["minex"]-1)." and y=".$player->pers["miney"]." and mine=".$MINE_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
@@ -9,19 +7,15 @@ $td = $db->sqla("SELECT * FROM mine WHERE x=".($player->pers["minex"])." and y="
 $tu = $db->sqla("SELECT * FROM mine WHERE x=".($player->pers["minex"])." and y=".($player->pers["miney"]-1)." and mine=".$MINE_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 
 	$t = tme();
-	//$t = "";	
+	//$t = "";
+	$timep = 600;
 	if ($player->pers["priveleged"]>=1) {
-		$timed = 0; // 240
-		//$tper = 0;
-		//$timep = 0
+	$timed = 0; // 240
 	} else {
 		$timed = 240; // 240
-		//$tper = 5;
-		//$timep = 600
-	}	
-	$no_make=0;
-	$timep = 600
+	}
 	$tper = 5;
+	$no_make=0;
 	/*
 	if ($t%3000==0)
 	{
