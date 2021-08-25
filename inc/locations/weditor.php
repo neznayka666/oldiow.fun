@@ -82,7 +82,7 @@ if (empty($http->post) and isset($http->get["id"]) and empty($http->get["param"]
 	$v = $db->sqla("SELECT * FROM wp WHERE uidp=".UID." 
 	and dprice=0 
 	and (where_buy=0 or where_buy=3) 
-	and (type='kolchuga' or type='naruchi' or type='ojerelie' or type='poyas' or type='sapogi' or type='shlem' or type='perchatki' or type='bronya' or type='orujie' or type='braslet' or type='kolco')
+	and (stype='kolchuga' or stype='naru' or stype='kylo' or stype='poya' or stype='sapo' or stype='shle' or stype='perc' or stype='bron' or stype='noji' or stype='mech' or stype='topo' or stype='drob' or stype='brt' or stype='kolc')
 	and weared=0  
 	and ".$UPGR." 
 	and price>".MIN_PRICE." 
@@ -126,7 +126,15 @@ else
 if (empty($http->post) and isset($http->get["id"]) and isset($http->get["param"]) and empty($http->get["up"]))
 {
 	$param = base64_decode($http->get["param"]);
-	$v = $db->sqla("SELECT * FROM wp WHERE uidp=".UID." and dprice=0 and (where_buy=0 or where_buy=3) and weared=0  and ".$UPGR." and price>".MIN_PRICE." and price<=".$MAX_PRICE." and id='".intval($http->get["id"])."'");
+	$v = $db->sqla("SELECT * FROM wp WHERE uidp=".UID." 
+	and dprice=0 
+	and (stype='kolchuga' or stype='naru' or stype='kylo' or stype='poya' or stype='sapo' or stype='shle' or stype='perc' or stype='bron' or stype='noji' or stype='mech' or stype='topo' or stype='drob' or stype='brt' or stype='kolc')
+	and (where_buy=0 or where_buy=3) 
+	and weared=0 
+	and ".$UPGR." 
+	and price>".MIN_PRICE." 
+	and price<=".$MAX_PRICE." 
+	and id='".intval($http->get["id"])."'");
 	if($v["upgrated"]==0) $UP_COST = UP_COST;
 	if($v["upgrated"]==1) $UP_COST = UP_COST*20;
 	if (!$v or $v[$param]==0)
