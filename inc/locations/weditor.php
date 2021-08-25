@@ -72,7 +72,16 @@ if (empty($http->post) and empty($http->get["id"]))
 else
 if (empty($http->post) and isset($http->get["id"]) and empty($http->get["param"]))
 {
-	$v = $db->sqla("SELECT * FROM wp WHERE uidp=".UID." and dprice=0 and (where_buy=0 or where_buy=3) and weared=0  and ".$UPGR." and price>".MIN_PRICE." and price<=".$MAX_PRICE." and id='".intval($http->get["id"])."'");
+	$v = $db->sqla("SELECT * FROM wp WHERE uidp=".UID." 
+	and dprice=0 
+	and (where_buy=0 or where_buy=3) 
+	and (type='kolchuga' or type='naruchi' or type='ojerelie' or type='poyas' or type='sapogi' or type='shlem' or type='perchatki' or type='bronya' or type='orujie' or type='braslet' or type='kolco')
+	and weared=0  
+	and ".$UPGR." 
+	and price>".MIN_PRICE." 
+	and price<=".$MAX_PRICE." 
+	and id='".intval($http->get["id"])."'
+	");
 	if (!$v)
 		echo "<script>location='main.php';</script>";
 	else
