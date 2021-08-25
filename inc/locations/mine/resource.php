@@ -1,5 +1,10 @@
 <?php
-
+	
+	if ($player->pers["priveleged"]>=1) {
+		$tire = 0;
+	} else {
+		$tire = 10;
+	}
 	if (rand(0,50)<1) set_vars("action=-1",UID);
 	$r = intval($http->get["beginr"]);
 	$r_get='<hr>';
@@ -49,7 +54,7 @@
 				$player->pers["waiter"]=$t+$timed;
 				$db->sql("UPDATE wp SET `durability`=durability-".round($kk+1)." WHERE id='".$inst["id"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 
-				set_vars("sp12=sp12+'".round(10/($kk+3),2)."',sp7=sp7+'".round(5/($kk+3),2)."',peace_exp=peace_exp+3,waiter=".$player->pers["waiter"].",tire=tire+10",$player->pers["uid"]);
+				set_vars("sp12=sp12+'".round(10/($kk+3),2)."',sp7=sp7+'".round(5/($kk+3),2)."',peace_exp=peace_exp+3,waiter=".$player->pers["waiter"].",tire=tire+$tire",$player->pers["uid"]);
 
 				//echo "sp12=sp12+'".(10/($kk+3))."',sp7=sp7+'".(5/($kk+3))."',peace_exp=peace_exp+3,waiter=".$player->pers["waiter"].",tire=tire+10",$player->pers["uid"];
 
@@ -79,7 +84,7 @@
 				$mm = round((5/($player->pers["sp12"]+1)),3);
 				if ($player->pers["sp12"]<1) $mm=0;
 				$db->sql("UPDATE wp SET durability=durability-".round($kk+1)." WHERE id='".$inst["id"]."'");
-				set_vars("sp12=sp12-".$mm.",peace_exp=peace_exp+1,waiter=".$player->pers["waiter"].",tire=tire+8",$player->pers["uid"]);
+				set_vars("sp12=sp12-".$mm.",peace_exp=peace_exp+1,waiter=".$player->pers["waiter"].",tire=tire+$tire",$player->pers["uid"]);
 				if ($r["image"]==$tunnel["r1id"]){$db->sql("UPDATE mine SET r1k=r1k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and mine=".$tunnel["mine"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r1k"]-=$kk;}
 				if ($r["image"]==$tunnel["r2id"]){$db->sql("UPDATE mine SET r2k=r2k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and mine=".$tunnel["mine"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r2k"]-=$kk;}
 				if ($r["image"]==$tunnel["r3id"]){$db->sql("UPDATE mine SET r3k=r3k-".$kk." WHERE x=".$tunnel["x"]." and y=".$tunnel["y"]." and mine=".$tunnel["mine"]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);  $tunnel["r3k"]-=$kk;}
