@@ -50,7 +50,7 @@ if (empty($http->post) and empty($http->get["id"]))
 	echo "<div class='whiteBlock margin-5'><div style='text-align:center;'>Вы можете улучшать вещи ценой не более <b>".$MAX_PRICE." зм.</b> и не менее <b>".MIN_PRICE." зм.</b></div><ul><li>до 500 умения - ".MAX_PRICE." зм.</li><li>от 500 до 1000 умения - ".MAX2_PRICE." зм.</li><li>от 1000 умения - ".MAX3_PRICE." зм., а так же возможность улучшать вещь повторно!</li></ul></div>";
 	$vs = $db->sql("SELECT * FROM wp WHERE uidp=".UID." 
 	and dprice=0 
-	and (stype='kolchuga' or stype='naru' or stype='kylo' or stype='poya' or stype='sapo' or stype='shle' or stype='perc' or stype='bron' or stype='noji' or stype='mech' or stype='topo' or stype='drob' or stype='brt' or stype='kolc')
+	and (stype='kolchuga' or stype='naru' or stype='kylo' or stype='poya' or stype='sapo' or stype='shle' or stype='perc' or stype='bron' or stype='noji' or stype='mech' or stype='topo' or stype='drob' or stype='braslet' or stype='kolc' or stype='shit')
 	and (where_buy=0 or where_buy=3) 
 	and weared=0  
 	and ".$UPGR." 
@@ -82,7 +82,7 @@ if (empty($http->post) and isset($http->get["id"]) and empty($http->get["param"]
 	$v = $db->sqla("SELECT * FROM wp WHERE uidp=".UID." 
 	and dprice=0 
 	and (where_buy=0 or where_buy=3) 
-	and (stype='kolchuga' or stype='naru' or stype='kylo' or stype='poya' or stype='sapo' or stype='shle' or stype='perc' or stype='bron' or stype='noji' or stype='mech' or stype='topo' or stype='drob' or stype='brt' or stype='kolc')
+	and (stype='kolchuga' or stype='naru' or stype='kylo' or stype='poya' or stype='sapo' or stype='shle' or stype='perc' or stype='bron' or stype='noji' or stype='mech' or stype='topo' or stype='drob' or stype='braslet' or stype='kolc' or stype='shit')
 	and weared=0  
 	and ".$UPGR." 
 	and price>".MIN_PRICE." 
