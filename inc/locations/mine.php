@@ -16,7 +16,7 @@ $tu = $db->sqla("SELECT * FROM mine WHERE x=".($player->pers["minex"])." and y="
 		//$timep = 0
 	} else {
 		$timed = 240; // 240
-		$tper = 5;
+		//$tper = 5;
 		//$timep = 600
 	}	
 	$no_make=0;
