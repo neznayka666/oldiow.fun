@@ -1,5 +1,7 @@
 <SCRIPT LANGUAGE='JavaScript' SRC='/js/mine.js'></SCRIPT>
 <?php
+$test = ($player->pers["x"]*$player->pers["y"])%65500;
+echo "".$test."";
 $MINE_ID = 32;//($player->pers["x"]*$player->pers["y"])%65500;
 $tr = $db->sqla("SELECT * FROM mine WHERE x=".($player->pers["minex"]+1)." and y=".$player->pers["miney"]." and mine=".$MINE_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 $tl = $db->sqla("SELECT * FROM mine WHERE x=".($player->pers["minex"]-1)." and y=".$player->pers["miney"]." and mine=".$MINE_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
