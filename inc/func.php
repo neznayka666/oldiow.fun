@@ -106,7 +106,9 @@ function kind_stat($i)
 function _StateByIndex($a)
 {
 	if ($a=='a') return 'Глава клана';
-	if ($a=='b') return 'Заместитель главы';
+	if ($a=='wi') return 'Верховный Инквизитор';
+	if ($a=='wiz') return 'Зам. Верховного Инквизитора';
+	if ($a=='b') return 'Зам. Главы Клана';
 	if ($a=='c') return 'Советник';
 	if ($a=='d') return 'Финансовый отдел';
 	if ($a=='e') return 'Отдел кадров';
