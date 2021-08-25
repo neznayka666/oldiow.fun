@@ -48,7 +48,14 @@ if (empty($http->post) and empty($http->get["id"]))
 	echo "<p class='whiteBlock margin-5'>Информация : <i>Для улучшения вещей требуются ресурсы из шахт. Среднее усиление первой степени стоит <b>".UP_COST." зм.</b> для любой вещи. Усилять вещи можно если у вас есть хотябы 20 умения кузнец. Шанс удачного усиления пишется при выборе последней ступени усиления. При неудачном усилении возвращается половина потраченного ресурса...</i></p>";
 
 	echo "<div class='whiteBlock margin-5'><div style='text-align:center;'>Вы можете улучшать вещи ценой не более <b>".$MAX_PRICE." зм.</b> и не менее <b>".MIN_PRICE." зм.</b></div><ul><li>до 500 умения - ".MAX_PRICE." зм.</li><li>от 500 до 1000 умения - ".MAX2_PRICE." зм.</li><li>от 1000 умения - ".MAX3_PRICE." зм., а так же возможность улучшать вещь повторно!</li></ul></div>";
-	$vs = $db->sql("SELECT * FROM wp WHERE uidp=".UID." and dprice=0 and (where_buy=0 or where_buy=3) and weared=0  and ".$UPGR." and price>".MIN_PRICE." and price<=".$MAX_PRICE."");
+	$vs = $db->sql("SELECT * FROM wp WHERE uidp=".UID." 
+	and dprice=0 
+	and (type='kolchuga' or type='naruchi' or type='ojerelie' or type='poyas' or type='sapogi' or type='shlem' or type='perchatki' or type='bronya' or type='orujie' or type='braslet' or type='kolco')
+	and (where_buy=0 or where_buy=3) 
+	and weared=0  
+	and ".$UPGR." 
+	and price>".MIN_PRICE." 
+	and price<=".$MAX_PRICE."");
 	echo "<p class='padding-5'><b>Ваши вещи, доступные для улучшения:</b></p>";
 	echo "<center>";
 	
