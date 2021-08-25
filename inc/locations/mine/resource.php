@@ -1,7 +1,7 @@
 <?php
 	
 	if ($player->pers["priveleged"]>=1) {
-		$tire = 0;
+		$tire = 1;
 	} else {
 		$tire = 10;
 	}
