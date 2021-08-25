@@ -7,14 +7,16 @@ $td = $db->sqla("SELECT * FROM mine WHERE x=".($player->pers["minex"])." and y="
 $tu = $db->sqla("SELECT * FROM mine WHERE x=".($player->pers["minex"])." and y=".($player->pers["miney"]-1)." and mine=".$MINE_ID."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 
 	$t = tme();
-	//$t = "";
-	$timep = 600;
-	if ($player->pers["priveleged"]==0) {
-	$timed = 0; // 240
+	//$t = "";	
+	if ($player->pers["priveleged"]>=1) {
+		$timed = 0; // 240
+		$tper = 0;
+		$timep = 0
 	} else {
 		$timed = 240; // 240
-	}
-	$tper = 5;
+		$tper = 5;
+		$timep = 600
+	}	
 	$no_make=0;
 	/*
 	if ($t%3000==0)
