@@ -10,11 +10,13 @@ $tu = $db->sqla("SELECT * FROM mine WHERE x=".($player->pers["minex"])." and y="
 	//$t = "";
 	$timep = 600;
 	if ($player->pers["priveleged"]>=1) {
-	$timed = 0; // 240
+		$timed = 0; // 240
+		$tper = 0;
 	} else {
 		$timed = 240; // 240
+		$tper = 5;
 	}
-	$tper = 5;
+	//$tper = 5;
 	$no_make=0;
 	/*
 	if ($t%3000==0)
