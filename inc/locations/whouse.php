@@ -330,7 +330,7 @@ function set_lot()
 	if (isset($http->get['lot_id']))
 	{
 		$lot_id = intval($http->get['lot_id']);
-		$sql = 'SELECT `uidp`,`name` FROM `wp` WHERE `id`='.$lot_id;
+		$sql = 'SELECT `uidp`,`name`,`upgrated` FROM `wp` WHERE `id`='.$lot_id;
 		$res = $db->sqla_id($sql);
 		if (UID == $res[0])
 		{
