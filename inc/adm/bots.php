@@ -231,8 +231,8 @@
 		$SKIN_SEL .= '<option value="'.$SKIN["id"].'">'.$SKIN["name"].'['.$SKIN["price"].']</option>';
 	}
 		
-	echo "<a href=main.php?add=1 class=but>Добавить новую линейку ботов</a>";
-	echo "<table border=0 width=100% cellpadding=2 cellspacing=5 class='greyBlock margin-5'>";
+	echo "<a href='main.php?add=1' class='inv_but'>Добавить новую линейку ботов</a>";
+	echo "<table border='0' width='1200' cellpadding=2 cellspacing=5 class='greyBlock margin-5' style='margin: 0 auto;'>";
 	while ($bn = mysql_fetch_array($allbots_names,MYSQL_ASSOC))
 	{
 		$lvls = $db->sqla("SELECT MAX(level) as maxlvl, MIN(level) as minlvl,MAX(rank_i) as maxrank, MIN(rank_i) as minrank FROM bots WHERE user='".$bn["user"]."'");
