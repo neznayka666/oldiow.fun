@@ -99,43 +99,61 @@ function add_form(){
     <tbody>
         <tr>
             <td width="250" class="weapons_box" valign="top">
-					<b style="COLOR: 315A94;margin-left:0px;text-decoration: underline;">Оружие:</b>
                 <ul>
-                    <li><a href="#" onClick="location='main.php?act=add_form&stype=noji&set_type=form_noji'">Ножи и кинжалы</a></li>
-                    <li><a href="#" onClick="location='main.php?act=add_form&stype=mech&set_type=form_mech'">Мечи</a></li>
-                    <li><a href="#" onClick="location='main.php?act=add_form&stype=drob&set_type=form_drob'">Дубины и Булавы</a></li>
-                    <li><a href="#" onClick="location='main.php?act=add_form&stype=topo&set_type=form_topo'">Топоры и Секиры</a></li>                    
+                    <li><a href="">Ножи</a></li>
+                    <li><a href="">Ножи</a></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
                 </ul>
 
-					 <b style="COLOR: 315A94;margin-left:0px;text-decoration: underline;">Доспехи:</b>
-                <ul>
-                    <li><a href="#" onClick="location='main.php?add_form&stype=shle&set_type=form_shle'">Шлемы</a></li>
-                    <li><a href="#" onClick="location='main.php?act=add_form&stype=kolchuga&set_type=form_kolchuga'">Лёгкая броня</a></li>
-                    <li><a href="#" onClick="location='main.php?act=add_form&stype=bron&set_type=form_bron'">Тяжёлая броня</a></li>
-                    <li><a href="#" onClick="location='main.php?act=add_form&stype=naru&set_type=form_naru'">Нарукавники</a></li>
-						  <li><a href="#" onClick="location='main.php?act=add_form&stype=perc&set_type=form_perc'">Перчатки</a></li>        
-						  <li><a href="#" onClick="location='main.php?act=add_form&stype=shit&set_type=form_shit'">Щиты</a></li>        
-						  <li><a href="#" onClick="location='main.php?act=add_form&stype=poya&set_type=form_poya'">Пояса</a></li>        
-						  <li><a href="#" onClick="location='main.php?act=add_form&stype=sapo&set_type=form_sapo'">Обувь</a></li>                            
-                </ul>
-
-					 <b style="COLOR: 315A94;margin-left:0px;text-decoration: underline;">Ювелирные изделия:</b>
-                <ul>
-                    <li><a href="#" onClick="location='main.php?act=add_form&stype=braslet&set_type=form_braslet'">Браслеты</a></li>
-                    <li><a href="#" onClick="location='main.php?act=add_form&stype=kolc&set_type=form_kolc'">Кольца</a></li>
-                    <li><a href="#" onClick="location='main.php?act=add_form&stype=kylo&set_type=form_kylo'">Ожерелья</a></li>                                      
-                </ul>
-						<!--
-					  <b style="COLOR: 315A94;margin-left:0px;text-decoration: underline;">Магические предметы:</b>
-                <ul>
-                    <li><a href="#" onClick="location='main.php?act=add_form&stype=noji&set_type=form_noji'">Ножи и кинжалы</a></li>
-                    <li><a href="#" onClick="location='main.php?act=add_form&stype=mech&set_type=form_mech'">Мечи</a></li>
-                    <li><a href="#" onClick="location='main.php?act=add_form&stype=drob&set_type=form_drob'">Дубины и Булавы</a></li>
-                    <li><a href="#" onClick="location='main.php?act=add_form&stype=topo&set_type=form_topo'">Топоры и Секиры</a></li>                    
-                </ul>        
-						-->       
-                
-	<!--
+                <img title="Ножи" style="cursor: pointer;"
+                    onClick="location='main.php?act=add_form&stype=noji&set_type=form_noji'"
+                    src="http://<?php echo IMG;?>/gameplay/noz.gif">
+                <img title="Мечи" style="cursor: pointer;"
+                    onClick="location='main.php?act=add_form&stype=mech&set_type=form_mech'"
+                    src="http://<?php echo IMG;?>/gameplay/me4i.gif">
+                <img title="Дробящее" style="cursor: pointer;"
+                    onClick="location='main.php?act=add_form&stype=drob&set_type=form_drob'"
+                    src="http://<?php echo IMG;?>/gameplay/drobja6ee.gif">
+                <img title="Топоры" style="cursor: pointer;"
+                    onClick="location='main.php?act=add_form&stype=topo&set_type=form_topo'"
+                    src="http://<?php echo IMG;?>/gameplay/topory.gif">
+                <img title="Книги заклинаний" style="cursor: pointer;"
+                    onClick="location='main.php?act=add_form&stype=book&set_type=form_book'"
+                    src="http://<?php echo IMG;?>/gameplay/book.gif">
+                <img title="Щиты" style="cursor: pointer;"
+                    onClick="location='main.php?act=add_form&stype=shit&set_type=form_shit'"
+                    src="http://<?php echo IMG;?>/gameplay/6it.gif">
+                <img title="Оружие дальнего действия" style="cursor: pointer;"
+                    onClick="location='main.php?act=add_form&stype=kid&set_type=form_kid'"
+                    src="http://<?php echo IMG;?>/gameplay/metatelnoe.gif">
+                <img title="Шлемы" style="cursor: pointer;"
+                    onClick="location='main.php?act=add_form&stype=shle&set_type=form_shle'"
+                    src="http://<?php echo IMG;?>/gameplay/6lemi.gif">
+                <img title="Брони" style="cursor: pointer;"
+                    onClick="location='main.php?act=add_form&stype=bron&set_type=form_bron'"
+                    src="http://<?php echo IMG;?>/gameplay/bronja.gif">
+                <img title="Наручи" style="cursor: pointer;"
+                    onClick="location='main.php?act=add_form&stype=naru&set_type=form_naru'"
+                    src="http://<?php echo IMG;?>/gameplay/naru4i.gif">
+                <img title="Перчатки" style="cursor: pointer;"
+                    onClick="location='main.php?act=add_form&stype=perc&set_type=form_perc'"
+                    src="http://<?php echo IMG;?>/gameplay/per4atki.gif">
+                <img title="Сапоги" style="cursor: pointer;"
+                    onClick="location='main.php?act=add_form&stype=sapo&set_type=form_sapo'"
+                    src="http://<?php echo IMG;?>/gameplay/sapogi.gif">
+                <img title="Кольца" style="cursor: pointer;"
+                    onClick="location='main.php?act=add_form&stype=kolc&set_type=form_kolc'"
+                    src="http://<?php echo IMG;?>/gameplay/kolco.gif">
+                <img title="Кулоны" style="cursor: pointer;"
+                    onClick="location='main.php?act=add_form&stype=kylo&set_type=form_kylo'"
+                    src="http://<?php echo IMG;?>/gameplay/kulon.gif">
+                <img title="Пояса" style="cursor: pointer;"
+                    onClick="location='main.php?act=add_form&stype=poya&set_type=form_poya'"
+                    src="http://<?php echo IMG;?>/gameplay/pojas.gif">
 
                 <img title="Свитки нападения" style="cursor: pointer;"
                     onClick="location='main.php?act=add_form&stype=napad&set_type=form_napad'"
@@ -168,7 +186,6 @@ function add_form(){
                 <img src="http://<?php echo IMG;?>/gameplay/resources.gif" title="Ресурсы" style="cursor: pointer;"
                     onClick="location='main.php?act=add_form&stype=resources&set_type=form_resources'" width="40"
                     border="0" height="50">
--->
             </td>
             <td valign="top">
                 <?php
@@ -183,12 +200,12 @@ function add_form(){
     if (isset($filtr[1])) $stype = $filtr[1];
     else $stype = 'shit';
   }
-  $num = $db->sqlr('SELECT count(*) FROM `wp` WHERE `auction`<> 1 AND `stype`="'.$stype.'" AND in_bank=0 AND art=0 AND clan_sign=\'\' AND dprice=0 AND `uidp`='.UID);
+  $num = $db->sqlr('SELECT count(*) FROM `wp` WHERE `auction`<> 1 AND `stype`="'.$stype.'" AND in_bank=0 AND clan_sign=\'\' AND`uidp`='.UID);
   if ($num < 1) show_err('У вас нет предметов этого типа','e');
   else
   {
     echo '<table width="100%" cellspacing="5" cellpadding="5" >';
-    $sql = $db->sql('SELECT * FROM `wp` WHERE `uidp`= '.UID.' AND `stype`="'.$stype.'" AND dprice=0 AND art=0 AND weared=0 AND `auction` <> 1');
+    $sql = $db->sql('SELECT * FROM `wp` WHERE `uidp`= '.UID.' AND `stype`="'.$stype.'" AND weared=0 AND `auction` <> 1');
     while ($res = mysql_fetch_array($sql)){
       echo '<tr><td class="weapons_box" valign="top">';
       $vesh = $res;
