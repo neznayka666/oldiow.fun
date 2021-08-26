@@ -28,61 +28,61 @@ function show_w (name,sht,type,img,upgrated,upgratedRune,d,m_d,cena,pric,dprice,
 // определяем размер картинки взависимости от типа предмета
 switch (type) {
 case "orujie":
-   h = 80, w = 60;
+   hi = 80, wi = 60;
    break; 
 case "ojerelie":
-   h = 20, w = 60;
+   hi = 20, wi = 60;
    break;
 case "poyas":
-   h = 40, w = 60;
+   hi = 40, wi = 60;
    break;
 case "naruchi":
-   h = 40, w = 60;
+   hi = 40, wi = 60;
    break;
 case "perchatki":
-   h = 40, w = 60;
+   hi = 40, wi = 60;
    break;
 case "kolco":
-   h = 20, w = 20;
+   hi = 20, wi = 20;
    break;
 case "kolchuga":
-   h = 80, w = 60;
+   hi = 80, wi = 60;
    break;
 case "bronya":
-   h = 80, w = 60;
+   hi = 80, wi = 60;
    break;
 case "braslet":
-   h = 20, w = 30;
+   hi = 20, wi = 30;
    break;
 case "sapogi":
-   h = 40, w = 60;
+   hi = 40, wi = 60;
    break;
 case "resources":
-   h = 60, w = 60;
+   hi = 60, wi = 60;
    break;
 case "resources_forest":
-   h = 60, w = 60;
+   hi = 60, wi = 60;
    break;
 case "rune":
-   h = 60, w = 60;
+   hi = 60, wi = 60;
    break;
 case "zakl":
-   h = 30, w = 44;
+   hi = 30, wi = 44;
    break;
 case "napad":
-   h = 30, w = 44;
+   hi = 30, wi = 44;
    break;	
 case "teleport":
-   h = 30, w = 44;
+   hi = 30, wi = 44;
    break;	
 case "kam":
-   h = 40, w = 40;
+   hi = 40, wi = 40;
    break;										 
 case "shlem":
-    h = 60, w = 60;
+   hi = 60, wi = 60;
 }	
 
-text += (`<div style="position: relative;width:${w};height:${h};">`);
+text += (`<div style="position: relative;width:${wi};height:${hi};">`);
 text += (`<img src="/images/weapons/${img}.gif">`);
 
 if ((slots!=0) || (upgratedRune!=0)) { 
