@@ -283,7 +283,18 @@ echo '<div align="center">';
             $sql = $db->sql('INSERT INTO `auction` VALUES('.$lot_id.','.$time.','.$price.','.UID.','.UID.',"'.$res['stype'].'","'.$player->pers["user"].'","'.$res['name'].'","")');
             $sql = $db->sql('UPDATE `users` SET `money`='.$money.' WHERE `uid`='.UID);
             show_err('Лот добавлен на аукцион '.$player->pers["user"].'','n');
-            say_to_chat ("s","Вы удачно выставили на аукцион <b>".$res["name"]."</b>. Стартовая цена лота: <b>".$price."</b> зм. Торги окончатся: <b>".date("d.m.Y H:i",$time)."</b>",1,$player->pers["user"],'*',0);
+						switch ($res["upgrated"])){	
+						case '0':
+							$name = "<b>".$res["name"]."</b>";
+						break;
+						case '1':
+							$name = "<b style='color:green;'>".$res["name"]." [МФ]</b>";
+						break;
+						case '2':
+							$name = "<b style='color:#9900CC;'>".$res["name"]." [МФ]</b>";
+						break;
+					}
+            say_to_chat ("s","Вы удачно выставили на аукцион <b>".$name."</b>. Стартовая цена лота: <b>".$price."</b> зм. Торги окончатся: <b>".date("d.m.Y H:i",$time)."</b>",1,$player->pers["user"],'*',0);
           }else{
             show_err('У вас недостаточно денег для выставления лота','e');
             say_to_chat ("s","У вас недостаточно денег для выставления лота",1,$player->pers["user"],'*',0);
