@@ -183,7 +183,7 @@ function add_form(){
     if (isset($filtr[1])) $stype = $filtr[1];
     else $stype = 'shit';
   }
-  $num = $db->sqlr('SELECT count(*) FROM `wp` WHERE `auction`<> 1 AND `stype`="'.$stype.'" AND in_bank=0 AND art=0 AND clan_sign=\'\' AND dprice=0 AND`uidp`='.UID);
+  $num = $db->sqlr('SELECT count(*) FROM `wp` WHERE `auction`<> 1 AND `stype`="'.$stype.'" AND in_bank=0 AND art=0 AND clan_sign=\'\' AND dprice=0 AND `uidp`='.UID);
   if ($num < 1) show_err('У вас нет предметов этого типа','e');
   else
   {
