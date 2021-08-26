@@ -1,4 +1,4 @@
-<?
+<?php
 	include("inc/balance.php");
 				
 	echo '<script type="text/javascript" src="/js/admin_script/adm_bots.js?3"></script>';
@@ -46,7 +46,7 @@
 	if ( $http->_get("added") and $http->_post("balance")!=1 )
 	{
 		$p = $_POST;
-		$koef = 1.5;
+		$koef = 1.3;
 		$s1 = floor($p["s1"]*$koef);
 		$s2 = floor($p["s2"]*$koef);
 		$s3 = floor($p["s3"]*$koef);
@@ -81,7 +81,7 @@
 
 				echo "<br><font class=user>".$p["user"]."</font>[<font class=lvl>".$i."</font>]<img src=//".IMG."/info.gif onclick=\"javascript:window.open('binfo.php?".($botlastid+$i-intval($p["minlvl"]))."','_blank')\" style=\"cursor:point\">";
 			}
-			$koef = 2.5 + $i*$p["power"]/100;
+			$koef = 2.1 + $i*$p["power"]/100;
 			$s1 = floor($p["s1"]*$koef);
 			$s2 = floor($p["s2"]*$koef);
 			$s3 = floor($p["s3"]*$koef);
