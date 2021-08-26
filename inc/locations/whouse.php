@@ -93,6 +93,7 @@ function menu(){
 }
 
 function add_form(){
+	echo $money."".$usrm['money'];
 ?>
 
 <table id="table1" border="0" cellpadding="5" cellspacing="5" style="margin:0 auto;width:100%;max-width:1200px;">
