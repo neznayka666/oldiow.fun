@@ -99,14 +99,31 @@ function add_form(){
     <tbody>
         <tr>
             <td width="250" class="weapons_box" valign="top">
+                <b style="COLOR: 315A94;margin-left:0px;text-decoration: underline;">Оружие:</b>
                 <ul>
-                    <li><a href="">Ножи</a></li>
-                    <li><a href="">Ножи</a></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li><a href="#" onClick="location='main.php?act=add_form&stype=noji&set_type=form_noji'">Ножи и кинжалы</a></li>
+                    <li><a href="#" onClick="location='main.php?act=add_form&stype=mech&set_type=form_mech'">Мечи</a></li>
+                    <li><a href="#" onClick="location='main.php?act=add_form&stype=drob&set_type=form_drob'">Дубины и Булавы</a></li>
+                    <li><a href="#" onClick="location='main.php?act=add_form&stype=topo&set_type=form_topo'">Топоры и Секиры</a></li>                    
+                </ul>
+
+					 <b style="COLOR: 315A94;margin-left:0px;text-decoration: underline;">Доспехи:</b>
+                <ul>
+                    <li><a href="#" onClick="location='main.php?add_form&stype=shle&set_type=form_shle'">Шлемы</a></li>
+                    <li><a href="#" onClick="location='main.php?act=add_form&stype=kolchuga&set_type=form_kolchuga'">Лёгкая броня</a></li>
+                    <li><a href="#" onClick="location='main.php?act=add_form&stype=bron&set_type=form_bron'">Тяжёлая броня</a></li>
+                    <li><a href="#" onClick="location='main.php?act=add_form&stype=naru&set_type=form_naru'">Нарукавники</a></li>
+						  <li><a href="#" onClick="location='main.php?act=add_form&stype=perc&set_type=form_perc'">Перчатки</a></li>        
+						  <li><a href="#" onClick="location='main.php?act=add_form&stype=shit&set_type=form_shit'">Щиты</a></li>        
+						  <li><a href="#" onClick="location='main.php?act=add_form&stype=poya&set_type=form_poya'">Пояса</a></li>        
+						  <li><a href="#" onClick="location='main.php?act=add_form&stype=sapo&set_type=form_sapo'">Обувь</a></li>                            
+                </ul>
+
+					 <b style="COLOR: 315A94;margin-left:0px;text-decoration: underline;">Ювелирные изделия:</b>
+                <ul>
+                    <li><a href="#" onClick="location='main.php?act=add_form&stype=braslet&set_type=form_braslet'">Браслеты</a></li>
+                    <li><a href="#" onClick="location='main.php?act=add_form&stype=kolc&set_type=form_kolc'">Кольца</a></li>
+                    <li><a href="#" onClick="location='main.php?act=add_form&stype=kylo&set_type=form_kylo'">Ожерелья</a></li>                                      
                 </ul>
 
                 <img title="Ножи" style="cursor: pointer;"
