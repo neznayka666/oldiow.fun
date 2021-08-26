@@ -241,7 +241,7 @@ function add_lot()
 echo '<div align="center">';
   if (isset($http->get['lot_id'])){
     $lot_id = intval($http->get['lot_id']);
-    $sql = 'SELECT `uidp`,`stype`,`name` FROM `wp` WHERE `id`='.$lot_id." AND in_bank=0 AND clan_sign='' AND uidp=".UID;
+    $sql = 'SELECT `uidp`,`stype`,`name`,`upgrated` FROM `wp` WHERE `id`='.$lot_id." AND in_bank=0 AND clan_sign='' AND uidp=".UID;
     $res = $db->sqla($sql);
     if (UID == $res['uidp']){
       switch (intval($http->post['time'])){
