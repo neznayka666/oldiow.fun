@@ -283,7 +283,8 @@ echo '<div align="center">';
             $sql = $db->sql('INSERT INTO `auction` VALUES('.$lot_id.','.$time.','.$price.','.UID.','.UID.',"'.$res['stype'].'","'.$player->pers["user"].'","'.$res['name'].'","")');
             $sql = $db->sql('UPDATE `users` SET `money`='.$money.' WHERE `uid`='.UID);
             show_err('Лот добавлен на аукцион '.$player->pers["user"].'','n');
-						switch ($res["upgrated"])){	
+				/*		
+				switch ($res["upgrated"])){	
 						case '0':
 							$name_item = "<b>".$res["name"]."</b>";
 						break;
@@ -294,6 +295,7 @@ echo '<div align="center">';
 							$name_item = "<b style='color:#9900CC;'>".$res["name"]." [МФ]</b>";
 						break;
 					}
+					*/
             say_to_chat ("s","Вы удачно выставили на аукцион <b>".$name_item."</b>. Стартовая цена лота: <b>".$price."</b> зм. Торги окончатся: <b>".date("d.m.Y H:i",$time)."</b>",1,$player->pers["user"],'*',0);
           }else{
             show_err('У вас недостаточно денег для выставления лота','e');
