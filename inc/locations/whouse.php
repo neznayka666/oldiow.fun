@@ -126,7 +126,7 @@ function add_form(){
                     <li><a href="#" onClick="location='main.php?act=add_form&stype=kylo&set_type=form_kylo'">Ожерелья</a></li>                                      
                 </ul>
 
-                <img title="Ножи" style="cursor: pointer;"
+                <!--img title="Ножи" style="cursor: pointer;"
                     onClick="location='main.php?act=add_form&stype=noji&set_type=form_noji'"
                     src="http://<?php echo IMG;?>/gameplay/noz.gif">
                 <img title="Мечи" style="cursor: pointer;"
@@ -202,7 +202,7 @@ function add_form(){
                     border="0" height="50">
                 <img src="http://<?php echo IMG;?>/gameplay/resources.gif" title="Ресурсы" style="cursor: pointer;"
                     onClick="location='main.php?act=add_form&stype=resources&set_type=form_resources'" width="40"
-                    border="0" height="50">
+                    border="0" height="50"-->
             </td>
             <td valign="top">
                 <?php
