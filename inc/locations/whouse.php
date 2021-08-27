@@ -298,7 +298,7 @@ echo '<div align="center">';
 					say_to_chat ("s","Вы удачно выставили на аукцион <b style='color:#9900CC;'>".$res["name"]." [МФ]</b>. Стартовая цена лота: <b>".$price."</b> зм. Торги окончатся: <b>".date("d.m.Y H:i",$time)."</b>",1,$player->pers["user"],'*',0);
 				}
 					
-            say_to_chat ("s","Вы удачно выставили на аукцион <b>".$name_item."</b>. Стартовая цена лота: <b>".$price."</b> зм. Торги окончатся: <b>".date("d.m.Y H:i",$time)."</b>",1,$player->pers["user"],'*',0);
+            say_to_chat ("s","Вы удачно выставили на аукцион <b>".$name_item." ".$res["upgrated"]."</b>. Стартовая цена лота: <b>".$price."</b> зм. Торги окончатся: <b>".date("d.m.Y H:i",$time)."</b>",1,$player->pers["user"],'*',0);
           }else{
             show_err('У вас недостаточно денег для выставления лота','e');
             say_to_chat ("s","У вас недостаточно денег для выставления лота",1,$player->pers["user"],'*',0);
