@@ -93,7 +93,7 @@ function menu(){
 }
 
 function add_form(){
-	echo $money."".$usrm['money'];
+	
 ?>
 
 <table id="table1" border="0" cellpadding="5" cellspacing="5" style="margin:0 auto;width:100%;max-width:1200px;">
@@ -285,20 +285,18 @@ echo '<div align="center">';
             $sql = $db->sql('UPDATE `users` SET `money`='.$money.' WHERE `uid`='.UID);
             show_err('Лот добавлен на аукцион '.$player->pers["user"].'','n');
 						
-				switch ($res["upgrated"]){	
-						case '0':
-							$name_item = "<b>".$res["name"]."</b>";
-							//say_to_chat ("s","Вы удачно выставили на аукцион <b>".$res["name"]."</b>. Стартовая цена лота: <b>".$price."</b> зм. Торги окончатся: <b>".date("d.m.Y H:i",$time)."</b>",1,$player->pers["user"],'*',0);
-						break;
-						case '1':
-							$name_item = "<b style='color:green;'>".$res["name"]." [МФ]</b>";
-							//say_to_chat ("s","Вы удачно выставили на аукцион <b style='color:green;'>".$res["name"]." [МФ]</b>. Стартовая цена лота: <b>".$price."</b> зм. Торги окончатся: <b>".date("d.m.Y H:i",$time)."</b>",1,$player->pers["user"],'*',0);
-						break;
-						case '2':
-							$name_item = "<b style='color:#9900CC;'>".$res["name"]." [МФ]</b>";
-							//say_to_chat ("s","Вы удачно выставили на аукцион <b style='color:#9900CC;'>".$res["name"]." [МФ]</b>. Стартовая цена лота: <b>".$price."</b> зм. Торги окончатся: <b>".date("d.m.Y H:i",$time)."</b>",1,$player->pers["user"],'*',0);
-						break;
-					}
+				if ($res["upgrated"]==0){					
+					$name_item = "<b>".$res["name"]."</b>";
+					//say_to_chat ("s","Вы удачно выставили на аукцион <b>".$res["name"]."</b>. Стартовая цена лота: <b>".$price."</b> зм. Торги окончатся: <b>".date("d.m.Y H:i",$time)."</b>",1,$player->pers["user"],'*',0);
+				}
+				if ($res["upgrated"]==1){
+					$name_item = "<b style='color:green;'>".$res["name"]." [МФ]</b>";
+					//say_to_chat ("s","Вы удачно выставили на аукцион <b style='color:green;'>".$res["name"]." [МФ]</b>. Стартовая цена лота: <b>".$price."</b> зм. Торги окончатся: <b>".date("d.m.Y H:i",$time)."</b>",1,$player->pers["user"],'*',0);
+				}
+				if ($res["upgrated"]==2){
+					$name_item = "<b style='color:#9900CC;'>".$res["name"]." [МФ]</b>";
+					//say_to_chat ("s","Вы удачно выставили на аукцион <b style='color:#9900CC;'>".$res["name"]." [МФ]</b>. Стартовая цена лота: <b>".$price."</b> зм. Торги окончатся: <b>".date("d.m.Y H:i",$time)."</b>",1,$player->pers["user"],'*',0);
+				}
 					
             say_to_chat ("s","Вы удачно выставили на аукцион <b>".$name_item."</b>. Стартовая цена лота: <b>".$price."</b> зм. Торги окончатся: <b>".date("d.m.Y H:i",$time)."</b>",1,$player->pers["user"],'*',0);
           }else{
