@@ -287,15 +287,15 @@ echo '<div align="center">';
 						
 				if ($res["upgrated"]==0){					
 					$name_item = "<b>".$res["name"]."</b>";
-					//say_to_chat ("s","Вы удачно выставили на аукцион <b>".$res["name"]."</b>. Стартовая цена лота: <b>".$price."</b> зм. Торги окончатся: <b>".date("d.m.Y H:i",$time)."</b>",1,$player->pers["user"],'*',0);
+					say_to_chat ("s","Вы удачно выставили на аукцион <b>".$res["name"]."</b>. Стартовая цена лота: <b>".$price."</b> зм. Торги окончатся: <b>".date("d.m.Y H:i",$time)."</b>",1,$player->pers["user"],'*',0);
 				}
 				if ($res["upgrated"]==1){
 					$name_item = "<b style='color:green;'>".$res["name"]." [МФ]</b>";
-					//say_to_chat ("s","Вы удачно выставили на аукцион <b style='color:green;'>".$res["name"]." [МФ]</b>. Стартовая цена лота: <b>".$price."</b> зм. Торги окончатся: <b>".date("d.m.Y H:i",$time)."</b>",1,$player->pers["user"],'*',0);
+					say_to_chat ("s","Вы удачно выставили на аукцион <b style='color:green;'>".$res["name"]." [МФ]</b>. Стартовая цена лота: <b>".$price."</b> зм. Торги окончатся: <b>".date("d.m.Y H:i",$time)."</b>",1,$player->pers["user"],'*',0);
 				}
 				if ($res["upgrated"]==2){
 					$name_item = "<b style='color:#9900CC;'>".$res["name"]." [МФ]</b>";
-					//say_to_chat ("s","Вы удачно выставили на аукцион <b style='color:#9900CC;'>".$res["name"]." [МФ]</b>. Стартовая цена лота: <b>".$price."</b> зм. Торги окончатся: <b>".date("d.m.Y H:i",$time)."</b>",1,$player->pers["user"],'*',0);
+					say_to_chat ("s","Вы удачно выставили на аукцион <b style='color:#9900CC;'>".$res["name"]." [МФ]</b>. Стартовая цена лота: <b>".$price."</b> зм. Торги окончатся: <b>".date("d.m.Y H:i",$time)."</b>",1,$player->pers["user"],'*',0);
 				}
 					
             say_to_chat ("s","Вы удачно выставили на аукцион <b>".$name_item."</b>. Стартовая цена лота: <b>".$price."</b> зм. Торги окончатся: <b>".date("d.m.Y H:i",$time)."</b>",1,$player->pers["user"],'*',0);
