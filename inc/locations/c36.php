@@ -1,8 +1,8 @@
 <link rel="stylesheet" type="text/css" href="main.css" />
 <center>
 <h2><?
-if ($pers['sign']<>$pers['location']) { sql("UPDATE users SET location='out' WHERE uid=".$pers["uid"]); die('<b><center>Это не ваш замок</b></center>'); echo "<script>location.href='main.php'</script>"; }
-echo"Здравствуйте ".$pers["user"].". Вы находитесть в клан замке.";?></h2>
+if ($pers['sign']<>$pers['location']) { sql("UPDATE users SET location='out' WHERE uid=".$pers["uid"]); die('<b><center>Р­С‚Рѕ РЅРµ РІР°С€ Р·Р°РјРѕРє</b></center>'); echo "<script>location.href='main.php'</script>"; }
+echo"Р—РґСЂР°РІСЃС‚РІСѓР№С‚Рµ ".$pers["user"].". Р’С‹ РЅР°С…РѕРґРёС‚РµСЃС‚СЊ РІ РєР»Р°РЅ Р·Р°РјРєРµ.";?></h2>
 </center>
 <center>
 <img src="images/locations/kz.jpg">
@@ -26,13 +26,13 @@ echo"
               <script>healthy(".($pers["hp"]>=10).");</script>";
               }else{ 
 			 echo'<form method="post" action=""><center>
-              <input name="healthy" class="laar" type="submit" " value="Востановить HP и MP" title="Чтобы восстоновить нажмите на кнопку"  />
+              <input name="healthy" class="laar" type="submit" " value="Р’РѕСЃСЃС‚Р°РЅРѕРІРёС‚СЊ HP Рё MP" title="Р§С‚РѕР±С‹ РІРѕСЃСЃС‚Р°РЅРѕРІРёС‚СЊ РЅР°Р¶РјРёС‚Рµ РЅР° РєРЅРѕРїРєСѓ"  />
               </form></center>';}
 echo"<br>
-<marquee scrollamount=2 scrolldelay=14><i>Возможности клана будут тестироваться и дорабатываться (by Миросоздатель...).</i></marquee></div></center>
+<marquee scrollamount=2 scrolldelay=14><i>Р’РѕР·РјРѕР¶РЅРѕСЃС‚Рё РєР»Р°РЅР° Р±СѓРґСѓС‚ С‚РµСЃС‚РёСЂРѕРІР°С‚СЊСЃСЏ Рё РґРѕСЂР°Р±Р°С‚С‹РІР°С‚СЊСЃСЏ (by РњРёСЂРѕСЃРѕР·РґР°С‚РµР»СЊ...).</i></marquee></div></center>
 
-<center><div class=but style='width:300px;'><i>Персонажей в клане</i> : <b>".$allpers."</b><br>
-<i>Персонажей онлайн</i> : <b>".$online."</b><br>";
+<center><div class=but style='width:300px;'><i>РџРµСЂСЃРѕРЅР°Р¶РµР№ РІ РєР»Р°РЅРµ</i> : <b>".$allpers."</b><br>
+<i>РџРµСЂСЃРѕРЅР°Р¶РµР№ РѕРЅР»Р°Р№РЅ</i> : <b>".$online."</b><br>";
 
 
 ?>
