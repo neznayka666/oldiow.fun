@@ -109,9 +109,9 @@ img {
 }
 </STYLE>
 </head>
-<body>
+<body LEFTMARGIN=0 TOPMARGIN=0>
 
-<div class="main" style="margin:0 auto;">
+<div class="main" style="margin:0 auto;" >
 
 <TABLE WIDTH=1024 CELLSPACING=0 CELLPADDING=0 >
 <TR HEIGHT=118>
