@@ -1,358 +1,260 @@
-<?php
-define('MICROLOAD', true);
-// Р—Р°РіСЂСѓР¶Р°РµРј С„Р°Р№Р» РєРѕРЅС„РёРіР°, Р’РђР–РќР«Р™.
-include ($_SERVER['DOCUMENT_ROOT'].'/configs/config.php');
-// РџРѕРґРєР»СЋС‡Р°РµРјСЃСЏ Рє SQL Р±Р°Р·Рµ
-$db = new MySQL(SQL_USER, SQL_PASS, SQL_BASE);
-############################## 
-
-
-	$rid = !empty($_SERVER['QUERY_STRING']) ? abs(intval($_SERVER['QUERY_STRING'])) : false;
-	if ( $rid != false ) setcookie('RefererReg', $rid, time()+3600);
-	
-	
-	// РЈСЃС‚Р°РЅРѕРІРёРј РґР»СЏ СЂСѓСЃСЃРєРѕР№ РґР°С‚С‹.. РЅРµ РІРµР·РґРµ Р±СѓРґРµС‚ СЂР°Р±РѕС‚Р°С‚СЊ.. Р»РµРІСѓСЋ С„СѓРЅРєС†РёСЋ Р»РµРЅСЊ РІСЃС‚Р°РІР»СЏС‚СЊ.. РµСЃР»Рё С‡С‚Рѕ РјРѕР¶РЅРѕ СѓРґР°Р»РёС‚СЊ
-	//setlocale(LC_ALL, 'ru_RU.CP1251');
-	
-	
-?>
-
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <TITLE>РРЅСЃС‚РёРЅРєС‚С‹ Р’РѕРёРЅР°: Р’РѕР·СЂРѕР¶РґРµРЅРёРµ - РњРЅРѕРіРѕРїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєР°СЏ СЂРѕР»РµРІР°СЏ РѕРЅР»Р°Р№РЅ РёРіСЂС‹, mmorpg, С„СЌРЅС‚РµР·Рё, Р±РѕРё, РєРІРµСЃС‚С‹,
-        Р·Р°РґР°РЅРёСЏ
-    </TITLE>
-    <STYLE>
-    body,
-    td,
-    ol,
-    ul,
-    li {
-        FONT-SIZE: 10pt;
-        FONT-FAMILY: Verdana, Arial, Helvetica, Tahoma, sans-serif;
-    }
-
-    .MainInput {
-        FONT-SIZE: 8pt;
-        COLOR: #FBFA97;
-        BACKGROUND-COLOR: #351517;
-        WIDTH: 80px;
-        HEIGHT: 15px;
-        BORDER-TOP: 1px;
-        BORDER-LEFT: 1px;
-        BORDER-TOP-COLOR: #EACC7E;
-        BORDER-BOTTOM-COLOR: #EACC7E;
-        BORDER-LEFT-COLOR: #EACC7E;
-        BORDER-RIGHT-COLOR: #EACC7E;
-        BORDER-STYLE: Outset;
-        FONT-FAMILY: Tahoma;
-        TEXT-ALIGN: Center;
-    }
-
-    A:link,
-    A:visited,
-    A:active {
-        COLOR: #4D1B1F;
-        TEXT-DECORATION: None;
-    }
-
-    A:hover {
-        COLOR: #86252E;
-        TEXT-DECORATION: None;
-    }
-
-    img {
-        border: 0px;
-    }
-    </STYLE>
-    <script type="text/javascript" src="./js/mod/jquery.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $('div.modal').click(function() {
-            var modalid = $(this).attr('rel');
-            $('#' + modalid).fadeIn(600);
-            $('#fadebody').fadeIn(600);
-            var topm = ($('#' + modalid).height() + 10) / 2;
-            var leftm = ($('#' + modalid).width() + 10) / 2;
-            $('#' + modalid).css({
-                'margin-top': -topm,
-                'margin-left': -leftm
-            });
-            $('#fadebody, .close').click(function() {
-                $('#fadebody , .modalbox').fadeOut(600)
-                return false;
-            });
-        });
-
-        $("#form_show").click(function() {
-            url_open = 'reg.php';
-            viewwin = open(url_open, "regWindow",
-                "width=455, height=300, status=yes, toolbar=no, menubar=no, resizable=no, scrollbars=no"
-            );
-            return false;
-        });
-    });
-
-    function jgetForm() {
-        if ($('#user').val() == '') {
-            $('#user').focus();
-            return;
-        }
-        if ($('#pass').val() == '') {
-            $('#pass').focus();
-            return;
-        }
-        var obj = document.getElementById('goGame');
-        obj.setAttribute("action", "/game.php?");
-        obj.setAttribute("method", "post");
-        obj.submit();
-    }
-    </script>
-</head>
-
-<BODY BGCOLOR='#000000' LEFTMARGIN=0 TOPMARGIN=0>
-
-    <CENTER>
-
-        <TABLE WIDTH=1024 CELLSPACING=0 CELLPADDING=0>
-            <TR HEIGHT=118>
-                <TD WIDTH=256><IMG SRC='images/index_page/top_1_1.gif'></TD>
-                <TD WIDTH=256><IMG SRC='images/index_page/top_1_2.gif'></TD>
-                <TD WIDTH=256><IMG SRC='images/index_page/top_1_3.gif'></TD>
-                <TD WIDTH=256><IMG SRC='images/index_page/top_1_4.gif'></TD>
-            </TR>
-            <TR HEIGHT=119>
-                <TD WIDTH=256><IMG SRC='images/index_page/top_2_1.gif'></TD>
-                <TD WIDTH=256><IMG SRC='images/index_page/top_2_2.gif'></TD>
-                <TD WIDTH=256><IMG SRC='images/index_page/top_2_3.gif'></TD>
-                <TD WIDTH=256><IMG SRC='images/index_page/top_2_4.gif'></TD>
-            </TR>
-        </TABLE>
-
-        <DIV STYLE="POSITION: Relative; margin-top: -119px;">
-
-            <TABLE WIDTH=1024 CELLSPACING=0 CELLPADDING=0 BORDER=0>
-                <TR HEIGHT=118>
-                    <TD ALIGN=LEFT VALIGN=BOTTOM WIDTH=397><IMG SRC='images/index_page/0.gif' WIDTH=1 HEIGHT=1>
-                        <IMG SRC='images/index_page/0.gif' WIDTH=120 HEIGHT=1><IMG
-                            SRC='images/index_page/label_lib.png'>
-                    </TD>
-                    <TD WIDTH=230><SPAN></SPAN></TD>
-                    <TD ALIGN=RIGHT VALIGN=BOTTOM WIDTH=397><IMG SRC='images/index_page/0.gif' WIDTH=1 HEIGHT=1>
-                        <IMG SRC='images/index_page/label_forum.png' ALT='РћС‚РєСЂС‹С‚СЊ С„РѕСЂСѓРј РІ РЅРѕРІРѕРј РѕРєРЅРµ'><IMG
-                            SRC='images/index_page/0.gif' WIDTH=120 HEIGHT=1>
-                    </TD>
-                </TR>
-            </TABLE>
-
-        </DIV>
-
-
-
-        <TABLE WIDTH=1024 CELLSPACING=0 CELLPADDING=0 BORDER=0>
-            <TR HEIGHT=100%>
-                <TD WIDTH=297 HEIGHT=100% VALIGN=TOP BACKGROUND='images/index_page/menu_line.gif'>
-                    <TABLE WIDTH=297 HEIGHT=100% CELLSPACING=0 CELLPADDING=0 BORDER=0>
-                        <TR>
-                            <TD HEIGHT=290 BACKGROUND='images/index_page/login_form.gif' VALIGN=TOP ALIGN=RIGHT
-                                HEIGHT=100%>
-
-                                <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=190>
-                                    <FORM ACTION='../../game.php' METHOD=POST>
-                                        <TR>
-                                            <TD ALIGN=CENTER>
-                                                <IMG SRC='images/index_page/0.gif' WIDTH=1 HEIGHT=25><BR>
-                                                <A HREF='#' onClick="jgetForm();" id="enter1"><IMG
-                                                        SRC='images/index_page/label_register.png'
-                                                        ALT='Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ РЅРѕРІРѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р°'></A><BR>
-
-                                                <A HREF='#'><IMG SRC='images/index_page/label_forgot.png'></A>
-
-                                                <BR><IMG SRC='images/index_page/0.gif' WIDTH=1 HEIGHT=7>
-                                                <TABLE BORDER=0 WIDTH=150 CELLSPACING=0 CELLPADDING=0>
-                                                    <TR>
-                                                        <TD WIDTH=57 VALIGN=CENTER><IMG
-                                                                SRC='images/index_page/label_login.png'></TD>
-                                                        <TD VALIGN=TOP><INPUT TYPE=TEXT Class='MainInput' name="user"
-                                                                id="user"><BR><IMG SRC='images/index_page/0.gif' WIDTH=1
-                                                                HEIGHT=1></TD>
-                                                    </TR>
-                                                    <TR>
-                                                        <TD COLSPAN=2 HEIGHT=6><SPAN></SPAN></TD>
-                                                    </TR>
-                                                    <TR>
-                                                        <TD WIDTH=57 VALIGN=CENTER><IMG
-                                                                SRC='images/index_page/label_password.png'></TD>
-                                                        <TD VALIGN=TOP><INPUT TYPE=PASSWORD Class='MainInput'
-                                                                name="password" id="pass"><BR><IMG
-                                                                SRC='images/index_page/0.gif' WIDTH=1 HEIGHT=1></TD>
-                                                    </TR>
-                                                </TABLE>
-
-                                                <BR>
-
-                                                <DIV ALIGN=LEFT>
-                                                    <IMG SRC='images/index_page/0.gif' WIDTH=20 HEIGHT=1><INPUT
-                                                        id="login_pop" TYPE=IMAGE
-                                                        SRC='images/index_page/label_enter.png'
-                                                        ALT='РџСЂРѕР№С‚Рё Р°РІС‚РѕСЂРёР·Р°С†РёСЋ'>
-                                                </DIV>
-
-
-                                            </TD>
-                                            <TD WIDTH=20><SPAN></SPAN></TD>
-                                        </TR>
-                                    </FORM>
-                                </TABLE>
-
-                            </TD>
-                        </TR>
-                        <TR HEIGHT=100%>
-                            <TD HEIGHT=100% BACKGROUND='images/index_page/menu_line.gif' ALIGN=RIGHT VALIGN=TOP>
-                                <!-- Menu Content -->
-
-
-
-                                <TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=190 HEIGHT=100%>
-                                    <TR>
-                                        <TD ALIGN=CENTER VALIGN=BOTTOM>
-
-                                        </TD>
-                                        <TD WIDTH=20><SPAN></SPAN></TD>
-                                    </TR>
-                                </TABLE>
-
-
-
-                                <!-- End Of -->
-                            </TD>
-                        </TR>
-                    </TABLE>
-
-                </TD>
-                <TD WIDTH=727 VALIGN=TOP HEIGHT=100% BACKGROUND='images/index_page/content_line.gif'>
-                    <TABLE WIDTH=727 HEIGHT=100% CELLSPACING=0 CELLPADDING=0 BORDER=0>
-                        <TR>
-                            <TD HEIGHT=97 BACKGROUND='images/index_page/content_top.gif' ALIGN=LEFT VALIGN=TOP>
-
-                                <TABLE WIDTH=625 HEIGHT=100% BORDER=0 CELLSPACING=0 CELLPADDING=0>
-                                    <TR>
-                                        <TD VALIGN=BOTTOM ALIGN=LEFT>
-                                            <!--IMG SRC='images/index_page/text.png'><DIV ALIGN=Right><SMALL><A HREF=''>Р§РёС‚Р°С‚СЊ РґР°Р»РµРµ &raquo;</A></SMALL></DIV--><BR><IMG
-                                                SRC='images/index_page/0.gif' WIDTH=1 HEIGHT=1>
-                                        </TD>
-                                        <TD WIDTH=240 ALIGN=RIGHT VALIGN=TOP>
-                                            <IMG SRC='images/index_page/0.gif' HEIGHT=22>
-
-                                            <TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0 HEIGHT=37>
-                                                <TR>
-                                                    <TD ROWSPAN=3 WIDTH=60 ALIGN=LEFT>
-                                                        <!--IMG SRC='images/index_page/online.png'-->
-                                                    </TD>
-                                                </TR>
-                                                <TR>
-                                                    <TD WIDTH=150 ALIGN=CENTER><IMG
-                                                            SRC='images/index_page/label_online.png'></TD>
-                                                </TR>
-                                                <TR>
-                                                    <TD ALIGN=CENTER><B>
-                                                            33
-                                                        </B> С‡РµР».</TD>
-                                                </TR>
-                                            </TABLE>
-                                        </TD>
-                                    </TR>
-                                </TABLE>
-
-
-                            </TD>
-                        </TR>
-                        <TR HEIGHT=100%>
-                            <TD BACKGROUND='images/index_page/content_line.gif' VALIGN=TOP HEIGHT=100% ALIGN=LEFT>
-
-                                <?php
-$news = $db->sql('SELECT * FROM `lib_news` ORDER BY `date` DESC LIMIT 0, 5;');
-while ( $n = mysql_fetch_assoc($news) )
+<?
+session_start();
+if ($_GET["act"]=="exit")
 {
-	echo '			<div class="news-one">
-				<div class="date">
-					<p class="days">'.date('d', $n['date']).'</p>
-					<div class="ri"><p class="month">'.date('M', $n['date']).'</p><p class="year">'.date('Y', $n['date']).'</p></div>					
-				</div>
-				<div class="title">'.$n['title'].'</div>
-				<div class="clear"></div>
-				<div class="news-cont">'.nl2br($n['text']).'</div>
-				<div class="bottom-line">
-					<div class="publish">
-						РћРїСѓР±Р»РёРєРѕРІР°Р»: <a href="/info.php?'.$n['autor'].'" target="_blank">'.$n['autor'].'</a>
-					</div>
-					<div class="comments">
-						
-					</div>
-					<a href="?act=1&subact='.$n['id'].'" class="more" target="_blank"></a>
-				</div>
-			</div>';
+	if ($_SESSION["session_user_id"]!="")
+	{
+		session_destroy();
+	}
+}
+include "conf.php";
+$data = mysql_connect($base_name, $base_user, $base_pass) or die('Не получается подключиться. Проверьте имя сервера, имя пользователя и пароль!');
+mysql_select_db($db_name) or die('Ошибка входа в базу данных');
+
+Header('Content-Type: text/html; charset=windows-1251');
+Header("Cache-Control: no-cache, must-revalidate");
+Header("Pragma: no-cache");
+if ($act=="exit")
+{
+$data=mysql_connect($base_name, $base_user, $base_pass) or die('Не получается подключиться. Проверьте имя сервера, имя пользователя и пароль!');
+mysql_select_db($db_name) or die('Ошибка входа в базу данных');
+
+//-------------------------------------------------------------------
+$spath=session_save_path()."/";
+
+$users= mysql_query("SELECT users.login, users.id, users.dealer, users.level, users.orden, users.admin_level, users.adminsite, users.invis, users.clan_short, users.clan, users.shut, users.travm, online.uniqPCID FROM online LEFT JOIN users on users.login=online.login");
+
+while ($onl= mysql_fetch_array($users))
+{
+	
+	$sfile="sess_".$onl["uniqPCID"];
+	if((time()- @fileatime($spath.$sfile))> 90)
+	{	
+        mysql_query("DELETE FROM online WHERE login='".$onl["login"]."'");
+      //  @unlink($spath.$sfile);
+    }
+
+}
+mysql_free_result($users);
 }
 ?>
 
+<TITLE>Old Инстинкты Воина - Многопользовательская ролевая онлайн игры, mmorpg, фэнтези, бои, квесты, задания</TITLE>
+<STYLE>
+body, td, ol, ul, li {
+  FONT-SIZE: 10pt;
+  FONT-FAMILY: Verdana, Arial, Helvetica, Tahoma, sans-serif;
+}
+.MainInput	{
+	FONT-SIZE: 8pt;
+	COLOR: #FBFA97;
+	BACKGROUND-COLOR: #351517;
+	WIDTH: 80px;
+	HEIGHT: 15px;
+	BORDER-TOP: 1px;
+	BORDER-LEFT: 1px;
+	BORDER-TOP-COLOR: #EACC7E;
+	BORDER-BOTTOM-COLOR: #EACC7E;
+	BORDER-LEFT-COLOR: #EACC7E;
+	BORDER-RIGHT-COLOR: #EACC7E;
+	BORDER-STYLE: Outset;
+	FONT-FAMILY: Tahoma;
+	TEXT-ALIGN: Center;
+}
+A:link, A:visited, A:active {
+	COLOR: #4D1B1F;
+	TEXT-DECORATION: None;
+}
+A:hover {
+	COLOR: #86252E;
+	TEXT-DECORATION: None;
+}
 
-                                <!--TABLE WIDTH=600 BORDER=0 CELLSPACING=0 CELLPADDING=0>
-                                    <tr>
-                                        <td width='10'></td>
-                                        <td><span class='newshead'>
-                                                <b>Beta-С‚РµСЃС‚РёСЂРѕРІР°РЅРёРµ</b>, <span
-                                                    style='color:#880000'>12.06.2015</span>&nbsp; <i
-                                                    style='float:right;'>РђРІС‚РѕСЂ: РЅРµРІРµРґРёРјРєР°</i></span>
-                                            <span class='newsbody'><br>
-                                                <p>РќР°С€ РїСЂРѕРµРєС‚ Р·Р°РїСѓСЃС‚РёР»СЃСЏ 12.06.2015! Beta-С‚РµСЃС‚РёСЂРѕРІР°РЅРёРµ РїСЂРѕРґР»РёС‚СЃСЏ
-                                                    РЅРµРєРѕС‚РѕСЂРѕРµ РІСЂРµРјСЏ, РїРѕСЃР»Рµ С‡РµРіРѕ РІСЃРµ РїРµСЂСЃРѕРЅР°Р¶Рё, СЂРµСЃСѓСЂСЃС‹ Рё С‚.Рґ. Р±СѓРґСѓС‚
-                                                    РѕР±РЅСѓР»РµРЅС‹.</p>
-                                                <p>Р’СЃРµ С‚РµСЃС‚РµСЂС‹ РїРѕР»СѓС‡Р°С‚ <b>Р’РћР—РќРђР“Р РђР–Р”Р•РќРР•</b> Р·Р° РїРѕРјРѕС‰СЊ РїСЂРѕРµРєС‚Сѓ. РљР°Р¶РґС‹Р№
-                                                    Р¶РµР»Р°СЋС‰РёР№ РјРѕР¶РµС‚ РїСЂРёРЅСЏС‚СЊ СѓС‡Р°СЃС‚РёРµ РІ СЌС‚РѕРј! </p>
-                                                <p>
-                                                    РћС‚ Р’Р°СЃ С‚СЂРµР±СѓРµС‚СЃСЏ С‚РѕР»СЊРєРѕ РїРѕСЃРµС‰Р°С‚СЊ РїСЂРѕРµРєС‚ Рё РїСѓР±Р»РёРєРѕРІР°С‚СЊ РЅРµРґРѕС‡РµС‚С‹ СЃ
-                                                    Р±Р°РіР°РјРё РЅР° С„РѕСЂСѓРјРµ РІ СЃРїРµС†РёР°Р»СЊРЅРѕРј С‚РѕРїРёРєРµ.</p>
-                                                <p><b>РҐРћРўРРўР• РџР РРќРЇРўР¬ РЈР§РђРЎРўРР• РЎР•Р™Р§РђРЎ? РћРўРџРРЁРРўР• РќРђ Р¤РћР РЈРњР•:</b><br> <u>РЇ
-                                                        С…РѕС‡Сѓ РїСЂРёРЅСЏС‚СЊ СѓС‡Р°СЃС‚РёРµ РІ С‚РµСЃС‚РёСЂРѕРІР°РЅРёРё</u>. </p>
-                                                <p align=center><A HREF='/SignUp.php'><IMG
-                                                            SRC='images/index_page/label_register.png'
-                                                            title='Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ РЅРѕРІРѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р°'></A></p>
-                                            </span>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan=2>
-                                            <CENTER><IMG SRC='images/index_page/deleter.png'></center>
-                                        </td>
-                                    </tr>
-                                </TABLE-->
+img {
+	border: 0px;
+}
+</STYLE>
+
+<BODY BGCOLOR='#000000' LEFTMARGIN=0 TOPMARGIN=0>
+<!--[if lte IE 7]><![if gte IE 5.5]>
+<script type='text/javascript' src='/web/20081219174154/http://img.instincts.ru/i/img.js'></script>
+<style type='text/css'>
+	.pngs { filter:expression(pngIEFix(this)); }
+</style>
+<![endif]><![endif]-->
+
+<CENTER>
+
+<TABLE WIDTH=1024 CELLSPACING=0 CELLPADDING=0>
+<TR HEIGHT=118>
+	<TD WIDTH=256><IMG SRC='<?=$img_server?>index_page/top_1_1.gif'></TD>
+	<TD WIDTH=256><IMG SRC='<?=$img_server?>index_page/top_1_2.gif'></TD>
+	<TD WIDTH=256><IMG SRC='<?=$img_server?>index_page/top_1_3.gif'></TD>
+	<TD WIDTH=256><IMG SRC='<?=$img_server?>index_page/top_1_4.gif'></TD>
+</TR>
+<TR HEIGHT=119>
+	<TD WIDTH=256><IMG SRC='<?=$img_server?>index_page/top_2_1.gif'></TD>
+	<TD WIDTH=256><IMG SRC='<?=$img_server?>index_page/top_2_2.gif'></TD>
+	<TD WIDTH=256><IMG SRC='<?=$img_server?>index_page/top_2_3.gif'></TD>
+	<TD WIDTH=256><IMG SRC='<?=$img_server?>index_page/top_2_4.gif'></TD>
+</TR>
+</TABLE>
+
+<DIV STYLE="POSITION: Relative; margin-top: -119px;">
+
+<TABLE WIDTH=1024 CELLSPACING=0 CELLPADDING=0 BORDER=0>
+<TR HEIGHT=118>
+	<TD ALIGN=LEFT VALIGN=BOTTOM WIDTH=397><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=1><!--<IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=120 HEIGHT=1><IMG SRC='<?=$img_server?>index_page/label_lib.png'>--></TD>
+	<TD WIDTH=230><SPAN></SPAN></TD>
+	<TD ALIGN=RIGHT VALIGN=BOTTOM WIDTH=397><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=1><!--<IMG SRC='<?=$img_server?>index_page/label_forum.png' ALT='Открыть форум в новом окне'>--><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=120 HEIGHT=1></TD>
+</TR>
+</TABLE>
+
+</DIV>
 
 
 
+<TABLE WIDTH=1024 CELLSPACING=0 CELLPADDING=0 BORDER=0>
+<TR HEIGHT=100%>
+	<TD WIDTH=297 HEIGHT=100% VALIGN=TOP BACKGROUND='<?=$img_server?>index_page/menu_line.gif'>
+		<TABLE WIDTH=297 HEIGHT=100% CELLSPACING=0 CELLPADDING=0 BORDER=0 >
+		<TR>
+			<TD HEIGHT=290 BACKGROUND='<?=$img_server?>index_page/login_form.gif' VALIGN=TOP ALIGN=RIGHT HEIGHT=100%>
 
-                                <!-- Menu Content -->
+			<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=190 >
+			<FORM ACTION='enter.php' METHOD=POST>
+			<TR>
+				<TD ALIGN=CENTER>
+					<IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=25><BR>
+					<A HREF='#'><IMG SRC='<?=$img_server?>index_page/label_register.png' ALT='Зарегистрировать нового персонажа'></A><BR>
+					
+					<A HREF='remind.php'><IMG SRC='<?=$img_server?>index_page/label_forgot.png'></A>
+					
+					<BR><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=7><TABLE BORDER=0 WIDTH=150 CELLSPACING=0 CELLPADDING=0>
+					<TR>
+						<TD WIDTH=57 VALIGN=CENTER><IMG SRC='<?=$img_server?>index_page/label_login.png'></TD>
+						<TD VALIGN=TOP><INPUT TYPE=TEXT	Class='MainInput' name="logins" ><BR><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=1></TD>
+					</TR>
+					<TR>
+						<TD COLSPAN=2 HEIGHT=6><SPAN></SPAN></TD>
+					</TR>
+					<TR>
+						<TD WIDTH=57 VALIGN=CENTER><IMG SRC='<?=$img_server?>index_page/label_password.png'></TD>
+						<TD VALIGN=TOP><INPUT TYPE=PASSWORD	Class='MainInput' name="psw"><BR><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=1></TD>
+					</TR>
+					</TABLE>
+					
+					<BR>
 
-                                <!-- End Of -->
-                            </TD>
-                        </TR>
-
-                    </TABLE>
-                </TD>
-            </TR>
-            <TR>
-                <TD HEIGHT=21 BACKGROUND='images/index_page/menu_bottom.gif'><SPAN></SPAN></TD>
-                <TD HEIGHT=21 BACKGROUND='images/index_page/content_bottom.gif'><SPAN></SPAN></TD>
-            </TR>
-        </TABLE>
+					<DIV ALIGN=LEFT>
+					<IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=20 HEIGHT=1><INPUT id="login_pop" TYPE=IMAGE SRC='<?=$img_server?>index_page/label_enter.png' ALT='Пройти авторизацию'>
+					</DIV>
 
 
+				</TD>
+				<TD WIDTH=20><SPAN></SPAN></TD>
+			</TR>
+			</FORM>
+			</TABLE>
 
-    </CENTER>
+			</TD>
+		</TR>
+		<TR HEIGHT=100%>
+			<TD HEIGHT=100% BACKGROUND='<?=$img_server?>index_page/menu_line.gif' ALIGN=RIGHT VALIGN=TOP>
+			<!-- Menu Content -->
 
-</body>
 
-</html>
+
+			<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=190 HEIGHT=100%>
+			<TR>
+				<TD ALIGN=CENTER VALIGN=BOTTOM>
+
+				</TD>
+				<TD WIDTH=20><SPAN></SPAN></TD>
+			</TR>
+			</TABLE>
+
+
+
+			<!-- End Of -->			
+			</TD>
+		</TR>
+		</TABLE>
+	
+	</TD>
+	<TD WIDTH=727 VALIGN=TOP HEIGHT=100% BACKGROUND='<?=$img_server?>index_page/content_line.gif'>
+		<TABLE WIDTH=727 HEIGHT=100% CELLSPACING=0 CELLPADDING=0 BORDER=0>
+		<TR>
+			<TD HEIGHT=97 BACKGROUND='<?=$img_server?>index_page/content_top.gif' ALIGN=LEFT VALIGN=TOP>
+
+			<TABLE WIDTH=625 HEIGHT=100% BORDER=0 CELLSPACING=0 CELLPADDING=0 >
+			<TR>
+				<TD VALIGN=BOTTOM ALIGN=LEFT><IMG SRC='<?=$img_server?>index_page/text.png'><DIV ALIGN=Right><SMALL><A HREF=''>Читать далее &raquo;</A></SMALL></DIV><BR><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=1></TD>
+				<TD WIDTH=240 ALIGN=RIGHT VALIGN=TOP >
+				<IMG SRC='<?=$img_server?>index_page/0.gif' HEIGHT=22>
+
+					<TABLE CELLSPACING=0 CELLPADDING=0 BORDER=0 HEIGHT=37 >
+					<TR>
+						<TD ROWSPAN=3 WIDTH=60 ALIGN=LEFT><IMG SRC='<?=$img_server?>index_page/online.png'></TD>
+					</TR>
+					<TR>
+						<TD WIDTH=150 ALIGN=CENTER><IMG SRC='<?=$img_server?>index_page/label_online.png'></TD>
+					</TR>
+					<TR>
+						<TD ALIGN=CENTER><B>
+<? 
+				$all = mysql_fetch_array(mysql_query("select (SELECT count(*) FROM `users`) as us, (SELECT count(*) FROM `online`)as onl"));
+				echo "".$all["onl"]." 	";
+						//$all["us"]
+			
+				mysql_close($data);
+			?></B> чел.</TD>
+					</TR>
+					</TABLE>
+				</TD>
+			</TR>
+			</TABLE>
+
+
+			</TD>
+		</TR>
+		<TR HEIGHT=100%>
+			<TD BACKGROUND='<?=$img_server?>index_page/content_line.gif' VALIGN=TOP HEIGHT=100% ALIGN=LEFT>
+			<!-- Menu Content -->
+
+
+
+			<TABLE WIDTH=625 HEIGHT=100% BORDER=0 CELLSPACING=0 CELLPADDING=0 >
+			<TR>
+				<TD ALIGN=LEFT VALIGN=TOP>
+
+				<B>Обновленная главная страница</B>, <SMALL>06.11.2013 22:38</SMALL><BR>
+				&nbsp;&nbsp;&nbsp;Обновлен дизайн главной страницы игры. Отныне главная страница содержит ссылки на полезные ресурсы, а так же колонку новостей. В скором времени будет изменен дизайн Библиотеки, что существенно упростит навигацию по ее разделам.
+				
+				<CENTER>
+					<IMG SRC='<?=$img_server?>index_page/deleter.png'>
+				</CENTER>			
+				
+				</TD>
+			</TR>
+			</TABLE>
+
+
+
+			<!-- End Of -->			
+			</TD>
+		</TR>
+
+		</TABLE>
+	</TD>
+</TR>
+		<TR>
+			<TD HEIGHT=21 BACKGROUND='<?=$img_server?>index_page/menu_bottom.gif' ><SPAN></SPAN></TD>
+			<TD HEIGHT=21 BACKGROUND='<?=$img_server?>index_page/content_bottom.gif' ><SPAN></SPAN></TD>
+		</TR>
+</TABLE>
+
+
+
+</CENTER>
+
