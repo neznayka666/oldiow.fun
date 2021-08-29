@@ -266,13 +266,6 @@ img {
 <?php
 echo '<div class="news_middle">';
 
-if ( isset($_POST['ntext']) and isset($_GET['subact']) and $pers != false )
-{
-	$text = $_POST['ntext'];
-	$db->sql("INSERT INTO `lib_news_coment` (`id`, `id_news`, `user`, `text`, `date`) VALUES (NULL, '".$_GET['subact']."', '".$pers['user']."', '".$text."', '".time()."');");
-	$db->sql("UPDATE `lib_news` SET `coment`=coment+1 WHERE `id`='".$_GET['subact']."';");
-}
-
 
 if ( !isset($_GET['subact']) )
 {
@@ -283,6 +276,7 @@ if ( !isset($_GET['subact']) )
 	}
 	echo '<div class="news p2">Страницы: <a href="javascript://" onclick="news(1);"><b>1</b></a></div>';
 }
+/*
 elseif ( ($news = $db->sqla('SELECT * FROM `lib_news` WHERE `id`="'.$_GET['subact'].'";')) != false )
 {
 	echo '<div class=news><div class=p1>'.$news['title'].'</div><div class=p2>Автор: '.$news['autor'].' &nbsp;&nbsp;&nbsp; Дата: '.date('d.m.Y H:i', $news['date']).'.</div><div class=p3>'.nl2br($news['text']).'</div></div>';
@@ -294,7 +288,7 @@ elseif ( ($news = $db->sqla('SELECT * FROM `lib_news` WHERE `id`="'.$_GET['subac
 		echo '<div class=news><div class=p3>'.nl2br($com['text']).'</div><div class=p2>Автор: '.$com['user'].' &nbsp;&nbsp;&nbsp; Дата: '.date('d.m.Y H:i', $com['date']).'. '.(($pers != false and $pers['priveleged']==1) ? '<a href="?act=1&subact='.$news['id'].'&del='.$com['id'].'">Удалить</a>' : '').'</div></div>';
 	}
 
-} 
+} */
 echo '</div>';
 ?>
 				<B>Обновленная главная страница</B>, <SMALL>06.11.2013 22:38</SMALL><BR>
