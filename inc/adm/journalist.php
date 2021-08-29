@@ -118,8 +118,7 @@ if ($priv['ejour']==2)
 	
 }
 ?>
-<center class="inv">
-    <table width="90%">
+    <table style="margin:40px auto; width:100%;max-width:1200px;" class="greyBlock margin-5">
         <tr>
             <td width=30% colspan=6><a class=bga href=main.php?go=administration>Назад</a></td>
         </tr>
@@ -130,7 +129,7 @@ if ($priv['ejour']==2)
             <td width=25%><a class=bga href=main.php?jo=supp>Суппорт</a></td>
         </tr>
     </table>
-</center>
+
 <DIV class="inv">
     <?php
 if (!empty($reprt)) echo '<center >'.$reprt.'</center>';
