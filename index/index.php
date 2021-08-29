@@ -140,7 +140,7 @@ img {
 
 <TABLE WIDTH=1024 CELLSPACING=0 CELLPADDING=0 BORDER=0>
 <TR HEIGHT=118>
-	<TD ALIGN=LEFT VALIGN=BOTTOM WIDTH=397><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=1><!--<IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=120 HEIGHT=1><IMG SRC='<?=$img_server?>index_page/label_lib.png'>--></TD>
+	<TD ALIGN=LEFT VALIGN=BOTTOM WIDTH=397><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=1><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=120 HEIGHT=1><IMG SRC='<?=$img_server?>index_page/label_lib.png'></TD>
 	<TD WIDTH=230><SPAN></SPAN></TD>
 	<TD ALIGN=RIGHT VALIGN=BOTTOM WIDTH=397><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=1><!--<IMG SRC='<?=$img_server?>index_page/label_forum.png' ALT='Открыть форум в новом окне'>--><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=120 HEIGHT=1></TD>
 </TR>
@@ -286,15 +286,7 @@ elseif ( ($news = $db->sqla('SELECT * FROM `lib_news` WHERE `id`="'.$_GET['subac
 
 } 
 echo '</div>';
-?>
-				<B>Обновленная главная страница</B>, <SMALL>06.11.2013 22:38</SMALL><BR>
-				&nbsp;&nbsp;&nbsp;Обновлен дизайн главной страницы игры. Отныне главная страница содержит ссылки на полезные ресурсы, а так же колонку новостей. В скором времени будет изменен дизайн Библиотеки, что существенно упростит навигацию по ее разделам.
-				
-
-
-
-
-			<!-- End Of -->			
+?>	<!-- End Of -->			
 			</TD>
 		</TR>
 
