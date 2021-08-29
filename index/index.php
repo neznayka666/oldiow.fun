@@ -23,7 +23,7 @@ if ( $rid != false ) setcookie('RefererReg', $rid, time()+3600);
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Инстинкты Воина: Возрождение - Многопользовательская ролевая онлайн игры, mmorpg, фэнтези, бои, квесты, задания</title>
-	<script type="text/javascript" src="./js/mod/jquery.js"></script>
+	<script type="text/javascript" src="../js/mod/jquery.js"></script>
    <script type="text/javascript">
     $(document).ready(function() {
         $('div.modal').click(function() {
