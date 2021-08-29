@@ -67,6 +67,10 @@ if ( $rid != false ) setcookie('RefererReg', $rid, time()+3600);
     }
     </script>
 	 <STYLE>
+		 *{
+			 margin:0;
+			 padding:0;
+		 }
 		 body {
 			  background:#000;
 		 }
