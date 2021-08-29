@@ -1,14 +1,72 @@
 <?php
-
 Header('Content-Type: text/html; charset=utf8');
 Header("Cache-Control: no-cache, must-revalidate");
 Header("Pragma: no-cache");
 $img_server = 'images/';
 
-?>
+define('MICROLOAD', true);
+// Загружаем файл конфига, ВАЖНЫЙ.
+include ($_SERVER['DOCUMENT_ROOT'].'/configs/config.php');
+// Подключаемся к SQL базе
+$db = new MySQL(SQL_USER, SQL_PASS, SQL_BASE);
+############################## 
+$rid = !empty($_SERVER['QUERY_STRING']) ? abs(intval($_SERVER['QUERY_STRING'])) : false;
+if ( $rid != false ) setcookie('RefererReg', $rid, time()+3600);
+// Установим для русской даты.. не везде будет работать.. левую функцию лень вставлять.. если что можно удалить
+//setlocale(LC_ALL, 'ru_RU.CP1251');
 
-<TITLE>Инстинкты Воина: Возрождение - Многопользовательская ролевая онлайн игры, mmorpg, фэнтези, бои, квесты, задания</TITLE>
-<STYLE>
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Инстинкты Воина: Возрождение - Многопользовательская ролевая онлайн игры, mmorpg, фэнтези, бои, квесты, задания</title>
+	<script type="text/javascript" src="./js/mod/jquery.js"></script>
+   <script type="text/javascript">
+    $(document).ready(function() {
+        $('div.modal').click(function() {
+            var modalid = $(this).attr('rel');
+            $('#' + modalid).fadeIn(600);
+            $('#fadebody').fadeIn(600);
+            var topm = ($('#' + modalid).height() + 10) / 2;
+            var leftm = ($('#' + modalid).width() + 10) / 2;
+            $('#' + modalid).css({
+                'margin-top': -topm,
+                'margin-left': -leftm
+            });
+            $('#fadebody, .close').click(function() {
+                $('#fadebody , .modalbox').fadeOut(600)
+                return false;
+            });
+        });
+
+        $("#form_show").click(function() {
+            url_open = 'reg.php';
+            viewwin = open(url_open, "regWindow",
+                "width=455, height=300, status=yes, toolbar=no, menubar=no, resizable=no, scrollbars=no"
+            );
+            return false;
+        });
+    });
+
+    function jgetForm() {
+        if ($('#user').val() == '') {
+            $('#user').focus();
+            return;
+        }
+        if ($('#pass').val() == '') {
+            $('#pass').focus();
+            return;
+        }
+        var obj = document.getElementById('goGame');
+        obj.setAttribute("action", "/game.php?");
+        obj.setAttribute("method", "post");
+        obj.submit();
+    }
+    </script>
+	 <STYLE>
 body, td, ol, ul, li {
   FONT-SIZE: 10pt;
   FONT-FAMILY: Verdana, Arial, Helvetica, Tahoma, sans-serif;
@@ -42,10 +100,11 @@ img {
 	border: 0px;
 }
 </STYLE>
-
-<BODY BGCOLOR='#000000' LEFTMARGIN=0 TOPMARGIN=0>
-<CENTER>
-
+</head>
+<body>
+	
+</body>
+</html>
 <TABLE WIDTH=1024 CELLSPACING=0 CELLPADDING=0>
 <TR HEIGHT=118>
 	<TD WIDTH=256><IMG SRC='<?=$img_server?>index_page/top_1_1.gif'></TD>
@@ -83,11 +142,11 @@ img {
 			<TD HEIGHT=290 BACKGROUND='<?=$img_server?>index_page/login_form.gif' VALIGN=TOP ALIGN=RIGHT HEIGHT=100%>
 
 			<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=190 >
-			<FORM ACTION='enter.php' METHOD=POST>
+			<FORM ACTION='../../game.php' METHOD=POST>
 			<TR>
 				<TD ALIGN=CENTER>
 					<IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=25><BR>
-					<A HREF='#'><IMG SRC='<?=$img_server?>index_page/label_register.png' ALT='Зарегистрировать нового персонажа'></A><BR>
+					<A HREF='#' onClick="jgetForm();" id="enter1"><IMG SRC='<?=$img_server?>index_page/label_register.png' ALT='Зарегистрировать нового персонажа'></A><BR>
 					
 					<A HREF='remind.php'><IMG SRC='<?=$img_server?>index_page/label_forgot.png'></A>
 					
@@ -163,7 +222,7 @@ img {
 					</TR>
 					<TR>
 						<TD ALIGN=CENTER><B>
-<? 
+			<?php
 				$all = mysql_fetch_array(mysql_query("select (SELECT count(*) FROM `users`) as us, (SELECT count(*) FROM `online`)as onl"));
 				echo "".$all["onl"]." 	";
 						//$all["us"]
@@ -214,8 +273,4 @@ img {
 			<TD HEIGHT=21 BACKGROUND='<?=$img_server?>index_page/content_bottom.gif' ><SPAN></SPAN></TD>
 		</TR>
 </TABLE>
-
-
-
-</CENTER>
 
