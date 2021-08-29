@@ -220,7 +220,7 @@ elseif ($http->get['jo']=='supp')
 	while ( $r = mysql_fetch_assoc($res) )
 	{
 		$who = $db->sqla('SELECT `user` FROM `users` WHERE `uid`='.$r['uid']);
-		echo '<tr><td class=login><font class=ma  align=left>'.$r['title'].'</font> <div align=right>(<b>'.$who['user'].'</b>) '.date("d.m.Y H:i:s",$r['date']).'</div><a href=\'javascript:if(confirm("Удалить?")) location="main.php?jo=supp&del='.$r['date'].'";\'><img src=http://'.IMG.'/icons/del.png></a> <a href="main.php?jo=supp&ok='.$r['date'].'"><img src=http://'.IMG.'/icons/edit.png></a></td></tr><tr><td>'.str_replace("\n",'<br />',str_replace("\r",'',$r['text'])).'</td></tr>';
+		echo '<tr><td whiteBlock margin-5><font class=ma  align=left>'.$r['title'].'</font> <div align=right>(<b>'.$who['user'].'</b>) '.date("d.m.Y H:i:s",$r['date']).'</div><a href=\'javascript:if(confirm("Удалить?")) location="main.php?jo=supp&del='.$r['date'].'";\'><img src=//'.IMG.'/icons/del.png></a> <a href="main.php?jo=supp&ok='.$r['date'].'"><img src=//'.IMG.'/icons/edit.png></a></td></tr><tr><td>'.str_replace("\n",'<br />',str_replace("\r",'',$r['text'])).'</td></tr>';
 		unset($who);
 	}
 	echo "</table>";
