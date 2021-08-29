@@ -272,5 +272,6 @@ img {
 			<TD HEIGHT=21 BACKGROUND='<?=$img_server?>index_page/content_bottom.gif' ><SPAN></SPAN></TD>
 		</TR>
 </TABLE>
+</div>
 </body>
 </html>
