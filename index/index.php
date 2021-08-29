@@ -3,7 +3,7 @@
 Header('Content-Type: text/html; charset=utf8');
 Header("Cache-Control: no-cache, must-revalidate");
 Header("Pragma: no-cache");
-$img_server = 'images/index_page/';
+$img_server = 'images/';
 
 ?>
 
