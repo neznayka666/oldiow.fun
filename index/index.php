@@ -25,7 +25,7 @@ if ( $rid != false ) setcookie('RefererReg', $rid, time()+3600);
 	<title>Инстинкты Воина: Возрождение - Многопользовательская ролевая онлайн игры, mmorpg, фэнтези, бои, квесты, задания</title>
 	<script type="text/javascript" src="../js/mod/jquery.js"></script>
    <script type="text/javascript">
-    $(document).ready(function() {
+     /* $(document).ready(function() {
         $('div.modal').click(function() {
             var modalid = $(this).attr('rel');
             $('#' + modalid).fadeIn(600);
@@ -41,7 +41,7 @@ if ( $rid != false ) setcookie('RefererReg', $rid, time()+3600);
                 return false;
             });
         });
-
+        /*
         $("#form_show").click(function() {
             url_open = 'reg.php';
             viewwin = open(url_open, "regWindow",
@@ -49,8 +49,9 @@ if ( $rid != false ) setcookie('RefererReg', $rid, time()+3600);
             );
             return false;
         });
+        
     });
-
+*/
     function jgetForm() {
         if ($('#user').val() == '') {
             $('#user').focus();
@@ -64,6 +65,14 @@ if ( $rid != false ) setcookie('RefererReg', $rid, time()+3600);
         obj.setAttribute("action", "/game.php?");
         obj.setAttribute("method", "post");
         obj.submit();
+    }
+
+    function OpenPopupCenter(pageURL, title, w, h) {
+        var left = (screen.width - w) / 4;
+        var top = (screen.height - h) / 2; // for 25% - devide by 4  |  for 33% - devide by 3
+        var targetWin = window.open(pageURL, title,
+            'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' +
+            w + ', height=' + h + ', top=' + top + ', left=' + left);
     }
     </script>
 	 <STYLE>
@@ -153,9 +162,9 @@ img {
 			<TR>
 				<TD ALIGN=CENTER>
 					<IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=25><BR>
-					<A HREF='#' onClick="jgetForm();" id="enter1"><IMG SRC='<?=$img_server?>index_page/label_register.png' ALT='Зарегистрировать нового персонажа'></A><BR>
+					<A HREF='#' onclick="OpenPopupCenter('/reg.php', 'TEST!?', 500, 500);"><IMG SRC='<?=$img_server?>index_page/label_register.png' ALT='Зарегистрировать нового персонажа'></A><BR>
 					
-					<A HREF='remind.php'><IMG SRC='<?=$img_server?>index_page/label_forgot.png'></A>
+					<A HREF='#'><IMG SRC='<?=$img_server?>index_page/label_forgot.png'></A>
 					
 					<BR><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=7><TABLE BORDER=0 WIDTH=150 CELLSPACING=0 CELLPADDING=0>
 					<TR>
