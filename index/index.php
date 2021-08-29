@@ -111,8 +111,8 @@ img {
 </head>
 <body LEFTMARGIN=0 TOPMARGIN=0>
 
-<div class="main" style="margin:0 auto;" >
-
+<div class="main" style="margin:0 auto;width:1024px;" >
+<DIV STYLE="POSITION: Relative; margin-top: -121px;">
 <TABLE WIDTH=1024 CELLSPACING=0 CELLPADDING=0 >
 <TR HEIGHT=118>
 	<TD WIDTH=256><IMG SRC='<?=$img_server?>index_page/top_1_1.gif'></TD>
@@ -127,8 +127,8 @@ img {
 	<TD WIDTH=256><IMG SRC='<?=$img_server?>index_page/top_2_4.gif'></TD>
 </TR>
 </TABLE>
-
-<DIV STYLE="POSITION: Relative; margin-top: -119px;">
+</DIV>
+<DIV STYLE="POSITION: Relative; margin-top: -121px;">
 
 <TABLE WIDTH=1024 CELLSPACING=0 CELLPADDING=0 BORDER=0>
 <TR HEIGHT=118>
