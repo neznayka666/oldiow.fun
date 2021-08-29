@@ -1,45 +1,13 @@
-<?
-session_start();
-if ($_GET["act"]=="exit")
-{
-	if ($_SESSION["session_user_id"]!="")
-	{
-		session_destroy();
-	}
-}
-include "conf.php";
-$data = mysql_connect($base_name, $base_user, $base_pass) or die('Не получается подключиться. Проверьте имя сервера, имя пользователя и пароль!');
-mysql_select_db($db_name) or die('Ошибка входа в базу данных');
+<?php
 
-Header('Content-Type: text/html; charset=windows-1251');
+Header('Content-Type: text/html; charset=utf8');
 Header("Cache-Control: no-cache, must-revalidate");
 Header("Pragma: no-cache");
-if ($act=="exit")
-{
-$data=mysql_connect($base_name, $base_user, $base_pass) or die('Не получается подключиться. Проверьте имя сервера, имя пользователя и пароль!');
-mysql_select_db($db_name) or die('Ошибка входа в базу данных');
+$img_server = 'images/index_page';
 
-//-------------------------------------------------------------------
-$spath=session_save_path()."/";
-
-$users= mysql_query("SELECT users.login, users.id, users.dealer, users.level, users.orden, users.admin_level, users.adminsite, users.invis, users.clan_short, users.clan, users.shut, users.travm, online.uniqPCID FROM online LEFT JOIN users on users.login=online.login");
-
-while ($onl= mysql_fetch_array($users))
-{
-	
-	$sfile="sess_".$onl["uniqPCID"];
-	if((time()- @fileatime($spath.$sfile))> 90)
-	{	
-        mysql_query("DELETE FROM online WHERE login='".$onl["login"]."'");
-      //  @unlink($spath.$sfile);
-    }
-
-}
-mysql_free_result($users);
-}
 ?>
 
-<TITLE>Old Инстинкты Воина - Многопользовательская ролевая онлайн игры, mmorpg, фэнтези, бои, квесты, задания</TITLE>
+<TITLE>РРЅСЃС‚РёРЅРєС‚С‹ Р’РѕРёРЅР°: Р’РѕР·СЂРѕР¶РґРµРЅРёРµ - РњРЅРѕРіРѕРїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєР°СЏ СЂРѕР»РµРІР°СЏ РѕРЅР»Р°Р№РЅ РёРіСЂС‹, mmorpg, С„СЌРЅС‚РµР·Рё, Р±РѕРё, РєРІРµСЃС‚С‹, Р·Р°РґР°РЅРёСЏ</TITLE>
 <STYLE>
 body, td, ol, ul, li {
   FONT-SIZE: 10pt;
@@ -76,13 +44,6 @@ img {
 </STYLE>
 
 <BODY BGCOLOR='#000000' LEFTMARGIN=0 TOPMARGIN=0>
-<!--[if lte IE 7]><![if gte IE 5.5]>
-<script type='text/javascript' src='/web/20081219174154/http://img.instincts.ru/i/img.js'></script>
-<style type='text/css'>
-	.pngs { filter:expression(pngIEFix(this)); }
-</style>
-<![endif]><![endif]-->
-
 <CENTER>
 
 <TABLE WIDTH=1024 CELLSPACING=0 CELLPADDING=0>
@@ -106,7 +67,7 @@ img {
 <TR HEIGHT=118>
 	<TD ALIGN=LEFT VALIGN=BOTTOM WIDTH=397><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=1><!--<IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=120 HEIGHT=1><IMG SRC='<?=$img_server?>index_page/label_lib.png'>--></TD>
 	<TD WIDTH=230><SPAN></SPAN></TD>
-	<TD ALIGN=RIGHT VALIGN=BOTTOM WIDTH=397><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=1><!--<IMG SRC='<?=$img_server?>index_page/label_forum.png' ALT='Открыть форум в новом окне'>--><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=120 HEIGHT=1></TD>
+	<TD ALIGN=RIGHT VALIGN=BOTTOM WIDTH=397><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=1><!--<IMG SRC='<?=$img_server?>index_page/label_forum.png' ALT='РћС‚РєСЂС‹С‚СЊ С„РѕСЂСѓРј РІ РЅРѕРІРѕРј РѕРєРЅРµ'>--><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=120 HEIGHT=1></TD>
 </TR>
 </TABLE>
 
@@ -126,7 +87,7 @@ img {
 			<TR>
 				<TD ALIGN=CENTER>
 					<IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=25><BR>
-					<A HREF='#'><IMG SRC='<?=$img_server?>index_page/label_register.png' ALT='Зарегистрировать нового персонажа'></A><BR>
+					<A HREF='#'><IMG SRC='<?=$img_server?>index_page/label_register.png' ALT='Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ РЅРѕРІРѕРіРѕ РїРµСЂСЃРѕРЅР°Р¶Р°'></A><BR>
 					
 					<A HREF='remind.php'><IMG SRC='<?=$img_server?>index_page/label_forgot.png'></A>
 					
@@ -147,7 +108,7 @@ img {
 					<BR>
 
 					<DIV ALIGN=LEFT>
-					<IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=20 HEIGHT=1><INPUT id="login_pop" TYPE=IMAGE SRC='<?=$img_server?>index_page/label_enter.png' ALT='Пройти авторизацию'>
+					<IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=20 HEIGHT=1><INPUT id="login_pop" TYPE=IMAGE SRC='<?=$img_server?>index_page/label_enter.png' ALT='РџСЂРѕР№С‚Рё Р°РІС‚РѕСЂРёР·Р°С†РёСЋ'>
 					</DIV>
 
 
@@ -189,7 +150,7 @@ img {
 
 			<TABLE WIDTH=625 HEIGHT=100% BORDER=0 CELLSPACING=0 CELLPADDING=0 >
 			<TR>
-				<TD VALIGN=BOTTOM ALIGN=LEFT><IMG SRC='<?=$img_server?>index_page/text.png'><DIV ALIGN=Right><SMALL><A HREF=''>Читать далее &raquo;</A></SMALL></DIV><BR><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=1></TD>
+				<TD VALIGN=BOTTOM ALIGN=LEFT><IMG SRC='<?=$img_server?>index_page/text.png'><DIV ALIGN=Right><SMALL><A HREF=''>Р§РёС‚Р°С‚СЊ РґР°Р»РµРµ &raquo;</A></SMALL></DIV><BR><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=1></TD>
 				<TD WIDTH=240 ALIGN=RIGHT VALIGN=TOP >
 				<IMG SRC='<?=$img_server?>index_page/0.gif' HEIGHT=22>
 
@@ -208,7 +169,7 @@ img {
 						//$all["us"]
 			
 				mysql_close($data);
-			?></B> чел.</TD>
+			?></B> С‡РµР».</TD>
 					</TR>
 					</TABLE>
 				</TD>
@@ -228,8 +189,8 @@ img {
 			<TR>
 				<TD ALIGN=LEFT VALIGN=TOP>
 
-				<B>Обновленная главная страница</B>, <SMALL>06.11.2013 22:38</SMALL><BR>
-				&nbsp;&nbsp;&nbsp;Обновлен дизайн главной страницы игры. Отныне главная страница содержит ссылки на полезные ресурсы, а так же колонку новостей. В скором времени будет изменен дизайн Библиотеки, что существенно упростит навигацию по ее разделам.
+				<B>РћР±РЅРѕРІР»РµРЅРЅР°СЏ РіР»Р°РІРЅР°СЏ СЃС‚СЂР°РЅРёС†Р°</B>, <SMALL>06.11.2013 22:38</SMALL><BR>
+				&nbsp;&nbsp;&nbsp;РћР±РЅРѕРІР»РµРЅ РґРёР·Р°Р№РЅ РіР»Р°РІРЅРѕР№ СЃС‚СЂР°РЅРёС†С‹ РёРіСЂС‹. РћС‚РЅС‹РЅРµ РіР»Р°РІРЅР°СЏ СЃС‚СЂР°РЅРёС†Р° СЃРѕРґРµСЂР¶РёС‚ СЃСЃС‹Р»РєРё РЅР° РїРѕР»РµР·РЅС‹Рµ СЂРµСЃСѓСЂСЃС‹, Р° С‚Р°Рє Р¶Рµ РєРѕР»РѕРЅРєСѓ РЅРѕРІРѕСЃС‚РµР№. Р’ СЃРєРѕСЂРѕРј РІСЂРµРјРµРЅРё Р±СѓРґРµС‚ РёР·РјРµРЅРµРЅ РґРёР·Р°Р№РЅ Р‘РёР±Р»РёРѕС‚РµРєРё, С‡С‚Рѕ СЃСѓС‰РµСЃС‚РІРµРЅРЅРѕ СѓРїСЂРѕСЃС‚РёС‚ РЅР°РІРёРіР°С†РёСЋ РїРѕ РµРµ СЂР°Р·РґРµР»Р°Рј.
 				
 				<CENTER>
 					<IMG SRC='<?=$img_server?>index_page/deleter.png'>
