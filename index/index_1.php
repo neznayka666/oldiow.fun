@@ -69,7 +69,7 @@ $db = new MySQL(SQL_USER, SQL_PASS, SQL_BASE);
         border: 0px;
     }
     </STYLE>
-    <script type="text/javascript" src="./js/mod/jquery.js"></script>
+    <script type="text/javascript" src="../js/mod/jquery.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
         $('div.modal').click(function() {
