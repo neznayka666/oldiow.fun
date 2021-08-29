@@ -257,26 +257,22 @@ img {
 		<TR HEIGHT=100%>
 			<TD BACKGROUND='<?=$img_server?>index_page/content_line.gif' VALIGN=TOP HEIGHT=100% ALIGN=LEFT>
 			<!-- Menu Content -->
-
-
-
-			<TABLE WIDTH=625 HEIGHT=100% BORDER=0 CELLSPACING=0 CELLPADDING=0 >
-			<TR>
-				<TD ALIGN=LEFT VALIGN=TOP>
+	
 <?php
-echo '<div class="news_middle">';
-
+echo '<TABLE WIDTH=625 HEIGHT=100% BORDER=0 CELLSPACING=0 CELLPADDING=0 >	<TR><TD ALIGN=LEFT VALIGN=TOP>';
 
 if ( !isset($_GET['subact']) )
 {
 	$news = $db->sql('SELECT * FROM `lib_news` ORDER BY `date` DESC LIMIT 0,5;');
 	while ( $n = mysql_fetch_assoc($news) )
 	{
-		echo '<div class=news><div class=p1>'.$n['title'].'</div><div class=p2>Автор: '.$n['autor'].' &nbsp;&nbsp;&nbsp; Дата: '.date('d.m.Y H:i', $n['date']).'.</div><div class=p3>'.nl2br($n['text']).'</div><!--div class=p3><a href="?act=1&subact='.$n['id'].'">Коментировать ('.$n['coment'].')</a></!--div--></div>';
+		echo '<TABLE WIDTH=625 HEIGHT=100% BORDER=0 CELLSPACING=0 CELLPADDING=0 >	<TR><TD ALIGN=LEFT VALIGN=TOP>';
+		echo '<B>'.$n['title'].'</B>, <SMALL>Дата: '.date('d.m.Y H:i', $n['date']).'.</SMALL><BR>'.nl2br($n['text']).'';
+		echo " <CENTER><IMG SRC='".$img_server."index_page/deleter.png'></CENTER></TD></TR></TABLE>
 	}
 	echo '<div class="news p2">Страницы: <a href="javascript://" onclick="news(1);"><b>1</b></a></div>';
 }
-/*
+
 elseif ( ($news = $db->sqla('SELECT * FROM `lib_news` WHERE `id`="'.$_GET['subact'].'";')) != false )
 {
 	echo '<div class=news><div class=p1>'.$news['title'].'</div><div class=p2>Автор: '.$news['autor'].' &nbsp;&nbsp;&nbsp; Дата: '.date('d.m.Y H:i', $news['date']).'.</div><div class=p3>'.nl2br($news['text']).'</div></div>';
@@ -288,19 +284,13 @@ elseif ( ($news = $db->sqla('SELECT * FROM `lib_news` WHERE `id`="'.$_GET['subac
 		echo '<div class=news><div class=p3>'.nl2br($com['text']).'</div><div class=p2>Автор: '.$com['user'].' &nbsp;&nbsp;&nbsp; Дата: '.date('d.m.Y H:i', $com['date']).'. '.(($pers != false and $pers['priveleged']==1) ? '<a href="?act=1&subact='.$news['id'].'&del='.$com['id'].'">Удалить</a>' : '').'</div></div>';
 	}
 
-} */
+} 
 echo '</div>';
 ?>
 				<B>Обновленная главная страница</B>, <SMALL>06.11.2013 22:38</SMALL><BR>
 				&nbsp;&nbsp;&nbsp;Обновлен дизайн главной страницы игры. Отныне главная страница содержит ссылки на полезные ресурсы, а так же колонку новостей. В скором времени будет изменен дизайн Библиотеки, что существенно упростит навигацию по ее разделам.
 				
-				<CENTER>
-					<IMG SRC='<?=$img_server?>index_page/deleter.png'>
-				</CENTER>			
-				
-				</TD>
-			</TR>
-			</TABLE>
+
 
 
 
