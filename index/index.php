@@ -285,7 +285,7 @@ elseif ( ($news = $db->sqla('SELECT * FROM `lib_news` WHERE `id`="'.$_GET['subac
 	}
 
 } 
-echo '</div>';
+//echo '</div>';
 ?>	<!-- End Of -->			
 			</TD>
 		</TR>
