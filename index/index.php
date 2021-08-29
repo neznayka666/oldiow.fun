@@ -268,7 +268,7 @@ if ( !isset($_GET['subact']) )
 	{
 		echo '<TABLE WIDTH=625 HEIGHT=100% BORDER=0 CELLSPACING=0 CELLPADDING=0 >	<TR><TD ALIGN=LEFT VALIGN=TOP>';
 		echo '<B>'.$n['title'].'</B>, <SMALL>Дата: '.date('d.m.Y H:i', $n['date']).'.</SMALL><BR>'.nl2br($n['text']).'';
-		echo " <CENTER><IMG SRC='".$img_server."index_page/deleter.png'></CENTER></TD></TR></TABLE>
+		echo " <CENTER><IMG SRC='".$img_server."index_page/deleter.png'></CENTER></TD></TR></TABLE>";
 	}
 	echo '<div class="news p2">Страницы: <a href="javascript://" onclick="news(1);"><b>1</b></a></div>';
 }
