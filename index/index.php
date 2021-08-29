@@ -230,7 +230,7 @@ img {
 					<TR>
 						<TD ALIGN=CENTER><B>
 			<?php
-				$all = mysql_fetch_array(mysql_query("SELECT COUNT(uid) FROM `users` WHERE `online`= 1;"));
+				$all = $db->sql('SELECT COUNT(uid) FROM `users` WHERE `online`= 1;');
 				echo "".$all." 	";
 						//$all["us"]
 			
