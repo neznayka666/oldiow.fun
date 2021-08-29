@@ -70,6 +70,7 @@ if ( $rid != false ) setcookie('RefererReg', $rid, time()+3600);
 body, td, ol, ul, li {
   FONT-SIZE: 10pt;
   FONT-FAMILY: Verdana, Arial, Helvetica, Tahoma, sans-serif;
+  background:#000;
 }
 .MainInput	{
 	FONT-SIZE: 8pt;
@@ -102,10 +103,8 @@ img {
 </STYLE>
 </head>
 <body>
-	
-</body>
-</html>
-<TABLE WIDTH=1024 CELLSPACING=0 CELLPADDING=0>
+<div class="main" style="margin:0 auto;">
+<TABLE WIDTH=1024 CELLSPACING=0 CELLPADDING=0 >
 <TR HEIGHT=118>
 	<TD WIDTH=256><IMG SRC='<?=$img_server?>index_page/top_1_1.gif'></TD>
 	<TD WIDTH=256><IMG SRC='<?=$img_server?>index_page/top_1_2.gif'></TD>
@@ -273,4 +272,5 @@ img {
 			<TD HEIGHT=21 BACKGROUND='<?=$img_server?>index_page/content_bottom.gif' ><SPAN></SPAN></TD>
 		</TR>
 </TABLE>
-
+</body>
+</html>
