@@ -112,7 +112,6 @@ img {
 <body LEFTMARGIN=0 TOPMARGIN=0>
 
 <div class="main" style="margin:0 auto;width:1024px;" >
-<DIV STYLE="POSITION: Relative; margin-top: -121px;">
 <TABLE WIDTH=1024 CELLSPACING=0 CELLPADDING=0 >
 <TR HEIGHT=118>
 	<TD WIDTH=256><IMG SRC='<?=$img_server?>index_page/top_1_1.gif'></TD>
@@ -120,14 +119,14 @@ img {
 	<TD WIDTH=256><IMG SRC='<?=$img_server?>index_page/top_1_3.gif'></TD>
 	<TD WIDTH=256><IMG SRC='<?=$img_server?>index_page/top_1_4.gif'></TD>
 </TR>
-<TR HEIGHT=119>
+<TR HEIGHT=118>
 	<TD WIDTH=256><IMG SRC='<?=$img_server?>index_page/top_2_1.gif'></TD>
 	<TD WIDTH=256><IMG SRC='<?=$img_server?>index_page/top_2_2.gif'></TD>
 	<TD WIDTH=256><IMG SRC='<?=$img_server?>index_page/top_2_3.gif'></TD>
 	<TD WIDTH=256><IMG SRC='<?=$img_server?>index_page/top_2_4.gif'></TD>
 </TR>
 </TABLE>
-</DIV>
+
 <DIV STYLE="POSITION: Relative; margin-top: -121px;">
 
 <TABLE WIDTH=1024 CELLSPACING=0 CELLPADDING=0 BORDER=0>
@@ -231,8 +230,8 @@ img {
 					<TR>
 						<TD ALIGN=CENTER><B>
 			<?php
-				$all = mysql_fetch_array(mysql_query("select (SELECT count(*) FROM `users`) as us, (SELECT count(*) FROM `online`)as onl"));
-				echo "".$all["onl"]." 	";
+				$all = mysql_fetch_array(mysql_query("SELECT COUNT(uid) FROM `users` WHERE `online`= 1;"));
+				echo "".$all." 	";
 						//$all["us"]
 			
 				mysql_close($data);
