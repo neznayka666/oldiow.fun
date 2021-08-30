@@ -123,29 +123,7 @@ img {
 				<td align="CENTER" valign="BOTTOM">
 				<!-- Счетчики -->
 
-					<!--Rating@Mail.ru COUNTEr--><script language="JavaScript" type="text/javascript"><!--
-					d=document;var a='';a+=';r='+escape(d.referrer)
-					js=10//--></script><script language="JavaScript1.1" type="text/javascript"><!--
-					a+=';j='+navigator.javaEnabled()
-					js=11//--></script><script language="JavaScript1.2" type="text/javascript"><!--
-					s=screen;a+=';s='+s.width+'*'+s.height
-					a+=';d='+(s.colorDepth?s.colorDepth:s.pixelDepth)
-					js=12//--></script><script language="JavaScript1.3" type="text/javascript"><!--
-					js=13//--></script><script language="JavaScript" type="text/javascript"><!--
-					d.write('<a href="https://web.archive.org/web/20081219174154/http://top.mail.ru/jump?from=897257"'+
-					' target=_top><img src="https://web.archive.org/web/20081219174154/http://d0.cb.bd.a0.top.list.ru/counter'+
-					'?id=897257;t=47;js='+js+a+';rand='+Math.random()+
-					'" alt="Рейтинг@Mail.ru"'+' border=0 height=31 width=88/><\/a>')
-					if(11<js)d.write('<'+'!-- ')//--></script><noscript><a target="_top" href="https://web.archive.org/web/20081219174154/http://top.mail.ru/jump?from=897257"><img src="https://web.archive.org/web/20081219174154im_/http://d0.cb.bd.a0.top.list.ru/counter?js=na;id=897257;t=47" border="0" height="31" width="88" alt="Рейтинг@Mail.ru"/></a></noscript><script language="JavaScript" type="text/javascript"><!--
-					if(11<js)d.write('--'+'>')//--></script><!--/COUNTER-->
-
-					<br>
-
-					<!-- begin of Top100 logo -->
-					<a href="https://web.archive.org/web/20081219174154/http://top100.rambler.ru/top100/"><img src="https://web.archive.org/web/20081219174154im_/http://top100-images.rambler.ru/top100/banner-88x31-rambler-black2.gif" alt="Rambler's Top100" width="88" height="31" border="0"/></a>
-					<!-- end of Top100 logo -->
-
-					<br><br>
+					
 
 				<!-- End Of -->
 				</td>
@@ -158,9 +136,9 @@ img {
 			<!-- End Of -->			
 			</td>
 		</tr>
-		<tr>
+		<!--tr>
 			<td height="21" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/menu_bottom.gif"><span></span></td>
-		</tr>
+		</!--tr-->
 		</table>
 	
 	</td>
@@ -242,14 +220,21 @@ img {
 			<!-- End Of -->			
 			</td>
 		</tr>
-		<tr>
+		<!--tr>
 			<td height="21" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/content_bottom.gif"><span></span></td>
-		</tr>
+		</!--tr-->
 		</table>
 	</td>
 </tr>
 </table>
-
+<table>
+	<tr>
+			<td height="21" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/menu_bottom.gif"><span></span></td>
+		</tr>
+	<tr>
+			<td height="21" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/content_bottom.gif"><span></span></td>
+		</tr>				
+</table>
 
 
 </center>
