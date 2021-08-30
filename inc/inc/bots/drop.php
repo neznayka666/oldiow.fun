@@ -26,8 +26,8 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 		{
 			if ($_persvs["droptype"]==2)
 			{
-				$r = 1;//$_persvs["dropvalue"] + $_persvs["level"]/2;
-				$res = "Обнаружено ".$r." пергамент!";
+				$r = 3;//$_persvs["dropvalue"] + $_persvs["level"]/2;
+				$res = "".$r." пергамента!";
 				$db->sql("UPDATE `users` SET `coins`=coins+".$r." WHERE `uid`='".$_pers["uid"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			}
 			
@@ -36,7 +36,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 				$v = $db->sql("SELECT name,id FROM weapons WHERE id=".$_persvs["dropvalue"]."");
 				$v = mysql_fetch_array($v);
 				if (@$v["id"]) {
-				$res = "Обнаружено «".$v["name"]."» !";
+				$res = "«".$v["name"]."» !";
 				insert_wp($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
 				}else
 				$res = "Ничего не найдено.";
@@ -47,7 +47,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 				$v = $db->sql("SELECT name,id FROM weapons WHERE id=".$_persvs["dropvalue"]."");
 				$v = mysql_fetch_array($v);
 				if (@$v["id"]) {
-				$res = "Обнаружено «".$v["name"]." [Срок действия 1 день]» !";
+				$res = "«".$v["name"]." [Срок действия 1 день]» !";
 				$id = insert_wp($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
 				$db->sql("UPDATE wp SET timeout=".(tme()+3600*24)." WHERE id=".$id);
 				}else
@@ -59,7 +59,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 				$v = $db->sql("SELECT name,id FROM weapons WHERE id=".$_persvs["dropvalue"]."");
 				$v = mysql_fetch_array($v);
 				if (@$v["id"]) {
-				$res = "Обнаружено «".$v["name"]." [Срок действия 3 дня]» !";
+				$res = "«".$v["name"]." [Срок действия 3 дня]» !";
 				$id = insert_wp($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
 				$db->sql("UPDATE wp SET timeout=".(tme()+3600*72)." WHERE id=".$id);
 				}else
@@ -71,7 +71,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 				$v = sql("SELECT name,id FROM weapons WHERE id=".$_persvs["dropvalue"]."");
 				$v = mysql_fetch_array($v);
 				if (@$v["id"]) {
-				$res = "Обнаружено «".$v["name"]." [Срок действия 7 дней]» !";
+				$res = "«".$v["name"]." [Срок действия 7 дней]» !";
 				$id = insert_wp($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
 				sql("UPDATE wp SET timeout=".(tme()+3600*168)." WHERE id=".$id);
 				}else
@@ -83,7 +83,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 				$v = sql("SELECT name,id FROM weapons WHERE id=".$_persvs["dropvalue"]."");
 				$v = mysql_fetch_array($v);
 				if (@$v["id"]) {
-				$res = "Обнаружено «".$v["name"]." [Срок действия 1 месяц]» !";
+				$res = "«".$v["name"]." [Срок действия 1 месяц]» !";
 				$id = insert_wp($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
 				sql("UPDATE wp SET timeout=".(tme()+3600*720)." WHERE id=".$id);
 				}else
@@ -94,18 +94,18 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 			elseif ($_persvs["droptype"]==8)
 			{
 				$r = 1;//$_persvs["dropvalue"] + $_persvs["level"]/2;
-				$res = "Обнаружено ".$r." зуб!";
+				$res = "".$r." зуб!";
 				$db->sql ("UPDATE `users` SET `zub`=zub+".$r." WHERE `uid`='".$_pers["uid"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			}
 			*/
 			elseif ($_persvs["droptype"]==9)
 			{
 				$r = 1;//$_persvs["dropvalue"] + $_persvs["level"]/2;
-				$res = "Обнаружено ".$r." сердце Воина Сетха!";
+				$res = "".$r." сердце Воина Сетха!";
 				$db->sql ("UPDATE `users` SET `heart`=heart+".$r." WHERE `uid`='".$_pers["uid"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			}
 			// дроп by burezov
-			if (rand(1,100)<($_pers["sp10"]/8))
+			/*if (rand(1,100)<($_pers["sp10"]/8))
 			{
 				$v = $db->sqla("SELECT id,name,price FROM wp WHERE  uidp=".(-1*$_persvs["bid"])." and weared=1 ORDER BY RAND() LIMIT 1;", __FILE__,__LINE__,__FUNCTION__,__CLASS__); 
 				$a=(($_persvs["level"]*2)/$v["price"])*($_pers["sp10"]/100)*(100-($_pers["level"]-$_persvs["level"]))*$_persvs["dropfrequency"];
@@ -115,16 +115,36 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 					$res = "«".$v["name"]."» !";
 					insert_drop($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
 				}
-			}
+			}*/
 			//end by burezov
+			if($_pers['priveleged']!=0) {
+
+				$drp = $db->sql("SELECT * FROM `bots` WHERE `user`= '".$_persvs["user"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+				$dropvalue  = $drp["dropID"]; // получаем список ид дропа
+				//$dropvalue = array($drp["dropID"]); 
+				//$arrSource = mt_rand(0,count($dropvalue) - 1);
+				$arrSource = explode("|", $dropvalue);
+				$result = rand(0, count($arrSource)-1);	// получаем случайный ид шмотки 
+					
+				$v = $db->sql("SELECT name,id FROM weapons WHERE id='".$arrSource[$result]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+				say_to_chat('s','Запрос : <b>'.$_persvs['dropfrequency'].' / '.$drp["dropID"].' / '.$arrSource.' / '.$drp["user"].' '.$_pers['priveleged'].'</b>',1,$_pers["user"],'*',0);
+				$v = mysql_fetch_array($v);
+				if (@$v["id"])
+					{	
+						$res = "«".$v["name"]."» ! "; // название шмотки
+						$id = insert_wp($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
+						$db->sql("UPDATE wp SET where_buy='0' WHERE id=".$id."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+					}
+			} 	
+
 		}
-		
+		/*
 		elseif (($_persvs["level"]/12 + $_pers["sp10"]/400)>rand(1,1000))
 		{
 			$v = sqla("SELECT id,name FROM wp WHERE uidp=".(-1*$_persvs["bid"])." ORDER BY RAND()");
 			if ($v["id"])
 			{
-				$res = "Обнаружено «".$v["name"]."» !";
+				$res = "«".$v["name"]."» !";
 				$id = insert_wp_new($_pers["uid"],"id=".$v["id"],$_pers["user"]);
 				sql("UPDATE wp SET where_buy=0 WHERE id=".$id["id"]."");
 			}
@@ -133,11 +153,11 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 			$v = sqla("SELECT id,name FROM weapons WHERE where_buy=0 and price>200 and price<2000 and dprice=0 ORDER BY RAND() LIMIT 1;");
 			if ($v["id"])
 			{
-				$res = "Обнаружено «".$v["name"]."» !";
+				$res = "«".$v["name"]."» !";
 				$id = insert_wp($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
 				sql("UPDATE wp SET where_buy=0 WHERE id=".$id."");
 			}
-		}
+		}*/
 		/*
 		if (mt_rand(1,200)<($_pers["sp10"]/7) and $_persvs["droptype"]<>10 and mt_rand(0,100)>mt_rand(87,100) )
 		{
@@ -151,7 +171,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 			$v = mysql_fetch_array($v);
 			if (@$v["id"])
 			{
-				$res = "Обнаружено «".$v["name"]."» !";
+				$res = "«".$v["name"]."» !";
 				$id = insert_wp($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
 				$db->sql("UPDATE wp SET where_buy=0 WHERE id=".$id."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			} else $res = "Ничего не найдено.";
@@ -169,7 +189,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 			$v = mysql_fetch_array($v);
 			if (@$v["id"])
 			{
-				$res = "Обнаружено «".$v["name"]."» !";
+				$res = "«".$v["name"]."» !";
 				$id = insert_wp($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
 				$db->sql("UPDATE wp SET where_buy=0 WHERE id=".$id."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			} else$res = "Ничего не найдено.";
@@ -186,7 +206,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 			$v = mysql_fetch_array($v);
 			if (@$v["id"])
 			{
-				$res = "Обнаружено «".$v["name"]."» !";
+				$res = "«".$v["name"]."» !";
 				$id = insert_wp($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
 				$db->sql("UPDATE wp SET where_buy=0 WHERE id=".$id."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			} else$res = "Ничего не найдено.";
@@ -201,8 +221,8 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 
 		if ($_persvs["droptype"]==10)
 		{
-			$r = round(rand(30,50));
-			$res = "<b>".$r." IM!</b>";
+			$r = round(rand(15,30));
+			$res = "<b>".$r." сз.!</b>";
 			$db->sql("UPDATE `users` SET `imoney`=imoney+".$r." WHERE `uid`='".$_pers["uid"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		}
 		if (empty($res)) $res = "Ничего не найдено.";
@@ -213,17 +233,17 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 	$str = " <font class=bnick color=".$colors[$_pers["fteam"]].">".$_pers["user"]."</font> ".$ob." существо. Результаты: <b>".$res."</b>%";
 	// Запарили системки
 	if ( $res != "Ничего не найдено.")
-		say_to_chat('s','Из <b>'.$_persvs["user"].'</b> ['.$_persvs["level"].'] выпало: <b>'.$res.'</b>',1,$_pers["user"],'*',0);
+		say_to_chat('s','Вы подобрали <b>'.$res.'</b>, выпавшие из `<b>'.$_persvs["user"].'</b>` ',1,$_pers["user"],'*',0);
 
 	if($_persvs["id_skin"])
 	{
-		$INS = $db->sqla("SELECT * FROM wp WHERE uidp=".$_pers["uid"]." and weared=1 and p_type=14", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+		$INS = $db->sqla("SELECT * FROM wp WHERE uidp=".$_pers["uid"]." and weared=1 and p_type=4", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		if($INS["id"])
 		{
 			$SK = $db->sqla("SELECT * FROM skins WHERE id=".$_persvs["id_skin"], __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			$chance = 30+$_pers["sp14"]/($SK["price"]+10);
-			$SKILL_UP = 0;
-			if($chance > rand(0,100))
+			$SKILL_UP = rand(1,5);
+			if($chance > rand(1,1))
 			{
 				$res = "<b class=green>«".$SK["name"]."»</b>";
 				$db->sql("INSERT INTO `wp`
@@ -236,11 +256,11 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 				'0', 'skin/skin".$SK["id"]."', '0', 'resources', 'resources',
 				'".$SK["name"]."', '', '1', '0', '1', '1','7');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			}
-			else
-			{
-				$res = "<b class=hp>Неудачная разделка</b>";
-				$SKILL_UP = round(20/(mtrunc($_pers["sp14"])+1),3);
-			}
+			//else
+			//{
+			//	$res = "<b class=hp>Неудачная разделка</b>";
+			//	$SKILL_UP = round(20/(mtrunc($_pers["sp14"])+1),3);
+			//}
 
 			$db->sql("UPDATE wp SET durability=durability-1 WHERE id=".$INS["id"], __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			set_vars("sp14=sp14+".$SKILL_UP,$_pers["uid"]);

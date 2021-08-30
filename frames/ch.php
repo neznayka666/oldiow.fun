@@ -56,7 +56,7 @@ $tyt = $db->sqlr('SELECT COUNT(uid) FROM `users` WHERE `online` = 1 and '.$arrlo
 $vsego = $db->sqlr('SELECT COUNT(uid) FROM `users` WHERE `online`= 1;');
 
 // Получаем список NPS
-/* $r = ''; 
+$r = ''; 
 if ($place<>'out') $rsds = $db->sql('SELECT * FROM `residents` WHERE `location`="'.$place.'";');
 else $rsds = $db->sql('SELECT * FROM `residents` WHERE `x` = '.$player->pers['x'].' and `y`='.$player->pers['y'].' and `location`="out" ;');
 while($rs = mysql_fetch_assoc($rsds))
@@ -65,7 +65,7 @@ while($rs = mysql_fetch_assoc($rsds))
 	$r.= "'".$rs['name']."|".$b."|".$rs['id']."|".$rs['id_bot']."'";
 	$r.= ",\n";
 }
-*/
+
 
 
 // Получаем список игрора
