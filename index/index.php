@@ -293,10 +293,9 @@ elseif ( ($news = $db->sqla('SELECT * FROM `lib_news` WHERE `id`="'.$_GET['subac
 		</TABLE>
 	</TD>
 </TR>
-		<TR>
-			<TD HEIGHT=21 BACKGROUND='<?=$img_server?>index_page/menu_bottom.gif' ><SPAN></SPAN></TD>
-			<TD HEIGHT=21 BACKGROUND='<?=$img_server?>index_page/content_bottom.gif' ><SPAN></SPAN></TD>
-		</TR>
+<tr>
+			<td height="21" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/content_bottom.gif"><span></span></td>
+		</tr>
 </TABLE>
 </div>
 </body>
