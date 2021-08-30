@@ -1,16 +1,3 @@
-
-<script src="//archive.org/includes/analytics.js?v=cf34f82" type="text/javascript"></script>
-<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app207.us.archive.org';v.server_ms=563;archive_analytics.send_pageview({});});</script>
-<script type="text/javascript" src="/_static/js/bundle-playback.js?v=UfTkgsKx" charset="utf-8"></script>
-<script type="text/javascript" src="/_static/js/wombat.js?v=UHAOicsW" charset="utf-8"></script>
-<script type="text/javascript">
-  __wm.init("https://web.archive.org/web");
-  __wm.wombat("http://www.instincts.ru:80/","20081219174154","https://web.archive.org/","web","/_static/",
-	      "1229708514");
-</script>
-<link rel="stylesheet" type="text/css" href="/_static/css/banner-styles.css?v=omkqRugM" />
-<link rel="stylesheet" type="text/css" href="/_static/css/iconochive.css?v=qtvMKcIJ" />
-<!-- End Wayback Rewrite JS Include -->
 <title>Инстинкты Воина - Многопользовательская ролевая онлайн игры, mmorpg, фэнтези, бои, квесты, задания</title>
 <style>
 body, td, ol, ul, li , p {
@@ -417,24 +404,4 @@ __wm.bt(650,27,25,2,"web","http://www.instincts.ru/","20081219174154",1996,"/_st
 
 
 
-</center><!--
-     FILE ARCHIVED ON 17:41:54 Dec 19, 2008 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 11:28:04 Aug 30, 2021.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
--->
-<!--
-playback timings (ms):
-  captures_list: 235.299
-  exclusion.robots: 0.183
-  exclusion.robots.policy: 0.176
-  RedisCDXSource: 20.039
-  esindex: 0.006
-  LoadShardBlock: 189.288 (3)
-  PetaboxLoader3.datanode: 264.854 (4)
-  CDXLines.iter: 16.525 (3)
-  load_resource: 321.022
-  PetaboxLoader3.resolve: 188.375
--->
+</center>
