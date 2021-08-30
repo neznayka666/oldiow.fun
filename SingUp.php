@@ -201,7 +201,6 @@ img {
 
 </center>
 <SCRIPT src="/js/reg.js"></SCRIPT>
-<script type="text/javascript" src="../js/mod/jquery.js"></script>
 <script type="text/javascript">
     function jgetForm() {
         if ($('#user').val() == '') {
@@ -216,13 +215,5 @@ img {
         obj.setAttribute("action", "/game.php?");
         obj.setAttribute("method", "post");
         obj.submit();
-    }
-
-    function OpenPopupCenter(pageURL, title, w, h) {
-        var left = (screen.width - w) / 4;
-        var top = (screen.height - h) / 2; // for 25% - devide by 4  |  for 33% - devide by 3
-        var targetWin = window.open(pageURL, title,
-            'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' +
-            w + ', height=' + h + ', top=' + top + ', left=' + left);
     }
 </script>
