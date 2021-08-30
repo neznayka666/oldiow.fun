@@ -76,9 +76,9 @@ img {
 
 <table width="1024" cellspacing="0" cellpadding="0" border="0">
 <tr height="118">
-	<td align="LEFT" valign="BOTTOM" width="397"><a href="//lib.oldiow.ru/" target="_blank"><img src="<?=$img_server;?>index_page/0.gif" width="120" height="1"></a><img src="<?=$img_server;?>index_page/label_lib.png"></td>
+	<td align="LEFT" valign="BOTTOM" width="397"><img src="<?=$img_server;?>index_page/0.gif" width="120" height="1"><a href="//lib.oldiow.ru/" target="_blank"><img src="<?=$img_server;?>index_page/label_lib.png" alt="Открыть форум в новом окне"></a></td>
 	<td width="230"><span></span></td>
-	<td align="RIGHT" valign="BOTTOM" width="397"><img src="<?=$img_server;?>index_page/label_forum.png" alt="Открыть форум в новом окне"><img src="<?=$img_server;?>index_page/0.gif" width="120" height="1"></td>
+	<td align="RIGHT" valign="BOTTOM" width="397"><img src="<?=$img_server;?>index_page/label_forum.png"><img src="<?=$img_server;?>index_page/0.gif" width="120" height="1"></td>
 </tr>
 </table>
 
