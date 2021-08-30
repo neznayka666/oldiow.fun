@@ -142,7 +142,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 		  $shmotdrop = mt_rand(0,count($shmotid) - 1); 
 		  
 			$v = $db->sql("SELECT name,id FROM weapons WHERE id=".$shmotid[$shmotdrop]."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
-			say_to_chat('s','Запрос : <b>'.$shmotid[$shmotdrop].' / '.$_persvs["user"].'</b>',1,$_pers["user"],'*',0);
+			say_to_chat('s','Запрос : <b>'.$shmotid[$shmotdrop].' / '.$_persvs["user"].' / '.$drp["dropID"].'</b>',1,$_pers["user"],'*',0);
 
 			$v = mysql_fetch_array($v);
 			if (@$v["id"])
