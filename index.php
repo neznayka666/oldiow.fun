@@ -204,7 +204,7 @@ img {
 						$news = $db->sql('SELECT * FROM `lib_news` ORDER BY `date` DESC LIMIT 0,5;');
 						while ( $n = mysql_fetch_assoc($news) )
 						{
-							echo '<TABLE WIDTH=625 HEIGHT=100% BORDER=0 CELLSPACING=0 CELLPADDING=0 >	<TR><TD ALIGN=LEFT VALIGN=TOP>';
+							echo '<TABLE WIDTH=625 BORDER=0 CELLSPACING=0 CELLPADDING=0 >	<TR><TD ALIGN=LEFT VALIGN=TOP>';
 							echo '<B>'.$n['title'].'</B>, <SMALL>'.date('d.m.Y H:i', $n['date']).'.</SMALL><BR>'.nl2br($n['text']).'';
 							echo " <CENTER><IMG SRC='".$img_server."index_page/deleter.png'></CENTER></TD></TR></TABLE>";
 						}	
