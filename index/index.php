@@ -227,12 +227,12 @@ img {
 	</td>
 </tr>
 </table>
-<table>
+<table width="1024" cellspacing="0" cellpadding="0">
 	<tr>
-			<td height="21" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/menu_bottom.gif"><span></span></td>
+			<td height="21" width="297" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/menu_bottom.gif"><span></span></td>
 		</tr>
 	<tr>
-			<td height="21" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/content_bottom.gif"><span></span></td>
+			<td height="21" width="727" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/content_bottom.gif"><span></span></td>
 		</tr>				
 </table>
 
