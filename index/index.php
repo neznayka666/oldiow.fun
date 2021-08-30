@@ -16,6 +16,7 @@ if ( $rid != false ) setcookie('RefererReg', $rid, time()+3600);
 //setlocale(LC_ALL, 'ru_RU.CP1251');
 
 ?>
+
 <title>Инстинкты Воина - Многопользовательская ролевая онлайн игры, mmorpg, фэнтези, бои, квесты, задания</title>
 <style>
 body, td, ol, ul, li , p {
@@ -93,32 +94,32 @@ img {
 			<td height="290" background="<?=$img_server?>index_page/login_form.gif" valign="TOP" align="RIGHT">
 
 			<table border="0" cellspacing="0" cellpadding="0" width="190">
-			<form action="_enter" method="POST">
+			<form ACTION='../../game.php' method="POST">
 			<tr>
 				<td align="CENTER">
 					<img src="<?=$img_server?>index_page/0.gif" width="1" height="25"><br>
-					<a href="SignUp"><img src="<?=$img_server?>index_page/label_register.png" alt="Зарегистрировать нового персонажа"></a><br>
+					<a href="#" onclick="OpenPopupCenter('/reg.php', 'TEST!?', 500, 500);"><IMG SRC='<?=$img_server?>index_page/label_register.png'><img src="<?=$img_server?>index_page/label_register.png" alt="Зарегистрировать нового персонажа"></a><br>
 					
 					<img src="<?=$img_server?>index_page/label_forgot.png">
 					
 					<br><img src="<?=$img_server?>index_page/0.gif" width="1" height="7"><table border="0" width="150" cellspacing="0" cellpadding="0">
 					<tr>
 						<td width="57" valign="CENTER"><img src="<?=$img_server?>index_page/label_login.png"></td>
-						<td valign="TOP"><input type="TEXT" class="MainInput" name="user_name"><br><img src="<?=$img_server?>index_page/0.gif" width="1" height="1"></td>
+						<td valign="TOP"><input type="TEXT" class="MainInput" name="logins"><br><img src="<?=$img_server?>index_page/0.gif" width="1" height="1"></td>
 					</tr>
 					<tr>
 						<td colspan="2" height="6"><span></span></td>
 					</tr>
 					<tr>
 						<td width="57" valign="CENTER"><img src="<?=$img_server?>index_page/label_password.png"></td>
-						<td valign="TOP"><input type="PASSWORD" class="MainInput" name="password"><br><img src="<?=$img_server?>index_page/0.gif" width="1" height="1"></td>
+						<td valign="TOP"><input type="PASSWORD" class="MainInput" name="psw"><br><img src="<?=$img_server?>index_page/0.gif" width="1" height="1"></td>
 					</tr>
 					</table>
 					
 					<br>
 
 					<div align="LEFT">
-					<img src="<?=$img_server?>index_page/0.gif" width="20" height="1"><input type="IMAGE" src="<?=$img_server?>index_page/label_enter.png" alt="Пройти авторизацию">
+					<img src="<?=$img_server?>index_page/0.gif" width="20" height="1"><input type="IMAGE" id="login_pop" src="<?=$img_server?>index_page/label_enter.png" alt="Пройти авторизацию">
 					</div>
 
 
@@ -252,3 +253,29 @@ img {
 </table>
 
 </center>
+
+<script type="text/javascript" src="../js/mod/jquery.js"></script>
+<script type="text/javascript">
+    function jgetForm() {
+        if ($('#user').val() == '') {
+            $('#user').focus();
+            return;
+        }
+        if ($('#pass').val() == '') {
+            $('#pass').focus();
+            return;
+        }
+        var obj = document.getElementById('goGame');
+        obj.setAttribute("action", "/game.php?");
+        obj.setAttribute("method", "post");
+        obj.submit();
+    }
+
+    function OpenPopupCenter(pageURL, title, w, h) {
+        var left = (screen.width - w) / 4;
+        var top = (screen.height - h) / 2; // for 25% - devide by 4  |  for 33% - devide by 3
+        var targetWin = window.open(pageURL, title,
+            'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' +
+            w + ', height=' + h + ', top=' + top + ', left=' + left);
+    }
+</script>
