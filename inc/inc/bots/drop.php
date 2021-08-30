@@ -119,12 +119,14 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 			//end by burezov
 
 				$drp = $db->sqla("SELECT * FROM `bots` WHERE `user`= '".$_persvs["user"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
-				$dropvalue  = $drp["dropID"]; // получаем список ид дропа
-				$arrSource = explode("|", $dropvalue);
-				$result = rand(0, count($arrSource)-1);	// получаем случайный ид шмотки 
+				//$dropvalue  = $drp["dropID"]; // получаем список ид дропа
+				$dropvalue = array($drp["dropID"]); 
+				$arrSource = mt_rand(0,count($dropvalue) - 1);
+				//$arrSource = explode("|", $dropvalue);
+				//$result = rand(0, count($arrSource)-1);	// получаем случайный ид шмотки 
 					
 				$v = $db->sql("SELECT name,id FROM weapons WHERE id='".$arrSource[$result]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
-				say_to_chat('s','Запрос : <b>'.$_persvs['dropfrequency'].' / '.$drp["dropID"].' / '.$dropvalue.' / '.$drp["user"].'</b>',1,$_pers["user"],'*',0);
+				say_to_chat('s','Запрос : <b>'.$_persvs['dropfrequency'].' / '.$drp["dropID"].' / '.$arrSource.' / '.$drp["user"].'</b>',1,$_pers["user"],'*',0);
 				$v = mysql_fetch_array($v);
 				if (@$v["id"])
 					{	
