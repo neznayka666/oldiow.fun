@@ -140,9 +140,9 @@ img {
 
 <TABLE WIDTH=1024 CELLSPACING=0 CELLPADDING=0 BORDER=0>
 <TR HEIGHT=118>
-	<TD ALIGN=LEFT VALIGN=BOTTOM WIDTH=397><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=1><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=120 HEIGHT=1><IMG SRC='<?=$img_server?>index_page/label_lib.png'></TD>
+	<TD ALIGN=LEFT VALIGN=BOTTOM WIDTH=397><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=1><!--<IMG SRC='<?=$img_server?>index_page/label_forum.png' ALT='Открыть форум в новом окне'>--></TD>
 	<TD WIDTH=230><SPAN></SPAN></TD>
-	<TD ALIGN=RIGHT VALIGN=BOTTOM WIDTH=397><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=1><!--<IMG SRC='<?=$img_server?>index_page/label_forum.png' ALT='Открыть форум в новом окне'>--><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=120 HEIGHT=1></TD>
+	<TD ALIGN=RIGHT VALIGN=BOTTOM WIDTH=397><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=1 HEIGHT=1><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=120 HEIGHT=1><IMG SRC='<?=$img_server?>index_page/0.gif' WIDTH=120 HEIGHT=1><IMG SRC='<?=$img_server?>index_page/label_lib.png'></TD>
 </TR>
 </TABLE>
 
@@ -202,9 +202,24 @@ img {
 			<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=190 HEIGHT=100%>
 			<TR>
 				<TD ALIGN=CENTER VALIGN=BOTTOM>
-					111
-				</TD>
-				<TD WIDTH=20><SPAN>333</SPAN></TD>
+					                        <TD>
+                            <!-- Top.Roleplay.Ru -->
+                            <script type="text/javascript" language="javascript">
+                            var topRPGc = "<img src='https://s02.rpgtop.su/cgi-bin-mod/iv.cgi?a=ins&id=26307&rnd=" +
+                                Math.random();
+                            topRPGc += "&r=" + escape(document.referrer) +
+                                "' width='1' height='1' border='0'><a href='https://rpgtop.su/26307' title='Рейтинг Ролевых Ресурсов - RPG TOP' target='_blank'>" +
+                                "<img src='//img.rpgtop.su/88x31x11x3.gif' alt='Рейтинг Ролевых Ресурсов - RPG TOP' border='0' width='88' height='31'></a> ";
+                            document.write(topRPGc);
+                            </script>
+                            <noscript>
+                                <img src='//s02.rpgtop.su/cgi-bin-mod/iv.cgi?a=ins&id=26307' width='1' height='1'
+                                    border='0'><a href='https://rpgtop.su/26307' target='_blank'><img
+                                        src='//img.rpgtop.su/88x31x11x3.gif' alt='Рейтинг Ролевых Ресурсов - RPG TOP'
+                                        border='0' width='88' height='31'></a>
+                            </noscript>
+                            <!-- /Top.Roleplay.Ru -->
+				</TD>			
 			</TR>
 			</TABLE>
 
