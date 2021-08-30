@@ -118,7 +118,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 			}
 			//end by burezov
 		}
-		/*
+		
 		elseif (($_persvs["level"]/12 + $_pers["sp10"]/400)>rand(1,1000))
 		{
 			$v = sqla("SELECT id,name FROM wp WHERE uidp=".(-1*$_persvs["bid"])." ORDER BY RAND()");
@@ -138,7 +138,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 				sql("UPDATE wp SET where_buy=0 WHERE id=".$id."");
 			}
 		}*/
-		/*
+		
 		if (mt_rand(1,200)<($_pers["sp10"]/7) and $_persvs["droptype"]<>10 and mt_rand(0,100)>mt_rand(87,100) )
 		{
 
