@@ -1,3 +1,21 @@
+<?php
+Header('Content-Type: text/html; charset=utf8');
+Header("Cache-Control: no-cache, must-revalidate");
+Header("Pragma: no-cache");
+$img_server = 'images/';
+
+define('MICROLOAD', true);
+// Загружаем файл конфига, ВАЖНЫЙ.
+include ($_SERVER['DOCUMENT_ROOT'].'/configs/config.php');
+// Подключаемся к SQL базе
+$db = new MySQL(SQL_USER, SQL_PASS, SQL_BASE);
+############################## 
+$rid = !empty($_SERVER['QUERY_STRING']) ? abs(intval($_SERVER['QUERY_STRING'])) : false;
+if ( $rid != false ) setcookie('RefererReg', $rid, time()+3600);
+// Установим для русской даты.. не везде будет работать.. левую функцию лень вставлять.. если что можно удалить
+//setlocale(LC_ALL, 'ru_RU.CP1251');
+
+?>
 <title>Инстинкты Воина - Многопользовательская ролевая онлайн игры, mmorpg, фэнтези, бои, квесты, задания</title>
 <style>
 body, td, ol, ul, li , p {
@@ -40,16 +58,16 @@ img {
 
 <table width="1024" cellspacing="0" cellpadding="0">
 <tr height="118">
-	<td width="256"><img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/top_1_1.gif"></td>
-	<td width="256"><img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/top_1_2.gif"></td>
-	<td width="256"><img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/top_1_3.gif"></td>
-	<td width="256"><img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/top_1_4.gif"></td>
+	<td width="256"><img src="<?=$img_server?>index_page/top_1_1.gif"></td>
+	<td width="256"><img src="<?=$img_server?>index_page/top_1_2.gif"></td>
+	<td width="256"><img src="<?=$img_server?>index_page/top_1_3.gif"></td>
+	<td width="256"><img src="<?=$img_server?>index_page/top_1_4.gif"></td>
 </tr>
 <tr height="119">
-	<td width="256"><img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/top_2_1.gif"></td>
-	<td width="256"><img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/top_2_2.gif"></td>
-	<td width="256"><img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/top_2_3.gif"></td>
-	<td width="256"><img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/top_2_4.gif"></td>
+	<td width="256"><img src="<?=$img_server?>index_page/top_2_1.gif"></td>
+	<td width="256"><img src="<?=$img_server?>index_page/top_2_2.gif"></td>
+	<td width="256"><img src="<?=$img_server?>index_page/top_2_3.gif"></td>
+	<td width="256"><img src="<?=$img_server?>index_page/top_2_4.gif"></td>
 </tr>
 </table>
 
@@ -57,9 +75,9 @@ img {
 
 <table width="1024" cellspacing="0" cellpadding="0" border="0">
 <tr height="118">
-	<td align="LEFT" valign="BOTTOM" width="397"><img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/0.gif" width="120" height="1"><img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/label_lib.png"></td>
+	<td align="LEFT" valign="BOTTOM" width="397"><img src="<?=$img_server?>index_page/0.gif" width="120" height="1"><img src="<?=$img_server?>index_page/label_lib.png"></td>
 	<td width="230"><span></span></td>
-	<td align="RIGHT" valign="BOTTOM" width="397"><a href="forum" target="_blank"><img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/label_forum.png" alt="Открыть форум в новом окне"></a><img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/0.gif" width="120" height="1"></td>
+	<td align="RIGHT" valign="BOTTOM" width="397"><a href="forum" target="_blank"><img src="<?=$img_server?>index_page/label_forum.png" alt="Открыть форум в новом окне"></a><img src="<?=$img_server?>index_page/0.gif" width="120" height="1"></td>
 </tr>
 </table>
 
@@ -69,38 +87,38 @@ img {
 
 <table width="1024" cellspacing="0" cellpadding="0">
 <tr height="100%">
-	<td width="297" height="100%" valign="TOP" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/menu_line.gif">
+	<td width="297" height="100%" valign="TOP" background="<?=$img_server?>index_page/menu_line.gif">
 		<table width="297" height="100%" cellspacing="0" cellpadding="0" border="0">
 		<tr>
-			<td height="290" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/login_form.gif" valign="TOP" align="RIGHT">
+			<td height="290" background="<?=$img_server?>index_page/login_form.gif" valign="TOP" align="RIGHT">
 
 			<table border="0" cellspacing="0" cellpadding="0" width="190">
 			<form action="_enter" method="POST">
 			<tr>
 				<td align="CENTER">
-					<img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/0.gif" width="1" height="25"><br>
-					<a href="SignUp"><img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/label_register.png" alt="Зарегистрировать нового персонажа"></a><br>
+					<img src="<?=$img_server?>index_page/0.gif" width="1" height="25"><br>
+					<a href="SignUp"><img src="<?=$img_server?>index_page/label_register.png" alt="Зарегистрировать нового персонажа"></a><br>
 					
-					<img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/label_forgot.png">
+					<img src="<?=$img_server?>index_page/label_forgot.png">
 					
-					<br><img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/0.gif" width="1" height="7"><table border="0" width="150" cellspacing="0" cellpadding="0">
+					<br><img src="<?=$img_server?>index_page/0.gif" width="1" height="7"><table border="0" width="150" cellspacing="0" cellpadding="0">
 					<tr>
-						<td width="57" valign="CENTER"><img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/label_login.png"></td>
-						<td valign="TOP"><input type="TEXT" class="MainInput" name="user_name"><br><img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/0.gif" width="1" height="1"></td>
+						<td width="57" valign="CENTER"><img src="<?=$img_server?>index_page/label_login.png"></td>
+						<td valign="TOP"><input type="TEXT" class="MainInput" name="user_name"><br><img src="<?=$img_server?>index_page/0.gif" width="1" height="1"></td>
 					</tr>
 					<tr>
 						<td colspan="2" height="6"><span></span></td>
 					</tr>
 					<tr>
-						<td width="57" valign="CENTER"><img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/label_password.png"></td>
-						<td valign="TOP"><input type="PASSWORD" class="MainInput" name="password"><br><img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/0.gif" width="1" height="1"></td>
+						<td width="57" valign="CENTER"><img src="<?=$img_server?>index_page/label_password.png"></td>
+						<td valign="TOP"><input type="PASSWORD" class="MainInput" name="password"><br><img src="<?=$img_server?>index_page/0.gif" width="1" height="1"></td>
 					</tr>
 					</table>
 					
 					<br>
 
 					<div align="LEFT">
-					<img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/0.gif" width="20" height="1"><input type="IMAGE" src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/label_enter.png" alt="Пройти авторизацию">
+					<img src="<?=$img_server?>index_page/0.gif" width="20" height="1"><input type="IMAGE" src="<?=$img_server?>index_page/label_enter.png" alt="Пройти авторизацию">
 					</div>
 
 
@@ -113,7 +131,7 @@ img {
 			</td>
 		</tr>
 		<tr height="100%">
-			<td height="100%" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/menu_line.gif" align="RIGHT" valign="TOP">
+			<td height="100%" background="<?=$img_server?>index_page/menu_line.gif" align="RIGHT" valign="TOP">
 			<!-- Menu Content -->
 
 
@@ -137,7 +155,7 @@ img {
 			</td>
 		</tr>
 		<!--tr>
-			<td height="21" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/menu_bottom.gif"><span></span></td>
+			<td height="21" background="<?=$img_server?>index_page/menu_bottom.gif"><span></span></td>
 		</!--tr-->
 		</table>
 	
@@ -145,20 +163,20 @@ img {
 	<td width="727" valign="TOP" height="100%">
 		<table width="727" height="100%" cellspacing="0" cellpadding="0" border="0">
 		<tr>
-			<td height="97" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/content_top.gif" align="LEFT" valign="TOP">
+			<td height="97" background="<?=$img_server?>index_page/content_top.gif" align="LEFT" valign="TOP">
 
 			<table width="625" height="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
-				<td valign="BOTTOM" align="LEFT"><img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/text.png"><div align="Right"><small><a href="">Читать далее &raquo;</a></small></div><br><img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/0.gif" width="1" height="1"></td>
+				<td valign="BOTTOM" align="LEFT"><img src="<?=$img_server?>index_page/text.png"><div align="Right"><small><a href="">Читать далее &raquo;</a></small></div><br><img src="<?=$img_server?>index_page/0.gif" width="1" height="1"></td>
 				<td width="240" align="RIGHT" valign="TOP">
-				<img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/0.gif" height="22">
+				<img src="<?=$img_server?>index_page/0.gif" height="22">
 
 					<table cellspacing="0" cellpadding="0" border="0" height="37">
 					<tr>
-						<td rowspan="3" width="60" align="LEFT"><img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/online.png"></td>
+						<td rowspan="3" width="60" align="LEFT"><img src="<?=$img_server?>index_page/online.png"></td>
 					</tr>
 					<tr>
-						<td width="150" align="CENTER"><img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/label_online.png"></td>
+						<td width="150" align="CENTER"><img src="<?=$img_server?>index_page/label_online.png"></td>
 					</tr>
 					<tr>
 						<td align="CENTER"><b>
@@ -173,7 +191,7 @@ img {
 			</td>
 		</tr>
 		<tr height="100%">
-			<td background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/content_line.gif" valign="TOP" height="100%" align="LEFT">
+			<td background="<?=$img_server?>index_page/content_line.gif" valign="TOP" height="100%" align="LEFT">
 			<!-- Menu Content -->
 
 
@@ -186,7 +204,7 @@ img {
 				&nbsp;&nbsp;&nbsp;Обновлен дизайн главной страницы игры. Отныне главная страница содержит ссылки на полезные ресурсы, а так же колонку новостей. В скором времени будет изменен дизайн Библиотеки, что существенно упростит навигацию по ее разделам.
 				
 				<center>
-					<img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/deleter.png">
+					<img src="<?=$img_server?>index_page/deleter.png">
 				</center>
 				
 				
@@ -195,7 +213,7 @@ img {
 				Приносим свои извинения.
 				
 				<center>
-					<img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/deleter.png">
+					<img src="<?=$img_server?>index_page/deleter.png">
 				</center>
 				
 				
@@ -204,7 +222,7 @@ img {
 				Отныне прием SMS доступен от абонентов всех операторов этих стран, а так же заметно увеличилась скорость обработки SMS сообщений.<br>Так же в скором времени ожидается подключение SMS сервиса для жителей <b>Азербайджана</b>.
 
 				<center>
-					<img src="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/deleter.png">
+					<img src="<?=$img_server?>index_page/deleter.png">
 				</center>
 				
 				
@@ -221,15 +239,15 @@ img {
 			</td>
 		</tr>
 		<!--tr>
-			<td height="21" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/content_bottom.gif"><span></span></td>
+			<td height="21" background="<?=$img_server?>index_page/content_bottom.gif"><span></span></td>
 		</!--tr-->
 		</table>
 	</td>
 </tr>
 	<tr>
-			<td height="21" width="297" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/menu_bottom.gif"><span></span></td>
+			<td height="21" width="297" background="<?=$img_server?>index_page/menu_bottom.gif"><span></span></td>
 	
-			<td height="21" width="727" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/content_bottom.gif"><span></span></td>
+			<td height="21" width="727" background="<?=$img_server?>index_page/content_bottom.gif"><span></span></td>
 		</tr>	
 </table>
 
