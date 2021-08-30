@@ -148,8 +148,6 @@ img {
 
 </DIV>
 
-
-
 <TABLE WIDTH=1024 CELLSPACING=0 CELLPADDING=0 BORDER=0>
 <TR HEIGHT=100%>
 	<TD WIDTH=297 HEIGHT=100% VALIGN=TOP BACKGROUND='<?=$img_server?>index_page/menu_line.gif'>
@@ -295,7 +293,7 @@ elseif ( ($news = $db->sqla('SELECT * FROM `lib_news` WHERE `id`="'.$_GET['subac
 	</TD>
 </TR>
 </TABLE>
-<table>
+<table HEIGHT=21>
 		<tr>
 			<td height="21" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/menu_bottom.gif"><span></span></td>
 		</tr>
