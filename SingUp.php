@@ -1,7 +1,22 @@
 <?php
 error_reporting(0);
 session_start();
+
+Header('Content-Type: text/html; charset=utf8');
+Header("Cache-Control: no-cache, must-revalidate");
+Header("Pragma: no-cache");
 $img_server = 'images/';
+
+define('MICROLOAD', true);
+// Загружаем файл конфига, ВАЖНЫЙ.
+include ($_SERVER['DOCUMENT_ROOT'].'/configs/config.php');
+// Подключаемся к SQL базе
+$db = new MySQL(SQL_USER, SQL_PASS, SQL_BASE);
+############################## 
+$rid = !empty($_SERVER['QUERY_STRING']) ? abs(intval($_SERVER['QUERY_STRING'])) : false;
+if ( $rid != false ) setcookie('RefererReg', $rid, time()+3600);
+// Установим для русской даты.. не везде будет работать.. левую функцию лень вставлять.. если что можно удалить
+//setlocale(LC_ALL, 'ru_RU.CP1251');
 ?>
 
 <title>Инстинкты Воина: Возрождение - Регистрация</title>
@@ -185,7 +200,110 @@ img {
 		<tr height="100%">
 			<td background="<?=$img_server;?>index_page/content_line.gif" valign="TOP" height="100%" align="LEFT">
 			<!-- Menu Content -->
-			
+<table cellspacing="0" cellpadding="5" width="98%"
+        style="margin:5px auto;background:#f5f5f5;border:1px solid #cccccc;padding:15px;">
+        <tr>
+            <td colspan="3" style="text-align:center;">
+                <h4 style="color:green;">Инстинкты Воина: Возрождение - [Регистрация]</h4>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align:center;">
+                <div class="hp" id="whow_msg"></div>
+                <div class="ma" id="help_msg"></div>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 45%;"><span class="hp">Логин персонажа</span></td>
+            <td style="width: 45%;"><input type="text" onchange="iSs(0)" id="login" onClick="help_msg(1);"></td>
+            <td style="width: 10%;text-align:center;">
+                <div id="iS0"></div>
+            </td>
+        </tr>
+        <tr>
+            <td> <span class="hp">E-Mail</span></td>
+            <td><input type="text" onchange="iSs(1)" id="inp_email" onClick="help_msg(2);"></td>
+            <td>
+                <div id="iS1"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Пароль</td>
+            <td><input type="password" onchange="iSs(2)" id="inp_pass" onClick="help_msg(3);"></td>
+            <td>
+                <div id="iS2"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Пароль ещё раз</td>
+            <td><input type="password" onchange="iSs(3)" id="inp_pass2" onClick="help_msg(4);"></td>
+            <td>
+                <div id="iS3"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Пол</td>
+            <td>
+                <select size="1" id="pol" onClick="help_msg(0);">
+                    <option value="0" SELECTED></option>
+                    <option value="1">Мужской</option>
+                    <option value="2">Женский</option>
+                </select>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Дата рождения</td>
+            <td>
+                <select id="inp_dayd">
+                    <?php for ($i=1;$i<32;$i++) echo  "<option value=".$i.">".$i."</option>\n"; ?>
+                </select>
+                <select id="inp_monthd">
+                    <?php for ($i=1;$i<13;$i++) echo  "<option value=".$i.">".$i."</option>\n"; ?>
+                </select>
+                <select id="inp_yeard">
+                    <?php for ($i=1970;$i<2004;$i++) echo  "<option value=".$i.">".$i."</option>\n"; ?>
+                </select>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Цифры на картинке</td>
+            <td>
+                <table width="100%">
+                    <tr>
+                        <td width="45px"><img border="0"
+                                src="./gameplay/code/reg_code.php?<?php echo session_name()?>=<?php echo session_id()?>"
+                                alt="Код" id="captcha"></td>
+                        <td>
+                            <input type="text" id="code" size="8" maxlength="5" onClick="help_msg(0);">
+                            <a href="javascript:ch_cpth()" class=timef>обновить</a>
+                        </td>
+                        <td>
+                            <div id="iS4"></div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="3"><input type="checkbox" id="law" value=1 onClick="help_msg(0);"> Я согласен с <a
+                    href="justice.htm" target="_blank"> законами игры</a></td>
+        </tr>
+        <tr>
+            <td colspan="3"><a href="javascript:RegIster();" class="bga">Зарегистрироваться</a></td>
+        </tr>
+        <?php
+/*
+<tr>
+	<td> <p><span lang="en-us" class="hp">Пригласительный ключ</span></p></td>
+	<td><input type="text" id="invitation"></td>
+	<td>&nbsp;</td>
+</tr>
+*/
+?>
+    </table>
 			<!-- End Of -->			
 			</td>
 		</tr>
@@ -201,6 +319,7 @@ img {
 
 </center>
 <SCRIPT src="/js/reg.js"></SCRIPT>
+<script type="text/javascript" src="../js/mod/jquery.js"></script>
 <script type="text/javascript">
     function jgetForm() {
         if ($('#user').val() == '') {
@@ -215,5 +334,13 @@ img {
         obj.setAttribute("action", "/game.php?");
         obj.setAttribute("method", "post");
         obj.submit();
+    }
+
+    function OpenPopupCenter(pageURL, title, w, h) {
+        var left = (screen.width - w) / 4;
+        var top = (screen.height - h) / 2; // for 25% - devide by 4  |  for 33% - devide by 3
+        var targetWin = window.open(pageURL, title,
+            'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' +
+            w + ', height=' + h + ', top=' + top + ', left=' + left);
     }
 </script>
