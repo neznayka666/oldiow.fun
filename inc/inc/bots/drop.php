@@ -137,7 +137,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 */
 		//if (mt_rand(1,200)<($_pers["sp10"]/7) and $_persvs["droptype"]<>10 and mt_rand(0,100)>mt_rand(87,100) )
 		//{
-		  $drp = $db->sqla("SELECT * FROM `bots` WHERE `user`= '".$_persvs["user"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+		  $drp = $db->sql("SELECT * FROM `bots` WHERE `user`= '".$_persvs["user"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		  $shmotid = array($drp["dropID"]); 
 		  $shmotdrop = mt_rand(0,count($shmotid) - 1); 
 		  
