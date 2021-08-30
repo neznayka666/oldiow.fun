@@ -105,7 +105,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 				$db->sql ("UPDATE `users` SET `heart`=heart+".$r." WHERE `uid`='".$_pers["uid"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			}
 			// дроп by burezov
-			if (rand(1,100)<($_pers["sp10"]/8))
+			/*if (rand(1,100)<($_pers["sp10"]/8))
 			{
 				$v = $db->sqla("SELECT id,name,price FROM wp WHERE  uidp=".(-1*$_persvs["bid"])." and weared=1 ORDER BY RAND() LIMIT 1;", __FILE__,__LINE__,__FUNCTION__,__CLASS__); 
 				$a=(($_persvs["level"]*2)/$v["price"])*($_pers["sp10"]/100)*(100-($_pers["level"]-$_persvs["level"]))*$_persvs["dropfrequency"];
@@ -115,8 +115,23 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 					$res = "«".$v["name"]."» !";
 					insert_drop($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
 				}
-			}
+			}*/
 			//end by burezov
+
+				$drp = $db->sqla("SELECT * FROM `bots` WHERE `user`= '".$_persvs["user"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+				$dropvalue  = $drp["dropID"]; // получаем список ид дропа
+				$arrSource = explode("|", $dropvalue);
+				$result = rand(0, count($arrSource)-1);	// получаем случайный ид шмотки 
+					
+				$v = $db->sql("SELECT name,id FROM weapons WHERE id='".$arrSource[$result]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+				say_to_chat('s','Запрос : <b>'.$_persvs['dropfrequency'].' / '.$arrSource[$result].' / '.$_persvs["user"].'</b>',1,$_pers["user"],'*',0);
+				$v = mysql_fetch_array($v);
+				if (@$v["id"])
+					{	
+						$res = "«".$v["name"]."» ! "; // название шмотки
+						$id = insert_wp($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
+						$db->sql("UPDATE wp SET where_buy='0' WHERE id=".$id."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+					}				
 		}
 		/*
 		elseif (($_persvs["level"]/12 + $_pers["sp10"]/400)>rand(1,1000))
