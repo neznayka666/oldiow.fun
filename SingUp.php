@@ -1,6 +1,7 @@
 <?php
 error_reporting(0);
 session_start();
+$img_server = 'images/';
 ?>
 
 <title>Инстинкты Воина: Возрождение - Регистрация</title>
