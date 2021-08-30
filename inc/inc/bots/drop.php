@@ -222,7 +222,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 		{
 			$SK = $db->sqla("SELECT * FROM skins WHERE id=".$_persvs["id_skin"], __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			$chance = 30+$_pers["sp14"]/($SK["price"]+10);
-			$SKILL_UP = 0;
+			$SKILL_UP = rand(1,5);
 			if($chance > rand(1,1))
 			{
 				$res = "<b class=green>«".$SK["name"]."»</b>";
