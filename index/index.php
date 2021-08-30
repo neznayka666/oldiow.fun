@@ -215,6 +215,9 @@ img {
 			<!-- End Of -->			
 			</TD>
 		</TR>
+		<tr>
+			<td height="21" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/menu_bottom.gif"><span></span></td>
+		</tr>
 		</TABLE>
 	
 	</TD>
