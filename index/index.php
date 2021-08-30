@@ -203,26 +203,21 @@ img {
 		<tr height="100%">
 			<td background="<?=$img_server;?>index_page/content_line.gif" valign="TOP" height="100%" align="LEFT">
 			<!-- Menu Content -->
-
 			<?php
-echo '<TABLE WIDTH=625 HEIGHT=100% BORDER=0 CELLSPACING=0 CELLPADDING=0 >	<TR><TD ALIGN=LEFT VALIGN=TOP>';
-
-if ( !isset($_GET['subact']) )
-{
-	$news = $db->sql('SELECT * FROM `lib_news` ORDER BY `date` DESC LIMIT 0,5;');
-	while ( $n = mysql_fetch_assoc($news) )
-	{
-		echo '<TABLE WIDTH=625 HEIGHT=100% BORDER=0 CELLSPACING=0 CELLPADDING=0 >	<TR><TD ALIGN=LEFT VALIGN=TOP>';
-		echo '<B>'.$n['title'].'</B>, <SMALL>'.date('d.m.Y H:i', $n['date']).'.</SMALL><BR>'.nl2br($n['text']).'';
-		echo " <CENTER><IMG SRC='".$img_server."index_page/deleter.png'></CENTER></TD></TR></TABLE>";
-	}	
-}
-?>			<!-- End Of -->			
+					if ( !isset($_GET['subact']) )
+					{
+						$news = $db->sql('SELECT * FROM `lib_news` ORDER BY `date` DESC LIMIT 0,5;');
+						while ( $n = mysql_fetch_assoc($news) )
+						{
+							echo '<TABLE WIDTH=625 HEIGHT=100% BORDER=0 CELLSPACING=0 CELLPADDING=0 >	<TR><TD ALIGN=LEFT VALIGN=TOP>';
+							echo '<B>'.$n['title'].'</B>, <SMALL>'.date('d.m.Y H:i', $n['date']).'.</SMALL><BR>'.nl2br($n['text']).'';
+							echo " <CENTER><IMG SRC='".$img_server."index_page/deleter.png'></CENTER></TD></TR></TABLE>";
+						}	
+					}
+			?>			
+			<!-- End Of -->			
 			</td>
 		</tr>
-		<!--tr>
-			<td height="21" background="<?=$img_server;?>index_page/content_bottom.gif"><span></span></td>
-		</!--tr-->
 		</table>
 	</td>
 </tr>
