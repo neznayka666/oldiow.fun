@@ -75,14 +75,13 @@ if ( $rid != false ) setcookie('RefererReg', $rid, time()+3600);
             w + ', height=' + h + ', top=' + top + ', left=' + left);
     }
     </script>
-	 <STYLE>
-		 *{
-			 margin:0;
-			 padding:0;
-		 }
-		 body {
-			  background:#000;
-		 }
+	
+</head>
+<body LEFTMARGIN=0 TOPMARGIN=0>
+ <STYLE>
+body {
+	background:#000;
+}
 body, td, ol, ul, li {
   FONT-SIZE: 10pt;
   FONT-FAMILY: Verdana, Arial, Helvetica, Tahoma, sans-serif;
@@ -117,9 +116,6 @@ img {
 	border: 0px;
 }
 </STYLE>
-</head>
-<body LEFTMARGIN=0 TOPMARGIN=0>
-
 <div class="main" style="margin:0 auto;width:1024px;" >
 <TABLE WIDTH=1024 CELLSPACING=0 CELLPADDING=0 >
 <TR HEIGHT=118>
@@ -197,33 +193,27 @@ img {
 			<TD HEIGHT=100% BACKGROUND='<?=$img_server?>index_page/menu_line.gif' ALIGN=RIGHT VALIGN=TOP>
 			<!-- Menu Content -->
 
-
-
 			<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=190 HEIGHT=100%>
 			<TR>
 				<TD ALIGN=CENTER VALIGN=BOTTOM>
-					                        <TD>
-                            <!-- Top.Roleplay.Ru -->
-                            <script type="text/javascript" language="javascript">
-                            var topRPGc = "<img src='https://s02.rpgtop.su/cgi-bin-mod/iv.cgi?a=ins&id=26307&rnd=" +
-                                Math.random();
-                            topRPGc += "&r=" + escape(document.referrer) +
-                                "' width='1' height='1' border='0'><a href='https://rpgtop.su/26307' title='Рейтинг Ролевых Ресурсов - RPG TOP' target='_blank'>" +
-                                "<img src='//img.rpgtop.su/88x31x11x3.gif' alt='Рейтинг Ролевых Ресурсов - RPG TOP' border='0' width='88' height='31'></a> ";
-                            document.write(topRPGc);
-                            </script>
-                            <noscript>
-                                <img src='//s02.rpgtop.su/cgi-bin-mod/iv.cgi?a=ins&id=26307' width='1' height='1'
-                                    border='0'><a href='https://rpgtop.su/26307' target='_blank'><img
-                                        src='//img.rpgtop.su/88x31x11x3.gif' alt='Рейтинг Ролевых Ресурсов - RPG TOP'
-                                        border='0' width='88' height='31'></a>
-                            </noscript>
-                            <!-- /Top.Roleplay.Ru -->
+				 <!-- Top.Roleplay.Ru -->
+               <script type="text/javascript" language="javascript">
+               var topRPGc = "<img src='https://s02.rpgtop.su/cgi-bin-mod/iv.cgi?a=ins&id=26307&rnd=" +
+                Math.random();
+               topRPGc += "&r=" + escape(document.referrer) +
+               "' width='1' height='1' border='0'><a href='https://rpgtop.su/26307' title='Рейтинг Ролевых Ресурсов - RPG TOP' target='_blank'>" +
+               "<img src='//img.rpgtop.su/88x31x11x3.gif' alt='Рейтинг Ролевых Ресурсов - RPG TOP' border='0' width='88' height='31'></a> ";
+               document.write(topRPGc);
+               </script>
+               <noscript>
+               <img src='//s02.rpgtop.su/cgi-bin-mod/iv.cgi?a=ins&id=26307' width='1' height='1' border='0'>
+					<a href='https://rpgtop.su/26307' target='_blank'>
+					<img src='//img.rpgtop.su/88x31x11x3.gif' alt='Рейтинг Ролевых Ресурсов - RPG TOP' border='0' width='88' height='31'></a>
+               </noscript>
+               <!-- /Top.Roleplay.Ru -->
 				</TD>			
 			</TR>
 			</TABLE>
-
-
 
 			<!-- End Of -->			
 			</TD>
