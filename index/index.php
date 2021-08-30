@@ -204,7 +204,7 @@ img {
 			<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH=190 HEIGHT=100%>
 			<TR>
 				<TD ALIGN=CENTER VALIGN=BOTTOM>
-111
+					111
 				</TD>
 				<TD WIDTH=20><SPAN>333</SPAN></TD>
 			</TR>
@@ -215,9 +215,7 @@ img {
 			<!-- End Of -->			
 			</TD>
 		</TR>
-		<tr>
-			<td height="21" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/menu_bottom.gif"><span></span></td>
-		</tr>
+
 		</TABLE>
 	
 	</TD>
@@ -296,10 +294,15 @@ elseif ( ($news = $db->sqla('SELECT * FROM `lib_news` WHERE `id`="'.$_GET['subac
 		</TABLE>
 	</TD>
 </TR>
+</TABLE>
+<table>
+		<tr>
+			<td height="21" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/menu_bottom.gif"><span></span></td>
+		</tr>
 <tr>
 			<td height="21" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/content_bottom.gif"><span></span></td>
 		</tr>
-</TABLE>
+</table>
 </div>
 </body>
 </html>
