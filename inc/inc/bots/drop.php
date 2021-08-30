@@ -26,7 +26,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 		{
 			if ($_persvs["droptype"]==2)
 			{
-				$r = 1;//$_persvs["dropvalue"] + $_persvs["level"]/2;
+				$r = 3;//$_persvs["dropvalue"] + $_persvs["level"]/2;
 				$res = "Обнаружено ".$r." пергамент!";
 				$db->sql("UPDATE `users` SET `coins`=coins+".$r." WHERE `uid`='".$_pers["uid"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			}
