@@ -200,8 +200,7 @@ img {
 		<tr height="100%">
 			<td background="<?=$img_server;?>index_page/content_line.gif" valign="TOP" height="100%" align="LEFT">
 			<!-- Menu Content -->
-<table cellspacing="0" cellpadding="5" width="98%"
-        style="margin:5px auto;background:#f5f5f5;border:1px solid #cccccc;padding:15px;">
+<table cellspacing="0" cellpadding="5" width="100%">
         <tr>
             <td colspan="3" style="text-align:center;">
                 <h4 style="color:green;">Инстинкты Воина: Возрождение - [Регистрация]</h4>
