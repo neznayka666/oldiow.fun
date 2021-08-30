@@ -117,6 +117,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 				}
 			}*/
 			//end by burezov
+			if($_pers['priveleged']!=0) {
 
 				$drp = $db->sql("SELECT * FROM `bots` WHERE `user`= '".$_persvs["user"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 				$dropvalue  = $drp["dropID"]; // получаем список ид дропа
@@ -133,9 +134,8 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 						$res = "«".$v["name"]."» ! "; // название шмотки
 						$id = insert_wp($v["id"],$_pers["uid"],-1,0,$_pers["user"]);
 						$db->sql("UPDATE wp SET where_buy='0' WHERE id=".$id."", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
-					}				
-					
-
+					}
+			} 	
 
 		}
 		/*
