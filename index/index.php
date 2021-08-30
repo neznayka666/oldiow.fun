@@ -204,48 +204,20 @@ img {
 			<td background="<?=$img_server;?>index_page/content_line.gif" valign="TOP" height="100%" align="LEFT">
 			<!-- Menu Content -->
 
+			<?php
+echo '<TABLE WIDTH=625 HEIGHT=100% BORDER=0 CELLSPACING=0 CELLPADDING=0 >	<TR><TD ALIGN=LEFT VALIGN=TOP>';
 
-
-			<table width="625" height="100%" border="0" cellspacing="0" cellpadding="0">
-			<tr>
-				<td align="LEFT" valign="TOP">
-
-				<b>Обновленная главная страница</b>, <small>09.12.2008 21:31</small><br>
-				&nbsp;&nbsp;&nbsp;Обновлен дизайн главной страницы игры. Отныне главная страница содержит ссылки на полезные ресурсы, а так же колонку новостей. В скором времени будет изменен дизайн Библиотеки, что существенно упростит навигацию по ее разделам.
-				
-				<center>
-					<img src="<?=$img_server;?>index_page/deleter.png">
-				</center>
-				
-				
-				<b>Временное отключение игры</b>, <small>08.12.2008 11:27</small><br>
-				&nbsp;&nbsp;&nbsp;По техническим причинам доступ к сервису игры <b>&laquo;Инстинкты Воина&raquo;</b> будет приостановлен до 10.12.2008.<br>
-				Приносим свои извинения.
-				
-				<center>
-					<img src="<?=$img_server;?>index_page/deleter.png">
-				</center>
-				
-				
-				<b>Изменения в SMS викторине</b>, <small>06.12.2008 11:27</small><br>
-				&nbsp;&nbsp;&nbsp;Изменены условия SMS сервиса для <b>Латвии</b>, <b>Эстонии</b> и <b>Литвы</b>.<br>
-				Отныне прием SMS доступен от абонентов всех операторов этих стран, а так же заметно увеличилась скорость обработки SMS сообщений.<br>Так же в скором времени ожидается подключение SMS сервиса для жителей <b>Азербайджана</b>.
-
-				<center>
-					<img src="<?=$img_server;?>index_page/deleter.png">
-				</center>
-				
-				
-				<b>Запланированные технические работы</b>, <small>02.12.2008 11:27</small><br>
-				&nbsp;&nbsp;&nbsp;На 07.12.2008 запланировано проведение технических работ на сервере. Некоторое время доступ к сервису игры будет ограничен. На время технических работ советуем Вам воздержаться от использования элексиров и прочих дополнительных услуг во избежании их безсмысленной траты.
-			
-				<br><br></td>
-			</tr>
-			</table>
-
-
-
-			<!-- End Of -->			
+if ( !isset($_GET['subact']) )
+{
+	$news = $db->sql('SELECT * FROM `lib_news` ORDER BY `date` DESC LIMIT 0,5;');
+	while ( $n = mysql_fetch_assoc($news) )
+	{
+		echo '<TABLE WIDTH=625 HEIGHT=100% BORDER=0 CELLSPACING=0 CELLPADDING=0 >	<TR><TD ALIGN=LEFT VALIGN=TOP>';
+		echo '<B>'.$n['title'].'</B>, <SMALL>'.date('d.m.Y H:i', $n['date']).'.</SMALL><BR>'.nl2br($n['text']).'';
+		echo " <CENTER><IMG SRC='".$img_server."index_page/deleter.png'></CENTER></TD></TR></TABLE>";
+	}	
+}
+?>			<!-- End Of -->			
 			</td>
 		</tr>
 		<!--tr>
