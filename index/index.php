@@ -69,7 +69,7 @@ img {
 
 <table width="1024" cellspacing="0" cellpadding="0">
 <tr height="100%">
-	<td width="297" height="100%" valign="TOP">
+	<td width="297" height="100%" valign="TOP" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/menu_line.gif">
 		<table width="297" height="100%" cellspacing="0" cellpadding="0" border="0">
 		<tr>
 			<td height="290" background="https://web.archive.org/web/20081219174154im_/http://img.instincts.ru/i/index_page/login_form.gif" valign="TOP" align="RIGHT">
