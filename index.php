@@ -132,7 +132,7 @@ img {
 			<td height="100%" background="<?=$img_server;?>index_page/menu_line.gif" align="RIGHT" valign="TOP">
 			<!-- Menu Content -->
 
-			<table border="0" cellspacing="0" cellpadding="0" width="190" height="100%">
+			<table border="0" cellspacing="0" cellpadding="0" width="190">
 			<tr>
 				<td align="CENTER" valign="BOTTOM">
 				<!-- Top.Roleplay.Ru -->
