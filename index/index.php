@@ -76,15 +76,13 @@ img {
 
 <table width="1024" cellspacing="0" cellpadding="0" border="0">
 <tr height="118">
-	<td align="LEFT" valign="BOTTOM" width="397"><img src="<?=$img_server;?>index_page/0.gif" width="120" height="1"><img src="<?=$img_server;?>index_page/label_lib.png"></td>
+	<td align="LEFT" valign="BOTTOM" width="397"><a href="//lib.oldiow.ru/" target="_blank"><img src="<?=$img_server;?>index_page/0.gif" width="120" height="1"></a><img src="<?=$img_server;?>index_page/label_lib.png"></td>
 	<td width="230"><span></span></td>
-	<td align="RIGHT" valign="BOTTOM" width="397"><a href="forum" target="_blank"><img src="<?=$img_server;?>index_page/label_forum.png" alt="Открыть форум в новом окне"></a><img src="<?=$img_server;?>index_page/0.gif" width="120" height="1"></td>
+	<td align="RIGHT" valign="BOTTOM" width="397"><img src="<?=$img_server;?>index_page/label_forum.png" alt="Открыть форум в новом окне"><img src="<?=$img_server;?>index_page/0.gif" width="120" height="1"></td>
 </tr>
 </table>
 
 </div>
-
-
 
 <table width="1024" cellspacing="0" cellpadding="0">
 <tr height="100%">
@@ -122,7 +120,6 @@ img {
 					<img src="<?=$img_server;?>index_page/0.gif" width="20" height="1"><input type="IMAGE" id="login_pop" src="<?=$img_server;?>index_page/label_enter.png" alt="Пройти авторизацию">
 					</div>
 
-
 				</td>
 				<td width="20"><span></span></td>
 			</tr>
@@ -134,8 +131,6 @@ img {
 		<tr height="100%">
 			<td height="100%" background="<?=$img_server;?>index_page/menu_line.gif" align="RIGHT" valign="TOP">
 			<!-- Menu Content -->
-
-
 
 			<table border="0" cellspacing="0" cellpadding="0" width="190" height="100%">
 			<tr>
