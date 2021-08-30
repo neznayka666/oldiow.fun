@@ -217,14 +217,14 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 
 	if($_persvs["id_skin"])
 	{
-		$INS = $db->sqla("SELECT * FROM wp WHERE uidp=".$_pers["uid"]." and weared=1 and p_type=14", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+		$INS = $db->sqla("SELECT * FROM wp WHERE uidp=".$_pers["uid"]." and weared=1 and p_type=4", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 		if($INS["id"])
 		{
 			$SK = $db->sqla("SELECT * FROM skins WHERE id=".$_persvs["id_skin"], __FILE__,__LINE__,__FUNCTION__,__CLASS__);
 			$chance = 30+$_pers["sp14"]/($SK["price"]+10);
 			$SKILL_UP = 0;
-			//if($chance > rand(0,100))
-			//{
+			if($chance > rand(1,1))
+			{
 				$res = "<b class=green>«".$SK["name"]."»</b>";
 				$db->sql("INSERT INTO `wp`
 				( `id` , `uidp` , `weared` ,`id_in_w`, `price` , `dprice` , `image`
@@ -235,7 +235,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 				,'".$SK["price"]."',
 				'0', 'skin/skin".$SK["id"]."', '0', 'resources', 'resources',
 				'".$SK["name"]."', '', '1', '0', '1', '1','7');", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
-			//}
+			}
 			//else
 			//{
 			//	$res = "<b class=hp>Неудачная разделка</b>";
