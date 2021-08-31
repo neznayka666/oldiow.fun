@@ -119,7 +119,8 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 			//end by burezov
 			if($_pers['priveleged']!=0) {
 
-				$drp = $db->sql("SELECT * FROM `bots` WHERE `user`= '".$_persvs["user"]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
+				$drp = sql("SELECT * FROM `bots` WHERE `user`= '".$_persvs["user"]."'");
+				$drp = mysql_fetch_array($drp);
 				$dropvalue  = $drp["dropID"]; // получаем список ид дропа
 				//$dropvalue = array($drp["dropID"]); 
 				//$arrSource = mt_rand(0,count($dropvalue) - 1);
