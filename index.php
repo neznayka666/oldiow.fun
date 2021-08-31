@@ -1,9 +1,4 @@
 <?php
-Header('Content-Type: text/html; charset=utf8');
-Header("Cache-Control: no-cache, must-revalidate");
-Header("Pragma: no-cache");
-$img_server = 'images/';
-
 define('MICROLOAD', true);
 // Загружаем файл конфига, ВАЖНЫЙ.
 include ($_SERVER['DOCUMENT_ROOT'].'/configs/config.php');
@@ -14,7 +9,7 @@ $rid = !empty($_SERVER['QUERY_STRING']) ? abs(intval($_SERVER['QUERY_STRING'])) 
 if ( $rid != false ) setcookie('RefererReg', $rid, time()+3600);
 // Установим для русской даты.. не везде будет работать.. левую функцию лень вставлять.. если что можно удалить
 //setlocale(LC_ALL, 'ru_RU.CP1251');
-
+$img_server = 'images/';
 ?>
 
 <title>Инстинкты Воина: Возрождение - Многопользовательская ролевая онлайн игры, mmorpg, фэнтези, бои, квесты, задания</title>
