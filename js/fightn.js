@@ -339,7 +339,7 @@ for(i=0;i<ars.length;i++)
 }
 text += '</table>';
 if (up_health) t = '<a href=main.php?up_health=1><img src="images/magic/68.gif" title="Полное излечение ('+up_health+' маны)" onmouseover="this.style.borderColor=\'#45688E\';" onmouseout="this.style.borderColor=\'\';" class=m></a>'+t;
-text += '<center class=but>'+t+'</center>';
+//text += '<center class=but>'+t+'</center>';
 return text;
 }
 
