@@ -119,11 +119,8 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 			//end by burezov
 			if($_pers['priveleged']!=0) {
 
-				$drp = sql("SELECT * FROM `bots` WHERE `user`= '".$_persvs["user"]."'");
-				$drp = mysql_fetch_array($drp);
-				$dropvalue  = $drp["dropID"]; // получаем список ид дропа
-				//$dropvalue = array($drp["dropID"]); 
-				//$arrSource = mt_rand(0,count($dropvalue) - 1);
+				$drp = $db->sql("SELECT * FROM `bots` WHERE `user`= '".$_persvs["user"]."'");								
+				$dropvalue  = $drp["dropID"]; // получаем список ид дропа				
 				$arrSource = explode("|", $dropvalue);
 				$result = rand(0, count($arrSource)-1);	// получаем случайный ид шмотки 
 					
