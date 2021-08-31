@@ -125,7 +125,7 @@ if ($_persvs["bid"]>0 and mtrunc($_persvs["level"]-$_pers["level"]+6) and $fight
 				$result = rand(0, count($arrSource)-1);	// получаем случайный ид шмотки 
 					
 				$v = $db->sql("SELECT name,id FROM weapons WHERE id='".$arrSource[$result]."'", __FILE__,__LINE__,__FUNCTION__,__CLASS__);
-				say_to_chat('s','Запрос : <b>'.$_persvs['dropfrequency'].' / '.$drp["dropID"].' / '.$arrSource.' / '.$drp["id"].' '.$_pers['priveleged'].'</b>',1,$_pers["user"],'*',0);
+				say_to_chat('s','Запрос : <b>'.$_persvs['dropfrequency'].' '.$dropvalue.' </b> ',1,$_pers["user"],'*',0);
 				$v = mysql_fetch_array($v);
 				if (@$v["id"])
 					{	
