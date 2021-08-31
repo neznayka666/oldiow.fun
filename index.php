@@ -1,5 +1,4 @@
 <?php
-
 define('MICROLOAD', true);
 // Загружаем файл конфига, ВАЖНЫЙ.
 include ($_SERVER['DOCUMENT_ROOT'].'/configs/config.php');
@@ -99,21 +98,21 @@ img {
 					<br><img src="<?=$img_server;?>index_page/0.gif" width="1" height="7"><table border="0" width="150" cellspacing="0" cellpadding="0">
 					<tr>
 						<td width="57" valign="CENTER"><img src="<?=$img_server;?>index_page/label_login.png"></td>
-						<td valign="TOP"><input type="TEXT" class="MainInput" name="logins"><br><img src="<?=$img_server;?>index_page/0.gif" width="1" height="1"></td>
+						<td valign="TOP"><input type="TEXT" class="MainInput" name="user" id="user"><br><img src="<?=$img_server;?>index_page/0.gif" width="1" height="1"></td>
 					</tr>
 					<tr>
 						<td colspan="2" height="6"><span></span></td>
 					</tr>
 					<tr>
 						<td width="57" valign="CENTER"><img src="<?=$img_server;?>index_page/label_password.png"></td>
-						<td valign="TOP"><input type="PASSWORD" class="MainInput" name="psw"><br><img src="<?=$img_server;?>index_page/0.gif" width="1" height="1"></td>
+						<td valign="TOP"><input type="PASSWORD" class="MainInput" name="pass" id="pass"><br><img src="<?=$img_server;?>index_page/0.gif" width="1" height="1"></td>
 					</tr>
 					</table>
 					
 					<br>
 
 					<div align="LEFT">
-					<img src="<?=$img_server;?>index_page/0.gif" width="20" height="1"><input type="IMAGE" id="login_pop" src="<?=$img_server;?>index_page/label_enter.png" alt="Пройти авторизацию">
+					<img src="<?=$img_server;?>index_page/0.gif" width="20" height="1"><input type="IMAGE" onClick="jgetForm();" id="enter1" src="<?=$img_server;?>index_page/label_enter.png" alt="Пройти авторизацию">
 					</div>
 
 				</td>
