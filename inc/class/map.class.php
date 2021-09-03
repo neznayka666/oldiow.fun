@@ -164,7 +164,7 @@ class Naturen
 		$this->objMap();
 		$youCord = $this->allNature[$this->pers['x'].'_'.$this->pers['y']];
 		$r = '';
-		if ( $youCord['bots'] ) $r.= '["bots","Найти монстров","vk1",[]]';
+		if ( $youCord['bot'] ) $r.= '["bots","Найти монстров","vk1",[]]';
 		// Добавляем кнопку для входа в здание если нада
 		if ( $youCord['go_id'] ) $r.= ',["'.$youCord['go_id'].'","Войти","'.$this->golocKey($youCord['go_id']).'",[]]';
 		if ( $youCord['fishing'] ) $r.= ',["fish","Рыболовля","vk2",[]]';
