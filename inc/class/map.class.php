@@ -82,7 +82,7 @@ class Naturen
 	private function geTIsTT($t)
 	{
 		$tr = TF;
-		if ($t==0) $wait = 4;
+		if ($t==0) $wait = 2;
 		else
 		{
 			$wait = mtrunc( floor( ($t*10+10)-($this->pers['sp8']/8) ) );
