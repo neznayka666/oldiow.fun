@@ -225,7 +225,7 @@ function show_imgs_sell(inp)
 	<li><a style="text-decoration: none;" href="#" onclick="location=\'main.php?${inp}&set_type=napad\'">Нападения</a></li>
 	<li><a style="text-decoration: none;" href="#" onclick="location=\'main.php?${inp}&set_type=zakl\'">Заклинаний</a></li>
 	<li><a style="text-decoration: none;" href="#" onclick="location=\'main.php?${inp}&set_type=kam\'">Восстановления в бою</a></li>
-	<!--li><a style="text-decoration: none;" href="#" onclick="location=\'main.php?${inp}&set_type=potion\'">Зелья алхимические</a></li-->
+	<!--li><a style="text-decoration: none;" href="#" onclick="location=\'main.php?${inp}&set_type=potion\'">Зелья алхимические</a></!--li-->
 	<!--li><a style="text-decoration: none;" href="#" onclick="location=\'main.php?${inp}&set_type=rune\'">Руны</a></li-->
 	<li><a style="text-decoration: none;" href="#" onclick="location=\'main.php?${inp}&set_type=teleport\'">Телепорт</a></li>
 	</ul>
