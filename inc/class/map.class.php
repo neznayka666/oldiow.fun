@@ -164,7 +164,7 @@ class Naturen
 		$this->objMap();
 		$youCord = $this->allNature[$this->pers['x'].'_'.$this->pers['y']];
 		$r = '';
-		$r.= '["bots","Найти монстров","vk1",[]]';
+		if ( $youCord['bots'] ) $r.= '["bots","Найти монстров","vk1",[]]';
 		// Добавляем кнопку для входа в здание если нада
 		if ( $youCord['go_id'] ) $r.= ',["'.$youCord['go_id'].'","Войти","'.$this->golocKey($youCord['go_id']).'",[]]';
 		if ( $youCord['fishing'] ) $r.= ',["fish","Рыболовля","vk2",[]]';
@@ -172,7 +172,7 @@ class Naturen
 		if ( $youCord['wood'] ) $r.= ',["wood","Осмотреть деревья","vk4",[]]';
 		if ( $youCord['teleport'] ) $r.= ',["telep","Использовать телепорт","vk5",[]]';
 		// Кнопочка квеста
-		$r.= ',["quest","Квесты","vk6",[]]';
+		if ( $youCord['quest'] ) $r.= ',["quest","Квесты","vk6",[]]';
 		return $r;
 	}
 	
