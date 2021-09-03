@@ -5,7 +5,7 @@ var timer_img = false;
 var timer_sec = false;
 var width = 6;
 var height = 2;
-var move_interval = 50;
+var move_interval = 0;
 var current_x = 0;
 var current_y = 0;
 var time_left = 0;
@@ -478,7 +478,7 @@ function TimerStart(secgo,mrinit)
 			ButtonSt(true);
 			MapReInit([]);
         }
-        time_left_sec = secgo*1000;
+        time_left_sec = secgo*100;
         if(!timer_img) createCursor();
         //timer_img.src = IMG+'/map/world/timer.png';
         d.getElementById('timerfon').style.display = 'block';
@@ -486,7 +486,7 @@ function TimerStart(secgo,mrinit)
         d.getElementById('tdsec').innerHTML = secgo;
         tsec = setInterval('timerst('+mrinit+')', 1000);
     }
-    else time_left_sec += secgo*1000;     
+    else time_left_sec += secgo*100;     
 }
 
 function loadMap(dir)
