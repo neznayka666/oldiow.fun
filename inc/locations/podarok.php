@@ -39,7 +39,7 @@ if ($player->pers['podarok']=='0')
    <p>Привет дорогой друг! <br>За твое терпение и преданость нашему миру, я для тебя приготовл награду.
    <br>Спасибо за то, что ты с нами!
    </p>
-   <input type=button onClick="location='main.php?year=1'" value="Получить Подарок!!!" title="Чтоб получить подарок, нажмите на кнопку">
+   <input type="button" onClick="location='main.php?year=1'" value="Получить Подарок!!!" title="Чтоб получить подарок, нажмите на кнопку" class="inv_but">
    <br />
 <?php
 	}
