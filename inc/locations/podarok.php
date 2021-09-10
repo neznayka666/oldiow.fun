@@ -50,7 +50,7 @@ else {
 	?>
 
 <?php
-if ($player->pers["priveleged"]>=1) {
+if ($player->pers["priveleged"]==0) {
 /// годовой подарок
 function item_name_year($id)
 {
