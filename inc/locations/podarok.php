@@ -113,15 +113,17 @@ if ($player->pers['year_gift']=='0')
    <br />
 	<?php
 	$you_date = "23.03.1990"; // Ваша дата
-	$now_date = date("d.m.Y"); // Текущая дата
+	$now_date = date('d.m.Y'); // Текущая дата
 	$you_date_unix = strtotime($you_date);
 	$now_date_unix = strtotime($now_date);
-	$result = ($now_date_unix-$you_date_unix) / (60*60*24*365); // Расчитываем года
-	$years = floor($result); // Округляем результат до целого числа
 
-	if($years < 18) {
+	if($now_date_unix > $you_date_unix) {
 	
-		die("Извините, но доступ к этому разделу ограничен, так как вам нет 18 лет");
+		echo "Сегодняшняя дата больше указанной";
+		
+	} else {
+	
+		echo "Указанная дата больше сегодняшней";
 		
 	}
 	?>
