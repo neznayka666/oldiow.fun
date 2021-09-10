@@ -107,26 +107,16 @@ if ($_GET["year_gift"]=='1')
 }
 if ($player->pers['year_gift']=='0')
 	{
-?>
-   <p>Привет дорогой друг! <br>За твое терпение и преданость нашему миру, я для тебя приготовил награду. <br>Спасибо за то, что ты с нами!</p>
-  
-   <br />
-	<?php
 	$you_date = "09.09.2021"; // Ваша дата
 	$now_date = date('d.m.Y'); // Текущая дата
 	$you_date_unix = strtotime($you_date);
 	$now_date_unix = strtotime($now_date);
 
-	if($now_date_unix > $you_date_unix) {
-	
-		//echo "Сегодняшняя дата больше указанной";
-		
-	} else {
-	
-		 echo ' <input type="button" onClick="location=\'main.php?year_gift=1\'" value="Получить Подарок!!!" title="Чтоб получить подарок, нажмите на кнопку" class="inv_but"> ';
-		
+	if($now_date_unix < $you_date_unix) {
+		echo '<p>Привет дорогой друг! <br>За твое терпение и преданость нашему миру, я для тебя приготовил награду. <br>Спасибо за то, что ты с нами!</p><br />';
+		echo '<input type="button" onClick="location=\'main.php?year_gift=1\'" value="Получить Подарок!!!" title="Чтоб получить подарок, нажмите на кнопку" class="inv_but">';
 	}
-	?>
+?>
 <?php
 	}
 }
