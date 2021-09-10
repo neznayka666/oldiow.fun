@@ -47,7 +47,7 @@ if ($player->pers['podarok']=='0')
 ?>
 
 <?php
-if ($player->pers["priveleged"]>=1) {
+//if ($player->pers["priveleged"]>=1) {
 /// годовой подарок
 function item_name_year($id)
 {
@@ -80,7 +80,7 @@ if ($_GET["year_gift"]=='1')
 	
 		if ($player->pers['year_gift']=='0')
 		{
-			//$db->sql("UPDATE `users` SET `year_gift`='1', money=money+".$money." WHERE uid='".$player->pers["uid"]."'");
+			$db->sql("UPDATE `users` SET `year_gift`='1', money=money+".$money." WHERE uid='".$player->pers["uid"]."'");
 			if ($player->pers['podarok']=='1') { 
 				$db->sql("UPDATE `wp` SET `timeout`='' WHERE id=".insert_wp($prize,$player->pers["uid"],-1,0,$player->pers["user"]));
 			}
@@ -119,7 +119,7 @@ if ($player->pers['year_gift']=='0')
 	}
 
 	}
-}
+//}
 ?>			
 		</div>
 	</div>
