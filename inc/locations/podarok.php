@@ -87,9 +87,15 @@ if ($_GET["year_gift"]=='1')
 				$db->sql("UPDATE `wp` SET `timeout`='' WHERE id=".insert_wp($prize,$player->pers["uid"],-1,0,$player->pers["user"]));
 			}
 			$db->sql("UPDATE `wp` SET `timeout`='' WHERE id=".insert_wp($prize2,$player->pers["uid"],-1,0,$player->pers["user"]));
+			$db->sql("UPDATE `wp` SET `timeout`='' WHERE id=".insert_wp($prize3,$player->pers["uid"],-1,0,$player->pers["user"]));
+			$db->sql("UPDATE `wp` SET `timeout`='' WHERE id=".insert_wp($prize4,$player->pers["uid"],-1,0,$player->pers["user"]));
+			$db->sql("UPDATE `wp` SET `timeout`='' WHERE id=".insert_wp($prize5,$player->pers["uid"],-1,0,$player->pers["user"]));
+			$db->sql("UPDATE `wp` SET `timeout`='' WHERE id=".insert_wp($prize6,$player->pers["uid"],-1,0,$player->pers["user"]));
+			$db->sql("UPDATE `wp` SET `timeout`='' WHERE id=".insert_wp($prize7,$player->pers["uid"],-1,0,$player->pers["user"]));
+			$db->sql("UPDATE `wp` SET `timeout`='' WHERE id=".insert_wp($prize8,$player->pers["uid"],-1,0,$player->pers["user"]));
 			if ($player->pers['podarok']=='1') { 
 				echo"<font color=green><b>Администрация <b>oldiow.ru</b> поздравляет Вас с Годовщиной проекта и вручает вам подарок:)</b></font>";
-				say_to_chat ("s","Вы получили в подарок: <b>".$msg."</b>, <b>".$msg2."</b> и <b>".$money."</b> зм.",1,$player->pers["user"],'*',0);
+				say_to_chat ("s","Вы получили в подарок: <b>".$msg."</b>, <b>".$msg2."</b>, <b>".$msg3."</b>, <b>".$msg4."</b>, <b>".$msg5."</b>, <b>".$msg6."</b>, <b>".$msg7."</b>, <b>".$msg8."</b> и <b>".$money."</b> зм.",1,$player->pers["user"],'*',0);
 			}
 			else {
 				echo"<font color=green><b>Администрация <b>oldiow.ru</b> поздравляет Вас с Годовщиной проекта и вручает вам подарок:)</b></font>";
