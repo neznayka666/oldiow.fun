@@ -109,7 +109,7 @@ if ($player->pers['year_gift']=='0')
 	{
 ?>
    <p>Привет дорогой друг! <br>За твое терпение и преданость нашему миру, я для тебя приготовил награду. <br>Спасибо за то, что ты с нами!</p>
-   <input type="button" onClick="location='main.php?year_gift=1'" value="Получить Подарок!!!" title="Чтоб получить подарок, нажмите на кнопку" class="inv_but">
+  
    <br />
 	<?php
 	$you_date = "30.09.2021"; // Ваша дата
@@ -119,11 +119,11 @@ if ($player->pers['year_gift']=='0')
 
 	if($now_date_unix > $you_date_unix) {
 	
-		echo "Сегодняшняя дата больше указанной";
+		//echo "Сегодняшняя дата больше указанной";
 		
 	} else {
 	
-		echo "Указанная дата больше сегодняшней";
+		 echo ' <input type="button" onClick="location=\'main.php?year_gift=1\'" value="Получить Подарок!!!" title="Чтоб получить подарок, нажмите на кнопку" class="inv_but"> ';
 		
 	}
 	?>
