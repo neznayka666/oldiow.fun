@@ -50,6 +50,7 @@ else {
 	?>
 
 <?php
+if ($player->pers['priveleged']>='0') {
 /// годовой подарок
 function item_name_year($id)
 {
@@ -117,12 +118,7 @@ if ($player->pers['year_gift']=='0')
    <br />
 <?php
 	}
-else {
-		echo"<font color=red><b>Вы уже получили подарок</b></font>";
-	}
-	?>
-
-
-			</div>
+}
+?>			</div>
 	</div>
 </div>
