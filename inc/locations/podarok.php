@@ -61,22 +61,40 @@ if ($_GET["year_gift"]=='1')
 	$year_gift = rand(1,1);
 		if ($year_gift=='1')
 		{
-			$prize='333450';
-			$msg = item_name_year(333450);
-			$prize2='333465';
-			$msg2 = item_name_year(333465);
-			$money = 5000;
+			$prize='333450'; // футболка первых
+			$msg = item_name_year($prize);
+			$prize2='333465'; // свиток опыта
+			$msg2 = item_name_year($prize2);
+			$prize3='245627'; // кольцо победоносца
+			$msg3 = item_name_year($prize3);
+			$prize4='333573'; // Ярость [Нам 1 год!]
+			$msg4 = item_name_year($prize4);
+			$prize5='333574'; // Свиток каменной кожи [Нам 1 год!]
+			$msg5 = item_name_year($prize5);
+			$prize6='333378'; // Мощь Охотника [Нам 1 год!]
+			$msg6 = item_name_year($prize6);
+			$prize7='333444'; // Гнев Хаоса [Нам 1 год!]
+			$msg7 = item_name_year($prize7);
+			$prize8='333575'; // Coca Cola [Нам 1 год!]
+			$msg8 = item_name_year($prize8);
+			$money = 50000; 			
 		}
 	
 		if ($player->pers['year_gift']=='0')
 		{
 			//$db->sql("UPDATE `users` SET `year_gift`='1', money=money+".$money." WHERE uid='".$player->pers["uid"]."'");
-			if ($player->pers['podarok']=='0') { 
+			if ($player->pers['podarok']=='1') { 
 				$db->sql("UPDATE `wp` SET `timeout`='' WHERE id=".insert_wp($prize,$player->pers["uid"],-1,0,$player->pers["user"]));
 			}
 			$db->sql("UPDATE `wp` SET `timeout`='' WHERE id=".insert_wp($prize2,$player->pers["uid"],-1,0,$player->pers["user"]));
-			echo"<font color=green><b>Администрация <b>oldiow.ru</b> поздравляет Вас с Годовщиной проекта и вручает подарок:) <br>Вы получили в подарок: ".$msg.",".$msg2."</b></font>";
-			say_to_chat ("s","Вы получили в подарок: <b>".$msg."</b>, <b>".$msg2."</b> и <b>".$money."</b> зм.",1,$player->pers["user"],'*',0);
+			if ($player->pers['podarok']=='1') { 
+				echo"<font color=green><b>Администрация <b>oldiow.ru</b> поздравляет Вас с Годовщиной проекта и вручает вам подарок:)</b></font>";
+				say_to_chat ("s","Вы получили в подарок: <b>".$msg."</b>, <b>".$msg2."</b> и <b>".$money."</b> зм.",1,$player->pers["user"],'*',0);
+			}
+			else {
+				echo"<font color=green><b>Администрация <b>oldiow.ru</b> поздравляет Вас с Годовщиной проекта и вручает вам подарок:)</b></font>";
+				say_to_chat ("s","Вы получили в подарок: <b>".$msg2."</b>, <b>".$msg3."</b>, <b>".$msg4."</b>, <b>".$msg5."</b>, <b>".$msg6."</b>, <b>".$msg7."</b>, <b>".$msg8."</b> и <b>".$money."</b> зм.",1,$player->pers["user"],'*',0);
+			}			
 		}
 		else
 		{
