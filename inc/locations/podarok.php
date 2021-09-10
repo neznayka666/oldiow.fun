@@ -116,10 +116,9 @@ if ($player->pers['year_gift']=='0')
 		echo '<p>Привет дорогой друг! <br>За твое терпение и преданость нашему миру, я для тебя приготовил награду. <br>Спасибо за то, что ты с нами!</p><br />';
 		echo '<input type="button" onClick="location=\'main.php?year_gift=1\'" value="Получить Подарок!!!" title="Чтоб получить подарок, нажмите на кнопку" class="inv_but">';
 	}
-?>
-<?php
 	}
 }
-?>			</div>
+?>			
+		</div>
 	</div>
 </div>
