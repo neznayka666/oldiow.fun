@@ -44,10 +44,7 @@ if ($player->pers['podarok']=='0')
    <br />
 <?php
 	}
-else {
-		echo"<font color=red><b>Вы уже получили подарок новичка</b></font>";
-	}
-	?>
+?>
 
 <?php
 if ($player->pers["priveleged"]>=1) {
@@ -111,7 +108,7 @@ if ($_GET["year_gift"]=='1')
 if ($player->pers['year_gift']=='0')
 	{
 ?>
-   <p>Привет дорогой друг! <br>За твое терпение и преданость нашему миру, я для тебя приготовл награду. <br>Спасибо за то, что ты с нами! <?=$player->pers["priveleged"];?></p>
+   <p>Привет дорогой друг! <br>За твое терпение и преданость нашему миру, я для тебя приготовил награду. <br>Спасибо за то, что ты с нами! <?=$player->pers["priveleged"];?></p>
    <input type="button" onClick="location='main.php?year_gift=1'" value="Получить Подарок!!!" title="Чтоб получить подарок, нажмите на кнопку" class="inv_but">
    <br />
 <?php
