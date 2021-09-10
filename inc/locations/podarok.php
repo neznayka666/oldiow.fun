@@ -97,7 +97,8 @@ if ($_GET["year_gift"]=='1')
 			}
 			else {
 				echo"<font color=green><b>Администрация <b>oldiow.ru</b> поздравляет Вас с Годовщиной проекта и вручает вам подарок:)</b></font>";
-				say_to_chat ("s","Вы получили в подарок:<br> <b>".$msg2."</b>, <b>".$msg3."</b>, <b>".$msg4."</b>, <b>".$msg5."</b>, <b>".$msg6."</b>, <b>".$msg7."</b>, <b>".$msg8."</b> и <b>".$money."</b> зм.",1,$player->pers["user"],'*',0);
+				say_to_chat ("s","Вы получили в подарок:",1,$player->pers["user"],'*',0);
+				say_to_chat ("s","<b>".$msg2."</b>, <b>".$msg3."</b>, <b>".$msg4."</b>, <b>".$msg5."</b>, <b>".$msg6."</b>, <b>".$msg7."</b>, <b>".$msg8."</b> и <b>".$money."</b> зм.",1,$player->pers["user"],'*',0);
 			}			
 		}
 		else
