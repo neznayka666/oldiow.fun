@@ -111,6 +111,20 @@ if ($player->pers['year_gift']=='0')
    <p>Привет дорогой друг! <br>За твое терпение и преданость нашему миру, я для тебя приготовил награду. <br>Спасибо за то, что ты с нами!</p>
    <input type="button" onClick="location='main.php?year_gift=1'" value="Получить Подарок!!!" title="Чтоб получить подарок, нажмите на кнопку" class="inv_but">
    <br />
+	<?php
+	$you_date = "23.03.1990"; // Ваша дата
+	$now_date = date("d.m.Y"); // Текущая дата
+	$you_date_unix = strtotime($you_date);
+	$now_date_unix = strtotime($now_date);
+	$result = ($now_date_unix-$you_date_unix) / (60*60*24*365); // Расчитываем года
+	$years = floor($result); // Округляем результат до целого числа
+
+	if($years < 18) {
+	
+		die("Извините, но доступ к этому разделу ограничен, так как вам нет 18 лет");
+		
+	}
+	?>
 <?php
 	}
 }
