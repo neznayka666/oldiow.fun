@@ -107,7 +107,7 @@ if ($_GET["year_gift"]=='1')
 }
 if ($player->pers['year_gift']=='0')
 	{
-	$you_date = "09.09.2021"; // Ваша дата
+	$you_date = "30.09.2021"; // Ваша дата
 	$now_date = date('d.m.Y'); // Текущая дата
 	$you_date_unix = strtotime($you_date);
 	$now_date_unix = strtotime($now_date);
