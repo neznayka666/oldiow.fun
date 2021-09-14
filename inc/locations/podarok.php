@@ -47,7 +47,7 @@ if ($player->pers['podarok']=='0')
 ?>
 
 <?php
-if ($player->pers["priveleged"]>=1) {
+//if ($player->pers["priveleged"]>=1) {
 /// годовой подарок
 function item_name_year($id)
 {
@@ -80,7 +80,7 @@ if ($_GET["year_gift"]=='1')
 	
 		if ($player->pers['year_gift']=='0')
 		{
-			//$db->sql("UPDATE `users` SET `year_gift`='1', money=money+".$money." WHERE uid='".$player->pers["uid"]."'");
+			$db->sql("UPDATE `users` SET `year_gift`='1', money=money+".$money." WHERE uid='".$player->pers["uid"]."'");
 			if ($player->pers['podarok']=='1') { 
 				$db->sql("UPDATE `wp` SET `timeout`='' WHERE id=".insert_wp($prize,$player->pers["uid"],-1,0,$player->pers["user"]));
 			}
@@ -97,7 +97,8 @@ if ($_GET["year_gift"]=='1')
 			}
 			else {
 				echo"<font color=green><b>Администрация <b>oldiow.ru</b> поздравляет Вас с Годовщиной проекта и вручает вам подарок:)</b></font>";
-				say_to_chat ("s","Вы получили в подарок: <b>".$msg2."</b>, <b>".$msg3."</b>, <b>".$msg4."</b>, <b>".$msg5."</b>, <b>".$msg6."</b>, <b>".$msg7."</b>, <b>".$msg8."</b> и <b>".$money."</b> зм.",1,$player->pers["user"],'*',0);
+				say_to_chat ("s","Вы получили в подарок:",1,$player->pers["user"],'*',0);
+				say_to_chat ("s","<b>".$msg2."</b>, <b>".$msg3."</b>, <b>".$msg4."</b>, <b>".$msg5."</b>, <b>".$msg6."</b>, <b>".$msg7."</b>, <b>".$msg8."</b> и <b>".$money."</b> зм.",1,$player->pers["user"],'*',0);
 			}			
 		}
 		else
@@ -116,8 +117,9 @@ if ($player->pers['year_gift']=='0')
 		echo '<p>Привет дорогой друг! <br>За твое терпение и преданость нашему миру, я для тебя приготовил награду. <br>Спасибо за то, что ты с нами!</p><br />';
 		echo '<input type="button" onClick="location=\'main.php?year_gift=1\'" value="Получить Подарок!!!" title="Чтоб получить подарок, нажмите на кнопку" class="inv_but">';
 	}
+
 	}
-}
+//}
 ?>			
 		</div>
 	</div>
