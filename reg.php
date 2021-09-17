@@ -111,8 +111,8 @@ session_start();
         <?php
 echo "
 <tr>
-	<td> <p><span lang="en-us" class="hp">Пригласительный ключ</span></p></td>
-	<td><input type="text" id="invitation"></td>
+	<td><p><span class=hp>Пригласительный ключ</span></p></td>
+	<td><input type='text' id='invitation'></td>
 	<td>&nbsp;</td>
 </tr>
 ";
