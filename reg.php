@@ -109,13 +109,13 @@ session_start();
             <td colspan="3"><a href="javascript:RegIster();" class="bga">Зарегистрироваться</a></td>
         </tr>
         <?php
-/*
+echo "
 <tr>
 	<td> <p><span lang="en-us" class="hp">Пригласительный ключ</span></p></td>
 	<td><input type="text" id="invitation"></td>
 	<td>&nbsp;</td>
 </tr>
-*/
+";
 ?>
     </table>
 </body>

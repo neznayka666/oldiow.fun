@@ -119,7 +119,7 @@ class Reg
 		
 		$this->db->sql ('INSERT INTO `users` (`uid`, `user`, `smuser`, `pass`, `email`, `ds`, `pol`, `location`, `referal_nick`,`referal_uid`, `dr`)
 			VALUES ('.$id.', "'.$this->login.'", "'.strtolower($this->login).'", "'.md5($this->pass).'", "'.strtolower($this->email).'", "'.$ds.'", "'.$pol.'", "'.LOCATION_REG.'", "'.$ref[1].'", '.$ref[0].', "'.$this->dayd.'.'.$this->monthd.'.'.$this->yeard.'");');
-		//say_to_chat('a','К нам присоединился новый игрок <b>'.strtolower($this->login).'</b>!',0,'','*',0); 
+		say_to_chat('a','К нам присоединился новый игрок <b>'.strtolower($this->login).'</b>!',0,'','*',0); 
 	//	$this->db->sql('INSERT INTO `accaunts` (`id`, `e_mail`, `passwd`, `pers_pol`, `referer`) VALUES ('.$id.', "'.strtolower($this->email).'", "'.md5(base64_encode(md5($this->pass))).'", "'.$pol.'", '.$this->invit.'); ');
 		
 		if ( !mysql_error() )
